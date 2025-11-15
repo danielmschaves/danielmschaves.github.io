@@ -4,8 +4,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import projectsData from "@/data/projects.json";
 import { siteConfig } from "@/config/site";
-import { getReadmeContent } from "@/lib/markdown";
-import { processReadmeContent } from "@/lib/readme-processor";
 
 interface ProjectPageProps {
   params: {
@@ -43,10 +41,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     notFound();
   }
 
-  const readmeContent = await getReadmeContent(params.id);
-  const processedReadme = readmeContent
-    ? processReadmeContent(readmeContent)
-    : null;
+  // Check if project has detailed information
+  const hasDetails = project.overview || (project.highlights && project.highlights.length > 0);
 
   return (
     <div className="section-padding bg-dark-900">
@@ -134,24 +130,24 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
 
           {/* Project Details */}
-          {processedReadme ? (
+          {hasDetails ? (
             <div className="space-y-8">
               {/* Overview */}
-              {processedReadme.overview && (
+              {project.overview && (
                 <div className="card">
                   <h2 className="mb-4 text-2xl font-bold text-white">Overview</h2>
                   <p className="text-base leading-relaxed text-dark-200">
-                    {processedReadme.overview}
+                    {project.overview}
                   </p>
                 </div>
               )}
 
               {/* Key Highlights */}
-              {processedReadme.highlights.length > 0 && (
+              {project.highlights && project.highlights.length > 0 && (
                 <div className="card">
                   <h2 className="mb-6 text-2xl font-bold text-white">Key Highlights</h2>
                   <ul className="space-y-4">
-                    {processedReadme.highlights.map((highlight, idx) => (
+                    {project.highlights.map((highlight, idx) => (
                       <li
                         key={idx}
                         className="flex items-start gap-4 text-base leading-relaxed text-dark-200"
@@ -164,44 +160,26 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </div>
               )}
 
-              {/* Architecture/Technical Approach */}
-              {processedReadme.architecture && (
+              {/* Technical Approach */}
+              {project.technicalApproach && (
                 <div className="card">
                   <h2 className="mb-4 text-2xl font-bold text-white">
                     Technical Approach
                   </h2>
                   <p className="text-base leading-relaxed text-dark-200">
-                    {processedReadme.architecture}
+                    {project.technicalApproach}
                   </p>
                 </div>
               )}
 
-              {/* Key Features */}
-              {processedReadme.keyFeatures.length > 0 && (
-                <div className="card">
-                  <h2 className="mb-6 text-2xl font-bold text-white">Key Features</h2>
-                  <ul className="space-y-3">
-                    {processedReadme.keyFeatures.map((feature, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-start gap-3 text-base text-dark-200"
-                      >
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary-400" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
               {/* External Links */}
-              {processedReadme.links.length > 0 && (
+              {project.links && project.links.length > 0 && (
                 <div className="card">
                   <h2 className="mb-6 text-2xl font-bold text-white">
                     Additional Resources
                   </h2>
                   <div className="flex flex-wrap gap-4">
-                    {processedReadme.links.map((link, idx) => (
+                    {project.links.map((link, idx) => (
                       <a
                         key={idx}
                         href={link.url}

@@ -7,7 +7,27 @@
     "image": "/images/adworks.jpg",
     "technologies": ["dbt", "BigQuery", "SQL", "Python", "Data Modeling"],
     "featured": true,
-    "category": "Data Engineering"
+    "category": "Data Engineering",
+    "overview": "This project was developed as part of the Analytics Engineer certification from Indicium Academy. It implements a comprehensive data pipeline for ingesting and transforming Adventure Works SAP data using dbt Core and BigQuery. The solution follows modern data engineering best practices with a three-layer architecture: staging for raw data standardization and cleaning, intermediate for transformation logic, and marts for final dimensional models organized by business subject. The project includes automated testing, comprehensive documentation, and processes 64 source tables to deliver analytics-ready data models.",
+    "highlights": [
+      "Implemented a three-layer data architecture (staging, intermediate, marts) for the Adventure Works SAP dataset using dbt Core and BigQuery",
+      "Developed comprehensive data models with automated testing and documentation to ensure data quality and reliability",
+      "Processed and transformed 64 source tables from SAP into analytics-ready dimensional models organized by business subject",
+      "Created staging layer for raw data standardization and cleaning, intermediate layer for transformation logic, and marts for final business-ready models",
+      "Implemented data engineering best practices including version control, testing, and comprehensive documentation",
+      "Delivered analytics-ready data models that enable business intelligence and data-driven decision making"
+    ],
+    "technicalApproach": "The project follows a three-layer data architecture: staging layer for raw data standardization and cleaning, intermediate layer for transformation logic and preparation, and marts layer for final dimensional models organized by business subject.",
+    "links": [
+      {
+        "label": "View Dashboard",
+        "url": "https://drive.google.com/file/d/1P5sIFxPpFo0O0Vb3xIx0Xd5AipQMJtO5/preview"
+      },
+      {
+        "label": "Conceptual Model",
+        "url": "https://drive.google.com/file/d/1ltGTRQKS7peliVuWBNowrY_ltx8IU8oJ/preview"
+      }
+    ]
   },
   {
     "id": "ecommerce-dbt",
@@ -17,7 +37,18 @@
     "image": "/images/ecommerce-2.jpg",
     "technologies": ["dbt", "BigQuery", "Python", "Pydantic", "Streamlit"],
     "featured": false,
-    "category": "Data Engineering"
+    "category": "Data Engineering",
+    "overview": "This project implements a data pipeline that extracts data from BigQuery public datasets, validates it using Pydantic models, and loads it into DuckDB. The pipeline supports multiple output destinations including local CSV files, Amazon S3, and MotherDuck for flexible data processing and analysis.",
+    "highlights": [
+      "Implemented a data pipeline that ingests data from the BigQuery public dataset 'thelook_ecommerce'",
+      "Validated data using Pydantic models to ensure data quality and type safety",
+      "Loaded validated data into DuckDB for efficient processing and analysis",
+      "Supported multiple output destinations: local CSV files, Amazon S3, and MotherDuck",
+      "Orchestrated the entire ETL pipeline with modular Python components for BigQuery interactions, DuckDB operations, and data validation",
+      "Enabled flexible data processing workflows for e-commerce analytics and insights"
+    ],
+    "technicalApproach": "The pipeline follows a clear data flow: Extract data from BigQuery using specified table names, Transform by validating with Pydantic models, Load into DuckDB, and Sink to multiple destinations (CSV, S3, MotherDuck) based on requirements.",
+    "links": []
   },
   {
     "id": "spotify-etl-aws",

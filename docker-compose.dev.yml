@@ -12,8 +12,6 @@ services:
       - .:/app
       - /app/node_modules
       - /app/.next
-      # Mount images directory
-      - ./images:/app/public/images:ro
     environment:
       - NODE_ENV=development
     command: npm run dev

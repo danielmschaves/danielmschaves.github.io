@@ -56,9 +56,22 @@
     "description": "This project follows the \"poor man's data lake\" concept, leveraging open source tools like DuckDB, dbt and Airflow to process data from the Spotify API.",
     "githubUrl": "https://github.com/danielmschaves/spotify-etl-aws",
     "image": "/images/spotify.jpeg",
-    "technologies": ["AWS", "Python", "Airflow", "DuckDB", "dbt"],
+    "technologies": ["AWS", "Python", "Airflow", "DuckDB", "dbt", "Terraform", "Motherduck", "S3", "Power BI"],
     "featured": false,
-    "category": "Data Engineering"
+    "category": "Data Engineering",
+    "overview": "This project implements a cost-effective data lake solution following the \"poor man's data lake\" concept, leveraging DuckDB, Motherduck, dbt, and Airflow to process data from the Spotify API. The solution focuses on extracting data from popular global playlists, including tracks, albums, and artists, and transforming it through a multi-stage ELT pipeline. The architecture processes and converts data into Parquet files stored in AWS S3, organized across Raw, Bronze, Silver, and Gold stages for sequential processing. The pipeline is orchestrated daily via Astronomer and Airflow, ensuring automated extraction, transformation, and loading of Spotify data into an analytics-ready state for reporting and visualization with Power BI.",
+    "highlights": [
+      "Implemented a cost-effective data lake architecture using the \"poor man's data lake\" concept with DuckDB, Motherduck, dbt, and Airflow",
+      "Designed a multi-stage ELT pipeline with Raw (JSON), Bronze (Parquet), Silver (Parquet), and Gold (Parquet) stages for sequential data processing",
+      "Orchestrated daily automated batch extraction of playlist data from the Spotify API using Astronomer and Airflow",
+      "Leveraged AWS S3 for scalable storage of raw and transformed data across multiple processing stages",
+      "Implemented infrastructure as code using Terraform to provision and manage S3 buckets for consistent and reproducible setup",
+      "Created external tables in Motherduck datasets pointing to Parquet files in S3, making data queryable for analysis",
+      "Transformed data using dbt-core with automated testing and documentation in development and production environments",
+      "Enabled comprehensive reporting and visualization using Power BI dashboards for analytics-ready Spotify data insights"
+    ],
+    "technicalApproach": "The pipeline follows a multi-stage ELT architecture: Raw Stage stores JSON data from Spotify API in S3, Bronze Stage transforms raw data to Parquet using DuckDB, Silver Stage further refines data for analysis using DuckDB, and Gold Stage performs final transformations using dbt to create analytics-ready datasets. Infrastructure is provisioned with Terraform, and the entire pipeline is orchestrated daily via Astronomer and Airflow, which handles extraction, loading, transformation, external table creation in Motherduck, and data transformation for reporting and visualization.",
+    "links": []
   },
   {
     "id": "billion-rows",

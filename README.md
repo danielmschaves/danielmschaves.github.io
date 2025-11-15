@@ -142,9 +142,27 @@ Add new projects to `data/projects.json`:
   "image": "/images/project.jpg",
   "technologies": ["Tech1", "Tech2"],
   "featured": false,
-  "category": "Data Engineering"
+  "category": "Data Engineering",
+  "overview": "Detailed overview of the project...",
+  "highlights": [
+    "Key achievement 1",
+    "Key achievement 2"
+  ],
+  "technicalApproach": "Description of technical approach...",
+  "links": [
+    {
+      "label": "Dashboard",
+      "url": "https://..."
+    }
+  ]
 }
 ```
+
+**Optional fields** (for enhanced project pages):
+- `overview`: Detailed project overview
+- `highlights`: Array of key achievements/highlights
+- `technicalApproach`: Description of technical architecture/approach
+- `links`: Array of external links (dashboards, demos, etc.)
 
 ## Performance
 

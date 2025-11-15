@@ -206,14 +206,52 @@ export default function ServicesPage() {
     },
     {
       title: "Data Platform Architecture",
+      emoji: "🏗️",
       description:
         "Design and implement modern data platforms from scratch in cloud environments (AWS, GCP, Azure), including data lakes, data warehouses, and data marts.",
-      features: [
-        "Modern data stack implementation (dbt, Dagster, Airflow, Snowflake, Databricks)",
-        "Legacy system migration to modern architectures",
-        "Data governance framework implementation",
-        "Data quality and reliability assurance",
-        "Scalable and performant data platform design",
+      coreServices: [
+        {
+          name: "Platform Design & Implementation",
+          items: [
+            "Modern data stack implementation (dbt, Dagster, Airflow, Snowflake, Databricks)",
+            "Cloud-native architecture design (AWS, GCP, Azure)",
+            "Data lake and data warehouse setup",
+            "Scalable and performant data platform design",
+          ],
+        },
+        {
+          name: "Migration & Modernization",
+          items: [
+            "Legacy system migration to modern architectures",
+            "Data pipeline refactoring and optimization",
+            "Infrastructure modernization strategies",
+            "Zero-downtime migration planning",
+          ],
+        },
+        {
+          name: "Data Governance & Quality",
+          items: [
+            "Data governance framework implementation",
+            "Data quality and reliability assurance",
+            "Metadata management and cataloging",
+            "Compliance and security frameworks",
+          ],
+        },
+        {
+          name: "Performance & Optimization",
+          items: [
+            "Query performance optimization",
+            "Cost optimization strategies",
+            "Scalability planning and implementation",
+            "Monitoring and alerting setup",
+          ],
+        },
+      ],
+      idealFor: [
+        "Organizations building data platforms from scratch",
+        "Companies migrating from legacy systems",
+        "Teams needing scalable data infrastructure",
+        "Businesses requiring cloud-native solutions",
       ],
       icon: (
         <svg
@@ -233,14 +271,52 @@ export default function ServicesPage() {
     },
     {
       title: "AI/ML Solutions Development",
+      emoji: "🧠",
       description:
         "End-to-end development and deployment of AI/ML products including intelligent agents, machine learning models, generative AI solutions, and chatbots.",
-      features: [
-        "Intelligent agent development",
-        "Machine learning model development and deployment",
-        "Generative AI solutions",
-        "Chatbot and conversational AI",
-        "MLOps and model lifecycle management",
+      coreServices: [
+        {
+          name: "Intelligent Agents & Automation",
+          items: [
+            "Intelligent agent development and deployment",
+            "Workflow automation with AI",
+            "Decision-making system implementation",
+            "Multi-agent system architecture",
+          ],
+        },
+        {
+          name: "Machine Learning Models",
+          items: [
+            "Machine learning model development and deployment",
+            "Model training and optimization",
+            "Feature engineering and selection",
+            "Model evaluation and validation",
+          ],
+        },
+        {
+          name: "Generative AI Solutions",
+          items: [
+            "Generative AI solution development",
+            "LLM integration and fine-tuning",
+            "Content generation systems",
+            "AI-powered creative tools",
+          ],
+        },
+        {
+          name: "MLOps & Lifecycle Management",
+          items: [
+            "MLOps pipeline implementation",
+            "Model lifecycle management",
+            "Continuous integration and deployment",
+            "Model monitoring and retraining",
+          ],
+        },
+      ],
+      idealFor: [
+        "Companies building AI-powered products",
+        "Organizations automating business processes",
+        "Teams implementing generative AI solutions",
+        "Businesses needing MLOps infrastructure",
       ],
       icon: (
         <svg
@@ -260,14 +336,52 @@ export default function ServicesPage() {
     },
     {
       title: "Data Product Development",
+      emoji: "📊",
       description:
         "Complete data product development from concept to production, including data strategies, dashboards, and analytics solutions.",
-      features: [
-        "Data strategy development for enterprise clients",
-        "Data visualization and dashboard development (Power BI, Looker, Streamlit)",
-        "Cross-functional team leadership",
-        "End-to-end product development lifecycle",
-        "Pharmaceutical and healthcare sector expertise",
+      coreServices: [
+        {
+          name: "Data Strategy & Planning",
+          items: [
+            "Data strategy development for enterprise clients",
+            "Product roadmap and vision development",
+            "Stakeholder alignment and requirements gathering",
+            "Success metrics and KPI definition",
+          ],
+        },
+        {
+          name: "Data Visualization & Dashboards",
+          items: [
+            "Data visualization and dashboard development (Power BI, Looker, Streamlit)",
+            "Interactive reporting solutions",
+            "Self-service analytics platforms",
+            "Custom visualization components",
+          ],
+        },
+        {
+          name: "Product Development Lifecycle",
+          items: [
+            "End-to-end product development lifecycle",
+            "Agile development methodologies",
+            "User experience and design integration",
+            "Product testing and quality assurance",
+          ],
+        },
+        {
+          name: "Team Leadership & Delivery",
+          items: [
+            "Cross-functional team leadership",
+            "Pharmaceutical and healthcare sector expertise",
+            "Client relationship management",
+            "Project delivery and stakeholder communication",
+          ],
+        },
+      ],
+      idealFor: [
+        "Enterprise clients needing data strategies",
+        "Organizations building analytics products",
+        "Companies in pharmaceutical and healthcare sectors",
+        "Teams requiring end-to-end product development",
       ],
       icon: (
         <svg
@@ -353,25 +467,6 @@ export default function ServicesPage() {
                 </div>
               )}
 
-              {/* Features (for simpler services) */}
-              {service.features && (
-                <div>
-                  <h3 className="mb-4 text-xl font-semibold text-white">
-                    Key Features
-                  </h3>
-                  <ul className="space-y-3">
-                    {service.features.map((feature, fIdx) => (
-                      <li
-                        key={fIdx}
-                        className="flex items-start gap-3 text-dark-200"
-                      >
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary-400" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
 
               {/* Ideal For */}
               {service.idealFor && (

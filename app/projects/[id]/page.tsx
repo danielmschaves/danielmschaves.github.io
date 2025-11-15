@@ -4,9 +4,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import projectsData from "@/data/projects.json";
 import { siteConfig } from "@/config/site";
-import { getReadmeContent } from "@/lib/markdown";
-import ReactMarkdown from "react-markdown";
-import type { ReactNode } from "react";
 
 interface ProjectPageProps {
   params: {
@@ -44,7 +41,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     notFound();
   }
 
-  const readmeContent = await getReadmeContent(params.id);
+  // Check if project has detailed information
+  const hasDetails = project.overview || (project.highlights && project.highlights.length > 0);
 
   return (
     <div className="section-padding bg-dark-900">
@@ -132,100 +130,108 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
 
           {/* Project Details */}
-          {readmeContent ? (
-            <div className="card">
-              <h2 className="mb-6 text-2xl font-bold text-white">Project Documentation</h2>
-              <div className="prose prose-invert prose-lg max-w-none">
-                <div className="markdown-content text-dark-200">
-                  <ReactMarkdown
-                    components={{
-                      h1: ({ children }: { children?: ReactNode }) => (
-                        <h1 className="mb-4 mt-6 text-3xl font-bold text-white first:mt-0">
-                          {children}
-                        </h1>
-                      ),
-                      h2: ({ children }: { children?: ReactNode }) => (
-                        <h2 className="mb-3 mt-6 text-2xl font-semibold text-white first:mt-0">
-                          {children}
-                        </h2>
-                      ),
-                      h3: ({ children }: { children?: ReactNode }) => (
-                        <h3 className="mb-2 mt-4 text-xl font-semibold text-white first:mt-0">
-                          {children}
-                        </h3>
-                      ),
-                      p: ({ children }: { children?: ReactNode }) => (
-                        <p className="mb-4 leading-relaxed text-dark-200">
-                          {children}
-                        </p>
-                      ),
-                      ul: ({ children }: { children?: ReactNode }) => (
-                        <ul className="mb-4 ml-6 list-disc space-y-2 text-dark-200">
-                          {children}
-                        </ul>
-                      ),
-                      ol: ({ children }: { children?: ReactNode }) => (
-                        <ol className="mb-4 ml-6 list-decimal space-y-2 text-dark-200">
-                          {children}
-                        </ol>
-                      ),
-                      li: ({ children }: { children?: ReactNode }) => (
-                        <li className="text-dark-200">{children}</li>
-                      ),
-                      code: ({
-                        children,
-                        className,
-                      }: {
-                        children?: ReactNode;
-                        className?: string;
-                      }) => {
-                        const isInline = !className;
-                        return isInline ? (
-                          <code className="rounded bg-dark-800 px-1.5 py-0.5 text-sm font-mono text-primary-400">
-                            {children}
-                          </code>
-                        ) : (
-                          <code className="block rounded-lg bg-dark-800 p-4 text-sm font-mono text-dark-200">
-                            {children}
-                          </code>
-                        );
-                      },
-                      pre: ({ children }: { children?: ReactNode }) => (
-                        <pre className="mb-4 overflow-x-auto rounded-lg bg-dark-800 p-4">
-                          {children}
-                        </pre>
-                      ),
-                      a: ({
-                        href,
-                        children,
-                      }: {
-                        href?: string;
-                        children?: ReactNode;
-                      }) => (
-                        <a
-                          href={href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-primary-400 underline transition-colors hover:text-primary-300"
-                        >
-                          {children}
-                        </a>
-                      ),
-                      strong: ({ children }: { children?: ReactNode }) => (
-                        <strong className="font-semibold text-white">
-                          {children}
-                        </strong>
-                      ),
-                      blockquote: ({ children }: { children?: ReactNode }) => (
-                        <blockquote className="my-4 border-l-4 border-primary-500/50 pl-4 italic text-dark-300">
-                          {children}
-                        </blockquote>
-                      ),
-                    }}
-                  >
-                    {readmeContent}
-                  </ReactMarkdown>
+          {hasDetails ? (
+            <div className="space-y-8">
+              {/* Overview */}
+              {project.overview && (
+                <div className="card">
+                  <h2 className="mb-4 text-2xl font-bold text-white">Overview</h2>
+                  <p className="text-base leading-relaxed text-dark-200">
+                    {project.overview}
+                  </p>
                 </div>
+              )}
+
+              {/* Key Highlights */}
+              {project.highlights && project.highlights.length > 0 && (
+                <div className="card">
+                  <h2 className="mb-6 text-2xl font-bold text-white">Key Highlights</h2>
+                  <ul className="space-y-4">
+                    {project.highlights.map((highlight, idx) => (
+                      <li
+                        key={idx}
+                        className="flex items-start gap-4 text-base leading-relaxed text-dark-200"
+                      >
+                        <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-primary-500" />
+                        <span className="flex-1">{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Technical Approach */}
+              {project.technicalApproach && (
+                <div className="card">
+                  <h2 className="mb-4 text-2xl font-bold text-white">
+                    Technical Approach
+                  </h2>
+                  <p className="text-base leading-relaxed text-dark-200">
+                    {project.technicalApproach}
+                  </p>
+                </div>
+              )}
+
+              {/* External Links */}
+              {project.links && project.links.length > 0 && (
+                <div className="card">
+                  <h2 className="mb-6 text-2xl font-bold text-white">
+                    Additional Resources
+                  </h2>
+                  <div className="flex flex-wrap gap-4">
+                    {project.links.map((link, idx) => (
+                      <a
+                        key={idx}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-secondary inline-flex items-center gap-2"
+                      >
+                        <svg
+                          className="h-5 w-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                          />
+                        </svg>
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Link to GitHub for full documentation */}
+              <div className="card bg-primary-500/10 border-primary-500/30">
+                <p className="mb-4 text-dark-200">
+                  For complete setup instructions, technical documentation, and code
+                  examples, visit the GitHub repository.
+                </p>
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary inline-flex items-center gap-2"
+                >
+                  <svg
+                    className="h-5 w-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  View Full Documentation on GitHub
+                </a>
               </div>
             </div>
           ) : (

@@ -88,13 +88,139 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
+            {/* Core Expertise */}
+            <div className="mt-16">
+              <div className="mb-12 text-center">
+                <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
+                  Core Expertise
+                </h2>
+              </div>
+              <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-5">
+                <div className="text-center">
+                  <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary-500/20">
+                    <svg
+                      className="h-8 w-8 text-primary-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="mb-2 text-lg font-semibold text-white">
+                    Data Engineering
+                  </h3>
+                  <p className="text-sm text-dark-300">
+                    dbt, Airflow, Dagster, Spark, Kafka, ETL/ELT pipelines
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary-500/20">
+                    <svg
+                      className="h-8 w-8 text-primary-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="mb-2 text-lg font-semibold text-white">
+                    Data Platforms
+                  </h3>
+                  <p className="text-sm text-dark-300">
+                    AWS, GCP, Azure, Snowflake, BigQuery, Databricks
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary-500/20">
+                    <svg
+                      className="h-8 w-8 text-primary-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="mb-2 text-lg font-semibold text-white">
+                    AI/ML Solutions
+                  </h3>
+                  <p className="text-sm text-dark-300">
+                    TensorFlow, PyTorch, Generative AI, Intelligent Agents
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary-500/20">
+                    <svg
+                      className="h-8 w-8 text-primary-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="mb-2 text-lg font-semibold text-white">
+                    Project Management
+                  </h3>
+                  <p className="text-sm text-dark-300">
+                    Agile, Scrum, Waterfall, Stakeholder Management
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary-500/20">
+                    <svg
+                      className="h-8 w-8 text-primary-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="mb-2 text-lg font-semibold text-white">
+                    Data Products
+                  </h3>
+                  <p className="text-sm text-dark-300">
+                    Product Strategy, Roadmaps, Dashboards, Analytics Solutions
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Featured Project */}
       {featuredProject && (
-        <section className="section-padding bg-dark-800">
+        <section className="section-padding bg-dark-800/50">
           <div className="container-custom">
             <div className="mb-8 text-center">
               <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
@@ -125,88 +251,6 @@ export default function Home() {
             {otherProjects.map((project) => (
               <ProjectCard key={project.id} {...project} />
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Skills Preview */}
-      <section className="section-padding bg-dark-800">
-        <div className="container-custom">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
-              Core Expertise
-            </h2>
-          </div>
-          <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-3">
-            <div className="text-center">
-              <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary-500/20">
-                <svg
-                  className="h-8 w-8 text-primary-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
-                  />
-                </svg>
-              </div>
-              <h3 className="mb-2 text-lg font-semibold text-white">
-                Data Engineering
-              </h3>
-              <p className="text-sm text-dark-300">
-                dbt, Airflow, Dagster, Spark, Kafka, ETL/ELT pipelines
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary-500/20">
-                <svg
-                  className="h-8 w-8 text-primary-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                  />
-                </svg>
-              </div>
-              <h3 className="mb-2 text-lg font-semibold text-white">
-                Data Platforms
-              </h3>
-              <p className="text-sm text-dark-300">
-                AWS, GCP, Azure, Snowflake, BigQuery, Databricks
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary-500/20">
-                <svg
-                  className="h-8 w-8 text-primary-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  />
-                </svg>
-              </div>
-              <h3 className="mb-2 text-lg font-semibold text-white">
-                AI/ML Solutions
-              </h3>
-              <p className="text-sm text-dark-300">
-                TensorFlow, PyTorch, Generative AI, Intelligent Agents
-              </p>
-            </div>
           </div>
         </div>
       </section>

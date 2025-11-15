@@ -33,6 +33,7 @@ export default function ResumePage() {
           <div className="flex flex-wrap justify-center gap-4">
             <a
               href={siteConfig.resumePdf}
+              download="Daniel-Chaves-Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"

@@ -1,0 +1,41 @@
+{
+  "dataPlatform": {
+    "title": "Data Platform & Architecture",
+    "skills": [
+      "Extensive experience in designing and implementing modern data platforms from scratch in cloud environments (AWS, GCP, Azure), including data lakes, data warehouses, and data marts.",
+      "Proven track record in migrating legacy data systems to modern architectures, implementing robust data governance frameworks, and ensuring data quality and reliability.",
+      "Expertise in implementing and optimizing data platforms using tools like dbt, Dagster, Airflow, Snowflake, and Databricks, with a focus on scalability and performance.",
+      "Strong experience in data modeling, ETL/ELT processes, and data pipeline development, ensuring efficient data flow and transformation."
+    ]
+  },
+  "dataProduct": {
+    "title": "Data Product Development",
+    "skills": [
+      "Successfully delivered multiple data products including AI/ML solutions, intelligent agents, and generative AI applications, driving significant business value.",
+      "Experience in developing and implementing data strategies for enterprise clients, with a focus on pharmaceutical and healthcare sectors.",
+      "Proven ability to lead cross-functional teams in developing and deploying data products, from concept to production.",
+      "Strong background in data visualization and dashboard development using tools like Power BI, Looker, and Streamlit."
+    ]
+  },
+  "technical": {
+    "title": "Technical Skills",
+    "categories": {
+      "Programming Languages": ["Python", "SQL"],
+      "Data Engineering": ["dbt", "Airflow", "Dagster", "Spark", "Kafka"],
+      "Cloud Platforms": ["AWS", "GCP", "Azure"],
+      "Databases": ["Snowflake", "BigQuery", "PostgreSQL", "MySQL", "DuckDB"],
+      "Data Visualization": ["Power BI", "Looker", "Streamlit"],
+      "AI/ML": ["TensorFlow", "PyTorch", "Scikit-learn"],
+      "DevOps": ["Docker", "Terraform", "Git"]
+    }
+  },
+  "languages": {
+    "title": "Languages",
+    "list": [
+      "English (Fluent)",
+      "Portuguese (Native)",
+      "Spanish (Intermediate)"
+    ]
+  }
+}
+

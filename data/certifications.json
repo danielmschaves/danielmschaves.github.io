@@ -1,0 +1,43 @@
+[
+  {
+    "title": "Analytics Engineer Certificate by Indicium Academy",
+    "image": "/images/analytics-engineer.jpg",
+    "description": "Comprehensive data engineering certification focusing on modern data stack tools.",
+    "highlights": [
+      "Developed comprehensive data models using dbt Core and BigQuery for the Adventure Works dataset.",
+      "Implemented a multi-layer data architecture with staging, intermediate, and mart layers following data engineering best practices.",
+      "Created automated testing and documentation for data models, ensuring data quality and reliability."
+    ]
+  },
+  {
+    "title": "IBM Data Engineering Professional Certificate",
+    "image": "/images/ibm-data-eng.jpeg",
+    "description": "Professional certificate covering end-to-end data engineering practices.",
+    "highlights": [
+      "Developed working knowledge of NoSQL & Big Data using MongoDB, Cassandra, Cloudant, Hadoop, Apache Spark, Spark SQL, Spark ML and Spark Streaming.",
+      "Created, designed and managed relational databases such as MySQL, PostgreSQL and IBM Db2.",
+      "Implemented ETL & Data Pipelines with Bash, Airflow & Kafka."
+    ]
+  },
+  {
+    "title": "IBM Data Science Professional Certificate",
+    "image": "/images/ibm-data-science.jpeg",
+    "description": "Comprehensive data science certification covering the full data science lifecycle.",
+    "highlights": [
+      "Practiced with most up-to-date skills that data scientists use in their daily roles.",
+      "Imported and cleaned data sets, analyzed data and built ML models and pipelines.",
+      "Learned the tools, languages and libraries used by data scientists, including Python and SQL."
+    ]
+  },
+  {
+    "title": "Software Product Management",
+    "image": "/images/product-management.jpeg",
+    "description": "Specialization in software product management methodologies and practices.",
+    "highlights": [
+      "Applied product management techniques to industry inspired scenarios.",
+      "Interacted with clients and managed a team of developers.",
+      "Mastered agile software development practices."
+    ]
+  }
+]
+

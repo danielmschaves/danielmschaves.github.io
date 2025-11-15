@@ -1,0 +1,66 @@
+[
+  {
+    "company": "Indicium",
+    "position": "Delivery Manager",
+    "startDate": "2024-08",
+    "endDate": "Present",
+    "location": "Remote",
+    "description": "Lead data projects and analytics teams to deliver client-focused solutions.",
+    "achievements": [
+      "Lead migrations of legacy data products to modern infrastructures and spearhead development of new solutions including data models, dashboards, and AI products using dbt, Dagster, Airflow, Snowflake and Databricks with robust data governance frameworks.",
+      "Manage cross-functional teams of 30+ professionals, including data engineers, data analysts and analytics engineers, ensuring seamless collaboration and stakeholder alignment across multiple concurrent initiatives.",
+      "Orchestrate over 10 projects simultaneously while overseeing 3000+ service hours monthly, optimizing resource allocation and maintaining consistent delivery timelines through strategic leadership.",
+      "Engineer and deploy AI products from scratch - intelligent agents, machine learning models, generative AI solutions, and chatbots - expanding service offerings and driving increased client engagement.",
+      "Lead stakeholder management efforts in expanding contracts with major pharmaceutical companies like Novo Nordisk and Bayer, driving significant revenue growth and strengthening client partnerships.",
+      "Streamline project workflows by implementing agile practices, enhancing efficiency across multiple data and analytics streams.",
+      "Drive strategic planning for tailored data strategies to address business needs, with a strong focus on enterprise-level clients in the pharmaceutical sector.",
+      "Cultivate professional growth of team members by encouraging continuous learning and adoption of advanced data technologies, fostering cross-functional collaboration and leadership development."
+    ]
+  },
+  {
+    "company": "Data Engineering Bootcamp",
+    "position": "Data Engineer",
+    "startDate": "2024-04",
+    "endDate": "Present",
+    "location": "Remote",
+    "description": "Implemented data engineering projects and pipelines as part of bootcamp training.",
+    "achievements": [
+      "Implemented a Spotify data pipeline leveraging AWS S3, DuckDB, Airflow and dbt, focusing on data processing capabilities and pipeline reliability.",
+      "Created and maintained dbt data models, enabling seamless data transformation and integration.",
+      "Utilized Python and APIs for efficient data ingestion, facilitating the integration of diverse data sources and data workflow automation.",
+      "Managed and orchestrated data flows using Apache Airflow, streamlining ETL processes and improving efficiency.",
+      "Worked with various databases, including PostgreSQL, MySQL and DuckDB."
+    ]
+  },
+  {
+    "company": "CERTI Foundation – Sustainable Energy Center",
+    "position": "Project Manager",
+    "startDate": "2021-07",
+    "endDate": "2024-03",
+    "location": "Florianópolis, Brazil",
+    "description": "Developed and executed project strategies aligned with organizational goals and market dynamics, specializing in the energy sector.",
+    "achievements": [
+      "Drove a 30% boost in project efficiency by strategically implementing two Business Intelligence solutions, fostering cross-project synergy and streamlined data analysis.",
+      "Optimized project life cycle management efficiency by introducing agile and waterfall methodologies, ensuring the delivery of projects within the allocated resources and timeframe.",
+      "Enhanced workflow efficiency by 40% using project management and data visualization tools, including Jira, Microsoft Project and Power BI.",
+      "Boosted the average revenue per resource by 60%, achieving this by proposing a new data modeling approach to streamline workflows and optimize resource allocation.",
+      "Strengthened alignment between product development and strategic goals by 25% through market-driven priority setting and strategic direction.",
+      "Led and optimized Scrum events, including Sprint Planning, Daily Stand-ups, and Sprint Reviews, championing agile principles to enhance team agility and project responsiveness."
+    ]
+  },
+  {
+    "company": "CERTI Foundation – Sustainable Energy Center",
+    "position": "Project Analyst",
+    "startDate": "2019-08",
+    "endDate": "2021-07",
+    "location": "Florianópolis, Brazil",
+    "description": "Analyzed and managed technology projects, ensuring timely delivery and stakeholder satisfaction.",
+    "achievements": [
+      "Boosted project efficiency and delivery by 30% by implementing project management planning and scheduling methodologies.",
+      "Collected and analyzed relevant data to inform decision-making and project strategies, improving alignment with stakeholder requirements.",
+      "Increased project success rates by 25%, by effectively communicating with stakeholders and maintaining strong relationships.",
+      "Skillfully steered and timely delivered over 48 technology initiatives, leveraging advanced project management strategies to ensure adherence to deadlines and quality standards."
+    ]
+  }
+]
+

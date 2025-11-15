@@ -403,7 +403,7 @@ export default function ServicesPage() {
               Ready to Get Started?
             </h2>
             <p className="mb-8 text-dark-200">
-              Let's discuss how I can help transform your data initiatives and
+              Let&apos;s discuss how I can help transform your data initiatives and
               drive measurable business impact.
             </p>
             <div className="flex flex-wrap justify-center gap-4">

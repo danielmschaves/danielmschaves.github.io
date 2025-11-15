@@ -23,13 +23,18 @@
     "startDate": "2024-04",
     "endDate": "Present",
     "location": "Remote",
-    "description": "Implemented data engineering projects and pipelines as part of bootcamp training.",
+    "description": "Developed comprehensive data engineering solutions through hands-on projects covering modern data stack technologies, cloud platforms, and data pipeline architectures.",
     "achievements": [
-      "Implemented a Spotify data pipeline leveraging AWS S3, DuckDB, Airflow and dbt, focusing on data processing capabilities and pipeline reliability.",
-      "Created and maintained dbt data models, enabling seamless data transformation and integration.",
-      "Utilized Python and APIs for efficient data ingestion, facilitating the integration of diverse data sources and data workflow automation.",
-      "Managed and orchestrated data flows using Apache Airflow, streamlining ETL processes and improving efficiency.",
-      "Worked with various databases, including PostgreSQL, MySQL and DuckDB."
+      "Designed and implemented a multi-stage ELT pipeline for Spotify data using AWS S3, DuckDB, dbt, and Airflow, following the \"poor man's data lake\" concept with Raw, Bronze, Silver, and Gold stages for sequential data processing and analytics-ready datasets.",
+      "Built a comprehensive data pipeline for Adventure Works SAP data using dbt Core and BigQuery, implementing a three-layer architecture (staging, intermediate, marts) that processed 64 source tables into analytics-ready dimensional models with automated testing and documentation.",
+      "Developed an E-commerce data pipeline extracting data from BigQuery public datasets, validating with Pydantic models for data quality assurance, and loading into DuckDB with support for multiple output destinations including CSV, S3, and Motherduck.",
+      "Implemented infrastructure as code using Terraform to provision and manage cloud resources, ensuring consistent and reproducible data platform setups across development and production environments.",
+      "Orchestrated automated data workflows using Apache Airflow and Astronomer, enabling daily batch processing, task scheduling, and pipeline monitoring for reliable data extraction, transformation, and loading operations.",
+      "Created and maintained dbt data models with comprehensive testing, documentation, and version control, following modern data engineering best practices for scalable and maintainable data transformation pipelines.",
+      "Worked with diverse database technologies including PostgreSQL, MySQL, DuckDB, and BigQuery, implementing OLTP and OLAP architectures for transactional and analytical workloads.",
+      "Developed Python-based ETL pipelines for data ingestion from APIs, web scraping, and file systems, implementing data validation, error handling, and workflow automation for reliable data processing.",
+      "Implemented predictive modeling and machine learning pipelines using Apache Spark, processing large-scale datasets and training Random Forest models for data-driven insights and decision-making.",
+      "Containerized data engineering applications using Docker, enabling consistent development environments and simplified deployment workflows for data pipelines and database management."
     ]
   },
   {

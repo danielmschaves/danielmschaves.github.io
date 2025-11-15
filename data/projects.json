@@ -1,0 +1,143 @@
+[
+  {
+    "id": "adventure-works-dbt",
+    "title": "Adventure Works Data Pipeline with dbt and BigQuery",
+    "description": "This project implements a data pipeline for the Adventure Works dataset using dbt Core and BigQuery. It includes data ingestion, transformation, and modeling following best practices in data engineering. The project features a comprehensive data model with staging, intermediate, and mart layers, along with automated testing and documentation.",
+    "githubUrl": "https://github.com/danielmschaves/academy-dbt-test",
+    "image": "/images/adworks.jpg",
+    "technologies": ["dbt", "BigQuery", "SQL", "Python", "Data Modeling"],
+    "featured": true,
+    "category": "Data Engineering"
+  },
+  {
+    "id": "ecommerce-dbt",
+    "title": "E-commerce Data Pipeline with dbt and BigQuery",
+    "description": "This project implements a data pipeline that extracts data from BigQuery, validates it using Pydantic models, and loads it into Streamlit.",
+    "githubUrl": "https://github.com/danielmschaves/gcp-etl-dbt",
+    "image": "/images/ecommerce-2.jpg",
+    "technologies": ["dbt", "BigQuery", "Python", "Pydantic", "Streamlit"],
+    "featured": false,
+    "category": "Data Engineering"
+  },
+  {
+    "id": "spotify-etl-aws",
+    "title": "Spotify ELT pipeline with AWS, Python and Airflow",
+    "description": "This project follows the \"poor man's data lake\" concept, leveraging open source tools like DuckDB, dbt and Airflow to process data from the Spotify API.",
+    "githubUrl": "https://github.com/danielmschaves/spotify-etl-aws",
+    "image": "/images/spotify.jpeg",
+    "technologies": ["AWS", "Python", "Airflow", "DuckDB", "dbt"],
+    "featured": false,
+    "category": "Data Engineering"
+  },
+  {
+    "id": "billion-rows",
+    "title": "Billion rows with pandas, duckdb and polars",
+    "description": "This project focus on processing a billion rows with different python libraries like pandas, polars and duckdb presented in a simple dashboards with streamlit.",
+    "githubUrl": "https://github.com/danielmschaves/bilionrows",
+    "image": "/images/billion.jpg",
+    "technologies": ["Python", "Pandas", "Polars", "DuckDB", "Streamlit"],
+    "featured": false,
+    "category": "Data Engineering"
+  },
+  {
+    "id": "northwind-sql-dbt",
+    "title": "Northwind data pipeline with PostgreSQL and dbt",
+    "description": "This project showcases skills in managing databases using PostgreSQL within a Docker environment and in performing data transformation using dbt.",
+    "githubUrl": "https://github.com/danielmschaves/northwind-sql-dbt",
+    "image": "/images/northwind.jpeg",
+    "technologies": ["PostgreSQL", "dbt", "Docker", "SQL"],
+    "featured": false,
+    "category": "Data Engineering"
+  },
+  {
+    "id": "air-quality-dbt",
+    "title": "Air Quality Analysis with dbt and DuckDB",
+    "description": "This project leverages dbt (data build tool) and DuckDB to analyze air quality data sourced from the World Health Organization (WHO).",
+    "githubUrl": "https://github.com/danielmschaves/dbt-duckdb-air-quality",
+    "image": "/images/air-quality.jpeg",
+    "technologies": ["dbt", "DuckDB", "Python", "Data Analysis"],
+    "featured": false,
+    "category": "Data Engineering"
+  },
+  {
+    "id": "ibm-data-engineering-capstone",
+    "title": "IBM Data Engineering Capstone Project",
+    "description": "This project uses OLTP and OLAP databases with MySQL and PostgreSQL, ETL pipelines with Python, orchestration with Airflow and predictive modeling using Apache Spark.",
+    "githubUrl": "https://github.com/danielmschaves/ibm-data-engineering-capstone",
+    "image": "/images/ecommerce.jpeg",
+    "technologies": ["MySQL", "PostgreSQL", "Python", "Airflow", "Apache Spark", "ETL"],
+    "featured": false,
+    "category": "Data Engineering"
+  },
+  {
+    "id": "ibm-data-science-capstone",
+    "title": "IBM Data Science Capstone Project",
+    "description": "In this final capstone project, I followed the CRISP-DM process model, including data collection, data wrangling, exploratory data analysis, data visualization, model development, model evaluation and results reporting.",
+    "githubUrl": "https://github.com/danielmschaves/ibm-data-science-capstone",
+    "image": "/images/spacex.jpeg",
+    "technologies": ["Python", "Machine Learning", "Data Science", "CRISP-DM"],
+    "featured": false,
+    "category": "Data Science"
+  },
+  {
+    "id": "ibm-data-engineering-python",
+    "title": "Python Project For Data Engineering",
+    "description": "As a data engineer working for an international financial analysis company, my job in this project was to collect financial data from various sources such as websites, APIs, and files provided by financial analysis firms.",
+    "githubUrl": "https://github.com/danielmschaves/ibm-data-engineering-python-project",
+    "image": "/images/bank.jpeg",
+    "technologies": ["Python", "APIs", "Web Scraping", "Data Collection"],
+    "featured": false,
+    "category": "Data Engineering"
+  },
+  {
+    "id": "chicago-crime-analysis",
+    "title": "Chicago Crime Data Analysis",
+    "description": "This project contains an exploratory data analysis of crime, socio-economic and school performance for the city of Chicago using a public dataset.",
+    "githubUrl": "https://github.com/danielmschaves/data-analysis-chicago-crime-dataset",
+    "image": "/images/chicago.jpeg",
+    "technologies": ["Python", "Data Analysis", "Visualization"],
+    "featured": false,
+    "category": "Data Science"
+  },
+  {
+    "id": "ibm-ml-spark",
+    "title": "Data Engineering and Machine Learning Spark",
+    "description": "This project demonstrates how to utilize Apache Spark to convert Parquet file data into a CSV format and subsequently train a Random Forest model.",
+    "githubUrl": "https://github.com/danielmschaves/ibm-data-engineering-ml-spark",
+    "image": "/images/data.jpg",
+    "technologies": ["Apache Spark", "Machine Learning", "Random Forest", "Python"],
+    "featured": false,
+    "category": "Data Engineering"
+  },
+  {
+    "id": "ibm-data-science-python",
+    "title": "Python Project For Data Science",
+    "description": "This project is focused on extracting financial data of popular stocks such as Tesla, Amazon, AMD, and GameStop using Python libraries and web scraping.",
+    "githubUrl": "https://github.com/danielmschaves/ibm-data-science-python-project",
+    "image": "/images/financial.jpeg",
+    "technologies": ["Python", "Web Scraping", "Data Analysis"],
+    "featured": false,
+    "category": "Data Science"
+  },
+  {
+    "id": "housing-prices-prediction",
+    "title": "Predicting Housing Prices for a Real Estate Trust",
+    "description": "In this project, I determined the market price of a house given a set of features, using attributes or features such as square footage and number of bedrooms.",
+    "githubUrl": "https://github.com/danielmschaves/ibm-data-analysis-python-project",
+    "image": "/images/housing.jpeg",
+    "technologies": ["Python", "Machine Learning", "Predictive Modeling"],
+    "featured": false,
+    "category": "Data Science"
+  },
+  {
+    "id": "rainfall-prediction",
+    "title": "Rainfall Prediction Using Classification Algorithms: A ML Project",
+    "description": "In this project, I used the weatherAUS.csv dataset which includes weather observations from 2008 to 2017. The implemented algorithms were Linear Regression, Decision Tree, Logistic Regression, and SVM. I evaluated each model using performance metrics such as Accuracy Score, Mean Squared Error and R2-Score.",
+    "githubUrl": "https://github.com/danielmschaves/ibm-data-science-ml",
+    "image": "/images/rainfall.jpeg",
+    "technologies": ["Python", "Machine Learning", "Classification", "SVM", "Decision Tree"],
+    "featured": false,
+    "category": "Data Science"
+  }
+]
+

@@ -1,0 +1,21 @@
+# Development Dockerfile
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Install dependencies
+COPY package.json package-lock.json* ./
+RUN npm install
+
+# Copy all files
+COPY . .
+
+# Copy images to public folder if they exist
+RUN if [ -d "images" ]; then mkdir -p public/images && cp -r images/* public/images/ || true; fi
+
+# Expose port
+EXPOSE 3000
+
+# Start development server
+CMD ["npm", "run", "dev"]
+

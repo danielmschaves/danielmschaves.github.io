@@ -1,3 +1,7 @@
+"use client";
+
+import { cn } from "@/lib/utils";
+
 interface Experience {
   company: string;
   position: string;
@@ -36,51 +40,51 @@ export default function ExperienceTimeline({
   };
 
   return (
-    <div className="space-y-10">
-      {experiences.map((exp) => (
+    <div className="space-y-8">
+      {experiences.map((exp, index) => (
         <div
           key={`${exp.company}-${exp.startDate}`}
-          className="group relative rounded-lg border-l-4 border-primary-500/30 bg-dark-800/50 p-8 transition-all hover:border-primary-500/60 hover:bg-dark-800/70"
+          className="group relative rounded-xl border border-border/50 bg-card p-8 shadow-sm transition-all hover:border-primary/50 hover:shadow-md"
         >
-          {/* Header Section - Compact and Horizontal */}
-          <div className="mb-6 flex flex-col gap-3 border-b border-dark-700 pb-6 md:flex-row md:items-start md:justify-between">
+          {/* Header Section */}
+          <div className="mb-6 flex flex-col gap-3 border-b border-border/40 pb-6 md:flex-row md:items-start md:justify-between">
             <div className="flex-1">
               <div className="mb-2 flex flex-wrap items-baseline gap-3">
-                <h3 className="text-2xl font-bold text-white">
+                <h3 className="text-2xl font-bold text-foreground">
                   {exp.position}
                 </h3>
-                <span className="hidden text-dark-500 md:inline">•</span>
-                <h4 className="text-xl font-semibold text-primary-400">
+                <span className="hidden text-muted-foreground md:inline">•</span>
+                <h4 className="text-xl font-semibold text-primary">
                   {exp.company}
                 </h4>
               </div>
-              <div className="flex flex-wrap items-center gap-2 text-sm text-dark-400">
+              <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
                 <span className="font-medium">
                   {formatDate(exp.startDate)} - {formatDate(exp.endDate)}
                 </span>
-                <span className="text-dark-600">•</span>
+                <span className="text-muted-foreground/50">•</span>
                 <span>{exp.location}</span>
               </div>
             </div>
           </div>
 
           {/* Description */}
-          <p className="mb-8 text-base leading-relaxed text-dark-200">
+          <p className="mb-8 text-base leading-relaxed text-muted-foreground">
             {exp.description}
           </p>
 
-          {/* Achievements - Single Column with Better Spacing */}
+          {/* Achievements */}
           <div className="space-y-4">
-            <h5 className="text-sm font-semibold uppercase tracking-wide text-dark-400">
+            <h5 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground/80">
               Key Achievements
             </h5>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {exp.achievements.map((achievement, idx) => (
                 <li
                   key={idx}
-                  className="flex items-start gap-4 text-base leading-relaxed text-dark-200"
+                  className="flex items-start gap-3 text-base leading-relaxed text-muted-foreground"
                 >
-                  <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-primary-500" />
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                   <span className="flex-1">{achievement}</span>
                 </li>
               ))}

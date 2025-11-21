@@ -425,13 +425,13 @@ export default function ServicesPage() {
               drive measurable business impact.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a
-                href={`mailto:${siteConfig.links.email}`}
+              <Link
+                href="/contact"
                 className="btn-primary"
               >
                 <Mail className="mr-2 h-4 w-4" />
                 Contact Me
-              </a>
+              </Link>
               <Link href="/resume" className="btn-secondary">
                 <FileText className="mr-2 h-4 w-4" />
                 View Resume

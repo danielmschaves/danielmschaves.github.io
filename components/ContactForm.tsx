@@ -6,9 +6,12 @@ import { motion } from "framer-motion";
 import { Loader2, Send, CheckCircle, AlertCircle } from "lucide-react";
 import { useEffect, useRef } from "react";
 
-const initialState = {
+import { ContactState } from "@/lib/actions";
+
+const initialState: ContactState = {
     success: false,
     message: "",
+    errors: {},
 };
 
 function SubmitButton() {

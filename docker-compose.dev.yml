@@ -14,5 +14,6 @@ services:
       - /app/.next
     environment:
       - NODE_ENV=development
+      - RESEND_API_KEY=${RESEND_API_KEY}
     command: npm run dev
 

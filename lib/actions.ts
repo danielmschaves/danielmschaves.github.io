@@ -44,10 +44,10 @@ export async function sendEmail(prevState: ContactState, formData: FormData): Pr
 
     try {
         const data = await resend.emails.send({
-            from: "Portfolio Contact <onboarding@resend.dev>", // Update this if you verify your domain
+            from: "Portfolio Contact <contact@danielmschaves.com>",
             to: ["danielmschaves@gmail.com"], // Replace with your actual email
             subject: `New Message from ${name}: ${subject}`,
-            reply_to: email,
+            replyTo: email,
             react: EmailTemplate({ name, email, subject, message }),
         });
 

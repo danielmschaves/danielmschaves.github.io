@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 

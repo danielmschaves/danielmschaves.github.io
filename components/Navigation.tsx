@@ -15,6 +15,7 @@ export default function Navigation() {
     { href: "/", label: "Portfolio" },
     { href: "/resume", label: "Resume" },
     { href: "/services", label: "Services" },
+    { href: "/contact", label: "Contact" },
   ];
 
   const socialLinks = [

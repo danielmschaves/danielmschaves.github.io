@@ -47,7 +47,7 @@ export async function sendEmail(prevState: ContactState, formData: FormData): Pr
             from: "Portfolio Contact <onboarding@resend.dev>", // Update this if you verify your domain
             to: ["danielmschaves@gmail.com"], // Replace with your actual email
             subject: `New Message from ${name}: ${subject}`,
-            reply_to: email,
+            replyTo: email,
             react: EmailTemplate({ name, email, subject, message }),
         });
 

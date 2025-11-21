@@ -2,7 +2,6 @@
 
 import { Resend } from "resend";
 import { z } from "zod";
-import EmailTemplate from "@/components/email-template";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -45,10 +44,20 @@ export async function sendEmail(prevState: ContactState, formData: FormData): Pr
     try {
         const data = await resend.emails.send({
             from: "Portfolio Contact <contact@danielmschaves.com>",
-            to: ["danielmschaves@gmail.com"], // Replace with your actual email
+            to: ["danielmschaves@gmail.com"],
             subject: `New Message from ${name}: ${subject}`,
             replyTo: email,
-            react: EmailTemplate({ name, email, subject, message }),
+            html: `
+                <div style="font-family: sans-serif; padding: 20px; color: #333;">
+                    <h1>New Message from Portfolio</h1>
+                    <p><strong>From:</strong> ${name} (${email})</p>
+                    <p><strong>Subject:</strong> ${subject}</p>
+                    <hr />
+                    <div style="white-space: pre-wrap; margin-top: 20px;">
+                        ${message}
+                    </div>
+                </div>
+            `,
         });
 
         if (data.error) {
@@ -63,6 +72,7 @@ export async function sendEmail(prevState: ContactState, formData: FormData): Pr
             message: "Message sent successfully! I'll get back to you soon.",
         };
     } catch (error) {
+        console.error("Error sending email:", error);
         return {
             success: false,
             message: "Something went wrong. Please try again.",

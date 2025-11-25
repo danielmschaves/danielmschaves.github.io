@@ -24,6 +24,39 @@ export type ContactState = {
 };
 
 export async function sendEmail(prevState: ContactState, formData: FormData): Promise<ContactState> {
+    const token = formData.get("cf-turnstile-response");
+    if (!token) {
+        return {
+            success: false,
+            message: "Please complete the CAPTCHA check.",
+        };
+    }
+
+    try {
+        const verifyFormData = new FormData();
+        verifyFormData.append("secret", process.env.TURNSTILE_SECRET_KEY || "");
+        verifyFormData.append("response", token as string);
+
+        const result = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+            method: "POST",
+            body: verifyFormData,
+        });
+
+        const outcome = await result.json();
+        if (!outcome.success) {
+            return {
+                success: false,
+                message: "CAPTCHA verification failed. Please try again.",
+            };
+        }
+    } catch (error) {
+        console.error("Turnstile verification error:", error);
+        return {
+            success: false,
+            message: "Failed to verify CAPTCHA. Please try again.",
+        };
+    }
+
     const validatedFields = ContactSchema.safeParse({
         name: formData.get("name"),
         email: formData.get("email"),

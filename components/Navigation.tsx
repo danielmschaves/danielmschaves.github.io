@@ -36,13 +36,17 @@ export default function Navigation() {
       {/* Desktop Navigation */}
       <div className="hidden items-center gap-1 md:flex">
         {navItems.map((item) => {
-          const isActive = pathname === item.href;
+          // Normalize pathname to handle trailing slashes (e.g., /resume/ vs /resume)
+          const normalizedPath = pathname.endsWith("/") && pathname !== "/"
+            ? pathname.slice(0, -1)
+            : pathname;
+          const isActive = normalizedPath === item.href;
           return (
             <Link
               key={item.href}
               href={item.href}
               className={cn(
-                "relative px-4 py-2 text-sm font-medium transition-colors hover:text-primary",
+                "relative px-4 py-2 text-sm font-medium transition-colors hover:text-primary rounded-full hover:bg-primary/10",
                 isActive ? "text-primary" : "text-muted-foreground"
               )}
             >

@@ -4,7 +4,8 @@ import { useFormState, useFormStatus } from "react-dom";
 import { sendEmail } from "@/lib/actions";
 import { motion } from "framer-motion";
 import { Loader2, Send, CheckCircle, AlertCircle } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 import { ContactState } from "@/lib/actions";
 
@@ -14,14 +15,14 @@ const initialState: ContactState = {
     errors: {},
 };
 
-function SubmitButton() {
+function SubmitButton({ isVerified }: { isVerified: boolean }) {
     const { pending } = useFormStatus();
 
     return (
         <button
             type="submit"
-            disabled={pending}
-            className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 font-medium text-primary-foreground transition-all hover:bg-primary/90 disabled:opacity-70"
+            disabled={pending || !isVerified}
+            className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 font-medium text-primary-foreground transition-all hover:bg-primary/90 disabled:opacity-70 disabled:cursor-not-allowed"
         >
             {pending ? (
                 <>
@@ -41,10 +42,12 @@ function SubmitButton() {
 export default function ContactForm() {
     const [state, formAction] = useFormState(sendEmail, initialState);
     const formRef = useRef<HTMLFormElement>(null);
+    const [token, setToken] = useState("");
 
     useEffect(() => {
         if (state.success && formRef.current) {
             formRef.current.reset();
+            setToken(""); // Reset token on success
         }
     }, [state.success]);
 
@@ -143,7 +146,15 @@ export default function ContactForm() {
                     )}
                 </div>
 
-                <SubmitButton />
+                <div className="flex justify-center">
+                    <Turnstile
+                        siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ""}
+                        onSuccess={setToken}
+                    />
+                </div>
+                <input type="hidden" name="cf-turnstile-response" value={token} />
+
+                <SubmitButton isVerified={!!token} />
             </form>
         </div>
     );

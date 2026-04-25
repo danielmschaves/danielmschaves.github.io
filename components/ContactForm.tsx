@@ -133,6 +133,8 @@ export default function ContactForm() {
             name="name"
             placeholder="John Doe"
             required
+            aria-invalid={!!state.errors?.name}
+            aria-describedby={state.errors?.name ? "name-error" : undefined}
             style={inputStyle}
             onFocus={(e) => {
               (e.target as HTMLInputElement).style.borderColor = 'var(--primary-500)';
@@ -144,7 +146,7 @@ export default function ContactForm() {
             }}
           />
           {state.errors?.name && (
-            <p className="mt-1 text-xs" style={{ color: 'var(--danger)' }}>{state.errors.name[0]}</p>
+            <p id="name-error" role="alert" className="mt-1 text-xs" style={{ color: 'var(--danger)' }}>{state.errors.name[0]}</p>
           )}
         </div>
 
@@ -156,6 +158,8 @@ export default function ContactForm() {
             name="email"
             placeholder="john@example.com"
             required
+            aria-invalid={!!state.errors?.email}
+            aria-describedby={state.errors?.email ? "email-error" : undefined}
             style={inputStyle}
             onFocus={(e) => {
               (e.target as HTMLInputElement).style.borderColor = 'var(--primary-500)';
@@ -167,7 +171,7 @@ export default function ContactForm() {
             }}
           />
           {state.errors?.email && (
-            <p className="mt-1 text-xs" style={{ color: 'var(--danger)' }}>{state.errors.email[0]}</p>
+            <p id="email-error" role="alert" className="mt-1 text-xs" style={{ color: 'var(--danger)' }}>{state.errors.email[0]}</p>
           )}
         </div>
 
@@ -179,6 +183,8 @@ export default function ContactForm() {
             name="subject"
             placeholder="Project Inquiry"
             required
+            aria-invalid={!!state.errors?.subject}
+            aria-describedby={state.errors?.subject ? "subject-error" : undefined}
             style={inputStyle}
             onFocus={(e) => {
               (e.target as HTMLInputElement).style.borderColor = 'var(--primary-500)';
@@ -190,7 +196,7 @@ export default function ContactForm() {
             }}
           />
           {state.errors?.subject && (
-            <p className="mt-1 text-xs" style={{ color: 'var(--danger)' }}>{state.errors.subject[0]}</p>
+            <p id="subject-error" role="alert" className="mt-1 text-xs" style={{ color: 'var(--danger)' }}>{state.errors.subject[0]}</p>
           )}
         </div>
 
@@ -202,6 +208,8 @@ export default function ContactForm() {
             rows={4}
             placeholder="Tell me about your project..."
             required
+            aria-invalid={!!state.errors?.message}
+            aria-describedby={state.errors?.message ? "message-error" : undefined}
             style={{ ...inputStyle, resize: 'vertical' }}
             onFocus={(e) => {
               (e.target as HTMLTextAreaElement).style.borderColor = 'var(--primary-500)';
@@ -213,15 +221,21 @@ export default function ContactForm() {
             }}
           />
           {state.errors?.message && (
-            <p className="mt-1 text-xs" style={{ color: 'var(--danger)' }}>{state.errors.message[0]}</p>
+            <p id="message-error" role="alert" className="mt-1 text-xs" style={{ color: 'var(--danger)' }}>{state.errors.message[0]}</p>
           )}
         </div>
 
         <div className="flex justify-center">
-          <Turnstile
-            siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ""}
-            onSuccess={setToken}
-          />
+          {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ? (
+            <Turnstile
+              siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+              onSuccess={setToken}
+            />
+          ) : (
+            <p className="text-xs" style={{ color: 'var(--danger)' }}>
+              CAPTCHA not configured — set NEXT_PUBLIC_TURNSTILE_SITE_KEY.
+            </p>
+          )}
         </div>
         <input type="hidden" name="cf-turnstile-response" value={token} />
 

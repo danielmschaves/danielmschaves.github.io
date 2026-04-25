@@ -9,17 +9,14 @@ import {
   Cpu,
   BarChart,
   CheckCircle2,
-  ArrowRight,
   Mail,
 } from "lucide-react";
 import { siteConfig } from "@/config/site";
-import { cn } from "@/lib/utils";
 
 export default function ServicesPage() {
   const services = [
     {
       title: "Project Management and Strategy",
-      emoji: "💡",
       description:
         "Strategic project leadership that bridges business objectives with execution excellence. I deliver results-driven project management that transforms complexity into clarity and vision into measurable outcomes.",
       coreServices: [
@@ -66,11 +63,10 @@ export default function ServicesPage() {
         "Organizations launching new products or services",
         "Teams needing interim project leadership",
       ],
-      icon: <Lightbulb className="h-8 w-8" />,
+      icon: <Lightbulb className="h-7 w-7" />,
     },
     {
       title: "Resumes and Interviews",
-      emoji: "📄",
       description:
         "Personal branding and career positioning services that help professionals stand out in competitive markets. I craft compelling narratives that translate experience into opportunity.",
       coreServices: [
@@ -117,11 +113,10 @@ export default function ServicesPage() {
         "Career changers and industry switchers",
         "Executives and senior leaders",
       ],
-      icon: <FileText className="h-8 w-8" />,
+      icon: <FileText className="h-7 w-7" />,
     },
     {
       title: "AI and Data Consultancy",
-      emoji: "🤖",
       description:
         "Practical AI implementation and data strategy that drives business value. I help organizations harness AI and data capabilities without the hype, focusing on measurable impact and sustainable solutions.",
       coreServices: [
@@ -168,11 +163,10 @@ export default function ServicesPage() {
         "Organizations automating operations",
         "Companies needing AI implementation guidance",
       ],
-      icon: <Brain className="h-8 w-8" />,
+      icon: <Brain className="h-7 w-7" />,
     },
     {
       title: "Data Platform Architecture",
-      emoji: "🏗️",
       description:
         "Design and implement modern data platforms from scratch in cloud environments (AWS, GCP, Azure), including data lakes, data warehouses, and data marts.",
       coreServices: [
@@ -219,11 +213,10 @@ export default function ServicesPage() {
         "Teams needing scalable data infrastructure",
         "Businesses requiring cloud-native solutions",
       ],
-      icon: <Database className="h-8 w-8" />,
+      icon: <Database className="h-7 w-7" />,
     },
     {
       title: "AI/ML Solutions Development",
-      emoji: "🧠",
       description:
         "End-to-end development and deployment of AI/ML products including intelligent agents, machine learning models, generative AI solutions, and chatbots.",
       coreServices: [
@@ -270,11 +263,10 @@ export default function ServicesPage() {
         "Teams implementing generative AI solutions",
         "Businesses needing MLOps infrastructure",
       ],
-      icon: <Cpu className="h-8 w-8" />,
+      icon: <Cpu className="h-7 w-7" />,
     },
     {
       title: "Data Product Development",
-      emoji: "📊",
       description:
         "Complete data product development from concept to production, including data strategies, dashboards, and analytics solutions.",
       coreServices: [
@@ -321,119 +313,178 @@ export default function ServicesPage() {
         "Companies in pharmaceutical and healthcare sectors",
         "Teams requiring end-to-end product development",
       ],
-      icon: <BarChart className="h-8 w-8" />,
+      icon: <BarChart className="h-7 w-7" />,
     },
   ];
 
   return (
-    <div className="min-h-screen bg-background pt-24 pb-16">
+    <div className="min-h-screen section-padding">
       <div className="container-custom">
+
         {/* Header */}
         <div className="mb-16 text-center">
-          <h1 className="mb-4 text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+          <p className="section-label mb-4">Services</p>
+          <h1
+            className="font-bold mb-4"
+            style={{
+              fontSize: 'clamp(32px, 5vw, 48px)',
+              letterSpacing: '-0.02em',
+              color: 'var(--text)',
+            }}
+          >
             Professional Services
           </h1>
-          <p className="mx-auto max-w-3xl text-lg text-muted-foreground md:text-xl">
-            With 6 years of experience leading enterprise data initiatives, I
-            deliver comprehensive solutions in data engineering, AI/ML
-            development, and delivery management. Specializing in modern data
-            stack implementations and cross-functional team leadership.
+          <p
+            className="mx-auto text-lg leading-relaxed"
+            style={{ color: 'var(--text-muted)', maxWidth: 680 }}
+          >
+            With <strong style={{ color: 'var(--text)', fontWeight: 600 }}>6 years</strong> of
+            experience leading enterprise data initiatives, I deliver comprehensive solutions in
+            data engineering, AI/ML development, and delivery management.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="space-y-12">
+        {/* Services grid */}
+        <div className="grid gap-6 lg:grid-cols-2">
           {services.map((service, idx) => (
             <div
               key={idx}
-              className="group overflow-hidden rounded-2xl border border-border/50 bg-card p-8 shadow-sm transition-all hover:border-primary/50 hover:shadow-md"
+              className="flex flex-col overflow-hidden transition-all duration-[250ms]"
+              style={{
+                background: 'rgba(15,23,42,0.5)',
+                border: '1px solid var(--line)',
+                borderRadius: 'var(--radius-xl)',
+                backdropFilter: 'blur(10px)',
+                padding: 28,
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.borderColor = 'rgba(14,165,233,0.3)';
+                (e.currentTarget as HTMLElement).style.boxShadow = 'var(--shadow-md)';
+                (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.borderColor = 'var(--line)';
+                (e.currentTarget as HTMLElement).style.boxShadow = 'none';
+                (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
+              }}
             >
-              <div className="mb-8 flex items-start gap-6">
-                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+              {/* Icon + title */}
+              <div className="flex items-start gap-4 mb-5">
+                <div
+                  className="flex shrink-0 items-center justify-center"
+                  style={{
+                    width: 52, height: 52,
+                    background: 'var(--primary-tint)',
+                    borderRadius: 'var(--radius-md)',
+                    color: 'var(--primary-400)',
+                  }}
+                >
                   {service.icon}
                 </div>
                 <div>
-                  <h2 className="mb-3 text-2xl font-bold text-foreground md:text-3xl">
+                  <h2
+                    className="font-bold text-xl"
+                    style={{ color: 'var(--text)', letterSpacing: '-0.015em' }}
+                  >
                     {service.title}
                   </h2>
-                  <p className="text-lg leading-relaxed text-muted-foreground">
+                  <p className="mt-1 text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
                     {service.description}
                   </p>
                 </div>
               </div>
 
-              {/* Core Services */}
-              {service.coreServices && (
-                <div className="mb-8 rounded-xl bg-secondary/30 p-6">
-                  <h3 className="mb-6 text-lg font-semibold text-foreground">
-                    Core Services
-                  </h3>
-                  <div className="grid gap-8 md:grid-cols-2">
-                    {service.coreServices.map((coreService, csIdx) => (
-                      <div key={csIdx} className="space-y-3">
-                        <h4 className="font-medium text-primary">
-                          {coreService.name}
-                        </h4>
-                        <ul className="space-y-2">
-                          {coreService.items.map((item, itemIdx) => (
-                            <li
-                              key={itemIdx}
-                              className="flex items-start gap-2 text-sm text-muted-foreground"
-                            >
-                              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60" />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
+              {/* Core services */}
+              <div
+                className="mb-5 rounded-lg p-5"
+                style={{
+                  background: 'rgba(15,23,42,0.4)',
+                  border: '1px solid var(--line-soft)',
+                  borderRadius: 'var(--radius-md)',
+                }}
+              >
+                <h3 className="mb-4 font-semibold text-sm" style={{ color: 'var(--text)' }}>
+                  Core Services
+                </h3>
+                <div className="grid gap-5 sm:grid-cols-2">
+                  {service.coreServices.map((cs, csIdx) => (
+                    <div key={csIdx}>
+                      <h4 className="mb-2 text-xs font-semibold" style={{ color: 'var(--primary-400)' }}>
+                        {cs.name}
+                      </h4>
+                      <ul className="flex flex-col gap-1.5">
+                        {cs.items.map((item, iIdx) => (
+                          <li
+                            key={iIdx}
+                            className="flex items-start gap-2 text-xs leading-relaxed"
+                            style={{ color: 'var(--text-muted)' }}
+                          >
+                            <span
+                              className="mt-1.5 shrink-0 rounded-full"
+                              style={{ width: 4, height: 4, background: 'var(--primary-500)' }}
+                            />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
                 </div>
-              )}
+              </div>
 
-              {/* Ideal For */}
-              {service.idealFor && (
-                <div>
-                  <h3 className="mb-4 text-lg font-semibold text-foreground">
-                    Ideal For
-                  </h3>
-                  <div className="flex flex-wrap gap-3">
-                    {service.idealFor.map((item, idealIdx) => (
-                      <div
-                        key={idealIdx}
-                        className="flex items-center gap-2 rounded-full border border-border bg-background px-4 py-1.5 text-sm text-muted-foreground"
-                      >
-                        <CheckCircle2 className="h-4 w-4 text-primary" />
-                        {item}
-                      </div>
-                    ))}
-                  </div>
+              {/* Ideal for */}
+              <div>
+                <h3 className="mb-3 text-xs font-semibold" style={{ color: 'var(--text)' }}>
+                  Ideal For
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {service.idealFor.map((item, idealIdx) => (
+                    <div
+                      key={idealIdx}
+                      className="flex items-center gap-1.5 text-xs"
+                      style={{
+                        padding: '4px 10px',
+                        borderRadius: 'var(--radius-full)',
+                        border: '1px solid var(--line)',
+                        background: 'var(--ink-3)',
+                        color: 'var(--text-muted)',
+                      }}
+                    >
+                      <CheckCircle2 className="h-3 w-3 shrink-0" style={{ color: 'var(--primary-400)' }} />
+                      {item}
+                    </div>
+                  ))}
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>
 
-        {/* CTA Section */}
+        {/* CTA */}
         <div className="mt-20 text-center">
-          <div className="mx-auto max-w-3xl rounded-2xl border border-primary/20 bg-primary/5 p-12">
-            <h2 className="mb-4 text-3xl font-bold text-foreground">
+          <div
+            className="mx-auto max-w-3xl rounded-2xl p-12"
+            style={{
+              border: '1px solid rgba(14,165,233,0.2)',
+              background: 'var(--primary-tint)',
+            }}
+          >
+            <h2
+              className="mb-4 font-bold"
+              style={{ fontSize: 'clamp(24px, 4vw, 36px)', color: 'var(--text)', letterSpacing: '-0.02em' }}
+            >
               Ready to Get Started?
             </h2>
-            <p className="mb-8 text-lg text-muted-foreground">
-              Let&apos;s discuss how I can help transform your data initiatives and
-              drive measurable business impact.
+            <p className="mb-8 text-lg" style={{ color: 'var(--text-muted)' }}>
+              Let&apos;s discuss how I can help transform your data initiatives and drive measurable business impact.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link
-                href="/contact"
-                className="btn-primary"
-              >
-                <Mail className="mr-2 h-4 w-4" />
+              <Link href="/contact" className="btn-primary">
+                <Mail className="h-4 w-4" />
                 Contact Me
               </Link>
               <Link href="/resume" className="btn-secondary">
-                <FileText className="mr-2 h-4 w-4" />
+                <FileText className="h-4 w-4" />
                 View Resume
               </Link>
             </div>
@@ -443,4 +494,3 @@ export default function ServicesPage() {
     </div>
   );
 }
-

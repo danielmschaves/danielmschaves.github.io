@@ -45,8 +45,7 @@ export default function SkillsGrid() {
               <motion.div
                 key={category}
                 initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: idx * 0.06, ease: [0.22, 1, 0.36, 1] }}
                 style={{
                   background: 'rgba(15,23,42,0.3)',
@@ -85,8 +84,7 @@ export default function SkillsGrid() {
             <motion.div
               key={idx}
               initial={{ opacity: 0, x: -12 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4, delay: idx * 0.07 }}
               className="flex gap-4"
               style={{
@@ -119,8 +117,7 @@ export default function SkillsGrid() {
             <motion.div
               key={idx}
               initial={{ opacity: 0, x: -12 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4, delay: idx * 0.07 }}
               className="flex gap-4"
               style={{
@@ -153,8 +150,7 @@ export default function SkillsGrid() {
             <motion.span
               key={language}
               initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.08 }}
               style={{
                 padding: '6px 16px',

@@ -22,7 +22,7 @@ function SkillChip({ skill, color }: { skill: string; color?: string }) {
         lineHeight: 1.6,
         color: color ?? 'var(--primary-300)',
         background: color
-          ? `${color}18`
+          ? `color-mix(in srgb, ${color} 12%, transparent)`
           : 'var(--primary-tint)',
         border: '1px solid transparent',
       }}
@@ -82,7 +82,7 @@ export default function SkillsGrid() {
         <div className="grid gap-4 sm:grid-cols-2">
           {skillsData.dataPlatform.skills.map((skill, idx) => (
             <motion.div
-              key={idx}
+              key={skill}
               initial={{ opacity: 0, x: -12 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4, delay: idx * 0.07 }}
@@ -115,7 +115,7 @@ export default function SkillsGrid() {
         <div className="grid gap-4 sm:grid-cols-2">
           {skillsData.dataProduct.skills.map((skill, idx) => (
             <motion.div
-              key={idx}
+              key={skill}
               initial={{ opacity: 0, x: -12 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4, delay: idx * 0.07 }}

@@ -72,23 +72,15 @@ export default function ResumeContent() {
           <section>
             <h2 style={sectionHeadingStyle}>Education</h2>
             <div className="flex flex-col gap-4">
-              {educationData.map((edu, idx) => (
+              {educationData.map((edu) => (
                 <div
-                  key={idx}
-                  className="transition-all duration-[250ms]"
+                  key={edu.institution}
+                  className="card-hover transition-all duration-[250ms]"
                   style={{
                     background: 'var(--ink-2)',
                     border: '1px solid var(--line)',
                     borderRadius: 'var(--radius-xl)',
                     padding: 24,
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = 'rgba(14,165,233,0.3)';
-                    (e.currentTarget as HTMLElement).style.boxShadow = 'var(--shadow-md)';
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = 'var(--line)';
-                    (e.currentTarget as HTMLElement).style.boxShadow = 'none';
                   }}
                 >
                   <div className="flex flex-col justify-between gap-2 md:flex-row md:items-center">
@@ -119,7 +111,7 @@ export default function ResumeContent() {
             <h2 style={sectionHeadingStyle}>Certifications</h2>
             <div className="grid gap-5 md:grid-cols-2">
               {certificationsData.map((cert, idx) => (
-                <CertificationCard key={idx} certification={cert} />
+                <CertificationCard key={cert.title} certification={cert} />
               ))}
             </div>
           </section>

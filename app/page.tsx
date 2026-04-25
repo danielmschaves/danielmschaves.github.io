@@ -21,23 +21,30 @@ export default function Home() {
 
       {/* Featured Project */}
       {featuredProject && (
-        <section className="section-padding bg-secondary/30">
+        <section
+          className="section-padding"
+          style={{
+            background: 'linear-gradient(180deg, transparent, rgba(15,23,42,0.4), transparent)',
+          }}
+        >
           <div className="container-custom">
             <SectionHeading
+              label="Featured"
               title="Featured Project"
               subtitle="A highlight of my recent technical work and architectural decisions."
             />
             <div className="mx-auto max-w-5xl">
-              <ProjectCard {...featuredProject} featured={true} />
+              <ProjectCard {...featuredProject} featured={true} index={0} />
             </div>
           </div>
         </section>
       )}
 
       {/* Skills Section */}
-      <section className="section-padding bg-background">
+      <section className="section-padding">
         <div className="container-custom">
           <SectionHeading
+            label="Expertise"
             title="Technical Expertise"
             subtitle="A comprehensive overview of my technical skills and technology stack."
           />
@@ -46,15 +53,21 @@ export default function Home() {
       </section>
 
       {/* All Projects */}
-      <section className="section-padding bg-secondary/30">
+      <section
+        className="section-padding"
+        style={{
+          background: 'linear-gradient(180deg, transparent, rgba(15,23,42,0.4), transparent)',
+        }}
+      >
         <div className="container-custom">
           <SectionHeading
-            title="Portfolio Projects"
-            subtitle="A collection of data engineering and data science projects showcasing modern data stack implementations."
+            label="Portfolio"
+            title="All Projects"
+            subtitle="Data engineering and analytics projects showcasing modern data stack implementations."
           />
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {otherProjects.map((project) => (
-              <ProjectCard key={project.id} {...project} />
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {otherProjects.map((project, i) => (
+              <ProjectCard key={project.id} {...project} index={i} />
             ))}
           </div>
         </div>
@@ -62,4 +75,3 @@ export default function Home() {
     </div>
   );
 }
-

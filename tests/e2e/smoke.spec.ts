@@ -14,6 +14,7 @@ for (const { path, label } of routes) {
     page.on("pageerror", (err) => errors.push(err.message));
 
     await page.goto(path);
+    await page.waitForLoadState("networkidle");
     await expect(page).not.toHaveTitle(/error/i);
     expect(errors, `JS errors on ${path}`).toHaveLength(0);
   });

@@ -32,30 +32,23 @@ test.describe("Hero animations", () => {
   });
 });
 
-test.describe("Scroll-triggered animations", () => {
-  test("project cards become visible after scrolling into view", async ({ page }) => {
+test.describe("Mount animations", () => {
+  test("project cards are visible on home page", async ({ page }) => {
     await page.goto("/");
-    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-    // Give whileInView time to fire
-    await page.waitForTimeout(600);
+    // Animations use animate (not whileInView) — content must be present after mount
     const cards = page.locator("article");
-    await expect(cards.first()).toBeVisible();
+    await expect(cards.first()).toBeVisible({ timeout: 2000 });
   });
 
-  test("experience cards animate in on resume page", async ({ page }) => {
+  test("experience cards are visible on resume page", async ({ page }) => {
     await page.goto("/resume");
-    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-    await page.waitForTimeout(600);
-    // At least one experience entry is visible
     const experienceSection = page.getByRole("heading", { name: /experience/i });
-    await expect(experienceSection).toBeVisible();
+    await expect(experienceSection).toBeVisible({ timeout: 2000 });
   });
 
-  test("skills grid blocks visible after scroll", async ({ page }) => {
+  test("skills section is visible on resume page", async ({ page }) => {
     await page.goto("/resume");
-    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-    await page.waitForTimeout(600);
     const skillsSection = page.getByRole("heading", { name: /skills/i });
-    await expect(skillsSection).toBeVisible();
+    await expect(skillsSection).toBeVisible({ timeout: 2000 });
   });
 });

@@ -46,17 +46,9 @@ export default function ProjectCard({
       }}
       whileHover={{
         y: -4,
+        borderColor: 'rgba(14,165,233,0.4)',
+        boxShadow: featured ? 'var(--shadow-lg)' : 'var(--shadow-md)',
         transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] },
-      }}
-      onHoverStart={(e) => {
-        (e.currentTarget as HTMLElement).style.borderColor = 'rgba(14,165,233,0.4)';
-        (e.currentTarget as HTMLElement).style.boxShadow = featured
-          ? 'var(--shadow-lg)'
-          : 'var(--shadow-md)';
-      }}
-      onHoverEnd={(e) => {
-        (e.currentTarget as HTMLElement).style.borderColor = 'var(--line)';
-        (e.currentTarget as HTMLElement).style.boxShadow = 'none';
       }}
     >
       {/* Image */}

@@ -39,15 +39,7 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
             padding: '28px',
             transition: 'all 250ms var(--ease-out)',
           }}
-          className="group"
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLElement).style.borderColor = 'rgba(14,165,233,0.3)';
-            (e.currentTarget as HTMLElement).style.boxShadow = 'var(--shadow-md)';
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLElement).style.borderColor = 'var(--line)';
-            (e.currentTarget as HTMLElement).style.boxShadow = 'none';
-          }}
+          className="group card-hover"
         >
           {/* Header */}
           <div

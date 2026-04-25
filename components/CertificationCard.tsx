@@ -18,21 +18,13 @@ export default function CertificationCard({
 }: CertificationCardProps) {
   return (
     <div
-      className="group flex flex-col gap-6 transition-all duration-[250ms] md:flex-row"
+      className="group card-hover flex flex-col gap-6 transition-all duration-[250ms] md:flex-row"
       style={{
         background: 'rgba(15,23,42,0.5)',
         border: '1px solid var(--line)',
         borderRadius: 'var(--radius-lg)',
         padding: 24,
         backdropFilter: 'blur(10px)',
-      }}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.borderColor = 'rgba(14,165,233,0.3)';
-        (e.currentTarget as HTMLElement).style.boxShadow = 'var(--shadow-md)';
-      }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.borderColor = 'var(--line)';
-        (e.currentTarget as HTMLElement).style.boxShadow = 'none';
       }}
     >
       <div className="shrink-0">

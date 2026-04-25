@@ -31,10 +31,8 @@ export default function ProjectContent({ project }: ProjectContentProps) {
         {/* Back */}
         <Link
           href="/"
-          className="group mb-8 inline-flex items-center gap-2 text-sm transition-colors duration-[250ms]"
+          className="group mb-8 inline-flex items-center gap-2 text-sm transition-colors duration-[250ms] hover:text-[var(--primary-400)]"
           style={{ color: 'var(--text-muted)' }}
-          onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = 'var(--primary-400)'}
-          onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = 'var(--text-muted)'}
         >
           <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
           Back to Portfolio

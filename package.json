@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build"
+    "export": "next build",
+    "test": "playwright test",
+    "test:report": "playwright show-report tests/playwright-report"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -31,6 +33,7 @@
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.2.0",
     "postcss": "^8.4.0",
+    "@playwright/test": "1.59.1",
     "prettier": "^3.2.0",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.3.0"

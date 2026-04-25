@@ -10,6 +10,8 @@ services:
     volumes:
       # Mount public/images so images update without a full rebuild
       - ./public/images:/app/public/images:ro
+      # Prevent host node_modules from overriding the container's
+      - /app/node_modules
     environment:
       - NODE_ENV=production
     restart: unless-stopped

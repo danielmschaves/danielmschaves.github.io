@@ -7,6 +7,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, Linkedin, Github } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+const normalizedPath = (p: string) =>
+  p.endsWith("/") && p !== "/" ? p.slice(0, -1) : p;
+
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -30,9 +33,6 @@ export default function Navigation() {
       icon: <Github className="h-4 w-4" />,
     },
   ];
-
-  const normalizedPath = (p: string) =>
-    p.endsWith("/") && p !== "/" ? p.slice(0, -1) : p;
 
   return (
     <nav className="flex items-center gap-2">

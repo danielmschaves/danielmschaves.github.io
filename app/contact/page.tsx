@@ -16,7 +16,7 @@ const contactItems = [
   },
   {
     icon: <MapPin className="h-4 w-4 shrink-0" />,
-    label: siteConfig.location ?? "Florianópolis, Brazil · Remote",
+    label: siteConfig.location,
     href: null,
   },
 ];

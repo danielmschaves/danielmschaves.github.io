@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 import { siteConfig } from "@/config/site";
@@ -96,18 +94,10 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.label}
-                  className="flex items-center justify-center w-9 h-9 rounded-full transition-all duration-[250ms]"
+                  className="flex items-center justify-center w-9 h-9 rounded-full transition-all duration-[250ms] hover:bg-[var(--primary-500)] hover:text-white"
                   style={{
                     background: 'var(--ink-3)',
                     color: 'var(--text-muted)',
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.background = 'var(--primary-500)';
-                    (e.currentTarget as HTMLElement).style.color = '#fff';
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.background = 'var(--ink-3)';
-                    (e.currentTarget as HTMLElement).style.color = 'var(--text-muted)';
                   }}
                 >
                   {link.icon}

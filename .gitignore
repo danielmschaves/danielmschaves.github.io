@@ -34,3 +34,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+/design-system/
+
+# claude code
+.claude/
+
+# playwright artifacts
+/test-results/
+/tests/playwright-report/

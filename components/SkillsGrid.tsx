@@ -46,7 +46,7 @@ export default function SkillsGrid() {
                 key={category}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: true, amount: 0 }}
                 transition={{ duration: 0.4, delay: idx * 0.06, ease: [0.22, 1, 0.36, 1] }}
                 style={{
                   background: 'rgba(15,23,42,0.3)',

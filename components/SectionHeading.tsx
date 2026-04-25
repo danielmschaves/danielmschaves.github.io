@@ -29,8 +29,7 @@ export default function SectionHeading({
       {label && (
         <motion.p
           initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
           className="section-label mb-3"
         >
@@ -40,8 +39,7 @@ export default function SectionHeading({
 
       <motion.h2
         initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.45, delay: label ? 0.05 : 0 }}
         className="font-bold tracking-tight"
         style={{
@@ -57,8 +55,7 @@ export default function SectionHeading({
       {subtitle && (
         <motion.p
           initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.12 }}
           className={cn(
             "text-base leading-relaxed max-w-[640px]",

@@ -41,6 +41,7 @@ export default function CertificationCard({
             src={certification.image}
             alt={certification.title}
             fill
+            unoptimized
             className="object-cover transition-all duration-[250ms] group-hover:brightness-110"
             sizes="128px"
           />

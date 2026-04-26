@@ -161,6 +161,9 @@
     @apply mx-auto px-6 lg:px-8;
     max-width: 1180px;
   }
+  .section-tint {
+    background: linear-gradient(180deg, transparent, rgba(15, 23, 42, 0.4), transparent);
+  }
 
   .section-padding {
     @apply py-24 md:py-32;

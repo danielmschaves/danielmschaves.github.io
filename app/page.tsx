@@ -21,12 +21,7 @@ export default function Home() {
 
       {/* Featured Project */}
       {featuredProject && (
-        <section
-          className="section-padding"
-          style={{
-            background: 'linear-gradient(180deg, transparent, rgba(15,23,42,0.4), transparent)',
-          }}
-        >
+        <section className="section-padding section-tint">
           <div className="container-custom">
             <SectionHeading
               label="Featured"
@@ -53,12 +48,7 @@ export default function Home() {
       </section>
 
       {/* All Projects */}
-      <section
-        className="section-padding"
-        style={{
-          background: 'linear-gradient(180deg, transparent, rgba(15,23,42,0.4), transparent)',
-        }}
-      >
+      <section className="section-padding section-tint">
         <div className="container-custom">
           <SectionHeading
             label="Portfolio"

@@ -39,7 +39,7 @@ export default function ProjectCard({
           : "flex flex-col"
       )}
       style={{
-        background: 'rgba(15,23,42,0.5)',
+        background: 'var(--ink-2)',
         border: '1px solid var(--line)',
         borderRadius: featured ? 18 : 14,
         backdropFilter: 'blur(10px)',
@@ -77,7 +77,7 @@ export default function ProjectCard({
         <div
           className="absolute inset-0"
           style={{
-            background: 'linear-gradient(180deg, rgba(5,9,20,0) 50%, rgba(5,9,20,0.4))',
+            background: 'linear-gradient(180deg, transparent 50%, color-mix(in srgb, var(--ink-0) 40%, transparent))',
           }}
         />
         {/* Featured badge */}
@@ -86,9 +86,9 @@ export default function ProjectCard({
             className="absolute left-4 top-4 flex items-center gap-1.5 rounded-full text-xs font-medium"
             style={{
               padding: '4px 10px',
-              background: 'rgba(34,211,238,0.15)',
+              background: 'var(--accent-glow)',
               color: 'var(--accent)',
-              border: '1px solid rgba(34,211,238,0.3)',
+              border: '1px solid color-mix(in srgb, var(--accent) 30%, transparent)',
               backdropFilter: 'blur(8px)',
             }}
           >

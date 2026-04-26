@@ -8,11 +8,24 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      # Mount images directory if you want to update images without rebuilding
-      - ./images:/app/public/images:ro
-      # Mount data directory for easy content updates (optional)
-      - ./data:/app/data:ro
+      # Mount public/images so images update without a full rebuild
+      - ./public/images:/app/public/images:ro
+      # Prevent host node_modules from overriding the container's
+      - /app/node_modules
     environment:
       - NODE_ENV=production
     restart: unless-stopped
 
+  playwright:
+    image: mcr.microsoft.com/playwright:v1.59.1-noble
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: >
+      sh -c "npm install && npx playwright test"
+    depends_on:
+      - portfolio
+    environment:
+      - BASE_URL=http://portfolio:3000
+    profiles:
+      - test

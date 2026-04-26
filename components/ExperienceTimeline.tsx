@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 interface Experience {
   company: string;
@@ -16,83 +16,90 @@ interface ExperienceTimelineProps {
   experiences: Experience[];
 }
 
-export default function ExperienceTimeline({
-  experiences,
-}: ExperienceTimelineProps) {
+export default function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
   const formatDate = (date: string) => {
     if (date === "Present") return "Present";
     const [year, month] = date.split("-");
-    const monthNames = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-    return `${monthNames[parseInt(month) - 1]} ${year}`;
+    const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    return `${months[parseInt(month) - 1]} ${year}`;
   };
 
   return (
-    <div className="space-y-8">
+    <div className="flex flex-col gap-5">
       {experiences.map((exp, index) => (
-        <div
+        <motion.div
           key={`${exp.company}-${exp.startDate}`}
-          className="group relative rounded-xl border border-border/50 bg-card p-8 shadow-sm transition-all hover:border-primary/50 hover:shadow-md"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+          style={{
+            background: 'var(--ink-2)',
+            border: '1px solid var(--line)',
+            borderRadius: 'var(--radius-2xl)',
+            padding: '28px',
+            transition: 'all 250ms var(--ease-out)',
+          }}
+          className="group card-hover"
         >
-          {/* Header Section */}
-          <div className="mb-6 flex flex-col gap-3 border-b border-border/40 pb-6 md:flex-row md:items-start md:justify-between">
-            <div className="flex-1">
-              <div className="mb-2 flex flex-wrap items-baseline gap-3">
-                <h3 className="text-2xl font-bold text-foreground">
-                  {exp.position}
-                </h3>
-                <span className="hidden text-muted-foreground md:inline">•</span>
-                <h4 className="text-xl font-semibold text-primary">
-                  {exp.company}
-                </h4>
-              </div>
-              <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-                <span className="font-medium">
-                  {formatDate(exp.startDate)} - {formatDate(exp.endDate)}
-                </span>
-                <span className="text-muted-foreground/50">•</span>
-                <span>{exp.location}</span>
-              </div>
+          {/* Header */}
+          <div
+            className="pb-[18px] mb-[18px]"
+            style={{ borderBottom: '1px solid var(--line-soft)' }}
+          >
+            <div className="flex flex-wrap items-baseline gap-2.5 mb-1.5">
+              <h3
+                className="font-bold"
+                style={{ fontSize: 22, letterSpacing: '-0.015em', color: 'var(--text)' }}
+              >
+                {exp.position}
+              </h3>
+              <span style={{ color: 'var(--text-meta)' }}>·</span>
+              <h4
+                className="font-semibold text-lg"
+                style={{ color: 'var(--primary-400)' }}
+              >
+                {exp.company}
+              </h4>
+            </div>
+            <div className="flex flex-wrap items-center gap-2 text-sm" style={{ color: 'var(--text-muted)' }}>
+              <span>{formatDate(exp.startDate)} — {formatDate(exp.endDate)}</span>
+              <span style={{ color: 'var(--text-meta)' }}>·</span>
+              <span>{exp.location}</span>
             </div>
           </div>
 
           {/* Description */}
-          <p className="mb-8 text-base leading-relaxed text-muted-foreground">
+          <p
+            className="mb-5 text-sm leading-relaxed"
+            style={{ color: 'var(--text-muted)' }}
+          >
             {exp.description}
           </p>
 
           {/* Achievements */}
-          <div className="space-y-4">
-            <h5 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground/80">
-              Key Achievements
-            </h5>
-            <ul className="space-y-3">
+          <div>
+            <p className="section-label mb-4">Key Achievements</p>
+            <ul className="flex flex-col gap-2.5">
               {exp.achievements.map((achievement, idx) => (
                 <li
                   key={idx}
-                  className="flex items-start gap-3 text-base leading-relaxed text-muted-foreground"
+                  className="flex items-start gap-3 text-sm leading-relaxed"
+                  style={{ color: 'var(--text-body)' }}
                 >
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                  <span className="flex-1">{achievement}</span>
+                  <span
+                    className="mt-2 shrink-0 rounded-full"
+                    style={{
+                      width: 6, height: 6,
+                      background: 'var(--primary-500)',
+                    }}
+                  />
+                  {achievement}
                 </li>
               ))}
             </ul>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );
 }
-

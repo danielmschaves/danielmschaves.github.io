@@ -6,18 +6,23 @@ import Footer from "@/components/Footer";
 
 const inter = localFont({
   src: [
-    {
-      path: "./fonts/Inter-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "./fonts/Inter-Bold.woff2",
-      weight: "700",
-      style: "normal",
-    },
+    { path: "../public/fonts/Inter-Regular.woff2",   weight: "400", style: "normal" },
+    { path: "../public/fonts/Inter-Medium.woff2",    weight: "500", style: "normal" },
+    { path: "../public/fonts/Inter-SemiBold.woff2",  weight: "600", style: "normal" },
+    { path: "../public/fonts/Inter-Bold.woff2",      weight: "700", style: "normal" },
   ],
-  variable: "--font-inter",
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const jetbrainsMono = localFont({
+  src: [
+    { path: "../public/fonts/JetBrainsMono-Regular.woff2",  weight: "400", style: "normal" },
+    { path: "../public/fonts/JetBrainsMono-Medium.woff2",   weight: "500", style: "normal" },
+    { path: "../public/fonts/JetBrainsMono-SemiBold.woff2", weight: "600", style: "normal" },
+  ],
+  variable: "--font-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -59,13 +64,9 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-    ],
-    shortcut: "/icon.svg",
-    apple: [
-      { url: "/icon.svg", sizes: "180x180", type: "image/svg+xml" },
-    ],
+    icon: [{ url: "/icon-dc.svg", type: "image/svg+xml" }],
+    shortcut: "/icon-dc.svg",
+    apple: [{ url: "/icon-dc.svg", sizes: "180x180", type: "image/svg+xml" }],
   },
 };
 
@@ -75,8 +76,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className={inter.className}>
+    <html
+      lang="en"
+      className={`dark ${inter.variable} ${jetbrainsMono.variable}`}
+    >
+      <body className="font-sans">
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
@@ -84,4 +88,3 @@ export default function RootLayout({
     </html>
   );
 }
-

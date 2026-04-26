@@ -2,78 +2,72 @@
 
 import { motion } from "framer-motion";
 import skillsData from "@/data/skills.json";
-import { cn } from "@/lib/utils";
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
+const categoryChipColor: Record<string, string> = {
+  "Programming Languages": 'var(--cat-engineering)',
+  "Data Engineering":      'var(--cat-engineering)',
+  "Cloud Platforms":       'var(--cat-cloud)',
+  "Databases":             'var(--cat-science)',
+  "Data Visualization":    'var(--cat-ai)',
+  "AI/ML":                 'var(--cat-ai)',
+  "DevOps":                'var(--cat-cloud)',
 };
 
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
-};
+function SkillChip({ skill, color }: { skill: string; color?: string }) {
+  return (
+    <span
+      className="inline-flex items-center rounded-full text-xs font-medium"
+      style={{
+        padding: '2px 10px',
+        lineHeight: 1.6,
+        color: color ?? 'var(--primary-300)',
+        background: color
+          ? `color-mix(in srgb, ${color} 12%, transparent)`
+          : 'var(--primary-tint)',
+        border: '1px solid transparent',
+      }}
+    >
+      {skill}
+    </span>
+  );
+}
 
 export default function SkillsGrid() {
   return (
-    <div className="space-y-16">
-      {/* Data Platform & Architecture */}
-      <section>
-        <h3 className="mb-6 text-xl font-bold text-foreground">
-          {skillsData.dataPlatform.title}
-        </h3>
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
-        >
-          {skillsData.dataPlatform.skills.map((skill, idx) => (
-            <motion.div
-              key={idx}
-              variants={item}
-              className="flex items-center gap-3 rounded-lg border border-border/50 bg-card/50 p-4 backdrop-blur-sm transition-colors hover:border-primary/50 hover:bg-card/80"
-            >
-              <span className="h-2 w-2 shrink-0 rounded-full bg-primary" />
-              <span className="text-sm font-medium text-muted-foreground">{skill}</span>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
+    <div className="space-y-14">
 
       {/* Technical Skills */}
       <section>
-        <h3 className="mb-6 text-xl font-bold text-foreground">
-          {skillsData.technical.title}
-        </h3>
-        <div className="grid gap-8 md:grid-cols-2">
+        <p className="section-label mb-6">{skillsData.technical.title}</p>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {Object.entries(skillsData.technical.categories).map(
             ([category, skills], idx) => (
               <motion.div
                 key={category}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="rounded-xl border border-border/50 bg-card/30 p-6 backdrop-blur-sm"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: idx * 0.06, ease: [0.22, 1, 0.36, 1] }}
+                style={{
+                  background: 'rgba(15,23,42,0.3)',
+                  border: '1px solid var(--line-soft)',
+                  borderRadius: 'var(--radius-lg)',
+                  padding: 20,
+                  backdropFilter: 'blur(8px)',
+                }}
               >
-                <h4 className="mb-4 font-semibold text-foreground">
+                <h4
+                  className="mb-3 font-semibold text-sm"
+                  style={{ color: 'var(--text)' }}
+                >
                   {category}
                 </h4>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5">
                   {skills.map((skill) => (
-                    <span
+                    <SkillChip
                       key={skill}
-                      className="rounded-md bg-primary/10 px-2.5 py-1 text-sm font-medium text-primary transition-colors hover:bg-primary/20"
-                    >
-                      {skill}
-                    </span>
+                      skill={skill}
+                      color={categoryChipColor[category]}
+                    />
                   ))}
                 </div>
               </motion.div>
@@ -82,51 +76,99 @@ export default function SkillsGrid() {
         </div>
       </section>
 
-      {/* Data Product Development */}
+      {/* Data Platform */}
       <section>
-        <h3 className="mb-6 text-xl font-bold text-foreground">
-          {skillsData.dataProduct.title}
-        </h3>
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
-        >
-          {skillsData.dataProduct.skills.map((skill, idx) => (
+        <p className="section-label mb-6">{skillsData.dataPlatform.title}</p>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {skillsData.dataPlatform.skills.map((skill, idx) => (
             <motion.div
-              key={idx}
-              variants={item}
-              className="flex items-center gap-3 rounded-lg border border-border/50 bg-card/50 p-4 backdrop-blur-sm transition-colors hover:border-primary/50 hover:bg-card/80"
+              key={skill}
+              initial={{ opacity: 0, x: -12 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4, delay: idx * 0.07 }}
+              className="flex gap-4"
+              style={{
+                background: 'rgba(15,23,42,0.3)',
+                border: '1px solid var(--line-soft)',
+                borderRadius: 'var(--radius-lg)',
+                padding: 20,
+                backdropFilter: 'blur(8px)',
+              }}
             >
-              <span className="h-2 w-2 shrink-0 rounded-full bg-primary" />
-              <span className="text-sm font-medium text-muted-foreground">{skill}</span>
+              <span
+                className="mt-1.5 shrink-0 rounded-full"
+                style={{
+                  width: 6, height: 6,
+                  background: 'var(--primary-400)',
+                  boxShadow: '0 0 6px var(--primary-400)',
+                }}
+              />
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>{skill}</p>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </section>
 
+      {/* Data Product */}
       <section>
-        <h3 className="mb-6 text-xl font-bold text-foreground">
-          {skillsData.languages.title}
-        </h3>
-        <div className="flex flex-wrap gap-2">
+        <p className="section-label mb-6">{skillsData.dataProduct.title}</p>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {skillsData.dataProduct.skills.map((skill, idx) => (
+            <motion.div
+              key={skill}
+              initial={{ opacity: 0, x: -12 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4, delay: idx * 0.07 }}
+              className="flex gap-4"
+              style={{
+                background: 'rgba(15,23,42,0.3)',
+                border: '1px solid var(--line-soft)',
+                borderRadius: 'var(--radius-lg)',
+                padding: 20,
+                backdropFilter: 'blur(8px)',
+              }}
+            >
+              <span
+                className="mt-1.5 shrink-0 rounded-full"
+                style={{
+                  width: 6, height: 6,
+                  background: 'var(--cat-leadership)',
+                  boxShadow: '0 0 6px var(--cat-leadership)',
+                }}
+              />
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>{skill}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Languages */}
+      <section>
+        <p className="section-label mb-5">{skillsData.languages.title}</p>
+        <div className="flex flex-wrap gap-3">
           {skillsData.languages.list.map((language, idx) => (
             <motion.span
               key={language}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.05 }}
-              className="rounded-lg border border-border bg-card px-3 py-1.5 text-sm font-medium text-muted-foreground"
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.08 }}
+              style={{
+                padding: '6px 16px',
+                borderRadius: 'var(--radius-full)',
+                border: '1px solid var(--line)',
+                background: 'var(--ink-2)',
+                fontSize: '0.875rem',
+                color: 'var(--text-muted)',
+                transition: 'all 250ms var(--ease-out)',
+                cursor: 'default',
+              }}
             >
               {language}
             </motion.span>
           ))}
         </div>
       </section>
+
     </div>
   );
 }
-

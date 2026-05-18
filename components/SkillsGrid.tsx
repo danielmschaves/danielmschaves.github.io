@@ -4,13 +4,14 @@ import { motion } from "framer-motion";
 import skillsData from "@/data/skills.json";
 
 const categoryChipColor: Record<string, string> = {
-  "Programming Languages": 'var(--cat-engineering)',
-  "Data Engineering":      'var(--cat-engineering)',
-  "Cloud Platforms":       'var(--cat-cloud)',
-  "Databases":             'var(--cat-science)',
-  "Data Visualization":    'var(--cat-ai)',
-  "AI/ML":                 'var(--cat-ai)',
-  "DevOps":                'var(--cat-cloud)',
+  "Project Management Tools": 'var(--cat-leadership)',
+  "Programming Languages":    'var(--cat-engineering)',
+  "Data Engineering":         'var(--cat-engineering)',
+  "Cloud Platforms":          'var(--cat-cloud)',
+  "Databases":                'var(--cat-science)',
+  "Data Visualization":       'var(--cat-ai)',
+  "AI/ML":                    'var(--cat-ai)',
+  "DevOps":                   'var(--cat-cloud)',
 };
 
 function SkillChip({ skill, color }: { skill: string; color?: string }) {
@@ -109,11 +110,11 @@ export default function SkillsGrid() {
         </div>
       </section>
 
-      {/* Data Product */}
+      {/* Delivery & Leadership */}
       <section>
-        <p className="section-label mb-6">{skillsData.dataProduct.title}</p>
+        <p className="section-label mb-6">{skillsData.deliveryLeadership.title}</p>
         <div className="grid gap-4 sm:grid-cols-2">
-          {skillsData.dataProduct.skills.map((skill, idx) => (
+          {skillsData.deliveryLeadership.skills.map((skill, idx) => (
             <motion.div
               key={skill}
               initial={{ opacity: 0, x: -12 }}

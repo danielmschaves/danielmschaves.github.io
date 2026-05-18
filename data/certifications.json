@@ -1,8 +1,18 @@
 [
   {
-    "title": "Analytics Engineer Certificate by Indicium Academy",
+    "title": "Claude Architect (CCA)",
+    "image": "/images/cca.png",
+    "description": "Anthropic certification validating expertise in designing, deploying, and governing AI systems built on Claude.",
+    "highlights": [
+      "Architected multi-agent systems with Claude, including intelligent pipelines and agentic workflows for enterprise use cases.",
+      "Applied responsible AI governance frameworks, covering safety, transparency, and accountability in production AI deployments.",
+      "Designed production-grade AI applications — chatbots, GenAI solutions, and autonomous agents — for enterprise contexts."
+    ]
+  },
+  {
+    "title": "Analytics Engineer Certified by Indicium",
     "image": "/images/analytics-engineer.jpg",
-    "description": "Comprehensive data engineering certification focusing on modern data stack tools.",
+    "description": "Internal certification validating dbt-based analytics engineering and modern data stack design.",
     "highlights": [
       "Developed comprehensive data models using dbt Core and BigQuery for the Adventure Works dataset.",
       "Implemented a multi-layer data architecture with staging, intermediate, and mart layers following data engineering best practices.",
@@ -12,7 +22,7 @@
   {
     "title": "IBM Data Engineering Professional Certificate",
     "image": "/images/ibm-data-eng.jpeg",
-    "description": "Professional certificate covering end-to-end data engineering practices.",
+    "description": "Professional certificate covering end-to-end data engineering practices across relational, NoSQL, and big data systems.",
     "highlights": [
       "Developed working knowledge of NoSQL & Big Data using MongoDB, Cassandra, Cloudant, Hadoop, Apache Spark, Spark SQL, Spark ML and Spark Streaming.",
       "Created, designed and managed relational databases such as MySQL, PostgreSQL and IBM Db2.",
@@ -20,9 +30,19 @@
     ]
   },
   {
+    "title": "IBM Data Warehouse Engineer",
+    "image": "/images/ibm-data-eng.jpeg",
+    "description": "IBM Professional Certificate covering data warehouse design, SQL query optimization, and business intelligence integration.",
+    "highlights": [
+      "Designed relational and columnar data warehouse schemas optimized for analytical workloads and business intelligence reporting.",
+      "Implemented ETL pipelines for dimensional modeling, including fact and dimension table construction using industry-standard methodologies.",
+      "Worked with IBM Db2 and cloud-based warehouse solutions to build scalable, query-efficient data warehouse architectures."
+    ]
+  },
+  {
     "title": "IBM Data Science Professional Certificate",
     "image": "/images/ibm-data-science.jpeg",
-    "description": "Comprehensive data science certification covering the full data science lifecycle.",
+    "description": "Comprehensive data science certification covering the full data science lifecycle from exploration to model deployment.",
     "highlights": [
       "Practiced with most up-to-date skills that data scientists use in their daily roles.",
       "Imported and cleaned data sets, analyzed data and built ML models and pipelines.",
@@ -30,14 +50,13 @@
     ]
   },
   {
-    "title": "Software Product Management",
+    "title": "Certified Scrum Master (CSM)",
     "image": "/images/product-management.jpeg",
-    "description": "Specialization in software product management methodologies and practices.",
+    "description": "Scrum Alliance certification validating expertise in agile facilitation, sprint management, and servant leadership.",
     "highlights": [
-      "Applied product management techniques to industry inspired scenarios.",
-      "Interacted with clients and managed a team of developers.",
-      "Mastered agile software development practices."
+      "Mastered Scrum events (Sprint Planning, Daily Stand-up, Sprint Review, Retrospective) and the roles of Product Owner, Scrum Master, and Development Team.",
+      "Applied agile practices to cross-functional engineering and delivery teams, improving responsiveness and team velocity.",
+      "Facilitated backlog refinement and velocity-based planning, enabling predictable delivery cadences across multi-team programs."
     ]
   }
 ]
-

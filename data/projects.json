@@ -1,23 +1,58 @@
 [
   {
+    "id": "cloud-migration-enterprise",
+    "title": "Cloud Migration of an Enterprise Data Analytics Platform",
+    "description": "12-month, $1.2M migration of ~200 servers from 6 legacy data centers to AWS — zero unscheduled downtime, delivered within fixed budget and timeline.",
+    "image": "/images/cloud-migration.svg",
+    "technologies": ["Project Management", "AWS", "Cloud Migration", "Agile", "Risk Management", "PMI/PMBOK"],
+    "featured": true,
+    "category": "Project Management"
+  },
+  {
+    "id": "data-warehouse-modernization",
+    "title": "Data Warehouse Modernization Program",
+    "description": "18-month fixed-fee program migrating a legacy SQL Server data warehouse to Snowflake, dbt, and Tableau — governed by formal change control, contractual gateways, and three-tier stakeholder management.",
+    "image": "/images/dw-modernization.svg",
+    "technologies": ["Program Management", "Snowflake", "dbt", "Tableau", "Governance", "Change Control", "RAID Management"],
+    "featured": false,
+    "category": "Project Management"
+  },
+  {
+    "id": "spotify-etl-aws",
+    "title": "Spotify ELT Pipeline with AWS, Airflow and dbt",
+    "description": "End-to-end ELT data lake pulling Spotify's global playlist data through a 4-stage medallion architecture on AWS S3, orchestrated by Airflow and transformed with dbt — delivered to Power BI dashboards.",
+    "githubUrl": "https://github.com/danielmschaves/spotify-etl-aws",
+    "image": "/images/spotify-etl-aws.svg",
+    "technologies": ["AWS", "Python", "Airflow", "DuckDB", "dbt", "Terraform", "Motherduck", "S3", "Power BI"],
+    "featured": false,
+    "category": "Data Engineering",
+    "overview": "A cost-effective data lake built on the \"poor man's data lake\" concept — DuckDB, Motherduck, dbt, and Airflow processing data from the Spotify API. The pipeline extracts tracks, albums, and artists from popular global playlists and moves them through four sequential stages (Raw → Bronze → Silver → Gold), storing each as Parquet files in AWS S3. Airflow on Astronomer orchestrates daily batch runs; dbt handles all transformations with automated testing and documentation; Terraform provisions the S3 infrastructure; and Power BI surfaces the final analytics layer.",
+    "highlights": [
+      "Designed a 4-stage medallion architecture (Raw/Bronze/Silver/Gold) using DuckDB and AWS S3, keeping infrastructure costs near zero",
+      "Orchestrated daily Spotify API extraction via Astronomer and Airflow with modular, testable task groups",
+      "Provisioned S3 buckets and external Motherduck tables with Terraform for reproducible, code-driven infrastructure",
+      "Transformed data through dbt-core with automated testing and documentation, deployed to both dev and prod environments",
+      "Delivered analytics-ready Power BI dashboards covering playlist trends, artist reach, and track-level metrics"
+    ],
+    "technicalApproach": "Raw stage ingests JSON from the Spotify API into S3. Bronze converts raw JSON to Parquet via DuckDB. Silver applies business-rule cleaning and enrichment. Gold runs dbt models to produce analytics-ready dimensional tables in Motherduck, which Power BI queries directly.",
+    "links": []
+  },
+  {
     "id": "adventure-works-dbt",
     "title": "Adventure Works Data Pipeline with dbt and BigQuery",
-    "description": "This project implements a data pipeline for the Adventure Works dataset using dbt Core and BigQuery. It includes data ingestion, transformation, and modeling following best practices in data engineering. The project features a comprehensive data model with staging, intermediate, and mart layers, along with automated testing and documentation.",
+    "description": "Analytics engineering certification project — a three-layer dbt pipeline (staging, intermediate, marts) transforming 64 SAP source tables into analytics-ready dimensional models on BigQuery.",
     "githubUrl": "https://github.com/danielmschaves/academy-dbt-test",
-    "image": "/images/adworks.jpg",
+    "image": "/images/adventure-works-dbt.svg",
     "technologies": ["dbt", "BigQuery", "SQL", "Python", "Data Modeling"],
-    "featured": true,
+    "featured": false,
     "category": "Data Engineering",
-    "overview": "This project was developed as part of the Analytics Engineer certification from Indicium Academy. It implements a comprehensive data pipeline for ingesting and transforming Adventure Works SAP data using dbt Core and BigQuery. The solution follows modern data engineering best practices with a three-layer architecture: staging for raw data standardization and cleaning, intermediate for transformation logic, and marts for final dimensional models organized by business subject. The project includes automated testing, comprehensive documentation, and processes 64 source tables to deliver analytics-ready data models.",
+    "overview": "Built as part of the Analytics Engineer certification from Indicium Academy, this project ingests and transforms Adventure Works SAP data using dbt Core and BigQuery. Sixty-four source tables flow through three layers: staging standardizes and cleans raw inputs, intermediate applies transformation logic and prepares join-ready datasets, and marts deliver business-facing dimensional models organized by domain. Each layer is covered by automated dbt tests and generated documentation.",
     "highlights": [
-      "Implemented a three-layer data architecture (staging, intermediate, marts) for the Adventure Works SAP dataset using dbt Core and BigQuery",
-      "Developed comprehensive data models with automated testing and documentation to ensure data quality and reliability",
-      "Processed and transformed 64 source tables from SAP into analytics-ready dimensional models organized by business subject",
-      "Created staging layer for raw data standardization and cleaning, intermediate layer for transformation logic, and marts for final business-ready models",
-      "Implemented data engineering best practices including version control, testing, and comprehensive documentation",
-      "Delivered analytics-ready data models that enable business intelligence and data-driven decision making"
+      "Modeled 64 SAP source tables into a clean dimensional schema using dbt Core's three-layer architecture on BigQuery",
+      "Wrote automated dbt tests (not-null, unique, accepted-values) and generated docs across every model layer",
+      "Designed mart-layer models organized by business subject, directly consumable by BI tools"
     ],
-    "technicalApproach": "The project follows a three-layer data architecture: staging layer for raw data standardization and cleaning, intermediate layer for transformation logic and preparation, and marts layer for final dimensional models organized by business subject.",
+    "technicalApproach": "Staging layer handles raw data standardization and type casting. Intermediate layer applies transformation logic and prepares datasets for joining. Marts layer delivers final dimensional models organized by business subject area.",
     "links": [
       {
         "label": "View Dashboard",
@@ -31,157 +66,21 @@
   },
   {
     "id": "ecommerce-dbt",
-    "title": "E-commerce Data Pipeline with dbt and BigQuery",
-    "description": "This project implements a data pipeline that extracts data from BigQuery, validates it using Pydantic models, and loads it into Streamlit.",
+    "title": "E-commerce ETL Pipeline with BigQuery and DuckDB",
+    "description": "Python ETL pipeline that extracts e-commerce data from BigQuery public datasets, validates it with Pydantic, loads it into DuckDB, and sinks to multiple destinations — local CSV, Amazon S3, and MotherDuck.",
     "githubUrl": "https://github.com/danielmschaves/gcp-etl-dbt",
-    "image": "/images/ecommerce-2.jpg",
-    "technologies": ["dbt", "BigQuery", "Python", "Pydantic", "Streamlit"],
+    "image": "/images/ecommerce-dbt.svg",
+    "technologies": ["dbt", "BigQuery", "Python", "Pydantic", "DuckDB", "S3", "MotherDuck"],
     "featured": false,
     "category": "Data Engineering",
-    "overview": "This project implements a data pipeline that extracts data from BigQuery public datasets, validates it using Pydantic models, and loads it into DuckDB. The pipeline supports multiple output destinations including local CSV files, Amazon S3, and MotherDuck for flexible data processing and analysis.",
+    "overview": "A modular Python ETL pipeline built around the BigQuery public dataset 'thelook_ecommerce'. Data is extracted from BigQuery, validated for type safety and business rules using Pydantic models, loaded into DuckDB for efficient in-process analysis, and then sinked to one of three configurable destinations: local CSV files, Amazon S3, or MotherDuck. The pipeline is composed of independent, testable components for BigQuery interactions, DuckDB operations, and data validation.",
     "highlights": [
-      "Implemented a data pipeline that ingests data from the BigQuery public dataset 'thelook_ecommerce'",
-      "Validated data using Pydantic models to ensure data quality and type safety",
-      "Loaded validated data into DuckDB for efficient processing and analysis",
-      "Supported multiple output destinations: local CSV files, Amazon S3, and MotherDuck",
-      "Orchestrated the entire ETL pipeline with modular Python components for BigQuery interactions, DuckDB operations, and data validation",
-      "Enabled flexible data processing workflows for e-commerce analytics and insights"
+      "Extracted and validated e-commerce data from BigQuery using Pydantic models to enforce schema and type safety at ingestion",
+      "Loaded validated data into DuckDB for fast, in-process analytical queries without standing up a separate database server",
+      "Built a flexible multi-destination sink layer supporting local CSV, Amazon S3, and MotherDuck based on runtime configuration",
+      "Structured the pipeline as modular Python components — BigQuery extractor, DuckDB loader, Pydantic validator, and sink adapters — for independent testing and reuse"
     ],
-    "technicalApproach": "The pipeline follows a clear data flow: Extract data from BigQuery using specified table names, Transform by validating with Pydantic models, Load into DuckDB, and Sink to multiple destinations (CSV, S3, MotherDuck) based on requirements.",
+    "technicalApproach": "Extract from BigQuery using table names as input, validate records with Pydantic models, load into DuckDB for processing, then sink to the configured destination (CSV, S3, or MotherDuck) based on runtime parameters.",
     "links": []
-  },
-  {
-    "id": "spotify-etl-aws",
-    "title": "Spotify ELT pipeline with AWS, Python and Airflow",
-    "description": "This project follows the \"poor man's data lake\" concept, leveraging open source tools like DuckDB, dbt and Airflow to process data from the Spotify API.",
-    "githubUrl": "https://github.com/danielmschaves/spotify-etl-aws",
-    "image": "/images/spotify.jpeg",
-    "technologies": ["AWS", "Python", "Airflow", "DuckDB", "dbt", "Terraform", "Motherduck", "S3", "Power BI"],
-    "featured": false,
-    "category": "Data Engineering",
-    "overview": "This project implements a cost-effective data lake solution following the \"poor man's data lake\" concept, leveraging DuckDB, Motherduck, dbt, and Airflow to process data from the Spotify API. The solution focuses on extracting data from popular global playlists, including tracks, albums, and artists, and transforming it through a multi-stage ELT pipeline. The architecture processes and converts data into Parquet files stored in AWS S3, organized across Raw, Bronze, Silver, and Gold stages for sequential processing. The pipeline is orchestrated daily via Astronomer and Airflow, ensuring automated extraction, transformation, and loading of Spotify data into an analytics-ready state for reporting and visualization with Power BI.",
-    "highlights": [
-      "Implemented a cost-effective data lake architecture using the \"poor man's data lake\" concept with DuckDB, Motherduck, dbt, and Airflow",
-      "Designed a multi-stage ELT pipeline with Raw (JSON), Bronze (Parquet), Silver (Parquet), and Gold (Parquet) stages for sequential data processing",
-      "Orchestrated daily automated batch extraction of playlist data from the Spotify API using Astronomer and Airflow",
-      "Leveraged AWS S3 for scalable storage of raw and transformed data across multiple processing stages",
-      "Implemented infrastructure as code using Terraform to provision and manage S3 buckets for consistent and reproducible setup",
-      "Created external tables in Motherduck datasets pointing to Parquet files in S3, making data queryable for analysis",
-      "Transformed data using dbt-core with automated testing and documentation in development and production environments",
-      "Enabled comprehensive reporting and visualization using Power BI dashboards for analytics-ready Spotify data insights"
-    ],
-    "technicalApproach": "The pipeline follows a multi-stage ELT architecture: Raw Stage stores JSON data from Spotify API in S3, Bronze Stage transforms raw data to Parquet using DuckDB, Silver Stage further refines data for analysis using DuckDB, and Gold Stage performs final transformations using dbt to create analytics-ready datasets. Infrastructure is provisioned with Terraform, and the entire pipeline is orchestrated daily via Astronomer and Airflow, which handles extraction, loading, transformation, external table creation in Motherduck, and data transformation for reporting and visualization.",
-    "links": []
-  },
-  {
-    "id": "billion-rows",
-    "title": "Billion rows with pandas, duckdb and polars",
-    "description": "This project focus on processing a billion rows with different python libraries like pandas, polars and duckdb presented in a simple dashboards with streamlit.",
-    "githubUrl": "https://github.com/danielmschaves/bilionrows",
-    "image": "/images/billion.jpg",
-    "technologies": ["Python", "Pandas", "Polars", "DuckDB", "Streamlit"],
-    "featured": false,
-    "category": "Data Engineering"
-  },
-  {
-    "id": "northwind-sql-dbt",
-    "title": "Northwind data pipeline with PostgreSQL and dbt",
-    "description": "This project showcases skills in managing databases using PostgreSQL within a Docker environment and in performing data transformation using dbt.",
-    "githubUrl": "https://github.com/danielmschaves/northwind-sql-dbt",
-    "image": "/images/northwind.jpeg",
-    "technologies": ["PostgreSQL", "dbt", "Docker", "SQL"],
-    "featured": false,
-    "category": "Data Engineering"
-  },
-  {
-    "id": "air-quality-dbt",
-    "title": "Air Quality Analysis with dbt and DuckDB",
-    "description": "This project leverages dbt (data build tool) and DuckDB to analyze air quality data sourced from the World Health Organization (WHO).",
-    "githubUrl": "https://github.com/danielmschaves/dbt-duckdb-air-quality",
-    "image": "/images/air-quality.jpeg",
-    "technologies": ["dbt", "DuckDB", "Python", "Data Analysis"],
-    "featured": false,
-    "category": "Data Engineering"
-  },
-  {
-    "id": "ibm-data-engineering-capstone",
-    "title": "IBM Data Engineering Capstone Project",
-    "description": "This project uses OLTP and OLAP databases with MySQL and PostgreSQL, ETL pipelines with Python, orchestration with Airflow and predictive modeling using Apache Spark.",
-    "githubUrl": "https://github.com/danielmschaves/ibm-data-engineering-capstone",
-    "image": "/images/ecommerce.jpeg",
-    "technologies": ["MySQL", "PostgreSQL", "Python", "Airflow", "Apache Spark", "ETL"],
-    "featured": false,
-    "category": "Data Engineering"
-  },
-  {
-    "id": "ibm-data-science-capstone",
-    "title": "IBM Data Science Capstone Project",
-    "description": "In this final capstone project, I followed the CRISP-DM process model, including data collection, data wrangling, exploratory data analysis, data visualization, model development, model evaluation and results reporting.",
-    "githubUrl": "https://github.com/danielmschaves/ibm-data-science-capstone",
-    "image": "/images/spacex.jpeg",
-    "technologies": ["Python", "Machine Learning", "Data Science", "CRISP-DM"],
-    "featured": false,
-    "category": "Data Science"
-  },
-  {
-    "id": "ibm-data-engineering-python",
-    "title": "Python Project For Data Engineering",
-    "description": "As a data engineer working for an international financial analysis company, my job in this project was to collect financial data from various sources such as websites, APIs, and files provided by financial analysis firms.",
-    "githubUrl": "https://github.com/danielmschaves/ibm-data-engineering-python-project",
-    "image": "/images/bank.jpeg",
-    "technologies": ["Python", "APIs", "Web Scraping", "Data Collection"],
-    "featured": false,
-    "category": "Data Engineering"
-  },
-  {
-    "id": "chicago-crime-analysis",
-    "title": "Chicago Crime Data Analysis",
-    "description": "This project contains an exploratory data analysis of crime, socio-economic and school performance for the city of Chicago using a public dataset.",
-    "githubUrl": "https://github.com/danielmschaves/data-analysis-chicago-crime-dataset",
-    "image": "/images/chicago.jpeg",
-    "technologies": ["Python", "Data Analysis", "Visualization"],
-    "featured": false,
-    "category": "Data Science"
-  },
-  {
-    "id": "ibm-ml-spark",
-    "title": "Data Engineering and Machine Learning Spark",
-    "description": "This project demonstrates how to utilize Apache Spark to convert Parquet file data into a CSV format and subsequently train a Random Forest model.",
-    "githubUrl": "https://github.com/danielmschaves/ibm-data-engineering-ml-spark",
-    "image": "/images/data.jpg",
-    "technologies": ["Apache Spark", "Machine Learning", "Random Forest", "Python"],
-    "featured": false,
-    "category": "Data Engineering"
-  },
-  {
-    "id": "ibm-data-science-python",
-    "title": "Python Project For Data Science",
-    "description": "This project is focused on extracting financial data of popular stocks such as Tesla, Amazon, AMD, and GameStop using Python libraries and web scraping.",
-    "githubUrl": "https://github.com/danielmschaves/ibm-data-science-python-project",
-    "image": "/images/financial.jpeg",
-    "technologies": ["Python", "Web Scraping", "Data Analysis"],
-    "featured": false,
-    "category": "Data Science"
-  },
-  {
-    "id": "housing-prices-prediction",
-    "title": "Predicting Housing Prices for a Real Estate Trust",
-    "description": "In this project, I determined the market price of a house given a set of features, using attributes or features such as square footage and number of bedrooms.",
-    "githubUrl": "https://github.com/danielmschaves/ibm-data-analysis-python-project",
-    "image": "/images/housing.jpeg",
-    "technologies": ["Python", "Machine Learning", "Predictive Modeling"],
-    "featured": false,
-    "category": "Data Science"
-  },
-  {
-    "id": "rainfall-prediction",
-    "title": "Rainfall Prediction Using Classification Algorithms: A ML Project",
-    "description": "In this project, I used the weatherAUS.csv dataset which includes weather observations from 2008 to 2017. The implemented algorithms were Linear Regression, Decision Tree, Logistic Regression, and SVM. I evaluated each model using performance metrics such as Accuracy Score, Mean Squared Error and R2-Score.",
-    "githubUrl": "https://github.com/danielmschaves/ibm-data-science-ml",
-    "image": "/images/rainfall.jpeg",
-    "technologies": ["Python", "Machine Learning", "Classification", "SVM", "Decision Tree"],
-    "featured": false,
-    "category": "Data Science"
   }
 ]
-

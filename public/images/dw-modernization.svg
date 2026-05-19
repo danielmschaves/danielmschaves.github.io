@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="dw-bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#020e1a"/>
+      <stop offset="100%" stop-color="#082f49"/>
+    </linearGradient>
+    <linearGradient id="dw-pipe" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0369a1"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="dw-node1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#075985"/>
+      <stop offset="100%" stop-color="#0c4a6e"/>
+    </linearGradient>
+    <linearGradient id="dw-node2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0369a1"/>
+      <stop offset="100%" stop-color="#075985"/>
+    </linearGradient>
+    <linearGradient id="dw-node3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <linearGradient id="dw-node4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <pattern id="dw-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0L0 0 0 40" fill="none" stroke="#0ea5e9" stroke-width="0.4"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#dw-bg)"/>
+  <rect width="1200" height="630" fill="url(#dw-grid)" opacity="0.07"/>
+
+  <!-- Title area -->
+  <text x="600" y="68" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="11" fill="#38bdf8" letter-spacing="4" opacity="0.85">DATA WAREHOUSE MODERNIZATION PROGRAM</text>
+  <text x="600" y="88" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="9"  fill="#4e7192" letter-spacing="2">18 MONTHS · FIXED-FEE · PROGRAM MANAGEMENT</text>
+  <line x1="300" y1="100" x2="900" y2="100" stroke="#0ea5e9" stroke-width="0.5" opacity="0.2"/>
+
+  <!-- ── PIPELINE FLOW (y center = 285) ── -->
+
+  <!-- Pipe line (background) -->
+  <rect x="168" y="280" width="864" height="10" rx="5" fill="#0c4a6e" opacity="0.6"/>
+
+  <!-- Animated-look dots on pipe -->
+  <circle cx="280" cy="285" r="3" fill="#0369a1" opacity="0.7"/>
+  <circle cx="360" cy="285" r="3" fill="#0469a8" opacity="0.8"/>
+  <circle cx="440" cy="285" r="4" fill="#0569b0" opacity="0.9"/>
+  <circle cx="520" cy="285" r="3" fill="#0679ba" opacity="0.8"/>
+  <circle cx="600" cy="285" r="5" fill="#0ea5e9"/>
+  <circle cx="680" cy="285" r="3" fill="#16b1f0" opacity="0.8"/>
+  <circle cx="760" cy="285" r="3" fill="#22c4f4" opacity="0.9"/>
+  <circle cx="840" cy="285" r="4" fill="#2dcff7" opacity="0.8"/>
+  <circle cx="920" cy="285" r="3" fill="#38bdf8" opacity="0.7"/>
+
+  <!-- ── NODE 1: LEGACY SQL SERVER (cx=168) ── -->
+  <!-- Cylinder body -->
+  <rect x="88" y="220" width="160" height="130" rx="8" fill="url(#dw-node1)" stroke="#0ea5e9" stroke-width="0.8" opacity="0.95"/>
+  <!-- Cylinder cap (ellipse top) -->
+  <ellipse cx="168" cy="224" rx="80" ry="12" fill="#0c4a6e" stroke="#0ea5e9" stroke-width="0.6"/>
+  <ellipse cx="168" cy="224" rx="80" ry="12" fill="#075985" opacity="0.5"/>
+  <!-- Cylinder mid stripe -->
+  <ellipse cx="168" cy="285" rx="80" ry="8" fill="none" stroke="#0ea5e9" stroke-width="0.4" opacity="0.3"/>
+  <!-- Label -->
+  <text x="168" y="264" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#38bdf8" font-weight="700" letter-spacing="0.5">SQL SERVER</text>
+  <text x="168" y="281" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8"  fill="#4e7192" letter-spacing="1">LEGACY DW</text>
+  <text x="168" y="318" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7"  fill="#4e7192" letter-spacing="0.5">EXTRACT</text>
+  <!-- Stage label below -->
+  <text x="168" y="375" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" opacity="0.6" letter-spacing="2">STAGE 1</text>
+  <text x="168" y="391" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#4e7192">LEGACY SOURCE</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="252" y1="285" x2="348" y2="285" stroke="url(#dw-pipe)" stroke-width="2" opacity="0.7"/>
+  <polygon points="352,285 340,278 340,292" fill="#0ea5e9" opacity="0.8"/>
+  <text x="300" y="272" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#4e7192" letter-spacing="1">TRANSFORM</text>
+
+  <!-- ── NODE 2: dbt (cx=432) ── -->
+  <!-- Hexagon shape for dbt -->
+  <polygon points="432,215 498,253 498,317 432,355 366,317 366,253" fill="url(#dw-node2)" stroke="#0ea5e9" stroke-width="0.8" opacity="0.95"/>
+  <!-- Inner hexagon detail -->
+  <polygon points="432,232 484,260 484,310 432,338 380,310 380,260" fill="none" stroke="#0ea5e9" stroke-width="0.4" opacity="0.3"/>
+  <!-- Label -->
+  <text x="432" y="279" text-anchor="middle" font-family="ui-monospace,monospace" font-size="18" fill="#38bdf8" font-weight="700">dbt</text>
+  <text x="432" y="300" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8"  fill="#4e7192" letter-spacing="1">TRANSFORM</text>
+  <text x="432" y="318" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7"  fill="#4e7192" letter-spacing="0.5">MODEL · TEST · DOC</text>
+  <!-- Stage label -->
+  <text x="432" y="375" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" opacity="0.6" letter-spacing="2">STAGE 2</text>
+  <text x="432" y="391" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#4e7192">TRANSFORMATION</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="502" y1="285" x2="598" y2="285" stroke="url(#dw-pipe)" stroke-width="2" opacity="0.7"/>
+  <polygon points="602,285 590,278 590,292" fill="#0ea5e9" opacity="0.8"/>
+  <text x="550" y="272" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#4e7192" letter-spacing="1">LOAD</text>
+
+  <!-- ── NODE 3: SNOWFLAKE (cx=696) ── -->
+  <!-- Snowflake hexagon (larger) -->
+  <polygon points="696,215 768,256 768,320 696,360 624,320 624,256" fill="url(#dw-node3)" stroke="#0ea5e9" stroke-width="0.8" opacity="0.95"/>
+  <!-- Inner detail lines (snowflake arms) -->
+  <line x1="696" y1="240" x2="696" y2="336" stroke="#0ea5e9" stroke-width="0.5" opacity="0.25"/>
+  <line x1="628" y1="270" x2="764" y2="306" stroke="#0ea5e9" stroke-width="0.5" opacity="0.25"/>
+  <line x1="764" y1="270" x2="628" y2="306" stroke="#0ea5e9" stroke-width="0.5" opacity="0.25"/>
+  <!-- Label -->
+  <text x="696" y="275" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#38bdf8" font-weight="700" letter-spacing="0.5">SNOWFLAKE</text>
+  <text x="696" y="294" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8"  fill="#4e7192" letter-spacing="1">CLOUD DW</text>
+  <text x="696" y="314" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7"  fill="#4e7192" letter-spacing="0.5">GOVERNED · SCALABLE</text>
+  <!-- Stage label -->
+  <text x="696" y="375" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" opacity="0.6" letter-spacing="2">STAGE 3</text>
+  <text x="696" y="391" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#4e7192">CLOUD WAREHOUSE</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="770" y1="285" x2="866" y2="285" stroke="url(#dw-pipe)" stroke-width="2" opacity="0.7"/>
+  <polygon points="870,285 858,278 858,292" fill="#0ea5e9" opacity="0.8"/>
+  <text x="818" y="272" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#4e7192" letter-spacing="1">VISUALIZE</text>
+
+  <!-- ── NODE 4: TABLEAU (cx=1000) ── -->
+  <!-- Bar chart inside a rounded rect -->
+  <rect x="912" y="215" width="176" height="140" rx="8" fill="url(#dw-node4)" stroke="#0ea5e9" stroke-width="0.8" opacity="0.95"/>
+  <!-- Bar chart bars -->
+  <rect x="932" y="275" width="20" height="60" rx="2" fill="#075985" opacity="0.9"/>
+  <rect x="960" y="250" width="20" height="85" rx="2" fill="#0284c7" opacity="0.9"/>
+  <rect x="988" y="260" width="20" height="75" rx="2" fill="#0369a1" opacity="0.9"/>
+  <rect x="1016" y="240" width="20" height="95" rx="2" fill="#0ea5e9" opacity="0.9"/>
+  <rect x="1044" y="265" width="20" height="70" rx="2" fill="#38bdf8" opacity="0.9"/>
+  <!-- Baseline -->
+  <line x1="925" y1="335" x2="1075" y2="335" stroke="#0ea5e9" stroke-width="0.6" opacity="0.5"/>
+  <!-- Label -->
+  <text x="1000" y="237" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#38bdf8" font-weight="700" letter-spacing="0.5">TABLEAU</text>
+  <!-- Stage label -->
+  <text x="1000" y="375" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" opacity="0.6" letter-spacing="2">STAGE 4</text>
+  <text x="1000" y="391" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#4e7192">ANALYTICS &amp; REPORTING</text>
+
+  <!-- ── KPI ROW ── -->
+  <!-- Gateway badges -->
+  <rect x="88"  y="420" width="158" height="56" rx="6" fill="#075985" stroke="#0ea5e9" stroke-width="0.7" opacity="0.9"/>
+  <text x="167" y="445" text-anchor="middle" font-family="ui-monospace,monospace" font-size="18" fill="#38bdf8" font-weight="700">&lt; 5%</text>
+  <text x="167" y="463" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7"  fill="#4e7192" letter-spacing="1">VARIANCE TO BUDGET</text>
+
+  <rect x="284" y="420" width="158" height="56" rx="6" fill="#075985" stroke="#10b981" stroke-width="0.7" opacity="0.9"/>
+  <text x="363" y="445" text-anchor="middle" font-family="ui-monospace,monospace" font-size="18" fill="#10b981" font-weight="700">100%</text>
+  <text x="363" y="463" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7"  fill="#4e7192" letter-spacing="1">GATEWAYS PASSED</text>
+
+  <rect x="480" y="420" width="158" height="56" rx="6" fill="#075985" stroke="#0ea5e9" stroke-width="0.7" opacity="0.9"/>
+  <text x="559" y="445" text-anchor="middle" font-family="ui-monospace,monospace" font-size="18" fill="#38bdf8" font-weight="700">&gt; 98%</text>
+  <text x="559" y="463" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7"  fill="#4e7192" letter-spacing="1">DATA ACCURACY SLA</text>
+
+  <rect x="676" y="420" width="158" height="56" rx="6" fill="#075985" stroke="#0ea5e9" stroke-width="0.7" opacity="0.9"/>
+  <text x="755" y="445" text-anchor="middle" font-family="ui-monospace,monospace" font-size="18" fill="#38bdf8" font-weight="700">4</text>
+  <text x="755" y="463" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7"  fill="#4e7192" letter-spacing="1">CONTRACTUAL GATEWAYS</text>
+
+  <rect x="872" y="420" width="240" height="56" rx="6" fill="#075985" stroke="#0ea5e9" stroke-width="0.7" opacity="0.9"/>
+  <text x="992" y="445" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#38bdf8" font-weight="700">3-TIER GOVERNANCE</text>
+  <text x="992" y="463" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7"  fill="#4e7192" letter-spacing="1">STRATEGIC · TACTICAL · OPERATIONAL</text>
+
+  <!-- ── BOTTOM BAR ── -->
+  <rect x="0" y="575" width="1200" height="55" fill="#010b15" opacity="0.85"/>
+  <line x1="0" y1="575" x2="1200" y2="575" stroke="#0ea5e9" stroke-width="0.5" opacity="0.25"/>
+  <text x="60"  y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">PROGRAM MANAGEMENT</text>
+  <text x="232" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="248" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">SNOWFLAKE</text>
+  <text x="336" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="352" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">dbt</text>
+  <text x="384" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="400" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">TABLEAU</text>
+  <text x="464" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="480" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">GOVERNANCE</text>
+  <text x="572" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="588" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">CHANGE CONTROL</text>
+  <text x="712" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="728" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">RAID MANAGEMENT</text>
+</svg>

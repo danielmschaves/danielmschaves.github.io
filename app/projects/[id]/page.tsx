@@ -3,6 +3,9 @@ import { notFound } from "next/navigation";
 import projectsData from "@/data/projects.json";
 import { siteConfig } from "@/config/site";
 import ProjectContent from "./ProjectContent";
+import CloudMigrationContent from "@/components/projects/CloudMigrationContent";
+import DWProgramContent from "@/components/projects/DWProgramContent";
+import SpotifyELTContent from "@/components/projects/SpotifyELTContent";
 
 interface ProjectPageProps {
   params: {
@@ -39,6 +42,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   if (!project) {
     notFound();
   }
+
+  if (project.id === "cloud-migration-enterprise") return <CloudMigrationContent />;
+  if (project.id === "data-warehouse-modernization") return <DWProgramContent />;
+  if (project.id === "spotify-etl-aws") return <SpotifyELTContent />;
 
   return <ProjectContent project={project} />;
 }

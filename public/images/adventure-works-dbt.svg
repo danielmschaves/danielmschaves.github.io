@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="aw-bg" x1="0" y1="0" x2="0" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#020e1a"/>
+      <stop offset="100%" stop-color="#082f49"/>
+    </linearGradient>
+    <pattern id="aw-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0L0 0 0 40" fill="none" stroke="#0ea5e9" stroke-width="0.4"/>
+    </pattern>
+    <marker id="aw-arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#0ea5e9" opacity="0.6"/>
+    </marker>
+    <linearGradient id="aw-hex-g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0369a1"/>
+      <stop offset="100%" stop-color="#075985"/>
+    </linearGradient>
+    <linearGradient id="aw-bq-g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#065e84"/>
+    </linearGradient>
+    <linearGradient id="aw-sap-g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#075985"/>
+      <stop offset="100%" stop-color="#053f62"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#aw-bg)"/>
+  <rect width="1200" height="630" fill="url(#aw-grid)" opacity="0.07"/>
+
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="22" fill="#f1f5f9" font-weight="600" letter-spacing="0.5">Adventure Works · dbt Pipeline</text>
+  <text x="600" y="62" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="11" fill="#38bdf8" letter-spacing="2" opacity="0.85">dbt Core · BigQuery · Analytics Engineering · Indicium Academy</text>
+
+  <!-- Pipeline backbone -->
+  <line x1="220" y1="290" x2="855" y2="290" stroke="#0369a1" stroke-width="2.5" opacity="0.35"/>
+
+  <!-- Segment arrows -->
+  <line x1="222" y1="290" x2="264" y2="290" stroke="#0ea5e9" stroke-width="1.5" opacity="0.5" marker-end="url(#aw-arr)"/>
+  <line x1="405" y1="290" x2="454" y2="290" stroke="#0ea5e9" stroke-width="1.5" opacity="0.5" marker-end="url(#aw-arr)"/>
+  <line x1="606" y1="290" x2="655" y2="290" stroke="#0ea5e9" stroke-width="1.5" opacity="0.5" marker-end="url(#aw-arr)"/>
+  <line x1="796" y1="290" x2="856" y2="290" stroke="#0ea5e9" stroke-width="1.5" opacity="0.5" marker-end="url(#aw-arr)"/>
+
+  <!-- Particles seg 1 -->
+  <circle cx="232" cy="290" r="3" fill="#0ea5e9" opacity="0.5"/>
+  <circle cx="244" cy="290" r="3.5" fill="#0ea5e9" opacity="0.65"/>
+  <circle cx="256" cy="290" r="3" fill="#38bdf8" opacity="0.8"/>
+
+  <!-- Particles seg 2 -->
+  <circle cx="418" cy="290" r="3" fill="#0ea5e9" opacity="0.5"/>
+  <circle cx="430" cy="290" r="3.5" fill="#0ea5e9" opacity="0.65"/>
+  <circle cx="443" cy="290" r="3" fill="#38bdf8" opacity="0.8"/>
+
+  <!-- Particles seg 3 -->
+  <circle cx="618" cy="290" r="3" fill="#0ea5e9" opacity="0.5"/>
+  <circle cx="630" cy="290" r="3.5" fill="#0ea5e9" opacity="0.65"/>
+  <circle cx="643" cy="290" r="3" fill="#38bdf8" opacity="0.8"/>
+
+  <!-- Particles seg 4 -->
+  <circle cx="810" cy="290" r="3" fill="#0ea5e9" opacity="0.5"/>
+  <circle cx="824" cy="290" r="3.5" fill="#0ea5e9" opacity="0.65"/>
+  <circle cx="838" cy="290" r="3" fill="#38bdf8" opacity="0.8"/>
+
+  <!-- STAGE 1: SAP SOURCE rect x=30-220, y=190-390 -->
+  <rect x="30" y="185" width="192" height="210" rx="6" fill="url(#aw-sap-g)" stroke="#0ea5e9" stroke-width="0.8" opacity="0.95"/>
+  <text x="126" y="208" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#38bdf8" letter-spacing="2.5" opacity="0.9">SAP SOURCE</text>
+  <line x1="40" y1="215" x2="212" y2="215" stroke="#0ea5e9" stroke-width="0.4" opacity="0.35"/>
+  <!-- Table header -->
+  <rect x="42" y="221" width="56" height="13" rx="2" fill="#0369a1" opacity="0.85"/>
+  <rect x="102" y="221" width="56" height="13" rx="2" fill="#0369a1" opacity="0.85"/>
+  <rect x="162" y="221" width="50" height="13" rx="2" fill="#0369a1" opacity="0.85"/>
+  <text x="70" y="231" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#94a3b8">SALES_ID</text>
+  <text x="130" y="231" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#94a3b8">CUST_ID</text>
+  <text x="187" y="231" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#94a3b8">AMOUNT</text>
+  <!-- Data rows -->
+  <rect x="42" y="238" width="56" height="10" rx="1" fill="#0a1628" opacity="0.75"/>
+  <rect x="102" y="238" width="56" height="10" rx="1" fill="#0a1628" opacity="0.75"/>
+  <rect x="162" y="238" width="50" height="10" rx="1" fill="#0a1628" opacity="0.75"/>
+  <rect x="42" y="252" width="56" height="10" rx="1" fill="#0a1628" opacity="0.55"/>
+  <rect x="102" y="252" width="56" height="10" rx="1" fill="#0a1628" opacity="0.55"/>
+  <rect x="162" y="252" width="50" height="10" rx="1" fill="#0a1628" opacity="0.55"/>
+  <rect x="42" y="266" width="56" height="10" rx="1" fill="#0a1628" opacity="0.75"/>
+  <rect x="102" y="266" width="56" height="10" rx="1" fill="#0a1628" opacity="0.75"/>
+  <rect x="162" y="266" width="50" height="10" rx="1" fill="#0a1628" opacity="0.75"/>
+  <rect x="42" y="280" width="56" height="10" rx="1" fill="#0a1628" opacity="0.55"/>
+  <rect x="102" y="280" width="56" height="10" rx="1" fill="#0a1628" opacity="0.55"/>
+  <rect x="162" y="280" width="50" height="10" rx="1" fill="#0a1628" opacity="0.55"/>
+  <rect x="42" y="294" width="56" height="10" rx="1" fill="#0a1628" opacity="0.75"/>
+  <rect x="102" y="294" width="56" height="10" rx="1" fill="#0a1628" opacity="0.75"/>
+  <rect x="162" y="294" width="50" height="10" rx="1" fill="#0a1628" opacity="0.75"/>
+  <rect x="42" y="308" width="56" height="10" rx="1" fill="#0a1628" opacity="0.35"/>
+  <rect x="102" y="308" width="56" height="10" rx="1" fill="#0a1628" opacity="0.35"/>
+  <rect x="162" y="308" width="50" height="10" rx="1" fill="#0a1628" opacity="0.35"/>
+  <text x="126" y="338" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b" letter-spacing="2">64 TABLES</text>
+  <!-- Status dots -->
+  <circle cx="50"  cy="358" r="4" fill="#10b981"/>
+  <circle cx="63"  cy="358" r="4" fill="#10b981"/>
+  <circle cx="76"  cy="358" r="4" fill="#f59e0b"/>
+  <text x="90" y="362" font-family="ui-monospace,monospace" font-size="8" fill="#4e7192">ACTIVE</text>
+
+  <!-- STAGE 2: STAGING hexagon flat-top center(335,290) r=68 -->
+  <!-- Points: 403,290  369,231  301,231  267,290  301,349  369,349 -->
+  <polygon points="403,290 369,231 301,231 267,290 301,349 369,349" fill="url(#aw-hex-g)" stroke="#0ea5e9" stroke-width="0.8" opacity="0.95"/>
+  <text x="335" y="279" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#38bdf8" font-weight="700" letter-spacing="1">STAGING</text>
+  <text x="335" y="296" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b" letter-spacing="1">standardize · clean</text>
+  <text x="335" y="318" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#10b981" opacity="0.75">✓ validate</text>
+
+  <!-- STAGE 3: INTERMEDIATE hexagon flat-top center(530,290) r=76 -->
+  <!-- Points: 606,290  568,224  492,224  454,290  492,356  568,356 -->
+  <polygon points="606,290 568,224 492,224 454,290 492,356 568,356" fill="url(#aw-hex-g)" stroke="#0ea5e9" stroke-width="0.8" opacity="0.95"/>
+  <text x="530" y="279" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#38bdf8" font-weight="700" letter-spacing="0.5">INTERMEDIATE</text>
+  <text x="530" y="296" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b" letter-spacing="1">transform · enrich</text>
+  <text x="530" y="318" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#0ea5e9" opacity="0.65">business logic</text>
+
+  <!-- STAGE 4: MARTS hexagon flat-top center(730,290) r=68 -->
+  <!-- Points: 798,290  764,231  696,231  662,290  696,349  764,349 -->
+  <polygon points="798,290 764,231 696,231 662,290 696,349 764,349" fill="url(#aw-hex-g)" stroke="#38bdf8" stroke-width="1" opacity="0.95"/>
+  <text x="730" y="283" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#38bdf8" font-weight="700" letter-spacing="1">MARTS</text>
+  <text x="730" y="300" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b" letter-spacing="1">business · ready</text>
+  <text x="730" y="319" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#f1f5f9" opacity="0.45">dim · fact</text>
+
+  <!-- STAGE 5: BigQuery cylinder center x=960 -->
+  <rect x="862" y="233" width="196" height="124" fill="url(#aw-bq-g)" stroke="#0ea5e9" stroke-width="0.7" opacity="0.9"/>
+  <ellipse cx="960" cy="233" rx="98" ry="18" fill="#0284c7" stroke="#0ea5e9" stroke-width="0.7" opacity="0.95"/>
+  <ellipse cx="960" cy="357" rx="98" ry="18" fill="#065e84" stroke="#0ea5e9" stroke-width="0.7" opacity="0.8"/>
+  <text x="960" y="282" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#38bdf8" font-weight="700" letter-spacing="2">BIGQUERY</text>
+  <text x="960" y="300" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b" letter-spacing="2">DATA WAREHOUSE</text>
+  <!-- metric rows -->
+  <rect x="876" y="314" width="65" height="7" rx="2" fill="#10b981" opacity="0.7"/>
+  <rect x="950" y="314" width="45" height="7" rx="2" fill="#0ea5e9" opacity="0.6"/>
+  <rect x="876" y="325" width="55" height="7" rx="2" fill="#f59e0b" opacity="0.55"/>
+  <rect x="940" y="325" width="60" height="7" rx="2" fill="#0ea5e9" opacity="0.5"/>
+  <rect x="876" y="336" width="72" height="7" rx="2" fill="#10b981" opacity="0.6"/>
+
+  <!-- Stage sublabels -->
+  <text x="126" y="415" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#334f66" letter-spacing="2">SOURCE</text>
+  <text x="335" y="415" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#334f66" letter-spacing="2">LAYER 1</text>
+  <text x="530" y="415" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#334f66" letter-spacing="2">LAYER 2</text>
+  <text x="730" y="415" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#334f66" letter-spacing="2">LAYER 3</text>
+  <text x="960" y="415" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#334f66" letter-spacing="2">DESTINATION</text>
+
+  <!-- Metric cards row -->
+  <rect x="200" y="447" width="108" height="52" rx="6" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.6" opacity="0.9"/>
+  <text x="254" y="470" text-anchor="middle" font-family="ui-monospace,monospace" font-size="20" fill="#38bdf8" font-weight="700">64</text>
+  <text x="254" y="487" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1.5">SRC TABLES</text>
+
+  <rect x="360" y="447" width="108" height="52" rx="6" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.6" opacity="0.9"/>
+  <text x="414" y="470" text-anchor="middle" font-family="ui-monospace,monospace" font-size="20" fill="#38bdf8" font-weight="700">3</text>
+  <text x="414" y="487" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1.5">DBT LAYERS</text>
+
+  <rect x="520" y="447" width="128" height="52" rx="6" fill="#0a1628" stroke="#10b981" stroke-width="0.6" opacity="0.9"/>
+  <text x="584" y="470" text-anchor="middle" font-family="ui-monospace,monospace" font-size="20" fill="#10b981" font-weight="700">100%</text>
+  <text x="584" y="487" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1.5">TESTS PASSING</text>
+
+  <rect x="700" y="447" width="148" height="52" rx="6" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.6" opacity="0.9"/>
+  <text x="774" y="467" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#38bdf8" font-weight="700">ANALYTICS</text>
+  <text x="774" y="482" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" font-weight="500">ENGINEER CERT</text>
+  <text x="774" y="494" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1">INDICIUM ACADEMY</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="575" width="1200" height="55" fill="#010b15" opacity="0.85"/>
+  <line x1="0" y1="575" x2="1200" y2="575" stroke="#0ea5e9" stroke-width="0.5" opacity="0.25"/>
+  <text x="60"  y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">DBT</text>
+  <text x="94"  y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="108" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">BIGQUERY</text>
+  <text x="186" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="200" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">SQL</text>
+  <text x="232" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="246" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">PYTHON</text>
+  <text x="310" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="324" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">DATA MODELING</text>
+</svg>

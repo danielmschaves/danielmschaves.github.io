@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="ec-bg" x1="0" y1="0" x2="0" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#020e1a"/>
+      <stop offset="100%" stop-color="#082f49"/>
+    </linearGradient>
+    <pattern id="ec-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0L0 0 0 40" fill="none" stroke="#0ea5e9" stroke-width="0.4"/>
+    </pattern>
+    <marker id="ec-arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#0ea5e9" opacity="0.55"/>
+    </marker>
+    <linearGradient id="ec-node-g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0369a1"/>
+      <stop offset="100%" stop-color="#075985"/>
+    </linearGradient>
+    <linearGradient id="ec-duck-g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#065e84"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#ec-bg)"/>
+  <rect width="1200" height="630" fill="url(#ec-grid)" opacity="0.07"/>
+
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="22" fill="#f1f5f9" font-weight="600" letter-spacing="0.5">E-commerce Data Pipeline</text>
+  <text x="600" y="62" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="11" fill="#38bdf8" letter-spacing="2" opacity="0.85">BigQuery · Pydantic · DuckDB · Multi-destination ELT</text>
+
+  <!-- Main horizontal pipe -->
+  <line x1="215" y1="285" x2="755" y2="285" stroke="#0369a1" stroke-width="2.5" opacity="0.35"/>
+
+  <!-- Arrows main pipe -->
+  <line x1="217" y1="285" x2="287" y2="285" stroke="#0ea5e9" stroke-width="1.5" opacity="0.5" marker-end="url(#ec-arr)"/>
+  <line x1="460" y1="285" x2="527" y2="285" stroke="#0ea5e9" stroke-width="1.5" opacity="0.5" marker-end="url(#ec-arr)"/>
+  <line x1="676" y1="285" x2="752" y2="285" stroke="#0ea5e9" stroke-width="1.5" opacity="0.5" marker-end="url(#ec-arr)"/>
+
+  <!-- Fork lines from junction (760, 285) to 3 outputs -->
+  <line x1="758" y1="285" x2="758" y2="145" stroke="#0ea5e9" stroke-width="1" stroke-dasharray="5,4" opacity="0.4"/>
+  <line x1="758" y1="145" x2="870" y2="145" stroke="#0ea5e9" stroke-width="1.5" opacity="0.4" marker-end="url(#ec-arr)"/>
+  <line x1="758" y1="285" x2="870" y2="285" stroke="#0ea5e9" stroke-width="1.5" opacity="0.4" marker-end="url(#ec-arr)"/>
+  <line x1="758" y1="285" x2="758" y2="425" stroke="#0ea5e9" stroke-width="1" stroke-dasharray="5,4" opacity="0.4"/>
+  <line x1="758" y1="425" x2="870" y2="425" stroke="#0ea5e9" stroke-width="1.5" opacity="0.4" marker-end="url(#ec-arr)"/>
+
+  <!-- Fork junction dot -->
+  <circle cx="758" cy="285" r="6" fill="#38bdf8" opacity="0.5"/>
+  <circle cx="758" cy="285" r="3" fill="#38bdf8" opacity="0.9"/>
+
+  <!-- Particles on main pipe -->
+  <circle cx="236" cy="285" r="3" fill="#0ea5e9" opacity="0.5"/>
+  <circle cx="248" cy="285" r="3.5" fill="#38bdf8" opacity="0.7"/>
+  <circle cx="262" cy="285" r="3" fill="#0ea5e9" opacity="0.5"/>
+
+  <circle cx="476" cy="285" r="3" fill="#0ea5e9" opacity="0.5"/>
+  <circle cx="490" cy="285" r="3.5" fill="#38bdf8" opacity="0.7"/>
+  <circle cx="504" cy="285" r="3" fill="#0ea5e9" opacity="0.5"/>
+
+  <circle cx="692" cy="285" r="3" fill="#0ea5e9" opacity="0.5"/>
+  <circle cx="706" cy="285" r="3.5" fill="#38bdf8" opacity="0.7"/>
+  <circle cx="720" cy="285" r="3" fill="#0ea5e9" opacity="0.5"/>
+
+  <!-- SOURCE 1: BigQuery rounded rect x=48-215, y=200-370 -->
+  <rect x="48" y="195" width="168" height="180" rx="8" fill="url(#ec-node-g)" stroke="#0ea5e9" stroke-width="0.8" opacity="0.95"/>
+  <!-- BQ diamond logo hint -->
+  <polygon points="132,225 152,250 132,275 112,250" fill="none" stroke="#38bdf8" stroke-width="1.5" opacity="0.7"/>
+  <polygon points="132,235 147,250 132,265 117,250" fill="#0ea5e9" opacity="0.25"/>
+  <text x="132" y="298" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#38bdf8" font-weight="700" letter-spacing="1.5">BIGQUERY</text>
+  <text x="132" y="314" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b" letter-spacing="0.5">PUBLIC DATASET</text>
+  <text x="132" y="330" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#4e7192" letter-spacing="0.5">thelook_ecommerce</text>
+  <!-- BQ status -->
+  <circle cx="70" cy="352" r="4" fill="#10b981"/>
+  <text x="82" y="356" font-family="ui-monospace,monospace" font-size="8" fill="#4e7192">STREAMING</text>
+
+  <!-- SOURCE 2: Pydantic shield pentagon center(375, 285) -->
+  <!-- Points: top-left(305,220), top-right(445,220), right(445,310), bottom(375,370), left(305,310) -->
+  <polygon points="305,220 445,220 445,310 375,370 305,310" fill="url(#ec-node-g)" stroke="#0ea5e9" stroke-width="0.8" opacity="0.95"/>
+  <!-- Shield inner border -->
+  <polygon points="318,230 432,230 432,305 375,356 318,305" fill="none" stroke="#0ea5e9" stroke-width="0.4" opacity="0.3"/>
+  <text x="375" y="260" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#38bdf8" font-weight="700" letter-spacing="1">PYDANTIC</text>
+  <text x="375" y="278" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b" letter-spacing="0.5">VALIDATION</text>
+  <!-- Checkmarks -->
+  <text x="330" y="298" font-family="ui-monospace,monospace" font-size="9" fill="#10b981" opacity="0.8">✓ type safety</text>
+  <text x="330" y="312" font-family="ui-monospace,monospace" font-size="9" fill="#10b981" opacity="0.6">✓ schema</text>
+  <text x="330" y="326" font-family="ui-monospace,monospace" font-size="9" fill="#10b981" opacity="0.4">✓ constraints</text>
+
+  <!-- SOURCE 3: DuckDB cylinder center x=600 -->
+  <rect x="535" y="228" width="140" height="115" fill="url(#ec-duck-g)" stroke="#0ea5e9" stroke-width="0.7" opacity="0.9"/>
+  <ellipse cx="605" cy="228" rx="70" ry="14" fill="#0284c7" stroke="#0ea5e9" stroke-width="0.7" opacity="0.95"/>
+  <ellipse cx="605" cy="343" rx="70" ry="14" fill="#065e84" stroke="#0ea5e9" stroke-width="0.7" opacity="0.8"/>
+  <text x="605" y="272" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#38bdf8" font-weight="700" letter-spacing="1.5">DUCKDB</text>
+  <text x="605" y="290" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b" letter-spacing="1">in-process analytics</text>
+  <rect x="550" y="302" width="55" height="7" rx="2" fill="#0ea5e9" opacity="0.55"/>
+  <rect x="615" y="302" width="40" height="7" rx="2" fill="#10b981" opacity="0.6"/>
+  <rect x="550" y="313" width="40" height="7" rx="2" fill="#0ea5e9" opacity="0.4"/>
+
+  <!-- OUTPUT 1: CSV file rect -->
+  <rect x="872" y="103" width="150" height="84" rx="6" fill="url(#ec-node-g)" stroke="#0ea5e9" stroke-width="0.7" opacity="0.9"/>
+  <!-- File icon: dog-ear -->
+  <polygon points="896,118 918,118 926,126 926,148 896,148" fill="none" stroke="#0ea5e9" stroke-width="0.8" opacity="0.6"/>
+  <polygon points="918,118 918,126 926,126" fill="#0ea5e9" opacity="0.3"/>
+  <text x="956" y="138" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#38bdf8" font-weight="600" letter-spacing="1">LOCAL CSV</text>
+  <text x="956" y="153" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b">file output</text>
+  <text x="956" y="168" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#4e7192">data.csv</text>
+
+  <!-- OUTPUT 2: S3 cylinder -->
+  <rect x="872" y="248" width="150" height="75" fill="url(#ec-node-g)" stroke="#0ea5e9" stroke-width="0.7" opacity="0.9"/>
+  <ellipse cx="947" cy="248" rx="75" ry="13" fill="#0369a1" stroke="#0ea5e9" stroke-width="0.7" opacity="0.95"/>
+  <ellipse cx="947" cy="323" rx="75" ry="13" fill="#075985" stroke="#0ea5e9" stroke-width="0.7" opacity="0.8"/>
+  <text x="947" y="278" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#38bdf8" font-weight="600" letter-spacing="1.5">AMAZON S3</text>
+  <text x="947" y="295" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b">cloud storage</text>
+
+  <!-- OUTPUT 3: MotherDuck cloud -->
+  <rect x="872" y="388" width="150" height="80" rx="8" fill="url(#ec-node-g)" stroke="#0ea5e9" stroke-width="0.7" opacity="0.9"/>
+  <!-- Cloud shape hint -->
+  <ellipse cx="920" cy="410" rx="22" ry="16" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.5"/>
+  <ellipse cx="940" cy="405" rx="18" ry="13" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.5"/>
+  <ellipse cx="958" cy="412" rx="16" ry="12" fill="none" stroke="#38bdf8" stroke-width="1" opacity="0.5"/>
+  <text x="947" y="438" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#38bdf8" font-weight="600" letter-spacing="1">MOTHERDUCK</text>
+  <text x="947" y="453" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b">serverless DuckDB</text>
+
+  <!-- Stage labels -->
+  <text x="132" y="415" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#334f66" letter-spacing="2">EXTRACT</text>
+  <text x="375" y="415" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#334f66" letter-spacing="2">VALIDATE</text>
+  <text x="605" y="415" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#334f66" letter-spacing="2">PROCESS</text>
+
+  <!-- Metric cards bottom -->
+  <rect x="60"  y="450" width="118" height="52" rx="6" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.6" opacity="0.9"/>
+  <text x="119" y="473" text-anchor="middle" font-family="ui-monospace,monospace" font-size="18" fill="#38bdf8" font-weight="700">ELT</text>
+  <text x="119" y="490" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1.5">PIPELINE TYPE</text>
+
+  <rect x="200" y="450" width="118" height="52" rx="6" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.6" opacity="0.9"/>
+  <text x="259" y="473" text-anchor="middle" font-family="ui-monospace,monospace" font-size="18" fill="#38bdf8" font-weight="700">3</text>
+  <text x="259" y="490" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1.5">DESTINATIONS</text>
+
+  <rect x="340" y="450" width="138" height="52" rx="6" fill="#0a1628" stroke="#10b981" stroke-width="0.6" opacity="0.9"/>
+  <text x="409" y="473" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#10b981" font-weight="700">VALIDATED</text>
+  <text x="409" y="490" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1.5">TYPE-SAFE DATA</text>
+
+  <rect x="500" y="450" width="138" height="52" rx="6" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.6" opacity="0.9"/>
+  <text x="569" y="467" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#38bdf8" font-weight="700">MODULAR</text>
+  <text x="569" y="484" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#64748b">Python components</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="575" width="1200" height="55" fill="#010b15" opacity="0.85"/>
+  <line x1="0" y1="575" x2="1200" y2="575" stroke="#0ea5e9" stroke-width="0.5" opacity="0.25"/>
+  <text x="60"  y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">DUCKDB</text>
+  <text x="121" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="135" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">BIGQUERY</text>
+  <text x="213" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="227" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">PYTHON</text>
+  <text x="291" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="305" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">PYDANTIC</text>
+  <text x="380" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="394" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">ETL</text>
+</svg>

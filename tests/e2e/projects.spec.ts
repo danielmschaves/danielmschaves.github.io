@@ -3,6 +3,7 @@ import { test, expect } from "@playwright/test";
 test.describe("Project detail — full content (adventure-works-dbt)", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("/projects/adventure-works-dbt");
+    await page.waitForLoadState("networkidle");
   });
 
   test("h1 is visible", async ({ page }) => {
@@ -10,15 +11,15 @@ test.describe("Project detail — full content (adventure-works-dbt)", () => {
   });
 
   test("Overview section heading is visible", async ({ page }) => {
-    await expect(page.getByRole("heading", { name: /overview/i })).toBeVisible();
+    await expect(page.locator("h2").filter({ hasText: "Overview" })).toBeVisible();
   });
 
   test("Key Highlights section heading is visible", async ({ page }) => {
-    await expect(page.getByRole("heading", { name: /key highlights/i })).toBeVisible();
+    await expect(page.locator("h2").filter({ hasText: "Key Highlights" })).toBeVisible();
   });
 
   test("Technical Approach section heading is visible", async ({ page }) => {
-    await expect(page.getByRole("heading", { name: /technical approach/i })).toBeVisible();
+    await expect(page.locator("h2").filter({ hasText: "Technical Approach" })).toBeVisible();
   });
 
   test("tech tags render", async ({ page }) => {
@@ -28,7 +29,7 @@ test.describe("Project detail — full content (adventure-works-dbt)", () => {
   });
 
   test("View on GitHub link has github.com href", async ({ page }) => {
-    const link = page.getByRole("link", { name: /view on github/i }).first();
+    const link = page.locator("a").filter({ hasText: "View on GitHub" }).first();
     await expect(link).toBeVisible();
     await expect(link).toHaveAttribute("href", /github\.com/);
   });
@@ -42,6 +43,7 @@ test.describe("Project detail — full content (adventure-works-dbt)", () => {
 test.describe("Project detail — minimal content (billion-rows)", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("/projects/billion-rows");
+    await page.waitForLoadState("networkidle");
   });
 
   test("h1 is visible", async ({ page }) => {
@@ -50,14 +52,14 @@ test.describe("Project detail — minimal content (billion-rows)", () => {
 
   test("fallback GitHub notice is visible", async ({ page }) => {
     await expect(
-      page.getByText("Detailed information is available on GitHub.")
+      page.locator("p").filter({ hasText: "Detailed information is available on GitHub." })
     ).toBeVisible();
   });
 
   test("Overview heading does not exist", async ({ page }) => {
     await expect(
-      page.getByRole("heading", { name: /^overview$/i })
-    ).not.toBeVisible();
+      page.locator("h2").filter({ hasText: "Overview" })
+    ).not.toBeAttached();
   });
 });
 

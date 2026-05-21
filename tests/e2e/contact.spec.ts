@@ -47,7 +47,7 @@ test.describe("Contact page — form structure", () => {
 
   test("email contact link renders in the info panel", async ({ page }) => {
     await expect(
-      page.getByRole("link", { name: /danielmschaves@gmail/i })
+      page.getByRole("link", { name: /danielmschaves@gmail/i }).first()
     ).toBeVisible();
   });
 });

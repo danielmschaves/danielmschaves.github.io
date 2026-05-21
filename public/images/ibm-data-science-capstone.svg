@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="ds-bg" x1="0" y1="0" x2="0" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#020e1a"/>
+      <stop offset="100%" stop-color="#0d0f2e"/>
+    </linearGradient>
+    <pattern id="ds-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0L0 0 0 40" fill="none" stroke="#8b5cf6" stroke-width="0.4"/>
+    </pattern>
+    <marker id="ds-arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#a78bfa" opacity="0.6"/>
+    </marker>
+    <linearGradient id="ds-node" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#0f0c2e"/>
+    </linearGradient>
+    <linearGradient id="ds-wheel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2e1065"/>
+      <stop offset="100%" stop-color="#1a0840"/>
+    </linearGradient>
+    <radialGradient id="ds-rocket-bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1c1040"/>
+      <stop offset="100%" stop-color="#090520"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#ds-bg)"/>
+  <rect width="1200" height="630" fill="url(#ds-grid)" opacity="0.06"/>
+
+  <!-- Purple radial glow -->
+  <radialGradient id="ds-glow" cx="38%" cy="50%" r="35%">
+    <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.08"/>
+    <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="1200" height="630" fill="url(#ds-glow)"/>
+
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="20" fill="#f1f5f9" font-weight="600" letter-spacing="0.5">IBM Data Science Capstone</text>
+  <text x="600" y="62" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="11" fill="#a78bfa" letter-spacing="2" opacity="0.85">CRISP-DM · SpaceX · Machine Learning · Classification</text>
+
+  <!-- ── LEFT: CRISP-DM WHEEL ── -->
+  <!-- Outer ring -->
+  <circle cx="330" cy="300" r="190" fill="none" stroke="#a78bfa" stroke-width="0.5" stroke-dasharray="3,8" opacity="0.2"/>
+  <!-- CRISP-DM Cycle: 6 segments as arcs + labels -->
+  <!-- Using radial pie-like segments around center(330,300) -->
+  <!-- Segment labels at angle positions -->
+
+  <!-- Segment 1: Business Understanding (top, ~10 o'clock to 12) -->
+  <path d="M330,300 L245,175 A170,170 0 0,1 330,130 Z" fill="#1e1b4b" stroke="#a78bfa" stroke-width="0.8" opacity="0.85"/>
+  <text x="285" y="180" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#c4b5fd" letter-spacing="0.5">BUSINESS</text>
+  <text x="285" y="191" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#c4b5fd">UNDERSTANDING</text>
+
+  <!-- Segment 2: Data Understanding (top-right, 12 to 2) -->
+  <path d="M330,300 L330,130 A170,170 0 0,1 470,195 Z" fill="#2d1b69" stroke="#a78bfa" stroke-width="0.8" opacity="0.85"/>
+  <text x="390" y="175" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#c4b5fd" letter-spacing="0.5">DATA</text>
+  <text x="390" y="186" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#c4b5fd">UNDERSTANDING</text>
+
+  <!-- Segment 3: Data Preparation (right, 2 to 4) -->
+  <path d="M330,300 L470,195 A170,170 0 0,1 500,300 Z" fill="#1e1b4b" stroke="#a78bfa" stroke-width="0.8" opacity="0.85"/>
+  <text x="460" y="265" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#c4b5fd" letter-spacing="0.5">DATA</text>
+  <text x="460" y="276" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#c4b5fd">PREPARATION</text>
+
+  <!-- Segment 4: Modeling (bottom-right, 4 to 6) -->
+  <path d="M330,300 L500,300 A170,170 0 0,1 415,440 Z" fill="#2d1b69" stroke="#a78bfa" stroke-width="0.8" opacity="0.85"/>
+  <text x="455" y="375" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#c4b5fd" letter-spacing="0.5">MODELING</text>
+
+  <!-- Segment 5: Evaluation (bottom-left, 6 to 8) -->
+  <path d="M330,300 L415,440 A170,170 0 0,1 200,395 Z" fill="#1e1b4b" stroke="#a78bfa" stroke-width="0.8" opacity="0.85"/>
+  <text x="290" y="435" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#c4b5fd" letter-spacing="0.5">EVALUATION</text>
+
+  <!-- Segment 6: Deployment (left, 8 to 10) -->
+  <path d="M330,300 L200,395 A170,170 0 0,1 245,175 Z" fill="#2d1b69" stroke="#a78bfa" stroke-width="0.8" opacity="0.85"/>
+  <text x="215" y="295" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#c4b5fd" letter-spacing="0.5">DEPLOYMENT</text>
+
+  <!-- Center hub -->
+  <circle cx="330" cy="300" r="55" fill="#0f0c2e" stroke="#a78bfa" stroke-width="1" opacity="0.95"/>
+  <text x="330" y="293" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#a78bfa" font-weight="700">CRISP-DM</text>
+  <text x="330" y="309" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#6d28d9" opacity="0.8">6 phases</text>
+  <!-- Circular arrow hint -->
+  <circle cx="330" cy="300" r="40" fill="none" stroke="#a78bfa" stroke-width="0.8" stroke-dasharray="8,4" opacity="0.5"/>
+
+  <!-- Dashed divider -->
+  <line x1="540" y1="90" x2="540" y2="565" stroke="#a78bfa" stroke-width="0.5" stroke-dasharray="6,6" opacity="0.15"/>
+
+  <!-- ── RIGHT: SpaceX Rocket + Results ── -->
+  <!-- Rocket silhouette -->
+  <rect x="620" y="110" width="230" height="340" rx="12" fill="url(#ds-rocket-bg)" stroke="#a78bfa" stroke-width="0.6" opacity="0.9"/>
+  <!-- Rocket body (simplified) -->
+  <!-- Main cylinder -->
+  <rect x="695" y="155" width="80" height="220" rx="8" fill="#1e1b4b" stroke="#a78bfa" stroke-width="0.8" opacity="0.8"/>
+  <!-- Nose cone (triangle) -->
+  <polygon points="735,110 695,180 775,180" fill="#2d1b69" stroke="#a78bfa" stroke-width="0.8" opacity="0.9"/>
+  <!-- Fins left -->
+  <polygon points="695,340 665,380 695,370" fill="#1e1b4b" stroke="#a78bfa" stroke-width="0.7" opacity="0.75"/>
+  <!-- Fins right -->
+  <polygon points="775,340 805,380 775,370" fill="#1e1b4b" stroke="#a78bfa" stroke-width="0.7" opacity="0.75"/>
+  <!-- Engine nozzle -->
+  <rect x="710" y="375" width="50" height="20" rx="4" fill="#2d1b69" stroke="#a78bfa" stroke-width="0.6" opacity="0.8"/>
+  <!-- Flame -->
+  <path d="M720,395 Q735,440 750,395" fill="#f97316" opacity="0.5"/>
+  <path d="M725,395 Q735,425 745,395" fill="#fbbf24" opacity="0.4"/>
+  <!-- Window -->
+  <circle cx="735" cy="255" r="20" fill="#0a0520" stroke="#a78bfa" stroke-width="0.8" opacity="0.8"/>
+  <circle cx="735" cy="255" r="14" fill="#1c1040" stroke="#c4b5fd" stroke-width="0.5" opacity="0.7"/>
+  <!-- Landing pad hint -->
+  <rect x="645" y="420" width="180" height="8" rx="2" fill="#a78bfa" opacity="0.3"/>
+  <line x1="645" y1="428" x2="825" y2="428" stroke="#a78bfa" stroke-width="0.5" opacity="0.5"/>
+  <text x="735" y="448" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#6d28d9" letter-spacing="1">LANDING PAD</text>
+
+  <!-- SpaceX label -->
+  <text x="735" y="480" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#a78bfa" letter-spacing="2" opacity="0.8">SPACEX FALCON 9</text>
+
+  <!-- ── MODEL SCORE CARDS (bottom right) ── -->
+  <!-- Card 1: Logistic Regression -->
+  <rect x="878" y="130" width="140" height="70" rx="6" fill="url(#ds-node)" stroke="#a78bfa" stroke-width="0.7" opacity="0.95"/>
+  <text x="948" y="152" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#c4b5fd" letter-spacing="1">LOGISTIC REG.</text>
+  <rect x="892" y="162" width="112" height="10" rx="2" fill="#0f0c2e" stroke="#a78bfa" stroke-width="0.3" opacity="0.8"/>
+  <rect x="892" y="162" width="83" height="10" rx="2" fill="#a78bfa" opacity="0.6"/>
+  <text x="948" y="185" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#a78bfa" font-weight="700">74.4%</text>
+
+  <!-- Card 2: SVM -->
+  <rect x="878" y="215" width="140" height="70" rx="6" fill="url(#ds-node)" stroke="#c4b5fd" stroke-width="0.7" opacity="0.95"/>
+  <text x="948" y="237" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#c4b5fd" letter-spacing="1">SUPPORT VECTOR</text>
+  <rect x="892" y="247" width="112" height="10" rx="2" fill="#0f0c2e" stroke="#a78bfa" stroke-width="0.3" opacity="0.8"/>
+  <rect x="892" y="247" width="98" height="10" rx="2" fill="#a78bfa" opacity="0.75"/>
+  <text x="948" y="270" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#c4b5fd" font-weight="700">83.3%</text>
+
+  <!-- Card 3: Decision Tree -->
+  <rect x="878" y="300" width="140" height="70" rx="6" fill="url(#ds-node)" stroke="#10b981" stroke-width="0.7" opacity="0.95"/>
+  <text x="948" y="322" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#c4b5fd" letter-spacing="1">DECISION TREE</text>
+  <rect x="892" y="332" width="112" height="10" rx="2" fill="#0f0c2e" stroke="#a78bfa" stroke-width="0.3" opacity="0.8"/>
+  <rect x="892" y="332" width="106" height="10" rx="2" fill="#10b981" opacity="0.7"/>
+  <text x="948" y="355" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#10b981" font-weight="700">87.2%</text>
+
+  <!-- Card 4: KNN (best) -->
+  <rect x="878" y="385" width="140" height="70" rx="6" fill="url(#ds-node)" stroke="#fbbf24" stroke-width="0.9" opacity="0.95"/>
+  <text x="948" y="407" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#c4b5fd" letter-spacing="1">KNN  ★ BEST</text>
+  <rect x="892" y="417" width="112" height="10" rx="2" fill="#0f0c2e" stroke="#a78bfa" stroke-width="0.3" opacity="0.8"/>
+  <rect x="892" y="417" width="112" height="10" rx="2" fill="#fbbf24" opacity="0.7"/>
+  <text x="948" y="440" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#fbbf24" font-weight="700">94.4%</text>
+
+  <!-- Arrows CRISP-DM → SpaceX -->
+  <line x1="502" y1="300" x2="618" y2="300" stroke="#a78bfa" stroke-width="1.5" opacity="0.4" marker-end="url(#ds-arr)"/>
+  <circle cx="520" cy="300" r="3.5" fill="#a78bfa" opacity="0.5"/>
+  <circle cx="538" cy="300" r="4" fill="#c4b5fd" opacity="0.65"/>
+  <circle cx="556" cy="300" r="3.5" fill="#a78bfa" opacity="0.5"/>
+  <circle cx="574" cy="300" r="4" fill="#c4b5fd" opacity="0.65"/>
+  <circle cx="592" cy="300" r="3.5" fill="#a78bfa" opacity="0.5"/>
+
+  <!-- Metric card bottom -->
+  <rect x="60"  y="503" width="130" height="45" rx="6" fill="#0f0c2e" stroke="#a78bfa" stroke-width="0.6" opacity="0.9"/>
+  <text x="125" y="523" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#a78bfa" font-weight="700">CRISP-DM</text>
+  <text x="125" y="540" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#6d28d9" letter-spacing="1">6 PHASES</text>
+
+  <rect x="210" y="503" width="130" height="45" rx="6" fill="#0f0c2e" stroke="#a78bfa" stroke-width="0.6" opacity="0.9"/>
+  <text x="275" y="523" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#a78bfa" font-weight="700">SpaceX</text>
+  <text x="275" y="540" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#6d28d9" letter-spacing="1">DATASET</text>
+
+  <rect x="360" y="503" width="130" height="45" rx="6" fill="#0f0c2e" stroke="#fbbf24" stroke-width="0.6" opacity="0.9"/>
+  <text x="425" y="520" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#fbbf24" font-weight="700">94.4%</text>
+  <text x="425" y="536" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#6d28d9" letter-spacing="1">BEST ACCURACY</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="575" width="1200" height="55" fill="#010b15" opacity="0.85"/>
+  <line x1="0" y1="575" x2="1200" y2="575" stroke="#a78bfa" stroke-width="0.5" opacity="0.25"/>
+  <text x="60"  y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#a78bfa" letter-spacing="1.5" opacity="0.8">PYTHON</text>
+  <text x="124" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e4070">·</text>
+  <text x="138" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#a78bfa" letter-spacing="1.5" opacity="0.8">MACHINE LEARNING</text>
+  <text x="302" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e4070">·</text>
+  <text x="316" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#a78bfa" letter-spacing="1.5" opacity="0.8">DATA SCIENCE</text>
+  <text x="432" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e4070">·</text>
+  <text x="446" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#a78bfa" letter-spacing="1.5" opacity="0.8">CRISP-DM</text>
+  <text x="522" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e4070">·</text>
+  <text x="536" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#a78bfa" letter-spacing="1.5" opacity="0.8">IBM</text>
+</svg>

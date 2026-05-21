@@ -12,6 +12,6 @@ export const siteConfig = {
     phone: "+55 (55) 99669-5092",
   },
   location: "Florianópolis - Santa Catarina",
-  resumePdf: "/DMC-14-06.pdf",
+  resumePdf: "/DMC-17-05.pdf",
 };
 

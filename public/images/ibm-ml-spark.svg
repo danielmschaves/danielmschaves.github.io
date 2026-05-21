@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="ml-bg" x1="0" y1="0" x2="0" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#020e1a"/>
+      <stop offset="100%" stop-color="#0d0f2e"/>
+    </linearGradient>
+    <pattern id="ml-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0L0 0 0 40" fill="none" stroke="#8b5cf6" stroke-width="0.4"/>
+    </pattern>
+    <marker id="ml-arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#a78bfa" opacity="0.6"/>
+    </marker>
+    <linearGradient id="ml-node" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#0f0c2e"/>
+    </linearGradient>
+    <linearGradient id="ml-spark-g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3d1a00"/>
+      <stop offset="100%" stop-color="#1a0a00"/>
+    </linearGradient>
+    <linearGradient id="ml-tree-g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a2e10"/>
+      <stop offset="100%" stop-color="#0a1808"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#ml-bg)"/>
+  <rect width="1200" height="630" fill="url(#ml-grid)" opacity="0.06"/>
+
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="22" fill="#f1f5f9" font-weight="600" letter-spacing="0.5">Data Engineering &amp; ML with Spark</text>
+  <text x="600" y="62" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="11" fill="#a78bfa" letter-spacing="2" opacity="0.85">Apache Spark · Random Forest · Parquet · Python · IBM</text>
+
+  <!-- Pipeline backbone -->
+  <line x1="200" y1="295" x2="1000" y2="295" stroke="#4c1d95" stroke-width="2.5" opacity="0.4"/>
+
+  <!-- Arrows -->
+  <line x1="202" y1="295" x2="290" y2="295" stroke="#a78bfa" stroke-width="1.5" opacity="0.5" marker-end="url(#ml-arr)"/>
+  <line x1="480" y1="295" x2="540" y2="295" stroke="#a78bfa" stroke-width="1.5" opacity="0.5" marker-end="url(#ml-arr)"/>
+  <line x1="810" y1="295" x2="880" y2="295" stroke="#a78bfa" stroke-width="1.5" opacity="0.5" marker-end="url(#ml-arr)"/>
+
+  <!-- Particles -->
+  <circle cx="215" cy="295" r="3.5" fill="#8b5cf6" opacity="0.5"/>
+  <circle cx="232" cy="295" r="4" fill="#a78bfa" opacity="0.7"/>
+  <circle cx="250" cy="295" r="3.5" fill="#8b5cf6" opacity="0.5"/>
+  <circle cx="268" cy="295" r="4" fill="#a78bfa" opacity="0.7"/>
+
+  <circle cx="494" cy="295" r="3.5" fill="#8b5cf6" opacity="0.5"/>
+  <circle cx="508" cy="295" r="4" fill="#a78bfa" opacity="0.7"/>
+  <circle cx="522" cy="295" r="3.5" fill="#8b5cf6" opacity="0.5"/>
+
+  <circle cx="825" cy="295" r="3.5" fill="#8b5cf6" opacity="0.5"/>
+  <circle cx="840" cy="295" r="4" fill="#a78bfa" opacity="0.7"/>
+  <circle cx="855" cy="295" r="3.5" fill="#8b5cf6" opacity="0.5"/>
+  <circle cx="870" cy="295" r="4" fill="#a78bfa" opacity="0.7"/>
+
+  <!-- STAGE 1: Parquet Files stack x=40-200, center y=295 -->
+  <rect x="40" y="200" width="162" height="190" rx="6" fill="url(#ml-node)" stroke="#a78bfa" stroke-width="0.7" opacity="0.95"/>
+  <!-- Stacked file layers -->
+  <rect x="60" y="380" width="122" height="5"  rx="1" fill="#a78bfa" opacity="0.2"/>
+  <rect x="60" y="370" width="122" height="8"  rx="2" fill="#0f0c2e" stroke="#a78bfa" stroke-width="0.4" opacity="0.7"/>
+  <rect x="60" y="358" width="122" height="10" rx="2" fill="#1e1b4b" stroke="#a78bfa" stroke-width="0.5" opacity="0.8"/>
+  <rect x="60" y="345" width="122" height="11" rx="2" fill="#2d1b69" stroke="#a78bfa" stroke-width="0.6" opacity="0.85"/>
+  <!-- Main file -->
+  <rect x="55" y="225" width="132" height="118" rx="3" fill="#1e1b4b" stroke="#a78bfa" stroke-width="0.7" opacity="0.9"/>
+  <!-- Parquet icon: columnar strips -->
+  <rect x="66" y="237" width="14" height="95" rx="2" fill="#a78bfa" opacity="0.5"/>
+  <rect x="85" y="245" width="14" height="87" rx="2" fill="#8b5cf6" opacity="0.6"/>
+  <rect x="104" y="237" width="14" height="95" rx="2" fill="#a78bfa" opacity="0.45"/>
+  <rect x="123" y="250" width="14" height="82" rx="2" fill="#8b5cf6" opacity="0.55"/>
+  <rect x="142" y="237" width="14" height="95" rx="2" fill="#a78bfa" opacity="0.5"/>
+  <!-- PARQUET label -->
+  <text x="121" y="220" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#a78bfa" letter-spacing="2" opacity="0.9">PARQUET</text>
+  <text x="121" y="360" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#64748b" letter-spacing="1">columnar format</text>
+  <text x="121" y="378" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">3 data files</text>
+
+  <!-- STAGE 2: Apache Spark hexagon flat-top center(618, 295) r=138 -->
+  <!-- r=138: 756,295  687,176.4  549,176.4  480,295  549,413.6  687,413.6 -->
+  <polygon points="756,295 687,176 549,176 480,295 549,414 687,414" fill="url(#ml-spark-g)" stroke="#f97316" stroke-width="1.2" opacity="0.95"/>
+  <!-- Inner hex outline -->
+  <polygon points="736,295 676,192 560,192 500,295 560,398 676,398" fill="none" stroke="#f97316" stroke-width="0.4" opacity="0.3"/>
+  <!-- Spark flame -->
+  <path d="M618,215 Q648,232 638,250 Q660,238 648,258 Q672,242 655,268 Q638,285 618,285 Q598,285 581,268 Q564,242 588,258 Q576,238 598,250 Q588,232 618,215 Z" fill="#f97316" opacity="0.4"/>
+  <path d="M618,230 Q634,242 628,255 Q642,246 635,260 Q618,272 600,260 Q593,246 608,255 Q602,242 618,230 Z" fill="#fbbf24" opacity="0.35"/>
+  <!-- Spark label -->
+  <text x="618" y="310" text-anchor="middle" font-family="ui-monospace,monospace" font-size="15" fill="#f97316" font-weight="700" letter-spacing="1.5">APACHE SPARK</text>
+  <text x="618" y="330" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#64748b" letter-spacing="1">distributed processing</text>
+  <!-- Spark metrics inside -->
+  <text x="618" y="358" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#f59e0b" opacity="0.7">Parquet → CSV conversion</text>
+  <text x="618" y="374" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#a78bfa" opacity="0.7">Feature engineering</text>
+  <text x="618" y="390" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#a78bfa" opacity="0.6">MLlib pipeline</text>
+
+  <!-- STAGE 3: Random Forest decision trees x=885-1145 -->
+  <rect x="888" y="135" width="275" height="320" rx="8" fill="#020a10" stroke="#a78bfa" stroke-width="0.7" opacity="0.9"/>
+  <text x="1025" y="162" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#a78bfa" letter-spacing="2" opacity="0.9">RANDOM FOREST</text>
+  <line x1="898" y1="170" x2="1153" y2="170" stroke="#a78bfa" stroke-width="0.4" opacity="0.3"/>
+
+  <!-- Tree 1 (left) -->
+  <!-- Root -->
+  <rect x="905" y="184" width="56" height="18" rx="3" fill="#1e1b4b" stroke="#a78bfa" stroke-width="0.5" opacity="0.9"/>
+  <text x="933" y="197" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#a78bfa">feature_3</text>
+  <!-- Level 2 -->
+  <line x1="918" y1="202" x2="905" y2="222" stroke="#a78bfa" stroke-width="0.5" opacity="0.4"/>
+  <rect x="885" y="222" width="40" height="16" rx="2" fill="#1e1b4b" stroke="#a78bfa" stroke-width="0.4" opacity="0.8"/>
+  <text x="905" y="233" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="#a78bfa">split_a</text>
+  <line x1="948" y1="202" x2="960" y2="222" stroke="#a78bfa" stroke-width="0.5" opacity="0.4"/>
+  <rect x="940" y="222" width="40" height="16" rx="2" fill="#1e1b4b" stroke="#a78bfa" stroke-width="0.4" opacity="0.8"/>
+  <text x="960" y="233" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="#a78bfa">split_b</text>
+  <!-- Level 3 leaves -->
+  <line x1="896" y1="238" x2="890" y2="256" stroke="#a78bfa" stroke-width="0.4" opacity="0.3"/>
+  <circle cx="890" cy="260" r="8" fill="#10b981" opacity="0.5"/>
+  <text x="890" y="264" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="#10b981">1</text>
+  <line x1="913" y1="238" x2="920" y2="256" stroke="#a78bfa" stroke-width="0.4" opacity="0.3"/>
+  <circle cx="920" cy="260" r="8" fill="#ef4444" opacity="0.5"/>
+  <text x="920" y="264" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="#ef4444">0</text>
+  <line x1="952" y1="238" x2="946" y2="256" stroke="#a78bfa" stroke-width="0.4" opacity="0.3"/>
+  <circle cx="946" cy="260" r="8" fill="#10b981" opacity="0.5"/>
+  <text x="946" y="264" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="#10b981">1</text>
+  <line x1="968" y1="238" x2="975" y2="256" stroke="#a78bfa" stroke-width="0.4" opacity="0.3"/>
+  <circle cx="975" cy="260" r="8" fill="#10b981" opacity="0.5"/>
+  <text x="975" y="264" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="#10b981">1</text>
+
+  <!-- Tree 2 (center) -->
+  <rect x="1010" y="184" width="56" height="18" rx="3" fill="#1e1b4b" stroke="#c4b5fd" stroke-width="0.5" opacity="0.9"/>
+  <text x="1038" y="197" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#c4b5fd">feature_7</text>
+  <line x1="1023" y1="202" x2="1010" y2="222" stroke="#a78bfa" stroke-width="0.5" opacity="0.4"/>
+  <rect x="990" y="222" width="40" height="16" rx="2" fill="#1e1b4b" stroke="#a78bfa" stroke-width="0.4" opacity="0.8"/>
+  <text x="1010" y="233" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="#a78bfa">left</text>
+  <line x1="1053" y1="202" x2="1067" y2="222" stroke="#a78bfa" stroke-width="0.5" opacity="0.4"/>
+  <rect x="1047" y="222" width="40" height="16" rx="2" fill="#1e1b4b" stroke="#a78bfa" stroke-width="0.4" opacity="0.8"/>
+  <text x="1067" y="233" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="#a78bfa">right</text>
+  <line x1="1001" y1="238" x2="996" y2="256" stroke="#a78bfa" stroke-width="0.4" opacity="0.3"/>
+  <circle cx="996" cy="260" r="8" fill="#ef4444" opacity="0.5"/>
+  <text x="996" y="264" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="#ef4444">0</text>
+  <line x1="1019" y1="238" x2="1025" y2="256" stroke="#a78bfa" stroke-width="0.4" opacity="0.3"/>
+  <circle cx="1025" cy="260" r="8" fill="#10b981" opacity="0.5"/>
+  <text x="1025" y="264" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="#10b981">1</text>
+  <line x1="1057" y1="238" x2="1052" y2="256" stroke="#a78bfa" stroke-width="0.4" opacity="0.3"/>
+  <circle cx="1052" cy="260" r="8" fill="#10b981" opacity="0.5"/>
+  <text x="1052" y="264" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="#10b981">1</text>
+  <line x1="1077" y1="238" x2="1082" y2="256" stroke="#a78bfa" stroke-width="0.4" opacity="0.3"/>
+  <circle cx="1082" cy="260" r="8" fill="#ef4444" opacity="0.5"/>
+  <text x="1082" y="264" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="#ef4444">0</text>
+
+  <!-- Tree 3 (right, simplified) -->
+  <rect x="1115" y="184" width="56" height="18" rx="3" fill="#1e1b4b" stroke="#a78bfa" stroke-width="0.5" opacity="0.8"/>
+  <text x="1143" y="197" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#a78bfa">feature_2</text>
+  <line x1="1128" y1="202" x2="1118" y2="222" stroke="#a78bfa" stroke-width="0.5" opacity="0.35"/>
+  <circle cx="1115" cy="230" r="8" fill="#10b981" opacity="0.5"/>
+  <line x1="1158" y1="202" x2="1163" y2="222" stroke="#a78bfa" stroke-width="0.5" opacity="0.35"/>
+  <circle cx="1163" cy="230" r="8" fill="#ef4444" opacity="0.5"/>
+
+  <!-- Voting aggregation -->
+  <line x1="930" y1="280" x2="1025" y2="305" stroke="#a78bfa" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.3"/>
+  <line x1="1038" y1="280" x2="1025" y2="305" stroke="#a78bfa" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.3"/>
+  <line x1="1143" y1="248" x2="1025" y2="305" stroke="#a78bfa" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.3"/>
+  <rect x="985" y="305" width="80" height="24" rx="4" fill="#10b981" opacity="0.25" stroke="#10b981" stroke-width="0.7"/>
+  <text x="1025" y="321" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#10b981" font-weight="700">MAJORITY VOTE</text>
+
+  <!-- Feature importance bars -->
+  <text x="903" y="358" font-family="ui-monospace,monospace" font-size="7" fill="#a78bfa" letter-spacing="1">FEATURE IMPORTANCE</text>
+  <text x="903" y="374" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">feature_3</text>
+  <rect x="965" y="367" width="100" height="8" rx="2" fill="#a78bfa" opacity="0.65"/>
+  <text x="903" y="390" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">feature_7</text>
+  <rect x="965" y="383" width="80" height="8" rx="2" fill="#a78bfa" opacity="0.5"/>
+  <text x="903" y="406" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">feature_2</text>
+  <rect x="965" y="399" width="55" height="8" rx="2" fill="#a78bfa" opacity="0.4"/>
+  <text x="903" y="422" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">feature_9</text>
+  <rect x="965" y="415" width="35" height="8" rx="2" fill="#a78bfa" opacity="0.35"/>
+
+  <!-- Accuracy badge -->
+  <rect x="903" y="430" width="240" height="18" rx="4" fill="#1e1b4b" stroke="#10b981" stroke-width="0.7" opacity="0.9"/>
+  <text x="1023" y="443" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#10b981" font-weight="700">ACCURACY: 91.2%  ·  F1: 0.89</text>
+
+  <!-- Bottom metric cards -->
+  <rect x="60"  y="495" width="130" height="50" rx="6" fill="#0f0c2e" stroke="#a78bfa" stroke-width="0.6" opacity="0.9"/>
+  <text x="125" y="518" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#a78bfa" font-weight="700">PARQUET</text>
+  <text x="125" y="534" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#6d28d9" letter-spacing="1">COLUMNAR INPUT</text>
+
+  <rect x="210" y="495" width="130" height="50" rx="6" fill="#0f0c2e" stroke="#f97316" stroke-width="0.6" opacity="0.9"/>
+  <text x="275" y="515" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#f97316" font-weight="700">SPARK</text>
+  <text x="275" y="530" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#f97316">MLlib</text>
+
+  <rect x="360" y="495" width="130" height="50" rx="6" fill="#0f0c2e" stroke="#10b981" stroke-width="0.6" opacity="0.9"/>
+  <text x="425" y="515" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#10b981" font-weight="700">91.2%</text>
+  <text x="425" y="532" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#6d28d9" letter-spacing="1">ACCURACY</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="575" width="1200" height="55" fill="#010b15" opacity="0.85"/>
+  <line x1="0" y1="575" x2="1200" y2="575" stroke="#a78bfa" stroke-width="0.5" opacity="0.25"/>
+  <text x="60"  y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#a78bfa" letter-spacing="1.5" opacity="0.8">APACHE SPARK</text>
+  <text x="170" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e4070">·</text>
+  <text x="184" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#a78bfa" letter-spacing="1.5" opacity="0.8">MACHINE LEARNING</text>
+  <text x="348" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e4070">·</text>
+  <text x="362" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#a78bfa" letter-spacing="1.5" opacity="0.8">RANDOM FOREST</text>
+  <text x="494" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e4070">·</text>
+  <text x="508" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#a78bfa" letter-spacing="1.5" opacity="0.8">PYTHON</text>
+</svg>

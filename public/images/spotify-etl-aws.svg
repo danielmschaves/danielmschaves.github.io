@@ -1,27 +1,50 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
-    <linearGradient id="sp-bg" x1="0" y1="0" x2="0" y2="630" gradientUnits="userSpaceOnUse">
+    <linearGradient id="sp-bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#020e1a"/>
       <stop offset="100%" stop-color="#082f49"/>
     </linearGradient>
-    <pattern id="sp-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M40 0L0 0 0 40" fill="none" stroke="#0ea5e9" stroke-width="0.4"/>
-    </pattern>
-    <marker id="sp-arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-      <polygon points="0,0 8,3 0,6" fill="#0ea5e9" opacity="0.55"/>
-    </marker>
     <linearGradient id="sp-pipe" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="#0369a1"/>
       <stop offset="100%" stop-color="#38bdf8"/>
     </linearGradient>
-    <linearGradient id="sp-node" x1="0" y1="0" x2="0" y2="1">
+    <linearGradient id="sp-n1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a2d1a"/>
+      <stop offset="100%" stop-color="#041a10"/>
+    </linearGradient>
+    <linearGradient id="sp-n2" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#0369a1"/>
       <stop offset="100%" stop-color="#075985"/>
     </linearGradient>
-    <linearGradient id="sp-spotify" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#1a3a5c"/>
-      <stop offset="100%" stop-color="#0d2238"/>
+    <linearGradient id="sp-n3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
     </linearGradient>
+    <linearGradient id="sp-n4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <pattern id="sp-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0L0 0 0 40" fill="none" stroke="#0ea5e9" stroke-width="0.4"/>
+    </pattern>
+    <filter id="sp-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="14" result="blur"/>
+      <feFlood flood-color="#0ea5e9" flood-opacity="0.55" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="sp-glow-green" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="14" result="blur"/>
+      <feFlood flood-color="#1ed760" flood-opacity="0.45" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
 
   <!-- Background -->
@@ -32,152 +55,122 @@
   <text x="600" y="40" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="22" fill="#f1f5f9" font-weight="600" letter-spacing="0.5">Spotify ELT Pipeline · AWS</text>
   <text x="600" y="62" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="11" fill="#38bdf8" letter-spacing="2" opacity="0.85">Airflow · DuckDB · dbt · Terraform · Motherduck · S3</text>
 
-  <!-- Main pipe backbone y=255 -->
-  <rect x="120" y="251" width="970" height="8" rx="4" fill="url(#sp-pipe)" opacity="0.45"/>
+  <!-- Pipeline backbone -->
+  <rect x="168" y="280" width="864" height="10" rx="5" fill="#0c4a6e" opacity="0.6"/>
+  <circle cx="280" cy="285" r="3" fill="#0369a1" opacity="0.7"/>
+  <circle cx="360" cy="285" r="3" fill="#0469a8" opacity="0.8"/>
+  <circle cx="440" cy="285" r="4" fill="#0569b0" opacity="0.9"/>
+  <circle cx="520" cy="285" r="3" fill="#0679ba" opacity="0.8"/>
+  <circle cx="600" cy="285" r="5" fill="#0ea5e9"/>
+  <circle cx="680" cy="285" r="3" fill="#16b1f0" opacity="0.8"/>
+  <circle cx="760" cy="285" r="3" fill="#22c4f4" opacity="0.9"/>
+  <circle cx="840" cy="285" r="4" fill="#2dcff7" opacity="0.8"/>
+  <circle cx="920" cy="285" r="3" fill="#38bdf8" opacity="0.7"/>
 
-  <!-- Stage arrows -->
-  <line x1="190" y1="255" x2="254" y2="255" stroke="#0ea5e9" stroke-width="1.5" opacity="0.5" marker-end="url(#sp-arr)"/>
-  <line x1="394" y1="255" x2="454" y2="255" stroke="#0ea5e9" stroke-width="1.5" opacity="0.5" marker-end="url(#sp-arr)"/>
-  <line x1="604" y1="255" x2="664" y2="255" stroke="#0ea5e9" stroke-width="1.5" opacity="0.5" marker-end="url(#sp-arr)"/>
-  <line x1="854" y1="255" x2="904" y2="255" stroke="#0ea5e9" stroke-width="1.5" opacity="0.5" marker-end="url(#sp-arr)"/>
+  <!-- NODE 1: SPOTIFY + S3 (cx=168) — Cylinder, green glow -->
+  <rect x="88" y="220" width="160" height="130" rx="8" fill="url(#sp-n1)" stroke="#1ed760" stroke-width="0.8" filter="url(#sp-glow-green)"/>
+  <ellipse cx="168" cy="224" rx="80" ry="12" fill="#041a10" stroke="#1ed760" stroke-width="0.6"/>
+  <ellipse cx="168" cy="224" rx="80" ry="12" fill="#0a2d1a" opacity="0.5"/>
+  <ellipse cx="168" cy="285" rx="80" ry="8" fill="none" stroke="#1ed760" stroke-width="0.4" opacity="0.3"/>
+  <text x="168" y="253" text-anchor="middle" font-family="ui-monospace,monospace" font-size="22" fill="#1ed760" opacity="0.7">♪</text>
+  <text x="168" y="276" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#1ed760" font-weight="700" letter-spacing="1">SPOTIFY + S3</text>
+  <text x="168" y="293" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#e2e8f0" letter-spacing="1">EXTRACT · STORE</text>
+  <text x="168" y="318" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#e2e8f0">playlists · parquet</text>
+  <text x="168" y="375" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" opacity="0.6" letter-spacing="2">STAGE 1</text>
+  <text x="168" y="391" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#e2e8f0">INGEST &amp; STORE</text>
 
-  <!-- Particles -->
-  <circle cx="210" cy="255" r="3.5" fill="#0ea5e9" opacity="0.55"/>
-  <circle cx="224" cy="255" r="4" fill="#38bdf8" opacity="0.75"/>
-  <circle cx="238" cy="255" r="3.5" fill="#0ea5e9" opacity="0.55"/>
+  <!-- Arrow 1→2 -->
+  <line x1="252" y1="285" x2="348" y2="285" stroke="url(#sp-pipe)" stroke-width="2" opacity="0.7"/>
+  <polygon points="352,285 340,278 340,292" fill="#0ea5e9" opacity="0.8"/>
+  <text x="300" y="272" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#e2e8f0" letter-spacing="1">SCHEDULE</text>
 
-  <circle cx="410" cy="255" r="3.5" fill="#0ea5e9" opacity="0.55"/>
-  <circle cx="424" cy="255" r="4" fill="#38bdf8" opacity="0.75"/>
-  <circle cx="438" cy="255" r="3.5" fill="#0ea5e9" opacity="0.55"/>
+  <!-- NODE 2: AIRFLOW (cx=432) — Hexagon with DAG wheel -->
+  <polygon points="432,215 498,253 498,317 432,355 366,317 366,253" fill="url(#sp-n2)" stroke="#0ea5e9" stroke-width="0.8" filter="url(#sp-glow)"/>
+  <polygon points="432,232 484,260 484,310 432,338 380,310 380,260" fill="none" stroke="#0ea5e9" stroke-width="0.4" opacity="0.3"/>
+  <line x1="432" y1="285" x2="432" y2="248" stroke="#0ea5e9" stroke-width="0.8" opacity="0.45"/>
+  <line x1="432" y1="285" x2="464" y2="267" stroke="#0ea5e9" stroke-width="0.8" opacity="0.45"/>
+  <line x1="432" y1="285" x2="464" y2="303" stroke="#0ea5e9" stroke-width="0.8" opacity="0.45"/>
+  <line x1="432" y1="285" x2="432" y2="322" stroke="#0ea5e9" stroke-width="0.8" opacity="0.45"/>
+  <line x1="432" y1="285" x2="400" y2="303" stroke="#0ea5e9" stroke-width="0.8" opacity="0.45"/>
+  <line x1="432" y1="285" x2="400" y2="267" stroke="#0ea5e9" stroke-width="0.8" opacity="0.45"/>
+  <circle cx="432" cy="285" r="7" fill="#38bdf8" opacity="0.35"/>
+  <circle cx="432" cy="285" r="3" fill="#38bdf8" opacity="0.8"/>
+  <text x="432" y="240" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#38bdf8" font-weight="700" letter-spacing="0.5">AIRFLOW</text>
+  <text x="432" y="333" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#e2e8f0" letter-spacing="1">DAILY · ASTRONOMER</text>
+  <text x="432" y="375" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" opacity="0.6" letter-spacing="2">STAGE 2</text>
+  <text x="432" y="391" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#e2e8f0">ORCHESTRATE</text>
 
-  <circle cx="620" cy="255" r="3.5" fill="#0ea5e9" opacity="0.55"/>
-  <circle cx="634" cy="255" r="4" fill="#38bdf8" opacity="0.75"/>
-  <circle cx="648" cy="255" r="3.5" fill="#0ea5e9" opacity="0.55"/>
+  <!-- Arrow 2→3 -->
+  <line x1="502" y1="285" x2="598" y2="285" stroke="url(#sp-pipe)" stroke-width="2" opacity="0.7"/>
+  <polygon points="602,285 590,278 590,292" fill="#0ea5e9" opacity="0.8"/>
+  <text x="550" y="272" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#e2e8f0" letter-spacing="1">TRIGGER</text>
 
-  <circle cx="868" cy="255" r="3.5" fill="#0ea5e9" opacity="0.55"/>
-  <circle cx="882" cy="255" r="4" fill="#38bdf8" opacity="0.75"/>
-  <circle cx="896" cy="255" r="3.5" fill="#0ea5e9" opacity="0.55"/>
+  <!-- NODE 3: DUCKDB + dbt (cx=696) — Larger Hexagon -->
+  <polygon points="696,215 768,256 768,320 696,360 624,320 624,256" fill="url(#sp-n3)" stroke="#0ea5e9" stroke-width="0.8" filter="url(#sp-glow)"/>
+  <line x1="696" y1="240" x2="696" y2="336" stroke="#0ea5e9" stroke-width="0.5" opacity="0.25"/>
+  <line x1="628" y1="270" x2="764" y2="306" stroke="#0ea5e9" stroke-width="0.5" opacity="0.25"/>
+  <line x1="764" y1="270" x2="628" y2="306" stroke="#0ea5e9" stroke-width="0.5" opacity="0.25"/>
+  <line x1="636" y1="288" x2="756" y2="288" stroke="#0ea5e9" stroke-width="0.6" opacity="0.3"/>
+  <text x="696" y="261" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#38bdf8" font-weight="700">dbt</text>
+  <text x="696" y="278" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#e2e8f0" letter-spacing="1">TRANSFORM · TEST</text>
+  <text x="696" y="305" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#38bdf8" font-weight="700">DUCKDB</text>
+  <text x="696" y="322" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#e2e8f0" letter-spacing="0.5">in-process · parquet</text>
+  <text x="696" y="375" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" opacity="0.6" letter-spacing="2">STAGE 3</text>
+  <text x="696" y="391" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#e2e8f0">TRANSFORM &amp; LOAD</text>
 
-  <!-- STAGE 1: Spotify API circle r=70, center(120, 255) -->
-  <circle cx="120" cy="255" r="70" fill="url(#sp-spotify)" stroke="#0ea5e9" stroke-width="0.8" opacity="0.95"/>
-  <!-- Music note -->
-  <text x="120" y="240" text-anchor="middle" font-family="ui-monospace,monospace" font-size="32" fill="#1ed760" opacity="0.7">♪</text>
-  <text x="120" y="273" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#38bdf8" font-weight="700" letter-spacing="1">SPOTIFY API</text>
-  <text x="120" y="289" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#64748b" letter-spacing="1">playlists · tracks</text>
-  <text x="120" y="302" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#64748b">albums · artists</text>
+  <!-- Arrow 3→4 -->
+  <line x1="770" y1="285" x2="866" y2="285" stroke="url(#sp-pipe)" stroke-width="2" opacity="0.7"/>
+  <polygon points="870,285 858,278 858,292" fill="#0ea5e9" opacity="0.8"/>
+  <text x="818" y="272" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#e2e8f0" letter-spacing="1">REPORT</text>
 
-  <!-- STAGE 2: S3 cylinder, center x=325 -->
-  <rect x="263" y="213" width="124" height="84" fill="url(#sp-node)" stroke="#0ea5e9" stroke-width="0.7" opacity="0.9"/>
-  <ellipse cx="325" cy="213" rx="62" ry="12" fill="#0369a1" stroke="#0ea5e9" stroke-width="0.7" opacity="0.95"/>
-  <ellipse cx="325" cy="297" rx="62" ry="12" fill="#075985" stroke="#0ea5e9" stroke-width="0.7" opacity="0.8"/>
-  <text x="325" y="248" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#38bdf8" font-weight="700" letter-spacing="1">AWS S3</text>
-  <text x="325" y="265" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b" letter-spacing="1">RAW · JSON</text>
-  <text x="325" y="280" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">parquet store</text>
+  <!-- NODE 4: POWER BI (cx=1000) — Rect with bar chart -->
+  <rect x="912" y="215" width="176" height="140" rx="8" fill="url(#sp-n4)" stroke="#0ea5e9" stroke-width="0.8" filter="url(#sp-glow)"/>
+  <text x="1000" y="237" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#38bdf8" font-weight="700" letter-spacing="0.5">POWER BI</text>
+  <text x="1000" y="253" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#e2e8f0" letter-spacing="1">DASHBOARDS</text>
+  <rect x="928" y="298" width="20" height="47" rx="2" fill="#075985" opacity="0.9"/>
+  <rect x="954" y="272" width="20" height="73" rx="2" fill="#0284c7" opacity="0.9"/>
+  <rect x="980" y="282" width="20" height="63" rx="2" fill="#0369a1" opacity="0.9"/>
+  <rect x="1006" y="261" width="20" height="84" rx="2" fill="#0ea5e9" opacity="0.9"/>
+  <rect x="1032" y="275" width="20" height="70" rx="2" fill="#38bdf8" opacity="0.9"/>
+  <line x1="922" y1="345" x2="1062" y2="345" stroke="#0ea5e9" stroke-width="0.6" opacity="0.5"/>
+  <text x="1000" y="375" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" opacity="0.6" letter-spacing="2">STAGE 4</text>
+  <text x="1000" y="391" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#e2e8f0">ANALYTICS &amp; REPORTING</text>
 
-  <!-- STAGE 3: Airflow circle r=75, center(535, 255) -->
-  <circle cx="535" cy="255" r="70" fill="url(#sp-node)" stroke="#0ea5e9" stroke-width="0.8" opacity="0.95"/>
-  <!-- DAG wheel: 6 spokes from center -->
-  <line x1="535" y1="255" x2="535" y2="212" stroke="#0ea5e9" stroke-width="0.8" opacity="0.5"/>
-  <line x1="535" y1="255" x2="572" y2="234" stroke="#0ea5e9" stroke-width="0.8" opacity="0.5"/>
-  <line x1="535" y1="255" x2="572" y2="276" stroke="#0ea5e9" stroke-width="0.8" opacity="0.5"/>
-  <line x1="535" y1="255" x2="535" y2="298" stroke="#0ea5e9" stroke-width="0.8" opacity="0.5"/>
-  <line x1="535" y1="255" x2="498" y2="276" stroke="#0ea5e9" stroke-width="0.8" opacity="0.5"/>
-  <line x1="535" y1="255" x2="498" y2="234" stroke="#0ea5e9" stroke-width="0.8" opacity="0.5"/>
-  <!-- Spoke endpoint dots -->
-  <circle cx="535" cy="212" r="4" fill="#0ea5e9" opacity="0.7"/>
-  <circle cx="572" cy="234" r="4" fill="#0ea5e9" opacity="0.7"/>
-  <circle cx="572" cy="276" r="4" fill="#0ea5e9" opacity="0.7"/>
-  <circle cx="535" cy="298" r="4" fill="#0ea5e9" opacity="0.7"/>
-  <circle cx="498" cy="276" r="4" fill="#0ea5e9" opacity="0.7"/>
-  <circle cx="498" cy="234" r="4" fill="#0ea5e9" opacity="0.7"/>
-  <!-- Center hub -->
-  <circle cx="535" cy="255" r="8" fill="#38bdf8" opacity="0.4"/>
-  <circle cx="535" cy="255" r="4" fill="#38bdf8" opacity="0.8"/>
-  <text x="535" y="320" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#38bdf8" font-weight="700" letter-spacing="1">AIRFLOW</text>
-  <text x="535" y="336" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#64748b" letter-spacing="1">DAILY BATCH · ASTRONOMER</text>
+  <!-- KPI Row -->
+  <rect x="88"  y="420" width="158" height="56" rx="6" fill="#075985" stroke="#0ea5e9" stroke-width="0.7" filter="url(#sp-glow)"/>
+  <text x="167" y="445" text-anchor="middle" font-family="ui-monospace,monospace" font-size="18" fill="#38bdf8" font-weight="700">4</text>
+  <text x="167" y="463" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#e2e8f0" letter-spacing="1">MEDALLION LAYERS</text>
 
-  <!-- STAGE 4: DuckDB + dbt stacked, center x=755 -->
-  <!-- DuckDB cylinder bottom -->
-  <rect x="688" y="248" width="134" height="60" fill="url(#sp-node)" stroke="#0ea5e9" stroke-width="0.7" opacity="0.9"/>
-  <ellipse cx="755" cy="248" rx="67" ry="12" fill="#0369a1" stroke="#0ea5e9" stroke-width="0.7" opacity="0.95"/>
-  <ellipse cx="755" cy="308" rx="67" ry="12" fill="#075985" stroke="#0ea5e9" stroke-width="0.7" opacity="0.8"/>
-  <text x="755" y="278" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" font-weight="700" letter-spacing="1">DUCKDB</text>
-  <!-- dbt hexagon top -->
-  <!-- hex center (755, 200), r=44: 799,200 777,162 733,162 711,200 733,238 777,238 -->
-  <polygon points="799,200 777,162 733,162 711,200 733,238 777,238" fill="url(#sp-node)" stroke="#38bdf8" stroke-width="1" opacity="0.95"/>
-  <text x="755" y="196" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#38bdf8" font-weight="700" letter-spacing="1">dbt</text>
-  <text x="755" y="211" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#64748b">transform</text>
-  <!-- connection line between them -->
-  <line x1="755" y1="238" x2="755" y2="248" stroke="#0ea5e9" stroke-width="1" opacity="0.5"/>
-  <text x="755" y="333" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#64748b" letter-spacing="1">SILVER · GOLD</text>
+  <rect x="284" y="420" width="158" height="56" rx="6" fill="#075985" stroke="#0ea5e9" stroke-width="0.7" filter="url(#sp-glow)"/>
+  <text x="363" y="445" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#38bdf8" font-weight="700">DAILY</text>
+  <text x="363" y="463" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#e2e8f0" letter-spacing="1">ORCHESTRATION</text>
 
-  <!-- STAGE 5: Power BI dashboard rect, center x=980 -->
-  <rect x="910" y="190" width="150" height="130" rx="8" fill="url(#sp-node)" stroke="#0ea5e9" stroke-width="0.8" opacity="0.95"/>
-  <text x="985" y="215" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#38bdf8" font-weight="700" letter-spacing="1">POWER BI</text>
-  <text x="985" y="232" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#64748b" letter-spacing="1">REPORTING</text>
-  <!-- Bar chart bars -->
-  <rect x="924" y="305" width="22" height="50" rx="2" fill="#0ea5e9" opacity="0.5"/>
-  <rect x="952" y="275" width="22" height="80" rx="2" fill="#0ea5e9" opacity="0.65"/>
-  <rect x="980" y="285" width="22" height="70" rx="2" fill="#38bdf8" opacity="0.7"/>
-  <rect x="1008" y="258" width="22" height="97" rx="2" fill="#38bdf8" opacity="0.8"/>
-  <rect x="1036" y="270" width="22" height="85" rx="2" fill="#0ea5e9" opacity="0.55"/>
-  <!-- Bar chart baseline -->
-  <line x1="920" y1="355" x2="1062" y2="355" stroke="#0ea5e9" stroke-width="0.5" opacity="0.4"/>
+  <rect x="480" y="420" width="158" height="56" rx="6" fill="#075985" stroke="#f59e0b" stroke-width="0.7" filter="url(#sp-glow)"/>
+  <text x="559" y="445" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#f59e0b" font-weight="700">S3 + IaC</text>
+  <text x="559" y="463" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#e2e8f0" letter-spacing="1">TERRAFORM</text>
 
-  <!-- MEDALLION LABELS below pipe (y=370-400) -->
-  <line x1="100" y1="370" x2="1100" y2="370" stroke="#0ea5e9" stroke-width="0.4" stroke-dasharray="4,6" opacity="0.2"/>
+  <rect x="676" y="420" width="158" height="56" rx="6" fill="#075985" stroke="#10b981" stroke-width="0.7" filter="url(#sp-glow)"/>
+  <text x="755" y="445" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#10b981" font-weight="700">PARQUET</text>
+  <text x="755" y="463" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#e2e8f0" letter-spacing="1">COLUMNAR FORMAT</text>
 
-  <!-- RAW pill -->
-  <rect x="80" y="380" width="70" height="26" rx="13" fill="#0a1628" stroke="#38bdf8" stroke-width="0.8" opacity="0.8"/>
-  <text x="115" y="397" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5">RAW</text>
-
-  <!-- BRONZE pill -->
-  <rect x="260" y="380" width="90" height="26" rx="13" fill="#0a1628" stroke="#f59e0b" stroke-width="0.8" opacity="0.7"/>
-  <text x="305" y="397" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#f59e0b" letter-spacing="1.5">BRONZE</text>
-
-  <!-- SILVER pill -->
-  <rect x="470" y="380" width="90" height="26" rx="13" fill="#0a1628" stroke="#94a3b8" stroke-width="0.8" opacity="0.7"/>
-  <text x="515" y="397" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#94a3b8" letter-spacing="1.5">SILVER</text>
-
-  <!-- GOLD pill -->
-  <rect x="680" y="380" width="80" height="26" rx="13" fill="#0a1628" stroke="#fbbf24" stroke-width="0.8" opacity="0.7"/>
-  <text x="720" y="397" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#fbbf24" letter-spacing="1.5">GOLD</text>
-
-  <!-- REPORTING pill -->
-  <rect x="900" y="380" width="110" height="26" rx="13" fill="#0a1628" stroke="#10b981" stroke-width="0.8" opacity="0.7"/>
-  <text x="955" y="397" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#10b981" letter-spacing="1.5">REPORTING</text>
-
-  <!-- Metric cards -->
-  <rect x="60"  y="435" width="110" height="52" rx="6" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.6" opacity="0.9"/>
-  <text x="115" y="459" text-anchor="middle" font-family="ui-monospace,monospace" font-size="20" fill="#38bdf8" font-weight="700">5</text>
-  <text x="115" y="476" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1.5">STAGES</text>
-
-  <rect x="190" y="435" width="110" height="52" rx="6" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.6" opacity="0.9"/>
-  <text x="245" y="459" text-anchor="middle" font-family="ui-monospace,monospace" font-size="15" fill="#38bdf8" font-weight="700">DAILY</text>
-  <text x="245" y="476" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1.5">ORCHESTRATION</text>
-
-  <rect x="320" y="435" width="130" height="52" rx="6" fill="#0a1628" stroke="#f59e0b" stroke-width="0.6" opacity="0.9"/>
-  <text x="385" y="459" text-anchor="middle" font-family="ui-monospace,monospace" font-size="15" fill="#f59e0b" font-weight="700">S3 + IaC</text>
-  <text x="385" y="476" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1.5">TERRAFORM</text>
-
-  <rect x="470" y="435" width="130" height="52" rx="6" fill="#0a1628" stroke="#10b981" stroke-width="0.6" opacity="0.9"/>
-  <text x="535" y="459" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#10b981" font-weight="700">PARQUET</text>
-  <text x="535" y="476" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1.5">COLUMNAR FORMAT</text>
+  <rect x="872" y="420" width="240" height="56" rx="6" fill="#075985" stroke="#0ea5e9" stroke-width="0.7" filter="url(#sp-glow)"/>
+  <text x="992" y="445" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#38bdf8" font-weight="700">MOTHERDUCK</text>
+  <text x="992" y="463" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#e2e8f0" letter-spacing="1">SERVERLESS · DUCKDB CLOUD</text>
 
   <!-- Bottom bar -->
   <rect x="0" y="575" width="1200" height="55" fill="#010b15" opacity="0.85"/>
   <line x1="0" y1="575" x2="1200" y2="575" stroke="#0ea5e9" stroke-width="0.5" opacity="0.25"/>
   <text x="60"  y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">AWS</text>
-  <text x="94"  y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="94"  y="607" font-family="ui-monospace,monospace" font-size="9" fill="#e2e8f0">·</text>
   <text x="108" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">AIRFLOW</text>
-  <text x="178" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="178" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#e2e8f0">·</text>
   <text x="192" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">DUCKDB</text>
-  <text x="256" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="256" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#e2e8f0">·</text>
   <text x="270" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">DBT</text>
-  <text x="304" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="304" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#e2e8f0">·</text>
   <text x="318" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">TERRAFORM</text>
-  <text x="410" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="410" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#e2e8f0">·</text>
   <text x="424" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">S3</text>
-  <text x="448" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="448" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#e2e8f0">·</text>
   <text x="462" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">POWER BI</text>
 </svg>

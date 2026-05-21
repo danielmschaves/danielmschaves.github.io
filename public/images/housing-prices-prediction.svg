@@ -1,0 +1,232 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="hp-bg" x1="0" y1="0" x2="0" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#020e1a"/>
+      <stop offset="100%" stop-color="#0d0f2e"/>
+    </linearGradient>
+    <pattern id="hp-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0L0 0 0 40" fill="none" stroke="#8b5cf6" stroke-width="0.4"/>
+    </pattern>
+    <marker id="hp-arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#a78bfa" opacity="0.6"/>
+    </marker>
+    <linearGradient id="hp-node" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#0f0c2e"/>
+    </linearGradient>
+    <linearGradient id="hp-reg-line" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#c4b5fd"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#hp-bg)"/>
+  <rect width="1200" height="630" fill="url(#hp-grid)" opacity="0.06"/>
+
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="20" fill="#f1f5f9" font-weight="600" letter-spacing="0.5">Housing Price Prediction</text>
+  <text x="600" y="62" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="11" fill="#a78bfa" letter-spacing="2" opacity="0.85">Python · Machine Learning · Regression · Predictive Modeling</text>
+
+  <!-- Pipeline backbone -->
+  <line x1="220" y1="295" x2="980" y2="295" stroke="#4c1d95" stroke-width="2.5" opacity="0.35"/>
+
+  <!-- Arrows -->
+  <line x1="222" y1="295" x2="295" y2="295" stroke="#a78bfa" stroke-width="1.5" opacity="0.5" marker-end="url(#hp-arr)"/>
+  <line x1="510" y1="295" x2="570" y2="295" stroke="#a78bfa" stroke-width="1.5" opacity="0.5" marker-end="url(#hp-arr)"/>
+  <line x1="860" y1="295" x2="930" y2="295" stroke="#a78bfa" stroke-width="1.5" opacity="0.5" marker-end="url(#hp-arr)"/>
+
+  <!-- Particles -->
+  <circle cx="238" cy="295" r="3.5" fill="#8b5cf6" opacity="0.5"/>
+  <circle cx="255" cy="295" r="4" fill="#a78bfa" opacity="0.7"/>
+  <circle cx="272" cy="295" r="3.5" fill="#8b5cf6" opacity="0.5"/>
+
+  <circle cx="526" cy="295" r="3.5" fill="#8b5cf6" opacity="0.5"/>
+  <circle cx="543" cy="295" r="4" fill="#a78bfa" opacity="0.7"/>
+  <circle cx="559" cy="295" r="3.5" fill="#8b5cf6" opacity="0.5"/>
+
+  <circle cx="877" cy="295" r="3.5" fill="#8b5cf6" opacity="0.5"/>
+  <circle cx="895" cy="295" r="4" fill="#a78bfa" opacity="0.7"/>
+  <circle cx="912" cy="295" r="3.5" fill="#8b5cf6" opacity="0.5"/>
+
+  <!-- STAGE 1: Feature Input Panel x=40-220, y=120-470 -->
+  <rect x="40" y="120" width="182" height="350" rx="8" fill="url(#hp-node)" stroke="#a78bfa" stroke-width="0.8" opacity="0.95"/>
+  <text x="131" y="147" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#c4b5fd" letter-spacing="2.5">INPUT FEATURES</text>
+  <line x1="52" y1="154" x2="210" y2="154" stroke="#a78bfa" stroke-width="0.4" opacity="0.35"/>
+
+  <!-- Feature rows -->
+  <!-- Square footage -->
+  <rect x="52" y="162" width="160" height="32" rx="4" fill="#0f0c2e" stroke="#a78bfa" stroke-width="0.5" opacity="0.9"/>
+  <text x="62" y="175" font-family="ui-monospace,monospace" font-size="7" fill="#64748b">SQUARE FOOTAGE</text>
+  <text x="62" y="187" font-family="ui-monospace,monospace" font-size="10" fill="#c4b5fd" font-weight="700">2,400 ft²</text>
+
+  <!-- Bedrooms -->
+  <rect x="52" y="200" width="160" height="32" rx="4" fill="#0f0c2e" stroke="#a78bfa" stroke-width="0.5" opacity="0.9"/>
+  <text x="62" y="213" font-family="ui-monospace,monospace" font-size="7" fill="#64748b">BEDROOMS</text>
+  <text x="62" y="225" font-family="ui-monospace,monospace" font-size="10" fill="#c4b5fd" font-weight="700">3</text>
+  <!-- Bedroom dots -->
+  <circle cx="148" cy="218" r="5" fill="#a78bfa" opacity="0.7"/>
+  <circle cx="162" cy="218" r="5" fill="#a78bfa" opacity="0.7"/>
+  <circle cx="176" cy="218" r="5" fill="#a78bfa" opacity="0.7"/>
+
+  <!-- Bathrooms -->
+  <rect x="52" y="238" width="160" height="32" rx="4" fill="#0f0c2e" stroke="#a78bfa" stroke-width="0.5" opacity="0.9"/>
+  <text x="62" y="251" font-family="ui-monospace,monospace" font-size="7" fill="#64748b">BATHROOMS</text>
+  <text x="62" y="263" font-family="ui-monospace,monospace" font-size="10" fill="#c4b5fd" font-weight="700">2.5</text>
+
+  <!-- Floors -->
+  <rect x="52" y="276" width="160" height="32" rx="4" fill="#0f0c2e" stroke="#a78bfa" stroke-width="0.5" opacity="0.9"/>
+  <text x="62" y="289" font-family="ui-monospace,monospace" font-size="7" fill="#64748b">FLOORS</text>
+  <text x="62" y="301" font-family="ui-monospace,monospace" font-size="10" fill="#c4b5fd" font-weight="700">2</text>
+
+  <!-- Year Built -->
+  <rect x="52" y="314" width="160" height="32" rx="4" fill="#0f0c2e" stroke="#a78bfa" stroke-width="0.5" opacity="0.9"/>
+  <text x="62" y="327" font-family="ui-monospace,monospace" font-size="7" fill="#64748b">YEAR BUILT</text>
+  <text x="62" y="339" font-family="ui-monospace,monospace" font-size="10" fill="#c4b5fd" font-weight="700">2005</text>
+
+  <!-- Waterfront -->
+  <rect x="52" y="352" width="160" height="32" rx="4" fill="#0f0c2e" stroke="#a78bfa" stroke-width="0.5" opacity="0.85"/>
+  <text x="62" y="365" font-family="ui-monospace,monospace" font-size="7" fill="#64748b">WATERFRONT</text>
+  <text x="62" y="377" font-family="ui-monospace,monospace" font-size="10" fill="#c4b5fd" font-weight="700">No</text>
+
+  <!-- Condition -->
+  <rect x="52" y="390" width="160" height="32" rx="4" fill="#0f0c2e" stroke="#a78bfa" stroke-width="0.5" opacity="0.8"/>
+  <text x="62" y="403" font-family="ui-monospace,monospace" font-size="7" fill="#64748b">CONDITION</text>
+  <text x="62" y="415" font-family="ui-monospace,monospace" font-size="10" fill="#c4b5fd" font-weight="700">Good (4/5)</text>
+
+  <!-- Grade -->
+  <rect x="52" y="428" width="160" height="30" rx="4" fill="#0f0c2e" stroke="#a78bfa" stroke-width="0.5" opacity="0.75"/>
+  <text x="62" y="441" font-family="ui-monospace,monospace" font-size="7" fill="#64748b">GRADE</text>
+  <text x="62" y="453" font-family="ui-monospace,monospace" font-size="10" fill="#c4b5fd" font-weight="700">7 / 13</text>
+
+  <!-- STAGE 2: Regression scatter plot center x=580, y=120-470 -->
+  <rect x="305" y="120" width="560" height="350" rx="8" fill="#020c18" stroke="#a78bfa" stroke-width="0.7" opacity="0.95"/>
+  <text x="585" y="148" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#c4b5fd" letter-spacing="2" opacity="0.9">REGRESSION MODEL</text>
+  <line x1="315" y1="155" x2="855" y2="155" stroke="#a78bfa" stroke-width="0.4" opacity="0.3"/>
+
+  <!-- Scatter plot area -->
+  <rect x="355" y="168" width="460" height="268" rx="4" fill="#010b18" opacity="0.8"/>
+
+  <!-- Axes -->
+  <line x1="385" y1="420" x2="800" y2="420" stroke="#a78bfa" stroke-width="0.8" opacity="0.4"/>
+  <line x1="385" y1="420" x2="385" y2="182" stroke="#a78bfa" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- Axis labels -->
+  <text x="590" y="445" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#4e7192">Square Footage</text>
+  <text x="362" y="300" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#4e7192" transform="rotate(-90, 362, 300)">Price ($)</text>
+
+  <!-- Regression line -->
+  <line x1="390" y1="405" x2="795" y2="192" stroke="url(#hp-reg-line)" stroke-width="2" opacity="0.8"/>
+
+  <!-- Scatter dots (various distances from line) -->
+  <circle cx="400" cy="398" r="4" fill="#a78bfa" opacity="0.6"/>
+  <circle cx="415" cy="390" r="4" fill="#a78bfa" opacity="0.55"/>
+  <circle cx="430" cy="378" r="4" fill="#a78bfa" opacity="0.6"/>
+  <circle cx="448" cy="385" r="4" fill="#c4b5fd" opacity="0.7"/>
+  <circle cx="462" cy="372" r="4" fill="#a78bfa" opacity="0.55"/>
+  <circle cx="478" cy="360" r="4" fill="#a78bfa" opacity="0.6"/>
+  <circle cx="495" cy="354" r="4" fill="#c4b5fd" opacity="0.7"/>
+  <circle cx="510" cy="342" r="4" fill="#a78bfa" opacity="0.55"/>
+  <circle cx="528" cy="348" r="4" fill="#a78bfa" opacity="0.6"/>
+  <circle cx="545" cy="333" r="4" fill="#c4b5fd" opacity="0.75"/>
+  <circle cx="562" cy="320" r="4" fill="#a78bfa" opacity="0.55"/>
+  <circle cx="578" cy="310" r="4" fill="#a78bfa" opacity="0.6"/>
+  <circle cx="595" cy="302" r="4" fill="#c4b5fd" opacity="0.7"/>
+  <circle cx="612" cy="315" r="4" fill="#a78bfa" opacity="0.55"/>
+  <circle cx="628" cy="288" r="4" fill="#a78bfa" opacity="0.6"/>
+  <circle cx="645" cy="278" r="4" fill="#c4b5fd" opacity="0.75"/>
+  <circle cx="662" cy="265" r="4" fill="#a78bfa" opacity="0.55"/>
+  <circle cx="678" cy="270" r="4" fill="#a78bfa" opacity="0.6"/>
+  <circle cx="695" cy="252" r="4" fill="#c4b5fd" opacity="0.7"/>
+  <circle cx="712" cy="248" r="4" fill="#a78bfa" opacity="0.55"/>
+  <circle cx="728" cy="238" r="4" fill="#a78bfa" opacity="0.6"/>
+  <circle cx="745" cy="228" r="4" fill="#c4b5fd" opacity="0.75"/>
+  <circle cx="762" cy="215" r="4" fill="#a78bfa" opacity="0.55"/>
+  <circle cx="778" cy="218" r="4" fill="#a78bfa" opacity="0.6"/>
+  <circle cx="793" cy="202" r="4" fill="#c4b5fd" opacity="0.7"/>
+  <!-- Outlier dots -->
+  <circle cx="440" cy="355" r="4" fill="#ef4444" opacity="0.5"/>
+  <circle cx="630" cy="260" r="4" fill="#ef4444" opacity="0.5"/>
+  <circle cx="720" cy="290" r="4" fill="#f59e0b" opacity="0.5"/>
+
+  <!-- Prediction point highlight -->
+  <circle cx="595" cy="302" r="10" fill="none" stroke="#10b981" stroke-width="1.5" opacity="0.8"/>
+  <line x1="595" y1="292" x2="595" y2="180" stroke="#10b981" stroke-width="0.8" stroke-dasharray="4,4" opacity="0.5"/>
+  <line x1="595" y1="302" x2="380" y2="302" stroke="#10b981" stroke-width="0.8" stroke-dasharray="4,4" opacity="0.5"/>
+  <text x="595" y="175" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#10b981">predicted</text>
+
+  <!-- R² and metrics overlay -->
+  <rect x="680" y="175" width="130" height="60" rx="4" fill="#0f0c2e" stroke="#a78bfa" stroke-width="0.5" opacity="0.9"/>
+  <text x="745" y="196" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#c4b5fd" letter-spacing="1">MODEL METRICS</text>
+  <text x="690" y="213" font-family="ui-monospace,monospace" font-size="8" fill="#64748b">R²:</text>
+  <text x="718" y="213" font-family="ui-monospace,monospace" font-size="8" fill="#10b981" font-weight="700">0.862</text>
+  <text x="690" y="226" font-family="ui-monospace,monospace" font-size="8" fill="#64748b">RMSE:</text>
+  <text x="730" y="226" font-family="ui-monospace,monospace" font-size="8" fill="#a78bfa">$82,450</text>
+
+  <!-- Y axis ticks -->
+  <text x="380" y="195" text-anchor="end" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">$1.2M</text>
+  <text x="380" y="260" text-anchor="end" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">$900k</text>
+  <text x="380" y="340" text-anchor="end" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">$550k</text>
+  <text x="380" y="420" text-anchor="end" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">$150k</text>
+  <!-- X axis ticks -->
+  <text x="390" y="432" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">500</text>
+  <text x="502" y="432" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">2,000</text>
+  <text x="628" y="432" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">3,500</text>
+  <text x="753" y="432" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">5,000</text>
+
+  <!-- STAGE 3: Price Prediction Output x=940-1160 -->
+  <rect x="938" y="120" width="222" height="350" rx="8" fill="url(#hp-node)" stroke="#10b981" stroke-width="0.9" opacity="0.95"/>
+  <!-- House outline -->
+  <polygon points="1049,165 978,218 978,280 1120,280 1120,218" fill="none" stroke="#a78bfa" stroke-width="1" opacity="0.5"/>
+  <!-- Roof fill -->
+  <polygon points="1049,165 978,218 1120,218" fill="#1e1b4b" opacity="0.5"/>
+  <!-- Door -->
+  <rect x="1025" y="250" width="48" height="30" rx="2" fill="#0f0c2e" stroke="#a78bfa" stroke-width="0.5" opacity="0.7"/>
+  <!-- Windows -->
+  <rect x="988" y="225" width="24" height="20" rx="2" fill="#0f0c2e" stroke="#a78bfa" stroke-width="0.5" opacity="0.6"/>
+  <rect x="1086" y="225" width="24" height="20" rx="2" fill="#0f0c2e" stroke="#a78bfa" stroke-width="0.5" opacity="0.6"/>
+
+  <text x="1049" y="308" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#c4b5fd" letter-spacing="2">PREDICTED PRICE</text>
+  <line x1="952" y1="315" x2="1146" y2="315" stroke="#10b981" stroke-width="0.5" opacity="0.3"/>
+
+  <text x="1049" y="360" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="30" fill="#10b981" font-weight="700">$425K</text>
+  <text x="1049" y="382" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#6d28d9" letter-spacing="1">MARKET ESTIMATE</text>
+
+  <!-- Confidence range -->
+  <rect x="952" y="394" width="194" height="30" rx="4" fill="#0f0c2e" stroke="#a78bfa" stroke-width="0.5" opacity="0.9"/>
+  <text x="1049" y="409" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b">95% CI: $388K – $462K</text>
+  <text x="1049" y="422" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">confidence interval</text>
+
+  <!-- Model info -->
+  <text x="1049" y="450" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#a78bfa" letter-spacing="1">RIDGE REGRESSION</text>
+  <text x="1049" y="465" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">21 features · 21k samples</text>
+
+  <!-- Stage labels -->
+  <text x="131"  y="498" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#334f66" letter-spacing="2">FEATURES</text>
+  <text x="585"  y="498" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#334f66" letter-spacing="2">MODEL</text>
+  <text x="1049" y="498" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#334f66" letter-spacing="2">PREDICTION</text>
+
+  <!-- Metric cards -->
+  <rect x="60"  y="515" width="130" height="45" rx="6" fill="#0f0c2e" stroke="#a78bfa" stroke-width="0.6" opacity="0.9"/>
+  <text x="125" y="535" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#a78bfa" font-weight="700">21,613</text>
+  <text x="125" y="551" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#6d28d9" letter-spacing="1">SAMPLES</text>
+
+  <rect x="210" y="515" width="130" height="45" rx="6" fill="#0f0c2e" stroke="#a78bfa" stroke-width="0.6" opacity="0.9"/>
+  <text x="275" y="535" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#a78bfa" font-weight="700">R² 0.862</text>
+  <text x="275" y="551" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#6d28d9" letter-spacing="1">MODEL FIT</text>
+
+  <rect x="360" y="515" width="130" height="45" rx="6" fill="#0f0c2e" stroke="#10b981" stroke-width="0.6" opacity="0.9"/>
+  <text x="425" y="535" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#10b981" font-weight="700">RIDGE REG.</text>
+  <text x="425" y="551" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#6d28d9" letter-spacing="1">ALGORITHM</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="575" width="1200" height="55" fill="#010b15" opacity="0.85"/>
+  <line x1="0" y1="575" x2="1200" y2="575" stroke="#a78bfa" stroke-width="0.5" opacity="0.25"/>
+  <text x="60"  y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#a78bfa" letter-spacing="1.5" opacity="0.8">PYTHON</text>
+  <text x="124" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e4070">·</text>
+  <text x="138" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#a78bfa" letter-spacing="1.5" opacity="0.8">MACHINE LEARNING</text>
+  <text x="302" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e4070">·</text>
+  <text x="316" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#a78bfa" letter-spacing="1.5" opacity="0.8">PREDICTIVE MODELING</text>
+  <text x="488" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e4070">·</text>
+  <text x="502" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#a78bfa" letter-spacing="1.5" opacity="0.8">IBM</text>
+</svg>

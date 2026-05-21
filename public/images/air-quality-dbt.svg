@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="aq-bg" x1="0" y1="0" x2="0" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#020e1a"/>
+      <stop offset="100%" stop-color="#082f49"/>
+    </linearGradient>
+    <pattern id="aq-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0L0 0 0 40" fill="none" stroke="#0ea5e9" stroke-width="0.4"/>
+    </pattern>
+    <marker id="aq-arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#0ea5e9" opacity="0.55"/>
+    </marker>
+    <linearGradient id="aq-node" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0369a1"/>
+      <stop offset="100%" stop-color="#075985"/>
+    </linearGradient>
+    <radialGradient id="aq-globe-g" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0c3a6e"/>
+      <stop offset="100%" stop-color="#062248"/>
+    </radialGradient>
+    <!-- Gauge gradient: green to red -->
+    <linearGradient id="aq-gauge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#10b981"/>
+      <stop offset="40%"  stop-color="#22d3ee"/>
+      <stop offset="70%"  stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#aq-bg)"/>
+  <rect width="1200" height="630" fill="url(#aq-grid)" opacity="0.07"/>
+
+  <!-- Subtle world map outline (very faint) -->
+  <!-- Simplified continent-like shapes in background -->
+  <ellipse cx="300" cy="320" rx="120" ry="70" fill="none" stroke="#0ea5e9" stroke-width="0.5" stroke-dasharray="3,8" opacity="0.08"/>
+  <ellipse cx="600" cy="280" rx="90" ry="55" fill="none" stroke="#0ea5e9" stroke-width="0.5" stroke-dasharray="3,8" opacity="0.08"/>
+  <ellipse cx="500" cy="380" rx="60" ry="45" fill="none" stroke="#0ea5e9" stroke-width="0.5" stroke-dasharray="3,8" opacity="0.08"/>
+  <ellipse cx="900" cy="310" rx="75" ry="50" fill="none" stroke="#0ea5e9" stroke-width="0.5" stroke-dasharray="3,8" opacity="0.08"/>
+  <ellipse cx="1050" cy="350" rx="50" ry="60" fill="none" stroke="#0ea5e9" stroke-width="0.5" stroke-dasharray="3,8" opacity="0.08"/>
+
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="22" fill="#f1f5f9" font-weight="600" letter-spacing="0.5">Air Quality Analysis</text>
+  <text x="600" y="62" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="11" fill="#38bdf8" letter-spacing="2" opacity="0.85">WHO Data · dbt · DuckDB · Global PM2.5 Analysis</text>
+
+  <!-- Pipeline backbone -->
+  <line x1="175" y1="295" x2="975" y2="295" stroke="#0369a1" stroke-width="2.5" opacity="0.35"/>
+
+  <!-- Stage arrows -->
+  <line x1="177" y1="295" x2="252" y2="295" stroke="#0ea5e9" stroke-width="1.5" opacity="0.5" marker-end="url(#aq-arr)"/>
+  <line x1="447" y1="295" x2="505" y2="295" stroke="#0ea5e9" stroke-width="1.5" opacity="0.5" marker-end="url(#aq-arr)"/>
+  <line x1="717" y1="295" x2="780" y2="295" stroke="#0ea5e9" stroke-width="1.5" opacity="0.5" marker-end="url(#aq-arr)"/>
+
+  <!-- Particles -->
+  <circle cx="192" cy="295" r="3.5" fill="#0ea5e9" opacity="0.5"/>
+  <circle cx="206" cy="295" r="4" fill="#38bdf8" opacity="0.7"/>
+  <circle cx="222" cy="295" r="3.5" fill="#0ea5e9" opacity="0.5"/>
+
+  <circle cx="462" cy="295" r="3.5" fill="#0ea5e9" opacity="0.5"/>
+  <circle cx="476" cy="295" r="4" fill="#38bdf8" opacity="0.7"/>
+  <circle cx="491" cy="295" r="3.5" fill="#0ea5e9" opacity="0.5"/>
+
+  <circle cx="730" cy="295" r="3.5" fill="#0ea5e9" opacity="0.5"/>
+  <circle cx="744" cy="295" r="4" fill="#38bdf8" opacity="0.7"/>
+  <circle cx="759" cy="295" r="3.5" fill="#0ea5e9" opacity="0.5"/>
+
+  <!-- STAGE 1: WHO Globe circle r=80, center(105, 295) -->
+  <circle cx="105" cy="295" r="80" fill="url(#aq-globe-g)" stroke="#0ea5e9" stroke-width="0.8" opacity="0.95"/>
+  <!-- Globe lines (lat/lon) -->
+  <ellipse cx="105" cy="295" rx="80" ry="25" fill="none" stroke="#0ea5e9" stroke-width="0.5" opacity="0.3"/>
+  <ellipse cx="105" cy="295" rx="60" ry="20" fill="none" stroke="#0ea5e9" stroke-width="0.4" opacity="0.2"/>
+  <line x1="105" y1="215" x2="105" y2="375" stroke="#0ea5e9" stroke-width="0.5" opacity="0.3"/>
+  <line x1="40"  y1="265" x2="170" y2="265" stroke="#0ea5e9" stroke-width="0.4" opacity="0.2"/>
+  <line x1="35"  y1="325" x2="175" y2="325" stroke="#0ea5e9" stroke-width="0.4" opacity="0.2"/>
+  <!-- WHO label -->
+  <text x="105" y="282" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#38bdf8" font-weight="700" letter-spacing="1.5">WHO DATA</text>
+  <text x="105" y="299" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b" letter-spacing="1">GLOBAL DATASET</text>
+  <text x="105" y="314" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b">100+ countries</text>
+
+  <!-- STAGE 2: dbt hexagon flat-top center(360, 295) r=88 -->
+  <!-- Points: 448,295 404,219.7 272,219.7... r*sqrt3/2 = 76.2 -->
+  <!-- Flat-top hex: r=88, center(360,295) -->
+  <!-- 448,295  404,219  272,219  272,295... wait, need to recalculate -->
+  <!-- For flat-top hex: pts at 0,60,120,180,240,300 deg -->
+  <!-- 0°: (448,295), 60°: (404,371), 120°: (316,371), 180°: (272,295), 240°: (316,219), 300°: (404,219) -->
+  <polygon points="448,295 404,371 316,371 272,295 316,219 404,219" fill="url(#aq-node)" stroke="#38bdf8" stroke-width="1" opacity="0.95"/>
+  <text x="360" y="280" text-anchor="middle" font-family="ui-monospace,monospace" font-size="16" fill="#38bdf8" font-weight="700" letter-spacing="1">dbt</text>
+  <text x="360" y="300" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#64748b" letter-spacing="1">TRANSFORM</text>
+  <!-- Model indicators inside hex -->
+  <rect x="305" y="315" width="110" height="8" rx="2" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.4" opacity="0.8"/>
+  <rect x="305" y="315" width="90" height="8" rx="2" fill="#10b981" opacity="0.5"/>
+  <text x="360" y="338" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#4e7192">stg · mart models</text>
+
+  <!-- STAGE 3: DuckDB cylinder center x=620 -->
+  <rect x="515" y="225" width="210" height="140" fill="url(#aq-node)" stroke="#0ea5e9" stroke-width="0.7" opacity="0.9"/>
+  <ellipse cx="620" cy="225" rx="105" ry="18" fill="#0369a1" stroke="#0ea5e9" stroke-width="0.7" opacity="0.95"/>
+  <ellipse cx="620" cy="365" rx="105" ry="18" fill="#075985" stroke="#0ea5e9" stroke-width="0.7" opacity="0.8"/>
+  <text x="620" y="268" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#38bdf8" font-weight="700" letter-spacing="1.5">DUCKDB</text>
+  <text x="620" y="286" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b" letter-spacing="1">IN-PROCESS ANALYTICS</text>
+  <!-- Query rows -->
+  <rect x="530" y="300" width="180" height="8" rx="2" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.3" opacity="0.8"/>
+  <text x="534" y="308" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">SELECT city, AVG(pm25)...</text>
+  <rect x="530" y="312" width="180" height="8" rx="2" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.3" opacity="0.7"/>
+  <text x="534" y="320" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">FROM mart_air_quality...</text>
+  <rect x="530" y="324" width="180" height="8" rx="2" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.3" opacity="0.6"/>
+  <text x="534" y="332" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">GROUP BY region, year</text>
+
+  <!-- STAGE 4: AQI Gauge visualization center x=980 -->
+  <rect x="800" y="175" width="360" height="280" rx="8" fill="#020e1a" stroke="#0ea5e9" stroke-width="0.7" opacity="0.95"/>
+  <text x="980" y="203" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#38bdf8" letter-spacing="2" opacity="0.9">AIR QUALITY INDEX</text>
+  <line x1="815" y1="210" x2="1145" y2="210" stroke="#0ea5e9" stroke-width="0.4" opacity="0.3"/>
+
+  <!-- Gauge arc (semicircle) -->
+  <!-- Gauge bar -->
+  <rect x="830" y="228" width="300" height="22" rx="4" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.5" opacity="0.6"/>
+  <rect x="830" y="228" width="300" height="22" rx="4" fill="url(#aq-gauge)" opacity="0.7"/>
+  <!-- Needle at ~45% (moderate) -->
+  <rect x="964" y="222" width="3" height="34" rx="1" fill="#f1f5f9" opacity="0.9"/>
+  <text x="980" y="275" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#94a3b8" letter-spacing="1">GOOD · MODERATE · UNHEALTHY · HAZARDOUS</text>
+
+  <!-- AQI Cards -->
+  <rect x="820" y="293" width="90" height="60" rx="6" fill="#0a1628" stroke="#10b981" stroke-width="0.7" opacity="0.9"/>
+  <text x="865" y="318" text-anchor="middle" font-family="ui-monospace,monospace" font-size="18" fill="#10b981" font-weight="700">12</text>
+  <text x="865" y="334" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1">PM2.5</text>
+  <text x="865" y="346" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="#10b981">GOOD</text>
+
+  <rect x="925" y="293" width="90" height="60" rx="6" fill="#0a1628" stroke="#22d3ee" stroke-width="0.7" opacity="0.9"/>
+  <text x="970" y="318" text-anchor="middle" font-family="ui-monospace,monospace" font-size="18" fill="#22d3ee" font-weight="700">38</text>
+  <text x="970" y="334" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1">PM10</text>
+  <text x="970" y="346" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="#22d3ee">MODERATE</text>
+
+  <rect x="1030" y="293" width="90" height="60" rx="6" fill="#0a1628" stroke="#f59e0b" stroke-width="0.7" opacity="0.9"/>
+  <text x="1075" y="318" text-anchor="middle" font-family="ui-monospace,monospace" font-size="18" fill="#f59e0b" font-weight="700">AQI</text>
+  <text x="1075" y="334" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1">INDEX</text>
+  <text x="1075" y="346" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="#f59e0b">TRACKED</text>
+
+  <!-- Country comparison bars -->
+  <text x="820" y="382" font-family="ui-monospace,monospace" font-size="8" fill="#64748b" letter-spacing="1">COUNTRY COMPARISON</text>
+  <text x="820" y="397" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">Denmark</text>
+  <rect x="880" y="390" width="180" height="8" rx="2" fill="#10b981" opacity="0.7"/>
+  <text x="820" y="412" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">Germany</text>
+  <rect x="880" y="405" width="120" height="8" rx="2" fill="#22d3ee" opacity="0.6"/>
+  <text x="820" y="427" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">India</text>
+  <rect x="880" y="420" width="260" height="8" rx="2" fill="#f59e0b" opacity="0.7"/>
+  <text x="820" y="442" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">China</text>
+  <rect x="880" y="435" width="290" height="8" rx="2" fill="#ef4444" opacity="0.65"/>
+
+  <!-- Stage labels -->
+  <text x="105"  y="405" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#334f66" letter-spacing="2">WHO SOURCE</text>
+  <text x="360"  y="405" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#334f66" letter-spacing="2">TRANSFORM</text>
+  <text x="620"  y="408" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#334f66" letter-spacing="2">ANALYTICS</text>
+  <text x="980"  y="480" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#334f66" letter-spacing="2">INSIGHTS</text>
+
+  <!-- Bottom metric cards -->
+  <rect x="60"  y="495" width="120" height="52" rx="6" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.6" opacity="0.9"/>
+  <text x="120" y="518" text-anchor="middle" font-family="ui-monospace,monospace" font-size="20" fill="#38bdf8" font-weight="700">100+</text>
+  <text x="120" y="535" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1.5">COUNTRIES</text>
+
+  <rect x="200" y="495" width="120" height="52" rx="6" fill="#0a1628" stroke="#10b981" stroke-width="0.6" opacity="0.9"/>
+  <text x="260" y="518" text-anchor="middle" font-family="ui-monospace,monospace" font-size="18" fill="#10b981" font-weight="700">WHO</text>
+  <text x="260" y="535" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1.5">DATA SOURCE</text>
+
+  <rect x="340" y="495" width="130" height="52" rx="6" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.6" opacity="0.9"/>
+  <text x="405" y="515" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#38bdf8" font-weight="700">PM2.5</text>
+  <text x="405" y="530" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8">PM10 · NO2</text>
+  <text x="405" y="543" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1">POLLUTANTS</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="575" width="1200" height="55" fill="#010b15" opacity="0.85"/>
+  <line x1="0" y1="575" x2="1200" y2="575" stroke="#0ea5e9" stroke-width="0.5" opacity="0.25"/>
+  <text x="60"  y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">DBT</text>
+  <text x="94"  y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="108" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">DUCKDB</text>
+  <text x="178" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="192" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">PYTHON</text>
+  <text x="256" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="270" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">DATA ANALYSIS</text>
+  <text x="386" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="400" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">WHO</text>
+</svg>

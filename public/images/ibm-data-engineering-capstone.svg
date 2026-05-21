@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="ic-bg" x1="0" y1="0" x2="0" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#020e1a"/>
+      <stop offset="100%" stop-color="#082f49"/>
+    </linearGradient>
+    <pattern id="ic-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0L0 0 0 40" fill="none" stroke="#0ea5e9" stroke-width="0.4"/>
+    </pattern>
+    <marker id="ic-arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#0ea5e9" opacity="0.55"/>
+    </marker>
+    <linearGradient id="ic-node" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0369a1"/>
+      <stop offset="100%" stop-color="#075985"/>
+    </linearGradient>
+    <linearGradient id="ic-mysql" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e4d6e"/>
+      <stop offset="100%" stop-color="#0d2f45"/>
+    </linearGradient>
+    <linearGradient id="ic-pg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a2e5c"/>
+      <stop offset="100%" stop-color="#062248"/>
+    </linearGradient>
+    <linearGradient id="ic-spark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3d1a00"/>
+      <stop offset="100%" stop-color="#1a0a00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#ic-bg)"/>
+  <rect width="1200" height="630" fill="url(#ic-grid)" opacity="0.07"/>
+
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="22" fill="#f1f5f9" font-weight="600" letter-spacing="0.5">IBM Data Engineering Capstone</text>
+  <text x="600" y="62" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="11" fill="#38bdf8" letter-spacing="2" opacity="0.85">MySQL · PostgreSQL · Airflow · Apache Spark · ETL</text>
+
+  <!-- Zone dividers -->
+  <line x1="300" y1="80" x2="300" y2="570" stroke="#0ea5e9" stroke-width="0.5" stroke-dasharray="6,6" opacity="0.15"/>
+  <line x1="780" y1="80" x2="780" y2="570" stroke="#0ea5e9" stroke-width="0.5" stroke-dasharray="6,6" opacity="0.15"/>
+
+  <!-- Zone labels -->
+  <text x="150" y="95" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" letter-spacing="3" opacity="0.7">DATA SOURCES</text>
+  <text x="540" y="95" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" letter-spacing="3" opacity="0.7">ORCHESTRATION</text>
+  <text x="990" y="95" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" letter-spacing="3" opacity="0.7">ANALYTICS</text>
+
+  <!-- ── LEFT ZONE: Sources ── -->
+  <!-- MySQL cylinder (top) -->
+  <rect x="50" y="125" width="190" height="90" fill="url(#ic-mysql)" stroke="#4fc3f7" stroke-width="0.7" opacity="0.9"/>
+  <ellipse cx="145" cy="125" rx="95" ry="16" fill="#2a6a90" stroke="#4fc3f7" stroke-width="0.7" opacity="0.95"/>
+  <ellipse cx="145" cy="215" rx="95" ry="16" fill="#0e3d52" stroke="#4fc3f7" stroke-width="0.7" opacity="0.8"/>
+  <text x="145" y="163" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#4fc3f7" font-weight="700" letter-spacing="1.5">MYSQL</text>
+  <text x="145" y="181" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b" letter-spacing="1">OLTP DATABASE</text>
+  <rect x="65" y="192" width="65" height="7" rx="2" fill="#4fc3f7" opacity="0.4"/>
+  <rect x="140" y="192" width="45" height="7" rx="2" fill="#4fc3f7" opacity="0.3"/>
+
+  <!-- PostgreSQL cylinder (middle) -->
+  <rect x="50" y="262" width="190" height="90" fill="url(#ic-pg)" stroke="#336791" stroke-width="0.7" opacity="0.9"/>
+  <ellipse cx="145" cy="262" rx="95" ry="16" fill="#1a4a7a" stroke="#336791" stroke-width="0.7" opacity="0.95"/>
+  <ellipse cx="145" cy="352" rx="95" ry="16" fill="#0b2f52" stroke="#336791" stroke-width="0.7" opacity="0.8"/>
+  <text x="145" y="300" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#4fc3f7" font-weight="700" letter-spacing="1">POSTGRESQL</text>
+  <text x="145" y="318" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b" letter-spacing="1">OLAP DATABASE</text>
+  <rect x="65" y="329" width="50" height="7" rx="2" fill="#336791" opacity="0.5"/>
+  <rect x="125" y="329" width="70" height="7" rx="2" fill="#336791" opacity="0.4"/>
+
+  <!-- Files source (bottom) -->
+  <rect x="50" y="398" width="190" height="80" rx="6" fill="url(#ic-node)" stroke="#0ea5e9" stroke-width="0.7" opacity="0.9"/>
+  <text x="145" y="422" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#38bdf8" font-weight="700" letter-spacing="1">CSV / JSON</text>
+  <text x="145" y="440" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b">raw data files</text>
+  <!-- File icons -->
+  <rect x="65"  y="450" width="28" height="18" rx="2" fill="none" stroke="#0ea5e9" stroke-width="0.7" opacity="0.6"/>
+  <rect x="99"  y="450" width="28" height="18" rx="2" fill="none" stroke="#0ea5e9" stroke-width="0.7" opacity="0.5"/>
+  <rect x="133" y="450" width="28" height="18" rx="2" fill="none" stroke="#0ea5e9" stroke-width="0.7" opacity="0.4"/>
+
+  <!-- Feed lines from sources to Airflow (center 540, y's) -->
+  <line x1="242" y1="170" x2="400" y2="295" stroke="#0ea5e9" stroke-width="1" stroke-dasharray="5,4" opacity="0.3" marker-end="url(#ic-arr)"/>
+  <line x1="242" y1="307" x2="400" y2="307" stroke="#0ea5e9" stroke-width="1" stroke-dasharray="5,4" opacity="0.3" marker-end="url(#ic-arr)"/>
+  <line x1="242" y1="438" x2="400" y2="320" stroke="#0ea5e9" stroke-width="1" stroke-dasharray="5,4" opacity="0.3" marker-end="url(#ic-arr)"/>
+
+  <!-- Particles on feed lines -->
+  <circle cx="300" cy="218" r="3" fill="#0ea5e9" opacity="0.5"/>
+  <circle cx="300" cy="307" r="3" fill="#0ea5e9" opacity="0.5"/>
+  <circle cx="310" cy="365" r="3" fill="#0ea5e9" opacity="0.5"/>
+
+  <!-- ── CENTER ZONE: Airflow Orchestrator ── -->
+  <!-- Airflow circle r=110, center(540, 307) -->
+  <circle cx="540" cy="307" r="112" fill="#020e1a" stroke="#0ea5e9" stroke-width="0.8" opacity="0.9"/>
+  <!-- Inner ring -->
+  <circle cx="540" cy="307" r="95" fill="none" stroke="#0ea5e9" stroke-width="0.5" stroke-dasharray="4,6" opacity="0.2"/>
+  <!-- DAG wheel: 8 spokes -->
+  <line x1="540" y1="307" x2="540" y2="220" stroke="#0ea5e9" stroke-width="0.8" opacity="0.4"/>
+  <line x1="540" y1="307" x2="602" y2="245" stroke="#0ea5e9" stroke-width="0.8" opacity="0.4"/>
+  <line x1="540" y1="307" x2="628" y2="307" stroke="#0ea5e9" stroke-width="0.8" opacity="0.4"/>
+  <line x1="540" y1="307" x2="602" y2="369" stroke="#0ea5e9" stroke-width="0.8" opacity="0.4"/>
+  <line x1="540" y1="307" x2="540" y2="394" stroke="#0ea5e9" stroke-width="0.8" opacity="0.4"/>
+  <line x1="540" y1="307" x2="478" y2="369" stroke="#0ea5e9" stroke-width="0.8" opacity="0.4"/>
+  <line x1="540" y1="307" x2="452" y2="307" stroke="#0ea5e9" stroke-width="0.8" opacity="0.4"/>
+  <line x1="540" y1="307" x2="478" y2="245" stroke="#0ea5e9" stroke-width="0.8" opacity="0.4"/>
+  <!-- Spoke endpoint dots -->
+  <circle cx="540" cy="220" r="5" fill="#0ea5e9" opacity="0.7"/>
+  <circle cx="602" cy="245" r="5" fill="#10b981" opacity="0.7"/>
+  <circle cx="628" cy="307" r="5" fill="#0ea5e9" opacity="0.7"/>
+  <circle cx="602" cy="369" r="5" fill="#f59e0b" opacity="0.7"/>
+  <circle cx="540" cy="394" r="5" fill="#0ea5e9" opacity="0.7"/>
+  <circle cx="478" cy="369" r="5" fill="#ef4444" opacity="0.6"/>
+  <circle cx="452" cy="307" r="5" fill="#0ea5e9" opacity="0.7"/>
+  <circle cx="478" cy="245" r="5" fill="#10b981" opacity="0.7"/>
+  <!-- Hub -->
+  <circle cx="540" cy="307" r="12" fill="#38bdf8" opacity="0.25"/>
+  <circle cx="540" cy="307" r="6" fill="#38bdf8" opacity="0.8"/>
+  <!-- Labels -->
+  <text x="540" y="265" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#38bdf8" font-weight="700" letter-spacing="1">AIRFLOW</text>
+  <text x="540" y="283" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b" letter-spacing="1">ORCHESTRATION</text>
+  <!-- DAG schedule badge -->
+  <rect x="494" cy="328" x="494" y="320" width="92" height="18" rx="4" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.5" opacity="0.9"/>
+  <text x="540" y="333" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#38bdf8" letter-spacing="1">PIPELINE DAG</text>
+
+  <!-- Arrow from Airflow to Spark -->
+  <line x1="652" y1="307" x2="790" y2="307" stroke="#0ea5e9" stroke-width="1.5" opacity="0.5" marker-end="url(#ic-arr)"/>
+  <circle cx="668" cy="307" r="3.5" fill="#0ea5e9" opacity="0.5"/>
+  <circle cx="684" cy="307" r="4" fill="#38bdf8" opacity="0.7"/>
+  <circle cx="700" cy="307" r="3.5" fill="#0ea5e9" opacity="0.5"/>
+  <circle cx="720" cy="307" r="3.5" fill="#0ea5e9" opacity="0.5"/>
+  <circle cx="738" cy="307" r="4" fill="#38bdf8" opacity="0.7"/>
+  <circle cx="756" cy="307" r="3.5" fill="#0ea5e9" opacity="0.5"/>
+
+  <!-- ── RIGHT ZONE: Spark + Analytics ── -->
+  <!-- Spark hexagon flat-top center(900, 307) r=80 -->
+  <!-- 980,307 940,238 860,238 820,307 860,376 940,376 -->
+  <polygon points="980,307 940,238 860,238 820,307 860,376 940,376" fill="url(#ic-spark)" stroke="#f97316" stroke-width="1" opacity="0.95"/>
+  <!-- Spark flame shape inside -->
+  <path d="M900,253 Q920,265 910,275 Q930,268 920,285 Q940,272 925,295 Q915,310 900,310 Q885,310 875,295 Q860,272 880,285 Q870,268 890,275 Q880,265 900,253 Z" fill="#f97316" opacity="0.35"/>
+  <text x="900" y="328" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#f97316" font-weight="700" letter-spacing="1">SPARK</text>
+  <text x="900" y="345" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b" letter-spacing="1">ML PIPELINE</text>
+  <text x="900" y="360" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b">predictive model</text>
+
+  <!-- Arrow Spark to Analytics -->
+  <line x1="982" y1="307" x2="1050" y2="307" stroke="#0ea5e9" stroke-width="1.5" opacity="0.5" marker-end="url(#ic-arr)"/>
+  <circle cx="1000" cy="307" r="3.5" fill="#0ea5e9" opacity="0.5"/>
+  <circle cx="1020" cy="307" r="4" fill="#38bdf8" opacity="0.7"/>
+  <circle cx="1040" cy="307" r="3.5" fill="#0ea5e9" opacity="0.5"/>
+
+  <!-- Analytics dashboard rect -->
+  <rect x="1060" y="215" width="130" height="185" rx="8" fill="url(#ic-node)" stroke="#38bdf8" stroke-width="0.8" opacity="0.95"/>
+  <text x="1125" y="240" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" letter-spacing="2">ANALYTICS</text>
+  <line x1="1070" y1="247" x2="1180" y2="247" stroke="#0ea5e9" stroke-width="0.4" opacity="0.3"/>
+  <!-- Bar chart bars -->
+  <rect x="1074" y="320" width="18" height="70" rx="2" fill="#0ea5e9" opacity="0.5"/>
+  <rect x="1098" y="290" width="18" height="100" rx="2" fill="#0ea5e9" opacity="0.65"/>
+  <rect x="1122" y="300" width="18" height="90" rx="2" fill="#38bdf8" opacity="0.7"/>
+  <rect x="1146" y="268" width="18" height="122" rx="2" fill="#38bdf8" opacity="0.8"/>
+  <line x1="1070" y1="390" x2="1180" y2="390" stroke="#0ea5e9" stroke-width="0.5" opacity="0.4"/>
+  <!-- Metric pills -->
+  <rect x="1074" y="258" width="90" height="16" rx="4" fill="#0a1628" stroke="#10b981" stroke-width="0.5" opacity="0.9"/>
+  <text x="1119" y="270" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#10b981">ACCURACY 94%</text>
+
+  <!-- Bottom metric cards -->
+  <rect x="60"  y="510" width="130" height="45" rx="6" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.6" opacity="0.9"/>
+  <text x="125" y="529" text-anchor="middle" font-family="ui-monospace,monospace" font-size="15" fill="#38bdf8" font-weight="700">OLTP+OLAP</text>
+  <text x="125" y="546" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1">DUAL DATABASE</text>
+
+  <rect x="210" y="510" width="130" height="45" rx="6" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.6" opacity="0.9"/>
+  <text x="275" y="529" text-anchor="middle" font-family="ui-monospace,monospace" font-size="15" fill="#38bdf8" font-weight="700">ETL</text>
+  <text x="275" y="546" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1">DATA PIPELINES</text>
+
+  <rect x="360" y="510" width="130" height="45" rx="6" fill="#0a1628" stroke="#f97316" stroke-width="0.6" opacity="0.9"/>
+  <text x="425" y="529" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#f97316" font-weight="700">APACHE</text>
+  <text x="425" y="545" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#f97316" font-weight="700">SPARK</text>
+
+  <rect x="510" y="510" width="130" height="45" rx="6" fill="#0a1628" stroke="#10b981" stroke-width="0.6" opacity="0.9"/>
+  <text x="575" y="529" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#10b981" font-weight="700">IBM</text>
+  <text x="575" y="546" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#4e7192" letter-spacing="1">CAPSTONE PROJECT</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="575" width="1200" height="55" fill="#010b15" opacity="0.85"/>
+  <line x1="0" y1="575" x2="1200" y2="575" stroke="#0ea5e9" stroke-width="0.5" opacity="0.25"/>
+  <text x="60"  y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">MYSQL</text>
+  <text x="114" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="128" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">POSTGRESQL</text>
+  <text x="228" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="242" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">AIRFLOW</text>
+  <text x="314" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="328" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">APACHE SPARK</text>
+  <text x="436" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="450" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">ETL</text>
+</svg>

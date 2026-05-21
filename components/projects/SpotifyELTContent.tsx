@@ -9,11 +9,11 @@ const G600 = "#2D9E7A";  // mid-green — secondary elements
 const G300 = "#7EC8A4";  // light green — fills, bars
 const GOLD = "#C5922B";  // amber — section numbers, dbt gold layer
 const WARM = "#E07B3A";  // orange — Power BI callout, highlights
-const DNGR = "#8C2F39";  // red — traditional DW cost
+const DNGR = "#ef4444";  // red — traditional DW cost
 
 /* ── shared style tokens ─────────────────────────────────────────────── */
 const mono = { fontFamily: "var(--font-mono)" } as const;
-const sectionNum: React.CSSProperties = { ...mono, fontSize: 12, color: GOLD, fontWeight: 600, letterSpacing: "0.08em", marginBottom: 12, display: "block" };
+const sectionNum: React.CSSProperties = { ...mono, fontSize: 12, color: "var(--primary-400)", fontWeight: 600, letterSpacing: "0.08em", marginBottom: 12, display: "block" };
 const sectionH2: React.CSSProperties = { fontWeight: 700, fontSize: "clamp(26px, 3vw, 38px)", lineHeight: 1.15, letterSpacing: "-0.02em", color: "var(--text)", marginBottom: 16 };
 const sectionLead: React.CSSProperties = { fontSize: 17, color: "var(--text-body)", maxWidth: 720, lineHeight: 1.55 };
 const infograph: React.CSSProperties = { background: "var(--bg-card)", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", padding: 40, margin: "32px 0", overflow: "hidden" };
@@ -51,12 +51,12 @@ export default function SpotifyELTContent() {
 
         {/* ── Hero ── */}
         <section style={{ paddingBottom: 48 }}>
-          <span style={{ ...mono, fontSize: 11, textTransform: "uppercase", letterSpacing: "0.14em", color: G600, fontWeight: 500, marginBottom: 28, display: "inline-block" }}>
+          <span style={{ ...mono, fontSize: 11, textTransform: "uppercase", letterSpacing: "0.14em", color: "var(--primary-400)", fontWeight: 500, marginBottom: 28, display: "inline-block" }}>
             Project · Data Engineering · ELT Pipeline
           </span>
           <h1 style={{ fontWeight: 700, fontSize: "clamp(36px, 5vw, 62px)", lineHeight: 1.05, letterSpacing: "-0.025em", color: "var(--text)", marginBottom: 24 }}>
             A four-stage medallion data lake pulling{" "}
-            <em style={{ fontStyle: "italic", color: G800 }}>Spotify&apos;s global playlist data</em>{" "}
+            <em style={{ fontStyle: "italic", color: G600 }}>Spotify&apos;s global playlist data</em>{" "}
             to Power BI — on a near-zero infrastructure budget.
           </h1>
           <p style={{ fontSize: 19, lineHeight: 1.6, color: "var(--text-body)", maxWidth: 680, fontWeight: 400 }}>
@@ -75,17 +75,25 @@ export default function SpotifyELTContent() {
         </div>
 
         {/* ── Tech tags ── */}
-        <div className="mb-14 flex flex-wrap gap-2">
+        <div className="mb-8 flex flex-wrap gap-2">
           {["AWS", "Python", "Airflow", "DuckDB", "dbt", "Terraform", "Motherduck", "S3", "Power BI"].map(tag => (
             <span key={tag} className="tech-tag">{tag}</span>
           ))}
+        </div>
+
+        {/* ── External link ── */}
+        <div className="mb-14 flex flex-wrap gap-3">
+          <a href="https://github.com/danielmschaves/spotify-etl-aws" target="_blank" rel="noopener noreferrer"
+            style={{ ...mono, fontSize: 12, padding: "8px 16px", border: "1px solid var(--line-strong)", borderRadius: "var(--radius-full)", color: "var(--primary-400)", background: "var(--ink-3)", fontWeight: 500, textDecoration: "none" }}>
+            GitHub Repository ↗
+          </a>
         </div>
 
         {/* ── 01 Context & Architecture ── */}
         <section style={{ paddingBottom: 64 }}>
           <div style={{ marginBottom: 40 }}>
             <span style={sectionNum}>01 — Context &amp; Architecture</span>
-            <h2 style={sectionH2}>A <em style={{ fontStyle: "italic", color: G800 }}>cost-zero data lake</em> built on embedded analytics, not standing servers.</h2>
+            <h2 style={sectionH2}>A <em style={{ fontStyle: "italic", color: G600 }}>cost-zero data lake</em> built on embedded analytics, not standing servers.</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
@@ -119,7 +127,7 @@ export default function SpotifyELTContent() {
 
                 {/* RAW */}
                 <rect x="20" y="60" width="230" height="200" style={{ fill: svgBg }} stroke={G800} strokeWidth="2" rx="6" />
-                <text x="135" y="88" textAnchor="middle" style={svgNum({ fontSize: 30, fill: G800 })}>Raw</text>
+                <text x="135" y="88" textAnchor="middle" style={svgNum({ fontSize: 30, fill: G300 })}>Raw</text>
                 <line x1="40" y1="100" x2="230" y2="100" style={{ stroke: svgBorder }} strokeWidth="1" />
                 <text x="135" y="122" textAnchor="middle" style={svgLabel({ fill: "var(--text-muted)" })}>Format</text>
                 <text x="135" y="138" textAnchor="middle" style={svgText({ fontWeight: 600 })}>JSON (raw API response)</text>
@@ -127,8 +135,8 @@ export default function SpotifyELTContent() {
                 <text x="135" y="178" textAnchor="middle" style={svgText({ fontWeight: 600 })}>Spotify API extractor</text>
                 <text x="135" y="202" textAnchor="middle" style={svgLabel({ fill: "var(--text-muted)" })}>Storage</text>
                 <text x="135" y="218" textAnchor="middle" style={svgText({ fontWeight: 600 })}>S3 · raw/ prefix</text>
-                <text x="135" y="244" textAnchor="middle" style={svgMute({ fontSize: 10 })}>Tracks · Albums · Artists</text>
-                <text x="135" y="258" textAnchor="middle" style={svgMute({ fontSize: 10 })}>Playlists — immutable landing</text>
+                <text x="135" y="236" textAnchor="middle" style={svgMute({ fontSize: 10 })}>Tracks · Albums · Artists</text>
+                <text x="135" y="250" textAnchor="middle" style={svgMute({ fontSize: 10 })}>Playlists — immutable landing</text>
 
                 <line x1="255" y1="160" x2="290" y2="160" stroke={G800} strokeWidth="2" markerEnd="url(#medal-arrow)" />
 
@@ -142,8 +150,8 @@ export default function SpotifyELTContent() {
                 <text x="410" y="178" textAnchor="middle" style={svgText({ fontWeight: 600 })}>DuckDB · JSON → Parquet</text>
                 <text x="410" y="202" textAnchor="middle" style={svgLabel({ fill: "var(--text-muted)" })}>Storage</text>
                 <text x="410" y="218" textAnchor="middle" style={svgText({ fontWeight: 600 })}>S3 · bronze/ prefix</text>
-                <text x="410" y="244" textAnchor="middle" style={svgMute({ fontSize: 10 })}>Schema enforced, typed,</text>
-                <text x="410" y="258" textAnchor="middle" style={svgMute({ fontSize: 10 })}>compressed — read-ready</text>
+                <text x="410" y="236" textAnchor="middle" style={svgMute({ fontSize: 10 })}>Schema enforced, typed,</text>
+                <text x="410" y="250" textAnchor="middle" style={svgMute({ fontSize: 10 })}>compressed — read-ready</text>
 
                 <line x1="530" y1="160" x2="565" y2="160" stroke={G800} strokeWidth="2" markerEnd="url(#medal-arrow)" />
 
@@ -157,8 +165,8 @@ export default function SpotifyELTContent() {
                 <text x="685" y="178" textAnchor="middle" style={svgText({ fontWeight: 600 })}>DuckDB · business rules</text>
                 <text x="685" y="202" textAnchor="middle" style={svgLabel({ fill: "var(--text-muted)" })}>Storage</text>
                 <text x="685" y="218" textAnchor="middle" style={svgText({ fontWeight: 600 })}>S3 · silver/ prefix</text>
-                <text x="685" y="244" textAnchor="middle" style={svgMute({ fontSize: 10 })}>Deduped, normalised,</text>
-                <text x="685" y="258" textAnchor="middle" style={svgMute({ fontSize: 10 })}>null-handled, join-ready</text>
+                <text x="685" y="236" textAnchor="middle" style={svgMute({ fontSize: 10 })}>Deduped, normalised,</text>
+                <text x="685" y="250" textAnchor="middle" style={svgMute({ fontSize: 10 })}>null-handled, join-ready</text>
 
                 <line x1="805" y1="160" x2="840" y2="160" stroke={G800} strokeWidth="2" markerEnd="url(#medal-arrow)" />
 
@@ -172,8 +180,8 @@ export default function SpotifyELTContent() {
                 <text x="962" y="178" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 11, fill: "#C8ECD9", fontWeight: 600 }}>dbt + Motherduck</text>
                 <text x="962" y="202" textAnchor="middle" style={svgLabel({ fill: "var(--text-muted)" })}>Storage</text>
                 <text x="962" y="218" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 11, fill: "#C8ECD9", fontWeight: 600 }}>Motherduck + S3 gold/</text>
-                <text x="962" y="244" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 10, fill: "#B4E0CF" }}>Power BI reads directly</text>
-                <text x="962" y="258" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 10, fill: "#B4E0CF" }}>from Motherduck endpoint</text>
+                <text x="962" y="236" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 10, fill: "#B4E0CF" }}>Power BI reads directly</text>
+                <text x="962" y="250" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 10, fill: "#B4E0CF" }}>from Motherduck endpoint</text>
 
                 {/* Power BI callout */}
                 <rect x="880" y="290" width="150" height="26" fill={WARM} rx="4" />
@@ -188,7 +196,7 @@ export default function SpotifyELTContent() {
         <section style={{ paddingBottom: 64 }}>
           <div style={{ marginBottom: 40 }}>
             <span style={sectionNum}>02 — System Topology</span>
-            <h2 style={sectionH2}>Nine tools, <em style={{ fontStyle: "italic", color: G800 }}>one coherent pipeline</em> — from API call to dashboard.</h2>
+            <h2 style={sectionH2}>Nine tools, <em style={{ fontStyle: "italic", color: G600 }}>one coherent pipeline</em> — from API call to dashboard.</h2>
             <p style={sectionLead}>Each component has a single, well-defined job. Spotify API is the only source of truth. Airflow orchestrates without being the transformation engine. DuckDB processes without running a server. Terraform provisions without manual state. The architecture is modular: any component can be swapped independently.</p>
           </div>
 
@@ -208,13 +216,16 @@ export default function SpotifyELTContent() {
                   <marker id="topo-arrow-warm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
                     <path d="M 0 0 L 10 5 L 0 10 z" fill={WARM} />
                   </marker>
+                  <marker id="topo-arrow-g3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill={G300} />
+                  </marker>
                 </defs>
 
                 {/* Layer labels */}
-                <text x="60" y="22" textAnchor="middle" style={svgLabel({ fill: G800, fontWeight: 600 })}>Source</text>
-                <text x="220" y="22" textAnchor="middle" style={svgLabel({ fill: G800, fontWeight: 600 })}>Orchestration</text>
-                <text x="500" y="22" textAnchor="middle" style={svgLabel({ fill: G800, fontWeight: 600 })}>Storage (AWS S3)</text>
-                <text x="780" y="22" textAnchor="middle" style={svgLabel({ fill: G800, fontWeight: 600 })}>Warehouse</text>
+                <text x="60" y="22" textAnchor="middle" style={svgLabel({ fill: G600, fontWeight: 600 })}>Source</text>
+                <text x="220" y="22" textAnchor="middle" style={svgLabel({ fill: G600, fontWeight: 600 })}>Orchestration</text>
+                <text x="500" y="22" textAnchor="middle" style={svgLabel({ fill: G600, fontWeight: 600 })}>Storage (AWS S3)</text>
+                <text x="780" y="22" textAnchor="middle" style={svgLabel({ fill: G600, fontWeight: 600 })}>Warehouse</text>
                 <text x="960" y="22" textAnchor="middle" style={svgLabel({ fill: WARM, fontWeight: 600 })}>Analytics</text>
 
                 {/* Dividers */}
@@ -236,7 +247,7 @@ export default function SpotifyELTContent() {
                 <rect x="150" y="42" width="178" height="260" style={{ fill: svgBg }} stroke={G800} strokeWidth="1.5" rx="6" />
                 <text x="239" y="66" textAnchor="middle" style={svgText({ fontWeight: 600, fontSize: 13 })}>Astronomer</text>
                 <text x="239" y="82" textAnchor="middle" style={svgText({ fontWeight: 600, fontSize: 13 })}>Airflow</text>
-                <text x="239" y="100" textAnchor="middle" style={svgLabel()}>Daily · 06:00 UTC · 4 task groups</text>
+                <text x="239" y="100" textAnchor="middle" style={svgLabel()}>Daily · 06:00 UTC</text>
                 <line x1="170" y1="108" x2="308" y2="108" style={{ stroke: svgBorder }} strokeWidth="1" />
                 <rect x="168" y="120" width="142" height="22" fill={G800} rx="3" />
                 <text x="239" y="135" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 10, fill: "#FFFFFF", fontWeight: 600 }}>extract_spotify</text>
@@ -254,11 +265,11 @@ export default function SpotifyELTContent() {
                 <line x1="328" y1="131" x2="358" y2="131" stroke={G800} strokeWidth="1.5" markerEnd="url(#topo-arrow)" />
                 <line x1="328" y1="161" x2="358" y2="195" stroke={G600} strokeWidth="1.5" markerEnd="url(#topo-arrow)" />
                 <line x1="328" y1="191" x2="358" y2="265" stroke={G300} strokeWidth="1.5" markerEnd="url(#topo-arrow)" />
-                <line x1="328" y1="221" x2="680" y2="340" stroke="#0D3D2E" strokeWidth="1.5" strokeDasharray="5 3" markerEnd="url(#topo-arrow)" />
+                <path d="M 328 221 L 331 221 L 331 390 L 660 390 L 660 260 L 670 260" stroke={G600} strokeWidth="1.5" strokeDasharray="5 3" fill="none" markerEnd="url(#topo-arrow-g3)" />
 
                 {/* S3 zones */}
                 <rect x="360" y="112" width="120" height="38" style={{ fill: svgBg }} stroke={G800} strokeWidth="1.5" rx="4" />
-                <text x="420" y="128" textAnchor="middle" style={svgLabel({ fill: G800, fontWeight: 600 })}>S3 Raw</text>
+                <text x="420" y="128" textAnchor="middle" style={svgLabel({ fill: G600, fontWeight: 600 })}>S3 Raw</text>
                 <text x="420" y="142" textAnchor="middle" style={svgMute({ fontSize: 10 })}>JSON · by date</text>
 
                 <rect x="360" y="178" width="120" height="38" style={{ fill: svgBg }} stroke={G600} strokeWidth="1.5" rx="4" />
@@ -270,22 +281,22 @@ export default function SpotifyELTContent() {
                 <text x="420" y="278" textAnchor="middle" style={svgMute({ fontSize: 10 })}>Parquet · enriched</text>
 
                 {/* DuckDB */}
-                <rect x="510" y="140" width="130" height="160" fill="#0D3D2E" stroke={G600} strokeWidth="1.5" rx="6" />
+                <rect x="500" y="140" width="150" height="160" fill="#0D3D2E" stroke={G600} strokeWidth="1.5" rx="6" />
                 <text x="575" y="168" textAnchor="middle" style={svgText({ fill: "#FFFFFF", fontWeight: 600, fontSize: 13 })}>DuckDB</text>
                 <text x="575" y="186" textAnchor="middle" style={svgLabel()}>In-process · zero server</text>
-                <line x1="525" y1="196" x2="625" y2="196" stroke={G800} strokeWidth="1" />
+                <line x1="515" y1="196" x2="635" y2="196" stroke={G600} strokeWidth="1" />
                 <text x="575" y="216" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 10, fill: "#C8ECD9" }}>JSON → Parquet (bronze)</text>
                 <text x="575" y="232" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 10, fill: "#C8ECD9" }}>Reads from S3</text>
                 <text x="575" y="248" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 10, fill: "#C8ECD9" }}>Clean + enrich (silver)</text>
                 <text x="575" y="272" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 10, fill: "#B4E0CF", fontStyle: "italic" }}>No idle cost</text>
 
                 {/* S3 → DuckDB */}
-                <line x1="482" y1="131" x2="508" y2="175" stroke={G800} strokeWidth="1.5" markerEnd="url(#topo-arrow)" />
-                <line x1="482" y1="197" x2="508" y2="210" stroke={G600} strokeWidth="1.5" markerEnd="url(#topo-arrow)" />
-                <line x1="482" y1="267" x2="508" y2="250" stroke={G300} strokeWidth="1.5" markerEnd="url(#topo-arrow)" />
+                <line x1="482" y1="131" x2="498" y2="175" stroke={G800} strokeWidth="1.5" markerEnd="url(#topo-arrow)" />
+                <line x1="482" y1="197" x2="498" y2="210" stroke={G600} strokeWidth="1.5" markerEnd="url(#topo-arrow)" />
+                <line x1="482" y1="267" x2="498" y2="250" stroke={G300} strokeWidth="1.5" markerEnd="url(#topo-arrow)" />
 
                 {/* DuckDB → Motherduck */}
-                <line x1="640" y1="220" x2="668" y2="220" stroke={G600} strokeWidth="1.5" markerEnd="url(#topo-arrow)" />
+                <line x1="650" y1="220" x2="668" y2="220" stroke={G600} strokeWidth="1.5" markerEnd="url(#topo-arrow)" />
 
                 {/* Motherduck */}
                 <rect x="670" y="168" width="180" height="104" fill={G800} stroke={G600} strokeWidth="1.5" rx="6" />
@@ -323,7 +334,7 @@ export default function SpotifyELTContent() {
         <section style={{ paddingBottom: 64 }}>
           <div style={{ marginBottom: 40 }}>
             <span style={sectionNum}>03 — Orchestration</span>
-            <h2 style={sectionH2}>Four modular task groups, <em style={{ fontStyle: "italic", color: G800 }}>each independently testable</em> and retryable.</h2>
+            <h2 style={sectionH2}>Four modular task groups, <em style={{ fontStyle: "italic", color: G600 }}>each independently testable</em> and retryable.</h2>
             <p style={sectionLead}>The Airflow DAG is structured so that each medallion stage maps to exactly one task group. If the silver transform fails, the bronze data is already landed and safe — the retry only re-runs what failed. This is the key resilience property the modular design provides.</p>
           </div>
 
@@ -400,7 +411,7 @@ export default function SpotifyELTContent() {
 
                 {/* Retry annotation */}
                 <rect x="20" y="270" width="1060" height="80" style={{ fill: svgBg }} stroke={svgBorder} rx="4" />
-                <text x="40" y="294" style={svgLabel({ fill: G800, fontWeight: 600 })}>Retry &amp; failure isolation</text>
+                <text x="40" y="294" style={svgLabel({ fill: G600, fontWeight: 600 })}>Retry &amp; failure isolation</text>
                 <text x="40" y="316" style={svgMute({ fontSize: 11 })}>• Each task group runs only after its upstream group succeeds — enforced by XCom passing, no implicit data coupling.</text>
                 <text x="40" y="334" style={svgMute({ fontSize: 11 })}>• On failure, Airflow retries twice. If exhausted, prior zone data remains safe — only the failed stage replays on the next run.</text>
               </svg>
@@ -412,7 +423,7 @@ export default function SpotifyELTContent() {
         <section style={{ paddingBottom: 64 }}>
           <div style={{ marginBottom: 40 }}>
             <span style={sectionNum}>04 — Transformation</span>
-            <h2 style={sectionH2}>Three dbt layers, each with <em style={{ fontStyle: "italic", color: G800 }}>automated test coverage</em>.</h2>
+            <h2 style={sectionH2}>Three dbt layers, each with <em style={{ fontStyle: "italic", color: G600 }}>automated test coverage</em>.</h2>
             <p style={sectionLead}>dbt is the transformation engine for the Gold stage. Every model is tested — sources have schema tests, staging models have not-null and unique constraints, and marts carry referential integrity checks. Both dev and prod targets hit Motherduck, with full documentation generated on each run.</p>
           </div>
 
@@ -426,9 +437,9 @@ export default function SpotifyELTContent() {
               <svg viewBox="0 0 1100 500" style={{ width: "100%", minWidth: 700, height: "auto", display: "block" }}>
                 <text x="20" y="22" style={svgLabel()}>dbt-core · Motherduck target · dev + prod environments</text>
                 <line x1="20" y1="32" x2="1080" y2="32" style={{ stroke: svgBorder }} strokeWidth="1" />
-                <text x="80" y="54" textAnchor="middle" style={svgLabel({ fill: G800, fontWeight: 600 })}>Layer</text>
-                <text x="400" y="54" textAnchor="middle" style={svgLabel({ fill: G800, fontWeight: 600 })}>Models</text>
-                <text x="760" y="54" textAnchor="middle" style={svgLabel({ fill: G800, fontWeight: 600 })}>Test Coverage</text>
+                <text x="80" y="54" textAnchor="middle" style={svgLabel({ fill: G600, fontWeight: 600 })}>Layer</text>
+                <text x="400" y="54" textAnchor="middle" style={svgLabel({ fill: G600, fontWeight: 600 })}>Models</text>
+                <text x="760" y="54" textAnchor="middle" style={svgLabel({ fill: G600, fontWeight: 600 })}>Test Coverage</text>
                 <text x="990" y="54" textAnchor="middle" style={svgLabel({ fill: GOLD, fontWeight: 600 })}>Tests</text>
                 <line x1="20" y1="62" x2="1080" y2="62" style={{ stroke: "var(--text)" }} strokeWidth="1" />
 
@@ -509,7 +520,7 @@ export default function SpotifyELTContent() {
         <section style={{ paddingBottom: 64 }}>
           <div style={{ marginBottom: 40 }}>
             <span style={sectionNum}>05 — Metrics &amp; Cost Model</span>
-            <h2 style={sectionH2}>Near-zero infrastructure cost — <em style={{ fontStyle: "italic", color: G800 }}>without sacrificing engineering quality</em>.</h2>
+            <h2 style={sectionH2}>Near-zero infrastructure cost — <em style={{ fontStyle: "italic", color: G600 }}>without sacrificing engineering quality</em>.</h2>
             <p style={sectionLead}>The &ldquo;poor man&apos;s data lake&rdquo; is not a shortcut — it&apos;s a deliberate architectural decision to eliminate idle compute costs. DuckDB runs only during DAG execution. S3 charges only for storage consumed. Motherduck charges only for queries run.</p>
           </div>
 
@@ -521,7 +532,7 @@ export default function SpotifyELTContent() {
               { num: "$0",  unit: "Standing server cost",   label: "No cluster, no running instance — DuckDB only burns compute during the daily DAG run" },
             ].map(({ num, unit, label }) => (
               <div key={unit} style={{ background: "var(--bg-card)", border: "1px solid var(--line)", borderTop: `3px solid ${G600}`, borderRadius: "var(--radius-lg)", padding: "28px 24px" }}>
-                <div style={{ fontSize: 44, fontWeight: 700, color: G800, lineHeight: 1, letterSpacing: "-0.03em" }}>{num}</div>
+                <div style={{ fontSize: 44, fontWeight: 700, color: G600, lineHeight: 1, letterSpacing: "-0.03em" }}>{num}</div>
                 <div style={{ ...mono, fontSize: 11, color: "var(--text-muted)", marginTop: 4, letterSpacing: "0.05em" }}>{unit}</div>
                 <div style={{ fontSize: 13, color: "var(--text-body)", marginTop: 16, lineHeight: 1.45 }}>{label}</div>
               </div>
@@ -589,17 +600,17 @@ export default function SpotifyELTContent() {
 
                 <line x1="710" y1="210" x2="1060" y2="210" style={{ stroke: "var(--text)" }} strokeWidth="1" />
                 <text x="700" y="228" textAnchor="end" style={svgText({ fontWeight: 600 })}>Total</text>
-                <text x="710" y="228" style={svgNum({ fontSize: 26, fill: G800 })}>~ $4</text>
-                <text x="780" y="228" style={svgMute({ fontSize: 12 })}>per month — scales with data volume, not idle capacity</text>
+                <text x="710" y="228" style={svgNum({ fontSize: 26, fill: G300 })}>~ $4</text>
+                <text x="780" y="228" style={svgMute({ fontSize: 12 })}>per month — scales with data volume</text>
 
                 {/* Annotation */}
                 <rect x="586" y="256" width="488" height="70" style={{ fill: svgBg }} stroke={G600} strokeWidth="1.5" rx="4" />
-                <text x="606" y="280" style={{ fontFamily: "inherit", fontSize: 12, fontWeight: 600, fill: G800 }}>Why the cost gap is structural, not incidental</text>
-                <text x="606" y="300" style={svgMute({ fontSize: 11 })}>Traditional stacks pay for standing servers 24/7. DuckDB, S3, and Motherduck charge only</text>
-                <text x="606" y="316" style={svgMute({ fontSize: 11 })}>for what runs. The pipeline delivers the same transformation quality — for 200× less cost.</text>
+                <text x="606" y="280" style={{ fontFamily: "inherit", fontSize: 12, fontWeight: 600, fill: G300 }}>Why the cost gap is structural, not incidental</text>
+                <text x="606" y="300" style={svgMute({ fontSize: 11 })}>Traditional stacks pay for idle capacity 24/7. DuckDB, S3, and Motherduck</text>
+                <text x="606" y="316" style={svgMute({ fontSize: 11 })}>charge only for what runs — same transformation quality, 200× lower cost.</text>
 
                 {/* Savings badge */}
-                <rect x="20" y="256" width="270" height="70" fill={G800} rx="4" />
+                <rect x="20" y="256" width="270" height="70" fill={G600} rx="4" />
                 <text x="155" y="284" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 16, fontWeight: 600, fill: "#FFFFFF" }}>200× cost reduction</text>
                 <text x="155" y="306" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 11, fill: "#B4E0CF" }}>$810/mo traditional → ~$4/mo</text>
                 <text x="155" y="320" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 10, fill: "#7A9A89" }}>at equivalent engineering quality</text>
@@ -612,7 +623,7 @@ export default function SpotifyELTContent() {
         <section style={{ paddingBottom: 64 }}>
           <div style={{ marginBottom: 40 }}>
             <span style={sectionNum}>06 — Deliverables</span>
-            <h2 style={sectionH2}>Five artifacts — every one production-grade and reproducible.</h2>
+            <h2 style={sectionH2}>Six artifacts — every one production-grade and reproducible.</h2>
             <p style={sectionLead}>The pipeline is open-source. Each component is self-contained, documented, and independently deployable. Terraform ensures the infrastructure is reproducible from a single <code style={{ ...mono, fontSize: 13, background: "var(--ink-3)", padding: "2px 6px", borderRadius: 4 }}>terraform apply</code>.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

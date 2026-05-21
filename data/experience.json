@@ -1,40 +1,34 @@
 [
   {
     "company": "Indicium",
-    "position": "Delivery Manager",
+    "position": "Data & AI Delivery Manager",
     "startDate": "2024-08",
     "endDate": "Present",
-    "location": "Remote",
-    "description": "Lead data projects and analytics teams to deliver client-focused solutions.",
+    "location": "Florianópolis, Brazil",
+    "description": "Delivery Lead for enterprise data and AI accounts across LATAM and EMEA, accountable for value delivery, client experience, account growth, and renewals in the pharmaceutical sector.",
     "achievements": [
-      "Lead migrations of legacy data products to modern infrastructures and spearhead development of new solutions including data models, dashboards, and AI products using dbt, Dagster, Airflow, Snowflake and Databricks with robust data governance frameworks.",
-      "Manage cross-functional teams of 30+ professionals, including data engineers, data analysts and analytics engineers, ensuring seamless collaboration and stakeholder alignment across multiple concurrent initiatives.",
-      "Orchestrate over 10 projects simultaneously while overseeing 3000+ service hours monthly, optimizing resource allocation and maintaining consistent delivery timelines through strategic leadership.",
-      "Engineer and deploy AI products from scratch - intelligent agents, machine learning models, generative AI solutions, and chatbots - expanding service offerings and driving increased client engagement.",
-      "Lead stakeholder management efforts in expanding contracts with major pharmaceutical companies like Novo Nordisk and Bayer, driving significant revenue growth and strengthening client partnerships.",
-      "Streamline project workflows by implementing agile practices, enhancing efficiency across multiple data and analytics streams.",
-      "Drive strategic planning for tailored data strategies to address business needs, with a strong focus on enterprise-level clients in the pharmaceutical sector.",
-      "Cultivate professional growth of team members by encouraging continuous learning and adoption of advanced data technologies, fostering cross-functional collaboration and leadership development."
+      "Acted as primary engagement owner for global pharmaceutical accounts including Novo Nordisk and Bayer, leading global expansion across LATAM and EMEA and securing multi-year contract renewals and scope expansions.",
+      "Scaled the portfolio from 10 to 30+ FTEs and from 1,200 to ~4,000 monthly service hours at peak, currently owning 12 concurrent enterprise engagements with a sustained CSAT of 4.7 across LATAM and EMEA.",
+      "Delivered 10+ engagements end-to-end — legacy data migrations, modern data platforms, analytical products, and AI applications (Machine Learning, GenAI, intelligent agents, chatbots) — built on dbt, Dagster, Airflow, Snowflake, and Databricks with robust data governance frameworks.",
+      "Served as data strategy consultant to enterprise pharmaceutical clients, planning and designing tailored data and AI solutions, advising executive stakeholders, and translating business needs into multi-quarter delivery roadmaps.",
+      "Scoped and launched new AI service offerings — intelligent agents, ML models, GenAI, and chatbots — directly contributing to account expansion and increased client engagement.",
+      "Designed and implemented an AI-augmented planning and execution workflow for a data migration engagement, integrating AI tools across discovery, modeling, and validation steps and accelerating delivery by 4x.",
+      "Championed team development through mentoring, technical enablement, and career growth plans, strengthening retention and building a high-performing delivery organization."
     ]
   },
   {
-    "company": "Data Engineering Bootcamp",
-    "position": "Data Engineer",
-    "startDate": "2024-04",
-    "endDate": "Present",
+    "company": "Data Engineering Bootcamp (PUC-MG)",
+    "position": "Data Engineering Graduate Student",
+    "startDate": "2024-01",
+    "endDate": "2024-12",
     "location": "Remote",
-    "description": "Developed comprehensive data engineering solutions through hands-on projects covering modern data stack technologies, cloud platforms, and data pipeline architectures.",
+    "description": "Applied postgraduate program in Data Engineering at Pontificia Universidade Católica de Minas Gerais, focused on building modern data pipelines, cloud platforms, and analytics engineering workflows through hands-on projects.",
     "achievements": [
-      "Designed and implemented a multi-stage ELT pipeline for Spotify data using AWS S3, DuckDB, dbt, and Airflow, following the \"poor man's data lake\" concept with Raw, Bronze, Silver, and Gold stages for sequential data processing and analytics-ready datasets.",
-      "Built a comprehensive data pipeline for Adventure Works SAP data using dbt Core and BigQuery, implementing a three-layer architecture (staging, intermediate, marts) that processed 64 source tables into analytics-ready dimensional models with automated testing and documentation.",
-      "Developed an E-commerce data pipeline extracting data from BigQuery public datasets, validating with Pydantic models for data quality assurance, and loading into DuckDB with support for multiple output destinations including CSV, S3, and Motherduck.",
-      "Implemented infrastructure as code using Terraform to provision and manage cloud resources, ensuring consistent and reproducible data platform setups across development and production environments.",
-      "Orchestrated automated data workflows using Apache Airflow and Astronomer, enabling daily batch processing, task scheduling, and pipeline monitoring for reliable data extraction, transformation, and loading operations.",
-      "Created and maintained dbt data models with comprehensive testing, documentation, and version control, following modern data engineering best practices for scalable and maintainable data transformation pipelines.",
-      "Worked with diverse database technologies including PostgreSQL, MySQL, DuckDB, and BigQuery, implementing OLTP and OLAP architectures for transactional and analytical workloads.",
-      "Developed Python-based ETL pipelines for data ingestion from APIs, web scraping, and file systems, implementing data validation, error handling, and workflow automation for reliable data processing.",
-      "Implemented predictive modeling and machine learning pipelines using Apache Spark, processing large-scale datasets and training Random Forest models for data-driven insights and decision-making.",
-      "Containerized data engineering applications using Docker, enabling consistent development environments and simplified deployment workflows for data pipelines and database management."
+      "Built multi-stage ELT pipelines (Spotify/Adventure Works) on AWS S3, DuckDB, BigQuery, and dbt, implementing Raw→Bronze→Silver→Gold medallion architectures with automated testing and documentation.",
+      "Developed Python-based ETL pipelines for API ingestion, data validation with Pydantic, and multi-destination loading (DuckDB, S3, Motherduck), covering full data quality assurance patterns.",
+      "Orchestrated automated batch workflows with Apache Airflow and Astronomer, and provisioned cloud infrastructure as code using Terraform for reproducible, environment-consistent data platforms.",
+      "Implemented predictive modeling and ML pipelines with Apache Spark, processing large-scale datasets and training classification models for data-driven insights.",
+      "Containerized data engineering applications with Docker across PostgreSQL, MySQL, DuckDB, and BigQuery, covering both OLTP and OLAP architecture patterns."
     ]
   },
   {
@@ -43,14 +37,12 @@
     "startDate": "2021-07",
     "endDate": "2024-03",
     "location": "Florianópolis, Brazil",
-    "description": "Developed and executed project strategies aligned with organizational goals and market dynamics, specializing in the energy sector.",
+    "description": "Developed and executed project strategies for energy-sector R&D and innovation engagements — including urban planning and virtual power plant initiatives — partnering with public-sector sponsors, utility companies, and research institutions.",
     "achievements": [
-      "Drove a 30% boost in project efficiency by strategically implementing two Business Intelligence solutions, fostering cross-project synergy and streamlined data analysis.",
-      "Optimized project life cycle management efficiency by introducing agile and waterfall methodologies, ensuring the delivery of projects within the allocated resources and timeframe.",
-      "Enhanced workflow efficiency by 40% using project management and data visualization tools, including Jira, Microsoft Project and Power BI.",
-      "Boosted the average revenue per resource by 60%, achieving this by proposing a new data modeling approach to streamline workflows and optimize resource allocation.",
-      "Strengthened alignment between product development and strategic goals by 25% through market-driven priority setting and strategic direction.",
-      "Led and optimized Scrum events, including Sprint Planning, Daily Stand-ups, and Sprint Reviews, championing agile principles to enhance team agility and project responsiveness."
+      "Owned the full project lifecycle as primary point of contact for sponsors and partner institutions, ensuring scope alignment, transparent reporting, and reliable delivery from kickoff to close.",
+      "Increased average revenue per resource by 60% by redesigning data modeling and resource allocation across the portfolio, directly improving engagement economics.",
+      "Delivered a 30% improvement in portfolio efficiency by designing and rolling out two Business Intelligence solutions that gave sponsors and leadership real-time visibility into project health and outcomes.",
+      "Acted as Product Owner for internal data and visualization products, translating sponsor needs into prioritized roadmaps and lifting strategic alignment by 25% through market-driven prioritization."
     ]
   },
   {
@@ -68,4 +60,3 @@
     ]
   }
 ]
-

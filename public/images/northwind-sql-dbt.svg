@@ -1,0 +1,206 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="nw-bg" x1="0" y1="0" x2="0" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#020e1a"/>
+      <stop offset="100%" stop-color="#082f49"/>
+    </linearGradient>
+    <pattern id="nw-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0L0 0 0 40" fill="none" stroke="#0ea5e9" stroke-width="0.4"/>
+    </pattern>
+    <marker id="nw-arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#0ea5e9" opacity="0.55"/>
+    </marker>
+    <linearGradient id="nw-node" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0369a1"/>
+      <stop offset="100%" stop-color="#075985"/>
+    </linearGradient>
+    <linearGradient id="nw-docker" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0c2340"/>
+      <stop offset="100%" stop-color="#071628"/>
+    </linearGradient>
+    <linearGradient id="nw-pg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a2e5c"/>
+      <stop offset="100%" stop-color="#062248"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#nw-bg)"/>
+  <rect width="1200" height="630" fill="url(#nw-grid)" opacity="0.07"/>
+
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="22" fill="#f1f5f9" font-weight="600" letter-spacing="0.5">Northwind Data Pipeline</text>
+  <text x="600" y="62" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="11" fill="#38bdf8" letter-spacing="2" opacity="0.85">PostgreSQL · dbt · Docker · SQL</text>
+
+  <!-- Main pipeline backbone at y=295 -->
+  <line x1="218" y1="295" x2="975" y2="295" stroke="#0369a1" stroke-width="2.5" opacity="0.35"/>
+
+  <!-- Stage arrows -->
+  <line x1="220" y1="295" x2="278" y2="295" stroke="#0ea5e9" stroke-width="1.5" opacity="0.5" marker-end="url(#nw-arr)"/>
+  <line x1="498" y1="295" x2="552" y2="295" stroke="#0ea5e9" stroke-width="1.5" opacity="0.5" marker-end="url(#nw-arr)"/>
+  <line x1="706" y1="295" x2="756" y2="295" stroke="#0ea5e9" stroke-width="1.5" opacity="0.5" marker-end="url(#nw-arr)"/>
+  <line x1="896" y1="295" x2="970" y2="295" stroke="#0ea5e9" stroke-width="1.5" opacity="0.5" marker-end="url(#nw-arr)"/>
+
+  <!-- Particles seg 1 -->
+  <circle cx="233" cy="295" r="3" fill="#0ea5e9" opacity="0.5"/>
+  <circle cx="246" cy="295" r="3.5" fill="#38bdf8" opacity="0.7"/>
+  <circle cx="260" cy="295" r="3" fill="#0ea5e9" opacity="0.5"/>
+
+  <!-- Particles seg 2 -->
+  <circle cx="513" cy="295" r="3" fill="#0ea5e9" opacity="0.5"/>
+  <circle cx="526" cy="295" r="3.5" fill="#38bdf8" opacity="0.7"/>
+  <circle cx="540" cy="295" r="3" fill="#0ea5e9" opacity="0.5"/>
+
+  <!-- Particles seg 3 -->
+  <circle cx="720" cy="295" r="3" fill="#0ea5e9" opacity="0.5"/>
+  <circle cx="733" cy="295" r="3.5" fill="#38bdf8" opacity="0.7"/>
+  <circle cx="747" cy="295" r="3" fill="#0ea5e9" opacity="0.5"/>
+
+  <!-- Particles seg 4 -->
+  <circle cx="910" cy="295" r="3" fill="#0ea5e9" opacity="0.5"/>
+  <circle cx="925" cy="295" r="3.5" fill="#38bdf8" opacity="0.7"/>
+  <circle cx="940" cy="295" r="3" fill="#0ea5e9" opacity="0.5"/>
+
+  <!-- STAGE 1: Northwind Source rect x=40-218, y=190-400 -->
+  <rect x="40" y="185" width="178" height="220" rx="6" fill="url(#nw-node)" stroke="#0ea5e9" stroke-width="0.8" opacity="0.95"/>
+  <text x="129" y="210" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#38bdf8" letter-spacing="2" opacity="0.9">NORTHWIND</text>
+  <line x1="50" y1="217" x2="208" y2="217" stroke="#0ea5e9" stroke-width="0.4" opacity="0.3"/>
+  <!-- Entity boxes (simplified ER diagram) -->
+  <!-- Orders -->
+  <rect x="55"  y="226" width="70" height="30" rx="3" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.5" opacity="0.9"/>
+  <text x="90" y="237" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#38bdf8">Orders</text>
+  <text x="90" y="249" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="#4e7192">order_id, date</text>
+  <!-- Customers -->
+  <rect x="135" y="226" width="74" height="30" rx="3" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.5" opacity="0.9"/>
+  <text x="172" y="237" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#38bdf8">Customers</text>
+  <text x="172" y="249" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="#4e7192">cust_id, name</text>
+  <!-- Products -->
+  <rect x="55"  y="268" width="70" height="30" rx="3" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.5" opacity="0.85"/>
+  <text x="90" y="279" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#38bdf8">Products</text>
+  <text x="90" y="291" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="#4e7192">prod_id, price</text>
+  <!-- Employees -->
+  <rect x="135" y="268" width="74" height="30" rx="3" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.5" opacity="0.85"/>
+  <text x="172" y="279" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#38bdf8">Employees</text>
+  <text x="172" y="291" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="#4e7192">emp_id, dept</text>
+  <!-- OrderDetails -->
+  <rect x="55"  y="310" width="70" height="30" rx="3" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.5" opacity="0.8"/>
+  <text x="90" y="321" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#38bdf8">OrderDetails</text>
+  <text x="90" y="333" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="#4e7192">qty, unit_price</text>
+  <!-- Suppliers -->
+  <rect x="135" y="310" width="74" height="30" rx="3" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.5" opacity="0.8"/>
+  <text x="172" y="321" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#38bdf8">Suppliers</text>
+  <text x="172" y="333" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6" fill="#4e7192">supp_id, country</text>
+  <text x="129" y="367" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b" letter-spacing="1.5">8 TABLES</text>
+  <circle cx="62" cy="380" r="4" fill="#10b981"/><text x="74" y="384" font-family="ui-monospace,monospace" font-size="8" fill="#4e7192">OLTP SOURCE</text>
+
+  <!-- STAGE 2: Docker container rect x=280-498, y=155-435 -->
+  <rect x="280" y="160" width="218" height="270" rx="8" fill="url(#nw-docker)" stroke="#2496ed" stroke-width="0.8" opacity="0.9"/>
+  <!-- Docker border highlight -->
+  <rect x="285" y="165" width="208" height="260" rx="5" fill="none" stroke="#2496ed" stroke-width="0.4" opacity="0.3"/>
+  <!-- Docker whale outline (simplified) -->
+  <text x="389" y="200" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#2496ed" opacity="0.6" letter-spacing="1">DOCKER</text>
+  <!-- Whale simplified: body ellipse -->
+  <ellipse cx="389" cy="228" rx="55" ry="28" fill="none" stroke="#2496ed" stroke-width="1" opacity="0.5"/>
+  <!-- Whale tail -->
+  <path d="M334,230 Q320,215 316,228 Q320,241 334,234" fill="none" stroke="#2496ed" stroke-width="1" opacity="0.4"/>
+  <!-- Containers on whale (little boxes) -->
+  <rect x="352" y="215" width="18" height="14" rx="2" fill="#2496ed" opacity="0.35"/>
+  <rect x="374" y="215" width="18" height="14" rx="2" fill="#2496ed" opacity="0.35"/>
+  <rect x="396" y="215" width="18" height="14" rx="2" fill="#2496ed" opacity="0.35"/>
+  <rect x="363" y="204" width="18" height="12" rx="2" fill="#2496ed" opacity="0.25"/>
+  <rect x="385" y="204" width="18" height="12" rx="2" fill="#2496ed" opacity="0.25"/>
+  <!-- Container services -->
+  <text x="389" y="266" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" letter-spacing="1">CONTAINER SERVICES</text>
+  <!-- Service rows -->
+  <rect x="295" y="274" width="198" height="18" rx="3" fill="#0a1628" stroke="#2496ed" stroke-width="0.5" opacity="0.8"/>
+  <circle cx="308" cy="283" r="4" fill="#10b981"/>
+  <text x="318" y="287" font-family="ui-monospace,monospace" font-size="8" fill="#94a3b8">postgres:15</text>
+  <rect x="295" y="296" width="198" height="18" rx="3" fill="#0a1628" stroke="#2496ed" stroke-width="0.5" opacity="0.7"/>
+  <circle cx="308" cy="305" r="4" fill="#10b981"/>
+  <text x="318" y="309" font-family="ui-monospace,monospace" font-size="8" fill="#94a3b8">dbt-runner:latest</text>
+  <rect x="295" y="318" width="198" height="18" rx="3" fill="#0a1628" stroke="#2496ed" stroke-width="0.5" opacity="0.6"/>
+  <circle cx="308" cy="327" r="4" fill="#f59e0b"/>
+  <text x="318" y="331" font-family="ui-monospace,monospace" font-size="8" fill="#94a3b8">pgadmin:6</text>
+  <text x="389" y="360" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b" letter-spacing="1">ISOLATED ENVIRONMENT</text>
+  <text x="389" y="374" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#4e7192">docker-compose.yml</text>
+  <!-- Port labels -->
+  <text x="295" y="398" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">5432 · 8080</text>
+
+  <!-- STAGE 3: PostgreSQL cylinder center x=627 -->
+  <rect x="560" y="230" width="134" height="130" fill="url(#nw-pg)" stroke="#336791" stroke-width="0.8" opacity="0.95"/>
+  <ellipse cx="627" cy="230" rx="67" ry="14" fill="#1a4a7a" stroke="#336791" stroke-width="0.8" opacity="0.95"/>
+  <ellipse cx="627" cy="360" rx="67" ry="14" fill="#0b2f52" stroke="#336791" stroke-width="0.8" opacity="0.8"/>
+  <text x="627" y="270" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#4fc3f7" font-weight="700" letter-spacing="1">POSTGRES</text>
+  <text x="627" y="288" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b" letter-spacing="1">OLAP DATABASE</text>
+  <!-- DB internals -->
+  <rect x="573" y="300" width="108" height="8" rx="2" fill="#336791" opacity="0.5"/>
+  <rect x="573" y="312" width="85" height="8" rx="2" fill="#336791" opacity="0.4"/>
+  <rect x="573" y="324" width="96" height="8" rx="2" fill="#336791" opacity="0.35"/>
+  <text x="627" y="350" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">v15 · schemas</text>
+
+  <!-- STAGE 4: dbt hexagon flat-top center(828,295) r=68 -->
+  <!-- Points: 896,295 862,236 762,236 760,295... let me recalculate -->
+  <!-- center(828,295) r=68: 896,295 862,236.1 794,236.1 760,295 794,353.9 862,353.9 -->
+  <polygon points="896,295 862,236 794,236 760,295 794,354 862,354" fill="url(#nw-node)" stroke="#38bdf8" stroke-width="1" opacity="0.95"/>
+  <text x="828" y="285" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#38bdf8" font-weight="700" letter-spacing="1">dbt</text>
+  <text x="828" y="303" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b" letter-spacing="1">TRANSFORM</text>
+  <text x="828" y="320" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#0ea5e9" opacity="0.65">models · tests</text>
+
+  <!-- STAGE 5: Transformed Models rect x=972-1150, y=185-405 -->
+  <rect x="972" y="185" width="178" height="220" rx="6" fill="url(#nw-node)" stroke="#38bdf8" stroke-width="0.8" opacity="0.95"/>
+  <text x="1061" y="208" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" letter-spacing="2" opacity="0.9">TRANSFORMED</text>
+  <line x1="982" y1="215" x2="1140" y2="215" stroke="#0ea5e9" stroke-width="0.4" opacity="0.35"/>
+  <!-- Model rows -->
+  <rect x="986" y="223" width="152" height="16" rx="3" fill="#0a1628" stroke="#10b981" stroke-width="0.5" opacity="0.9"/>
+  <circle cx="997" cy="231" r="4" fill="#10b981"/>
+  <text x="1010" y="235" font-family="ui-monospace,monospace" font-size="7" fill="#94a3b8">stg_orders</text>
+  <rect x="986" y="243" width="152" height="16" rx="3" fill="#0a1628" stroke="#10b981" stroke-width="0.5" opacity="0.85"/>
+  <circle cx="997" cy="251" r="4" fill="#10b981"/>
+  <text x="1010" y="255" font-family="ui-monospace,monospace" font-size="7" fill="#94a3b8">stg_customers</text>
+  <rect x="986" y="263" width="152" height="16" rx="3" fill="#0a1628" stroke="#10b981" stroke-width="0.5" opacity="0.8"/>
+  <circle cx="997" cy="271" r="4" fill="#10b981"/>
+  <text x="1010" y="275" font-family="ui-monospace,monospace" font-size="7" fill="#94a3b8">stg_products</text>
+  <rect x="986" y="283" width="152" height="16" rx="3" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.5" opacity="0.75"/>
+  <circle cx="997" cy="291" r="4" fill="#0ea5e9"/>
+  <text x="1010" y="295" font-family="ui-monospace,monospace" font-size="7" fill="#94a3b8">int_order_items</text>
+  <rect x="986" y="303" width="152" height="16" rx="3" fill="#0a1628" stroke="#38bdf8" stroke-width="0.5" opacity="0.7"/>
+  <circle cx="997" cy="311" r="4" fill="#38bdf8"/>
+  <text x="1010" y="315" font-family="ui-monospace,monospace" font-size="7" fill="#94a3b8">mart_sales</text>
+  <rect x="986" y="323" width="152" height="16" rx="3" fill="#0a1628" stroke="#38bdf8" stroke-width="0.5" opacity="0.65"/>
+  <circle cx="997" cy="331" r="4" fill="#38bdf8"/>
+  <text x="1010" y="335" font-family="ui-monospace,monospace" font-size="7" fill="#94a3b8">mart_customers</text>
+  <text x="1061" y="367" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b" letter-spacing="1">6 MODELS</text>
+  <circle cx="990" cy="385" r="4" fill="#10b981"/>
+  <text x="1002" y="389" font-family="ui-monospace,monospace" font-size="8" fill="#4e7192">ALL TESTS PASS</text>
+
+  <!-- Stage sublabels -->
+  <text x="129"  y="430" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#334f66" letter-spacing="2">SOURCE</text>
+  <text x="389"  y="460" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#334f66" letter-spacing="2">RUNTIME</text>
+  <text x="627"  y="400" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#334f66" letter-spacing="2">STORAGE</text>
+  <text x="828"  y="395" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#334f66" letter-spacing="2">TRANSFORM</text>
+  <text x="1061" y="430" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#334f66" letter-spacing="2">MODELS</text>
+
+  <!-- Metric cards -->
+  <rect x="200" y="455" width="110" height="52" rx="6" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.6" opacity="0.9"/>
+  <text x="255" y="478" text-anchor="middle" font-family="ui-monospace,monospace" font-size="20" fill="#38bdf8" font-weight="700">8</text>
+  <text x="255" y="495" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1.5">SRC TABLES</text>
+
+  <rect x="330" y="455" width="130" height="52" rx="6" fill="#0a1628" stroke="#2496ed" stroke-width="0.6" opacity="0.9"/>
+  <text x="395" y="475" text-anchor="middle" font-family="ui-monospace,monospace" font-size="14" fill="#2496ed" font-weight="700">DOCKER</text>
+  <text x="395" y="492" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1.5">CONTAINERIZED</text>
+
+  <rect x="480" y="455" width="140" height="52" rx="6" fill="#0a1628" stroke="#10b981" stroke-width="0.6" opacity="0.9"/>
+  <text x="550" y="475" text-anchor="middle" font-family="ui-monospace,monospace" font-size="15" fill="#10b981" font-weight="700">dbt test</text>
+  <text x="550" y="492" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1.5">QUALITY GATES</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="575" width="1200" height="55" fill="#010b15" opacity="0.85"/>
+  <line x1="0" y1="575" x2="1200" y2="575" stroke="#0ea5e9" stroke-width="0.5" opacity="0.25"/>
+  <text x="60"  y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">POSTGRESQL</text>
+  <text x="158" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="172" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">DBT</text>
+  <text x="206" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="220" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">DOCKER</text>
+  <text x="286" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="300" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">SQL</text>
+</svg>

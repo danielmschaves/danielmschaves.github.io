@@ -58,6 +58,18 @@
     --cat-leadership:  #fbbf24;
     --cat-cloud:       #34d399;
 
+    /* ── Illustration / SVG cover palette ── */
+    --illus-bg-deep:   #020e1a;
+    --illus-bg-mid:    #082f49;
+    --illus-node:      #075985;
+    --illus-node-mid:  #0369a1;
+    --illus-stroke:    #0ea5e9;
+    --illus-label:     #38bdf8;
+    --illus-label-dim: rgba(56, 189, 248, 0.65);
+    --illus-grid:      rgba(14, 165, 233, 0.07);
+    --illus-divider:   rgba(14, 165, 233, 0.20);
+    --illus-particle:  rgba(14, 165, 233, 0.60);
+
     /* ── Type scale ── */
     --fs-xs:   0.75rem;
     --fs-sm:   0.875rem;

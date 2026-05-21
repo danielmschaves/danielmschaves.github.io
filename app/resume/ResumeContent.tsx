@@ -109,7 +109,7 @@ export default function ResumeContent() {
           {/* Certifications */}
           <section>
             <h2 style={sectionHeadingStyle}>Certifications</h2>
-            <div className="grid gap-5 md:grid-cols-2">
+            <div className="flex flex-col gap-5">
               {certificationsData.map((cert, idx) => (
                 <CertificationCard key={cert.title} certification={cert} />
               ))}

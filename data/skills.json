@@ -1,41 +1,41 @@
 {
+  "deliveryLeadership": {
+    "title": "Delivery & Leadership",
+    "skills": [
+      "Engagement ownership across enterprise accounts in LATAM and EMEA, driving value delivery, client satisfaction, and contract renewals in pharmaceutical and technology sectors.",
+      "Executive stakeholder management and strategic consulting — translating business needs into multi-quarter delivery roadmaps and advising C-level and senior stakeholders.",
+      "Portfolio and resource management at scale, including P&L ownership, engagement economics, and team scaling from startup to 30+ FTE delivery organizations.",
+      "Cross-cultural delivery leadership across LATAM and EMEA, with hybrid agile and predictive methodologies, and risk and escalation management for complex enterprise programs."
+    ]
+  },
   "dataPlatform": {
     "title": "Data Platform & Architecture",
     "skills": [
-      "Extensive experience in designing and implementing modern data platforms from scratch in cloud environments (AWS, GCP, Azure), including data lakes, data warehouses, and data marts.",
-      "Proven track record in migrating legacy data systems to modern architectures, implementing robust data governance frameworks, and ensuring data quality and reliability.",
-      "Expertise in implementing and optimizing data platforms using tools like dbt, Dagster, Airflow, Snowflake, and Databricks, with a focus on scalability and performance.",
-      "Strong experience in data modeling, ETL/ELT processes, and data pipeline development, ensuring efficient data flow and transformation."
-    ]
-  },
-  "dataProduct": {
-    "title": "Data Product Development",
-    "skills": [
-      "Successfully delivered multiple data products including AI/ML solutions, intelligent agents, and generative AI applications, driving significant business value.",
-      "Experience in developing and implementing data strategies for enterprise clients, with a focus on pharmaceutical and healthcare sectors.",
-      "Proven ability to lead cross-functional teams in developing and deploying data products, from concept to production.",
-      "Strong background in data visualization and dashboard development using tools like Power BI, Looker, and Streamlit."
+      "Extensive experience designing and overseeing modern data platforms in cloud environments (AWS, GCP, Azure), including data lakes, data warehouses, and data marts for enterprise clients.",
+      "Proven track record leading legacy data system migrations to modern architectures, with robust data governance frameworks ensuring data quality, compliance, and reliability.",
+      "Deep expertise in data platform tooling — dbt, Dagster, Airflow, Snowflake, and Databricks — spanning both hands-on engineering and delivery leadership across 10+ end-to-end engagements.",
+      "Strong background in data modeling, ETL/ELT processes, and pipeline development, ensuring efficient data flow and transformation at scale."
     ]
   },
   "technical": {
     "title": "Technical Skills",
     "categories": {
-      "Programming Languages": ["Python", "SQL"],
-      "Data Engineering": ["dbt", "Airflow", "Dagster", "Spark", "Kafka"],
+      "Project Management Tools": ["Project Professional", "Project Online", "Azure DevOps", "Jira Cloud"],
+      "Programming Languages": ["Python", "SQL", "NoSQL"],
+      "Data Engineering": ["dbt", "Airflow", "Dagster", "Spark", "Kafka", "ETL/ELT"],
       "Cloud Platforms": ["AWS", "GCP", "Azure"],
       "Databases": ["Snowflake", "BigQuery", "PostgreSQL", "MySQL", "DuckDB"],
-      "Data Visualization": ["Power BI", "Looker", "Streamlit"],
-      "AI/ML": ["TensorFlow", "PyTorch", "Scikit-learn"],
+      "Data Visualization": ["Power BI", "Tableau", "Looker", "Streamlit"],
+      "AI/ML": ["Machine Learning", "TensorFlow", "PyTorch", "Scikit-learn"],
       "DevOps": ["Docker", "Terraform", "Git"]
     }
   },
   "languages": {
     "title": "Languages",
     "list": [
-      "English (Fluent)",
       "Portuguese (Native)",
+      "English (Fluent)",
       "Spanish (Intermediate)"
     ]
   }
 }
-

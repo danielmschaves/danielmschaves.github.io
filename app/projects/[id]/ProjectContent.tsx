@@ -10,7 +10,7 @@ interface Project {
   description: string;
   image: string;
   technologies: string[];
-  githubUrl: string;
+  githubUrl?: string;
   overview?: string;
   highlights?: string[];
   technicalApproach?: string;
@@ -66,17 +66,19 @@ export default function ProjectContent({ project }: ProjectContentProps) {
           </div>
 
           {/* Links */}
-          <div className="flex flex-wrap gap-3">
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-            >
-              <Github className="h-4 w-4" />
-              View on GitHub
-            </a>
-          </div>
+          {project.githubUrl && (
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+              >
+                <Github className="h-4 w-4" />
+                View on GitHub
+              </a>
+            </div>
+          )}
         </div>
 
         {/* Hero image */}
@@ -234,15 +236,17 @@ export default function ProjectContent({ project }: ProjectContentProps) {
               )}
 
               {/* GitHub */}
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary w-full justify-center"
-              >
-                <Github className="h-4 w-4" />
-                View on GitHub
-              </a>
+              {project.githubUrl && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary w-full justify-center"
+                >
+                  <Github className="h-4 w-4" />
+                  View on GitHub
+                </a>
+              )}
             </div>
 
           </div>

@@ -42,3 +42,5 @@ next-env.d.ts
 # playwright artifacts
 /test-results/
 /tests/playwright-report/
+
+_reference/

@@ -1,0 +1,223 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="cm-bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#020e1a"/>
+      <stop offset="100%" stop-color="#082f49"/>
+    </linearGradient>
+    <linearGradient id="cm-arrow" x1="420" y1="0" x2="780" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0369a1"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <pattern id="cm-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0L0 0 0 40" fill="none" stroke="#0ea5e9" stroke-width="0.4"/>
+    </pattern>
+    <filter id="cm-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="14" result="blur"/>
+      <feFlood flood-color="#0ea5e9" flood-opacity="0.55" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="cm-glow-green" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="14" result="blur"/>
+      <feFlood flood-color="#10b981" flood-opacity="0.6" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#cm-bg)"/>
+  <rect width="1200" height="630" fill="url(#cm-grid)" opacity="0.07"/>
+
+  <!-- Zone tints -->
+  <rect x="0"   y="0" width="400" height="630" fill="#075985" opacity="0.08"/>
+  <rect x="800" y="0" width="400" height="630" fill="#0ea5e9" opacity="0.05"/>
+
+  <!-- Divider lines -->
+  <line x1="400" y1="0" x2="400" y2="580" stroke="#0ea5e9" stroke-width="0.5" stroke-dasharray="6,6" opacity="0.2"/>
+  <line x1="800" y1="0" x2="800" y2="580" stroke="#0ea5e9" stroke-width="0.5" stroke-dasharray="6,6" opacity="0.2"/>
+
+  <!-- Centered title (in migration zone center) -->
+  <text x="600" y="36" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="22" fill="#f1f5f9" font-weight="600" letter-spacing="1">ENTERPRISE CLOUD MIGRATION</text>
+  <text x="600" y="57" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="11" fill="#38bdf8" letter-spacing="2">12 MONTHS · $1.2M BUDGET · ZERO DOWNTIME</text>
+  <line x1="420" y1="72" x2="780" y2="72" stroke="#0ea5e9" stroke-width="0.5" opacity="0.2"/>
+
+  <!-- Zone labels -->
+  <text x="200" y="52" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="11" fill="#38bdf8" letter-spacing="3.5" opacity="0.85">ON-PREMISE</text>
+  <text x="200" y="68" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#e2e8f0" letter-spacing="1.5" opacity="0.55">6 DATA CENTERS · ~200 SERVERS</text>
+
+  <text x="1000" y="52" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="11" fill="#38bdf8" letter-spacing="3.5" opacity="0.85">AWS CLOUD</text>
+  <text x="1000" y="68" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#e2e8f0" letter-spacing="1.5" opacity="0.55">ENTERPRISE INFRASTRUCTURE</text>
+
+  <!-- SERVER RACKS (2 cols × 3 rows) -->
+  <!-- DC-01 -->
+  <rect x="48"  y="90" width="84" height="110" rx="3" fill="#075985" stroke="#0ea5e9" stroke-width="0.6" opacity="0.9" filter="url(#cm-glow)"/>
+  <text x="90"  y="107" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#38bdf8" letter-spacing="1" opacity="0.7">DC-01</text>
+  <line x1="56" y1="115" x2="124" y2="115" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="56" y1="129" x2="124" y2="129" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="56" y1="143" x2="124" y2="143" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="56" y1="157" x2="124" y2="157" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="56" y1="171" x2="124" y2="171" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="56" y1="185" x2="124" y2="185" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <circle cx="64" cy="122" r="3" fill="#10b981"/><circle cx="64" cy="136" r="3" fill="#10b981"/>
+  <circle cx="64" cy="150" r="3" fill="#f59e0b"/><circle cx="64" cy="164" r="3" fill="#10b981"/>
+  <circle cx="64" cy="178" r="3" fill="#10b981"/><circle cx="64" cy="192" r="3" fill="#ef4444"/>
+
+  <!-- DC-02 -->
+  <rect x="168" y="90" width="84" height="110" rx="3" fill="#075985" stroke="#0ea5e9" stroke-width="0.6" opacity="0.9" filter="url(#cm-glow)"/>
+  <text x="210" y="107" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#38bdf8" letter-spacing="1" opacity="0.7">DC-02</text>
+  <line x1="176" y1="115" x2="244" y2="115" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="176" y1="129" x2="244" y2="129" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="176" y1="143" x2="244" y2="143" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="176" y1="157" x2="244" y2="157" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="176" y1="171" x2="244" y2="171" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="176" y1="185" x2="244" y2="185" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <circle cx="184" cy="122" r="3" fill="#10b981"/><circle cx="184" cy="136" r="3" fill="#ef4444"/>
+  <circle cx="184" cy="150" r="3" fill="#10b981"/><circle cx="184" cy="164" r="3" fill="#10b981"/>
+  <circle cx="184" cy="178" r="3" fill="#f59e0b"/><circle cx="184" cy="192" r="3" fill="#10b981"/>
+
+  <!-- DC-03 -->
+  <rect x="48"  y="232" width="84" height="110" rx="3" fill="#075985" stroke="#0ea5e9" stroke-width="0.6" opacity="0.85" filter="url(#cm-glow)"/>
+  <text x="90"  y="249" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#38bdf8" letter-spacing="1" opacity="0.7">DC-03</text>
+  <line x1="56" y1="257" x2="124" y2="257" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="56" y1="271" x2="124" y2="271" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="56" y1="285" x2="124" y2="285" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="56" y1="299" x2="124" y2="299" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="56" y1="313" x2="124" y2="313" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="56" y1="327" x2="124" y2="327" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <circle cx="64" cy="264" r="3" fill="#f59e0b"/><circle cx="64" cy="278" r="3" fill="#10b981"/>
+  <circle cx="64" cy="292" r="3" fill="#10b981"/><circle cx="64" cy="306" r="3" fill="#10b981"/>
+  <circle cx="64" cy="320" r="3" fill="#ef4444"/><circle cx="64" cy="334" r="3" fill="#10b981"/>
+
+  <!-- DC-04 -->
+  <rect x="168" y="232" width="84" height="110" rx="3" fill="#075985" stroke="#0ea5e9" stroke-width="0.6" opacity="0.85" filter="url(#cm-glow)"/>
+  <text x="210" y="249" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#38bdf8" letter-spacing="1" opacity="0.7">DC-04</text>
+  <line x1="176" y1="257" x2="244" y2="257" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="176" y1="271" x2="244" y2="271" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="176" y1="285" x2="244" y2="285" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="176" y1="299" x2="244" y2="299" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="176" y1="313" x2="244" y2="313" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="176" y1="327" x2="244" y2="327" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <circle cx="184" cy="264" r="3" fill="#10b981"/><circle cx="184" cy="278" r="3" fill="#10b981"/>
+  <circle cx="184" cy="292" r="3" fill="#f59e0b"/><circle cx="184" cy="306" r="3" fill="#ef4444"/>
+  <circle cx="184" cy="320" r="3" fill="#10b981"/><circle cx="184" cy="334" r="3" fill="#10b981"/>
+
+  <!-- DC-05 -->
+  <rect x="48"  y="374" width="84" height="110" rx="3" fill="#075985" stroke="#0ea5e9" stroke-width="0.6" opacity="0.8" filter="url(#cm-glow)"/>
+  <text x="90"  y="391" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#38bdf8" letter-spacing="1" opacity="0.7">DC-05</text>
+  <line x1="56" y1="399" x2="124" y2="399" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="56" y1="413" x2="124" y2="413" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="56" y1="427" x2="124" y2="427" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="56" y1="441" x2="124" y2="441" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="56" y1="455" x2="124" y2="455" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="56" y1="469" x2="124" y2="469" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <circle cx="64" cy="406" r="3" fill="#10b981"/><circle cx="64" cy="420" r="3" fill="#ef4444"/>
+  <circle cx="64" cy="434" r="3" fill="#10b981"/><circle cx="64" cy="448" r="3" fill="#f59e0b"/>
+  <circle cx="64" cy="462" r="3" fill="#10b981"/><circle cx="64" cy="476" r="3" fill="#10b981"/>
+
+  <!-- DC-06 -->
+  <rect x="168" y="374" width="84" height="110" rx="3" fill="#075985" stroke="#0ea5e9" stroke-width="0.6" opacity="0.8" filter="url(#cm-glow)"/>
+  <text x="210" y="391" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#38bdf8" letter-spacing="1" opacity="0.7">DC-06</text>
+  <line x1="176" y1="399" x2="244" y2="399" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="176" y1="413" x2="244" y2="413" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="176" y1="427" x2="244" y2="427" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="176" y1="441" x2="244" y2="441" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="176" y1="455" x2="244" y2="455" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <line x1="176" y1="469" x2="244" y2="469" stroke="#0ea5e9" stroke-width="0.4" opacity="0.4"/>
+  <circle cx="184" cy="406" r="3" fill="#10b981"/><circle cx="184" cy="420" r="3" fill="#10b981"/>
+  <circle cx="184" cy="434" r="3" fill="#10b981"/><circle cx="184" cy="448" r="3" fill="#f59e0b"/>
+  <circle cx="184" cy="462" r="3" fill="#ef4444"/><circle cx="184" cy="476" r="3" fill="#10b981"/>
+
+  <!-- Feeder lines from racks to center -->
+  <line x1="132" y1="145" x2="400" y2="295" stroke="#0ea5e9" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.25"/>
+  <line x1="252" y1="145" x2="400" y2="295" stroke="#0ea5e9" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.25"/>
+  <line x1="132" y1="287" x2="400" y2="295" stroke="#0ea5e9" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.25"/>
+  <line x1="252" y1="287" x2="400" y2="295" stroke="#0ea5e9" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.25"/>
+  <line x1="132" y1="429" x2="400" y2="295" stroke="#0ea5e9" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.25"/>
+  <line x1="252" y1="429" x2="400" y2="295" stroke="#0ea5e9" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.25"/>
+
+  <!-- CENTER: MIGRATION ARROW + METRICS -->
+  <!-- Arrow shaft -->
+  <rect x="420" y="289" width="348" height="12" rx="6" fill="url(#cm-arrow)" opacity="0.9"/>
+  <!-- Arrowhead -->
+  <polygon points="778,295 756,282 756,308" fill="#38bdf8"/>
+  <!-- Data particles -->
+  <circle cx="476" cy="295" r="4" fill="#0369a1" opacity="0.9"/>
+  <circle cx="535" cy="295" r="4" fill="#0569a8" opacity="0.9"/>
+  <circle cx="600" cy="295" r="5" fill="#0ea5e9"/>
+  <circle cx="665" cy="295" r="4" fill="#22c4f4" opacity="0.9"/>
+  <circle cx="724" cy="295" r="4" fill="#38bdf8" opacity="0.9"/>
+
+  <!-- MIGRATION label -->
+  <text x="600" y="272" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="12" fill="#38bdf8" letter-spacing="5" opacity="0.8">CLOUD MIGRATION</text>
+
+  <!-- Metric cards -->
+  <rect x="440" y="328" width="108" height="62" rx="6" fill="#075985" stroke="#0ea5e9" stroke-width="0.7" filter="url(#cm-glow)"/>
+  <text x="494" y="352" text-anchor="middle" font-family="ui-monospace,monospace" font-size="24" fill="#38bdf8" font-weight="700">12</text>
+  <text x="494" y="372" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#e2e8f0" letter-spacing="2">MONTHS</text>
+
+  <rect x="566" y="328" width="108" height="62" rx="6" fill="#075985" stroke="#0ea5e9" stroke-width="0.7" filter="url(#cm-glow)"/>
+  <text x="620" y="352" text-anchor="middle" font-family="ui-monospace,monospace" font-size="20" fill="#38bdf8" font-weight="700">$1.2M</text>
+  <text x="620" y="372" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#e2e8f0" letter-spacing="2">BUDGET</text>
+
+  <rect x="692" y="328" width="108" height="62" rx="6" fill="#075985" stroke="#10b981" stroke-width="0.7" filter="url(#cm-glow-green)"/>
+  <text x="746" y="352" text-anchor="middle" font-family="ui-monospace,monospace" font-size="24" fill="#10b981" font-weight="700">0</text>
+  <text x="746" y="372" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#e2e8f0" letter-spacing="1">DOWNTIME</text>
+
+  <!-- Distributor line from center to AWS -->
+  <line x1="800" y1="295" x2="860" y2="295" stroke="#0ea5e9" stroke-width="0.5" stroke-dasharray="4,4" opacity="0.3"/>
+
+  <!-- AWS SERVICE NODES -->
+  <circle cx="1000" cy="295" r="155" fill="none" stroke="#0ea5e9" stroke-width="0.5" stroke-dasharray="3,7" opacity="0.15"/>
+
+  <!-- EC2 -->
+  <circle cx="900" cy="220" r="48" fill="#075985" stroke="#0ea5e9" stroke-width="0.8" opacity="0.95" filter="url(#cm-glow)"/>
+  <text x="900" y="215" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#38bdf8" font-weight="700">EC2</text>
+  <text x="900" y="233" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#e2e8f0" letter-spacing="1">COMPUTE</text>
+
+  <!-- S3 -->
+  <circle cx="1000" cy="180" r="44" fill="#075985" stroke="#0ea5e9" stroke-width="0.8" opacity="0.95" filter="url(#cm-glow)"/>
+  <text x="1000" y="175" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#38bdf8" font-weight="700">S3</text>
+  <text x="1000" y="193" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#e2e8f0" letter-spacing="1">STORAGE</text>
+
+  <!-- RDS -->
+  <circle cx="1100" cy="220" r="48" fill="#075985" stroke="#0ea5e9" stroke-width="0.8" opacity="0.95" filter="url(#cm-glow)"/>
+  <text x="1100" y="215" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#38bdf8" font-weight="700">RDS</text>
+  <text x="1100" y="233" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#e2e8f0" letter-spacing="1">DATABASE</text>
+
+  <!-- VPC -->
+  <circle cx="920"  cy="360" r="40" fill="#075985" stroke="#0ea5e9" stroke-width="0.7" opacity="0.9" filter="url(#cm-glow)"/>
+  <text x="920"  y="355" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#38bdf8" font-weight="600">VPC</text>
+  <text x="920"  y="371" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#e2e8f0" letter-spacing="1">NETWORK</text>
+
+  <!-- IAM -->
+  <circle cx="1080" cy="360" r="40" fill="#075985" stroke="#0ea5e9" stroke-width="0.7" opacity="0.9" filter="url(#cm-glow)"/>
+  <text x="1080" y="355" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#38bdf8" font-weight="600">IAM</text>
+  <text x="1080" y="371" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#e2e8f0" letter-spacing="1">SECURITY</text>
+
+  <!-- Hub dot -->
+  <circle cx="1000" cy="295" r="10" fill="#38bdf8" opacity="0.6"/>
+  <circle cx="1000" cy="295" r="5"  fill="#38bdf8"/>
+
+  <!-- Spoke lines from hub -->
+  <line x1="1000" y1="295" x2="940"  y2="258" stroke="#0ea5e9" stroke-width="0.7" opacity="0.4"/>
+  <line x1="1000" y1="295" x2="1000" y2="224" stroke="#0ea5e9" stroke-width="0.7" opacity="0.4"/>
+  <line x1="1000" y1="295" x2="1060" y2="258" stroke="#0ea5e9" stroke-width="0.7" opacity="0.4"/>
+  <line x1="1000" y1="295" x2="954"  y2="322" stroke="#0ea5e9" stroke-width="0.7" opacity="0.4"/>
+  <line x1="1000" y1="295" x2="1045" y2="322" stroke="#0ea5e9" stroke-width="0.7" opacity="0.4"/>
+
+  <!-- BOTTOM BAR -->
+  <rect x="0" y="575" width="1200" height="55" fill="#010b15" opacity="0.85"/>
+  <line x1="0" y1="575" x2="1200" y2="575" stroke="#0ea5e9" stroke-width="0.5" opacity="0.25"/>
+  <text x="60"  y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">PROJECT MANAGEMENT</text>
+  <text x="232" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#e2e8f0" opacity="0.4">·</text>
+  <text x="248" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">AWS</text>
+  <text x="284" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#e2e8f0" opacity="0.4">·</text>
+  <text x="300" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">CLOUD MIGRATION</text>
+  <text x="456" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#e2e8f0" opacity="0.4">·</text>
+  <text x="472" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">AGILE</text>
+  <text x="519" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#e2e8f0" opacity="0.4">·</text>
+  <text x="535" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">RISK MANAGEMENT</text>
+  <text x="697" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#e2e8f0" opacity="0.4">·</text>
+  <text x="713" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">PMI/PMBOK</text>
+</svg>

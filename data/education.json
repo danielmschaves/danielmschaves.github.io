@@ -1,9 +1,9 @@
 [
   {
-    "institution": "Pontificia Universidade Católica - Minas Gerais",
+    "institution": "Pontifícia Universidade Católica",
     "degree": "Data Engineering, Postgraduate Degree",
     "year": "2024",
-    "location": "Brazil"
+    "location": "Florianópolis, Brazil"
   },
   {
     "institution": "University of Alberta",
@@ -14,8 +14,7 @@
   {
     "institution": "Federal University of Santa Maria",
     "degree": "Bachelor of Engineering, Production Engineering",
-    "year": "2020",
+    "year": "2021",
     "location": "Santa Maria, Brazil"
   }
 ]
-

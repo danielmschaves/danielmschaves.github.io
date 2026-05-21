@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="ec-bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#020e1a"/>
+      <stop offset="100%" stop-color="#082f49"/>
+    </linearGradient>
+    <linearGradient id="ec-pipe" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0369a1"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="ec-n1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#075985"/>
+      <stop offset="100%" stop-color="#0c4a6e"/>
+    </linearGradient>
+    <linearGradient id="ec-n2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0369a1"/>
+      <stop offset="100%" stop-color="#075985"/>
+    </linearGradient>
+    <linearGradient id="ec-n3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <linearGradient id="ec-n4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <pattern id="ec-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0L0 0 0 40" fill="none" stroke="#0ea5e9" stroke-width="0.4"/>
+    </pattern>
+    <filter id="ec-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="14" result="blur"/>
+      <feFlood flood-color="#0ea5e9" flood-opacity="0.55" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#ec-bg)"/>
+  <rect width="1200" height="630" fill="url(#ec-grid)" opacity="0.07"/>
+
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="22" fill="#f1f5f9" font-weight="600" letter-spacing="0.5">E-commerce Data Pipeline</text>
+  <text x="600" y="62" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="11" fill="#38bdf8" letter-spacing="2" opacity="0.85">BigQuery · Pydantic · DuckDB · Multi-destination ELT</text>
+
+  <!-- Pipeline backbone -->
+  <rect x="168" y="280" width="864" height="10" rx="5" fill="#0c4a6e" opacity="0.6"/>
+  <circle cx="280" cy="285" r="3" fill="#0369a1" opacity="0.7"/>
+  <circle cx="360" cy="285" r="3" fill="#0469a8" opacity="0.8"/>
+  <circle cx="440" cy="285" r="4" fill="#0569b0" opacity="0.9"/>
+  <circle cx="520" cy="285" r="3" fill="#0679ba" opacity="0.8"/>
+  <circle cx="600" cy="285" r="5" fill="#0ea5e9"/>
+  <circle cx="680" cy="285" r="3" fill="#16b1f0" opacity="0.8"/>
+  <circle cx="760" cy="285" r="3" fill="#22c4f4" opacity="0.9"/>
+  <circle cx="840" cy="285" r="4" fill="#2dcff7" opacity="0.8"/>
+  <circle cx="920" cy="285" r="3" fill="#38bdf8" opacity="0.7"/>
+
+  <!-- NODE 1: BIGQUERY (cx=168) — Cylinder -->
+  <rect x="88" y="220" width="160" height="130" rx="8" fill="url(#ec-n1)" stroke="#0ea5e9" stroke-width="0.8" filter="url(#ec-glow)"/>
+  <ellipse cx="168" cy="224" rx="80" ry="12" fill="#0c4a6e" stroke="#0ea5e9" stroke-width="0.6"/>
+  <ellipse cx="168" cy="224" rx="80" ry="12" fill="#075985" opacity="0.5"/>
+  <ellipse cx="168" cy="285" rx="80" ry="8" fill="none" stroke="#0ea5e9" stroke-width="0.4" opacity="0.3"/>
+  <polygon points="168,242 184,261 168,280 152,261" fill="none" stroke="#38bdf8" stroke-width="1.5" opacity="0.6"/>
+  <polygon points="168,249 180,261 168,273 156,261" fill="#0ea5e9" opacity="0.2"/>
+  <text x="168" y="305" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#38bdf8" font-weight="700" letter-spacing="1">BIGQUERY</text>
+  <text x="168" y="320" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#e2e8f0" letter-spacing="1">PUBLIC DATASET</text>
+  <text x="168" y="335" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#e2e8f0">thelook_ecommerce</text>
+  <text x="168" y="375" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" opacity="0.6" letter-spacing="2">STAGE 1</text>
+  <text x="168" y="391" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#e2e8f0">SOURCE</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="252" y1="285" x2="348" y2="285" stroke="url(#ec-pipe)" stroke-width="2" opacity="0.7"/>
+  <polygon points="352,285 340,278 340,292" fill="#0ea5e9" opacity="0.8"/>
+  <text x="300" y="272" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#e2e8f0" letter-spacing="1">EXTRACT</text>
+
+  <!-- NODE 2: PYDANTIC (cx=432) — Hexagon -->
+  <polygon points="432,215 498,253 498,317 432,355 366,317 366,253" fill="url(#ec-n2)" stroke="#0ea5e9" stroke-width="0.8" filter="url(#ec-glow)"/>
+  <polygon points="432,232 484,260 484,310 432,338 380,310 380,260" fill="none" stroke="#0ea5e9" stroke-width="0.4" opacity="0.3"/>
+  <polygon points="432,240 452,252 452,278 432,292 412,278 412,252" fill="none" stroke="#10b981" stroke-width="1" opacity="0.6"/>
+  <text x="432" y="270" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#10b981" opacity="0.7">✓</text>
+  <text x="432" y="304" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="#38bdf8" font-weight="700" letter-spacing="0.5">PYDANTIC</text>
+  <text x="432" y="322" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#e2e8f0" letter-spacing="1">type · schema · constraints</text>
+  <text x="432" y="375" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" opacity="0.6" letter-spacing="2">STAGE 2</text>
+  <text x="432" y="391" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#e2e8f0">VALIDATE</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="502" y1="285" x2="598" y2="285" stroke="url(#ec-pipe)" stroke-width="2" opacity="0.7"/>
+  <polygon points="602,285 590,278 590,292" fill="#0ea5e9" opacity="0.8"/>
+  <text x="550" y="272" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#e2e8f0" letter-spacing="1">LOAD</text>
+
+  <!-- NODE 3: DUCKDB (cx=696) — Larger Hexagon -->
+  <polygon points="696,215 768,256 768,320 696,360 624,320 624,256" fill="url(#ec-n3)" stroke="#0ea5e9" stroke-width="0.8" filter="url(#ec-glow)"/>
+  <line x1="696" y1="240" x2="696" y2="336" stroke="#0ea5e9" stroke-width="0.5" opacity="0.25"/>
+  <line x1="628" y1="270" x2="764" y2="306" stroke="#0ea5e9" stroke-width="0.5" opacity="0.25"/>
+  <line x1="764" y1="270" x2="628" y2="306" stroke="#0ea5e9" stroke-width="0.5" opacity="0.25"/>
+  <text x="696" y="271" text-anchor="middle" font-family="ui-monospace,monospace" font-size="15" fill="#38bdf8" font-weight="700">DUCKDB</text>
+  <text x="696" y="292" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#e2e8f0" letter-spacing="1">in-process analytics</text>
+  <text x="696" y="311" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#e2e8f0" letter-spacing="0.5">columnar · fast · local</text>
+  <text x="696" y="375" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" opacity="0.6" letter-spacing="2">STAGE 3</text>
+  <text x="696" y="391" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#e2e8f0">PROCESS</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="770" y1="285" x2="866" y2="285" stroke="url(#ec-pipe)" stroke-width="2" opacity="0.7"/>
+  <polygon points="870,285 858,278 858,292" fill="#0ea5e9" opacity="0.8"/>
+  <text x="818" y="272" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#e2e8f0" letter-spacing="1">SINK</text>
+
+  <!-- NODE 4: MULTI-DESTINATION (cx=1000) — Rect with 3 output rows -->
+  <rect x="912" y="215" width="176" height="140" rx="8" fill="url(#ec-n4)" stroke="#0ea5e9" stroke-width="0.8" filter="url(#ec-glow)"/>
+  <text x="1000" y="237" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#38bdf8" font-weight="700" letter-spacing="0.5">DESTINATIONS</text>
+  <rect x="926" y="248" width="148" height="26" rx="4" fill="#075985" stroke="#0ea5e9" stroke-width="0.5" opacity="0.8"/>
+  <text x="1000" y="265" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" letter-spacing="1">LOCAL CSV</text>
+  <rect x="926" y="280" width="148" height="26" rx="4" fill="#075985" stroke="#0ea5e9" stroke-width="0.5" opacity="0.8"/>
+  <text x="1000" y="297" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" letter-spacing="1">AMAZON S3</text>
+  <rect x="926" y="312" width="148" height="26" rx="4" fill="#075985" stroke="#0ea5e9" stroke-width="0.5" opacity="0.8"/>
+  <text x="1000" y="329" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" letter-spacing="1">MOTHERDUCK</text>
+  <text x="1000" y="375" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" opacity="0.6" letter-spacing="2">STAGE 4</text>
+  <text x="1000" y="391" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#e2e8f0">MULTI-DESTINATION</text>
+
+  <!-- KPI Row -->
+  <rect x="88"  y="420" width="158" height="56" rx="6" fill="#075985" stroke="#0ea5e9" stroke-width="0.7" filter="url(#ec-glow)"/>
+  <text x="167" y="445" text-anchor="middle" font-family="ui-monospace,monospace" font-size="18" fill="#38bdf8" font-weight="700">ELT</text>
+  <text x="167" y="463" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#e2e8f0" letter-spacing="1">PIPELINE TYPE</text>
+
+  <rect x="284" y="420" width="158" height="56" rx="6" fill="#075985" stroke="#0ea5e9" stroke-width="0.7" filter="url(#ec-glow)"/>
+  <text x="363" y="445" text-anchor="middle" font-family="ui-monospace,monospace" font-size="18" fill="#38bdf8" font-weight="700">3</text>
+  <text x="363" y="463" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#e2e8f0" letter-spacing="1">OUTPUT TARGETS</text>
+
+  <rect x="480" y="420" width="158" height="56" rx="6" fill="#075985" stroke="#10b981" stroke-width="0.7" filter="url(#ec-glow)"/>
+  <text x="559" y="445" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#10b981" font-weight="700">VALIDATED</text>
+  <text x="559" y="463" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#e2e8f0" letter-spacing="1">TYPE-SAFE DATA</text>
+
+  <rect x="676" y="420" width="158" height="56" rx="6" fill="#075985" stroke="#0ea5e9" stroke-width="0.7" filter="url(#ec-glow)"/>
+  <text x="755" y="445" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#38bdf8" font-weight="700">MODULAR</text>
+  <text x="755" y="463" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#e2e8f0" letter-spacing="1">Python components</text>
+
+  <rect x="872" y="420" width="240" height="56" rx="6" fill="#075985" stroke="#0ea5e9" stroke-width="0.7" filter="url(#ec-glow)"/>
+  <text x="992" y="445" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#38bdf8" font-weight="700">PYDANTIC v2</text>
+  <text x="992" y="463" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#e2e8f0" letter-spacing="1">SCHEMA · TYPE · CONSTRAINT VALIDATION</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="575" width="1200" height="55" fill="#010b15" opacity="0.85"/>
+  <line x1="0" y1="575" x2="1200" y2="575" stroke="#0ea5e9" stroke-width="0.5" opacity="0.25"/>
+  <text x="60"  y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">DUCKDB</text>
+  <text x="121" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#e2e8f0">·</text>
+  <text x="135" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">BIGQUERY</text>
+  <text x="213" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#e2e8f0">·</text>
+  <text x="227" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">PYTHON</text>
+  <text x="291" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#e2e8f0">·</text>
+  <text x="305" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">PYDANTIC</text>
+  <text x="380" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#e2e8f0">·</text>
+  <text x="394" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">S3</text>
+  <text x="418" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#e2e8f0">·</text>
+  <text x="432" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">MOTHERDUCK</text>
+</svg>

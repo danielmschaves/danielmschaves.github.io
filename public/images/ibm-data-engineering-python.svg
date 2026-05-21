@@ -1,0 +1,207 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="py-bg" x1="0" y1="0" x2="0" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#020e1a"/>
+      <stop offset="100%" stop-color="#082f49"/>
+    </linearGradient>
+    <pattern id="py-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0L0 0 0 40" fill="none" stroke="#0ea5e9" stroke-width="0.4"/>
+    </pattern>
+    <marker id="py-arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#0ea5e9" opacity="0.55"/>
+    </marker>
+    <linearGradient id="py-node" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0369a1"/>
+      <stop offset="100%" stop-color="#075985"/>
+    </linearGradient>
+    <linearGradient id="py-python" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1f3a5f"/>
+      <stop offset="100%" stop-color="#0e1f38"/>
+    </linearGradient>
+    <linearGradient id="py-output" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a2840"/>
+      <stop offset="100%" stop-color="#051524"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#py-bg)"/>
+  <rect width="1200" height="630" fill="url(#py-grid)" opacity="0.07"/>
+
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="20" fill="#f1f5f9" font-weight="600" letter-spacing="0.5">Python Financial Data Engineering</text>
+  <text x="600" y="62" text-anchor="middle" font-family="ui-monospace,'Courier New',monospace" font-size="11" fill="#38bdf8" letter-spacing="2" opacity="0.85">Web Scraping · APIs · Python · Financial Analysis · IBM</text>
+
+  <!-- ── LEFT: 3 SOURCE NODES stacked ── -->
+  <!-- Source 1: Web Scraping (top, y=120-210) -->
+  <rect x="40" y="120" width="210" height="90" rx="8" fill="url(#py-node)" stroke="#0ea5e9" stroke-width="0.7" opacity="0.95"/>
+  <!-- Globe icon -->
+  <circle cx="95" cy="165" r="32" fill="none" stroke="#0ea5e9" stroke-width="0.8" opacity="0.5"/>
+  <ellipse cx="95" cy="165" rx="32" ry="12" fill="none" stroke="#0ea5e9" stroke-width="0.5" opacity="0.4"/>
+  <line x1="95" y1="133" x2="95" y2="197" stroke="#0ea5e9" stroke-width="0.5" opacity="0.4"/>
+  <text x="170" y="155" font-family="ui-monospace,monospace" font-size="10" fill="#38bdf8" font-weight="700" letter-spacing="1">WEB</text>
+  <text x="170" y="170" font-family="ui-monospace,monospace" font-size="10" fill="#38bdf8" font-weight="700" letter-spacing="1">SCRAPING</text>
+  <text x="170" y="186" font-family="ui-monospace,monospace" font-size="7" fill="#64748b">BeautifulSoup</text>
+  <text x="170" y="199" font-family="ui-monospace,monospace" font-size="7" fill="#64748b">requests</text>
+
+  <!-- Source 2: API (middle, y=245-335) -->
+  <rect x="40" y="245" width="210" height="90" rx="8" fill="url(#py-node)" stroke="#0ea5e9" stroke-width="0.7" opacity="0.9"/>
+  <!-- API bracket hint { } -->
+  <text x="92" y="300" text-anchor="middle" font-family="ui-monospace,monospace" font-size="36" fill="#0ea5e9" opacity="0.4">{ }</text>
+  <text x="170" y="280" font-family="ui-monospace,monospace" font-size="10" fill="#38bdf8" font-weight="700" letter-spacing="1">REST API</text>
+  <text x="170" y="295" font-family="ui-monospace,monospace" font-size="7" fill="#64748b">financial data</text>
+  <text x="170" y="310" font-family="ui-monospace,monospace" font-size="7" fill="#64748b">exchange rates</text>
+  <!-- Status dot -->
+  <circle cx="56" cy="325" r="4" fill="#10b981"/>
+  <text x="68" y="329" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192">200 OK</text>
+
+  <!-- Source 3: Files (bottom, y=370-460) -->
+  <rect x="40" y="370" width="210" height="90" rx="8" fill="url(#py-node)" stroke="#0ea5e9" stroke-width="0.7" opacity="0.85"/>
+  <!-- File stack -->
+  <rect x="62" y="388" width="50" height="64" rx="3" fill="none" stroke="#0ea5e9" stroke-width="0.7" opacity="0.5"/>
+  <rect x="70" y="382" width="50" height="64" rx="3" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.7" opacity="0.7"/>
+  <rect x="78" y="376" width="50" height="64" rx="3" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.7" opacity="0.9"/>
+  <!-- Lines in file -->
+  <line x1="85" y1="393" x2="120" y2="393" stroke="#0ea5e9" stroke-width="0.5" opacity="0.4"/>
+  <line x1="85" y1="401" x2="120" y2="401" stroke="#0ea5e9" stroke-width="0.5" opacity="0.4"/>
+  <line x1="85" y1="409" x2="112" y2="409" stroke="#0ea5e9" stroke-width="0.5" opacity="0.4"/>
+  <line x1="85" y1="417" x2="120" y2="417" stroke="#0ea5e9" stroke-width="0.5" opacity="0.3"/>
+  <text x="170" y="405" font-family="ui-monospace,monospace" font-size="10" fill="#38bdf8" font-weight="700" letter-spacing="1">DATA FILES</text>
+  <text x="170" y="422" font-family="ui-monospace,monospace" font-size="7" fill="#64748b">CSV · Excel</text>
+  <text x="170" y="437" font-family="ui-monospace,monospace" font-size="7" fill="#64748b">provided by firms</text>
+
+  <!-- Feed arrows to Python -->
+  <line x1="252" y1="165" x2="418" y2="295" stroke="#0ea5e9" stroke-width="1" stroke-dasharray="5,4" opacity="0.35" marker-end="url(#py-arr)"/>
+  <line x1="252" y1="290" x2="418" y2="295" stroke="#0ea5e9" stroke-width="1" stroke-dasharray="5,4" opacity="0.35" marker-end="url(#py-arr)"/>
+  <line x1="252" y1="415" x2="418" y2="295" stroke="#0ea5e9" stroke-width="1" stroke-dasharray="5,4" opacity="0.35" marker-end="url(#py-arr)"/>
+
+  <!-- Particles on feeder lines -->
+  <circle cx="310" cy="220" r="3.5" fill="#0ea5e9" opacity="0.6"/>
+  <circle cx="310" cy="290" r="3.5" fill="#0ea5e9" opacity="0.6"/>
+  <circle cx="320" cy="358" r="3.5" fill="#0ea5e9" opacity="0.6"/>
+
+  <!-- CENTER: Python Processor hexagon flat-top center(570,295) r=110 -->
+  <!-- r=110: 680,295  625,200.2  515,200.2  460,295  515,389.8  625,389.8 -->
+  <polygon points="680,295 625,200 515,200 460,295 515,390 625,390" fill="url(#py-python)" stroke="#3b82f6" stroke-width="1.2" opacity="0.95"/>
+  <!-- Python logo glyph (simplified snake) -->
+  <!-- Top half snake body arc -->
+  <path d="M540,240 Q570,225 600,240 Q620,252 620,272 L600,272 Q600,258 580,252 Q560,246 540,258 L540,240 Z" fill="#3b82f6" opacity="0.5"/>
+  <!-- Bottom half -->
+  <path d="M600,310 Q570,325 540,310 Q520,298 520,278 L540,278 Q540,292 560,298 Q580,304 600,292 L600,310 Z" fill="#fbbf24" opacity="0.4"/>
+  <!-- Eyes -->
+  <circle cx="595" cy="252" r="5" fill="#f1f5f9" opacity="0.8"/>
+  <circle cx="545" cy="318" r="5" fill="#f1f5f9" opacity="0.8"/>
+  <text x="570" y="355" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#3b82f6" font-weight="700" letter-spacing="1.5">PYTHON ETL</text>
+  <text x="570" y="373" text-anchor="middle" font-family="ui-monospace,monospace" font-size="8" fill="#64748b" letter-spacing="1">extract · transform · load</text>
+
+  <!-- Arrow Python to output -->
+  <line x1="682" y1="295" x2="768" y2="295" stroke="#0ea5e9" stroke-width="1.5" opacity="0.5" marker-end="url(#py-arr)"/>
+  <circle cx="700" cy="295" r="3.5" fill="#0ea5e9" opacity="0.5"/>
+  <circle cx="716" cy="295" r="4" fill="#38bdf8" opacity="0.7"/>
+  <circle cx="732" cy="295" r="3.5" fill="#0ea5e9" opacity="0.5"/>
+  <circle cx="748" cy="295" r="4" fill="#38bdf8" opacity="0.7"/>
+
+  <!-- OUTPUT: Financial Data Table -->
+  <rect x="775" y="120" width="385" height="360" rx="8" fill="url(#py-output)" stroke="#0ea5e9" stroke-width="0.7" opacity="0.95"/>
+  <text x="967" y="148" text-anchor="middle" font-family="ui-monospace,monospace" font-size="10" fill="#38bdf8" letter-spacing="2" opacity="0.9">FINANCIAL DATA OUTPUT</text>
+  <line x1="785" y1="155" x2="1150" y2="155" stroke="#0ea5e9" stroke-width="0.4" opacity="0.35"/>
+
+  <!-- Table header -->
+  <rect x="785" y="160" width="365" height="18" rx="0" fill="#0369a1" opacity="0.35"/>
+  <text x="820"  y="173" font-family="ui-monospace,monospace" font-size="8" fill="#38bdf8" letter-spacing="1">BANK</text>
+  <text x="880"  y="173" font-family="ui-monospace,monospace" font-size="8" fill="#38bdf8" letter-spacing="1">MARKET_CAP</text>
+  <text x="990"  y="173" font-family="ui-monospace,monospace" font-size="8" fill="#38bdf8" letter-spacing="1">REVENUE</text>
+  <text x="1080" y="173" font-family="ui-monospace,monospace" font-size="8" fill="#38bdf8" letter-spacing="1">PROFIT</text>
+
+  <!-- Data rows -->
+  <!-- Row 1 -->
+  <rect x="785" y="180" width="365" height="18" rx="0" fill="#0a1628" opacity="0.7"/>
+  <text x="820"  y="193" font-family="ui-monospace,monospace" font-size="8" fill="#94a3b8">JPMorgan</text>
+  <text x="880"  y="193" font-family="ui-monospace,monospace" font-size="8" fill="#94a3b8">$469.4B</text>
+  <text x="990"  y="193" font-family="ui-monospace,monospace" font-size="8" fill="#94a3b8">$158.1B</text>
+  <text x="1080" y="193" font-family="ui-monospace,monospace" font-size="8" fill="#10b981">$49.6B</text>
+  <!-- Row 2 -->
+  <rect x="785" y="200" width="365" height="18" rx="0" fill="#0a1628" opacity="0.5"/>
+  <text x="820"  y="213" font-family="ui-monospace,monospace" font-size="8" fill="#94a3b8">Goldman Sachs</text>
+  <text x="880"  y="213" font-family="ui-monospace,monospace" font-size="8" fill="#94a3b8">$117.2B</text>
+  <text x="990"  y="213" font-family="ui-monospace,monospace" font-size="8" fill="#94a3b8">$47.4B</text>
+  <text x="1080" y="213" font-family="ui-monospace,monospace" font-size="8" fill="#10b981">$11.3B</text>
+  <!-- Row 3 -->
+  <rect x="785" y="220" width="365" height="18" rx="0" fill="#0a1628" opacity="0.7"/>
+  <text x="820"  y="233" font-family="ui-monospace,monospace" font-size="8" fill="#94a3b8">Bank of America</text>
+  <text x="880"  y="233" font-family="ui-monospace,monospace" font-size="8" fill="#94a3b8">$237.9B</text>
+  <text x="990"  y="233" font-family="ui-monospace,monospace" font-size="8" fill="#94a3b8">$98.3B</text>
+  <text x="1080" y="233" font-family="ui-monospace,monospace" font-size="8" fill="#10b981">$27.5B</text>
+  <!-- Row 4 -->
+  <rect x="785" y="240" width="365" height="18" rx="0" fill="#0a1628" opacity="0.5"/>
+  <text x="820"  y="253" font-family="ui-monospace,monospace" font-size="8" fill="#94a3b8">Wells Fargo</text>
+  <text x="880"  y="253" font-family="ui-monospace,monospace" font-size="8" fill="#94a3b8">$163.4B</text>
+  <text x="990"  y="253" font-family="ui-monospace,monospace" font-size="8" fill="#94a3b8">$82.2B</text>
+  <text x="1080" y="253" font-family="ui-monospace,monospace" font-size="8" fill="#10b981">$13.2B</text>
+  <!-- Row 5 -->
+  <rect x="785" y="260" width="365" height="18" rx="0" fill="#0a1628" opacity="0.65"/>
+  <text x="820"  y="273" font-family="ui-monospace,monospace" font-size="8" fill="#94a3b8">HSBC</text>
+  <text x="880"  y="273" font-family="ui-monospace,monospace" font-size="8" fill="#94a3b8">$152.6B</text>
+  <text x="990"  y="273" font-family="ui-monospace,monospace" font-size="8" fill="#94a3b8">$56.4B</text>
+  <text x="1080" y="273" font-family="ui-monospace,monospace" font-size="8" fill="#10b981">$14.8B</text>
+  <!-- Row 6 fading -->
+  <rect x="785" y="280" width="365" height="16" rx="0" fill="#0a1628" opacity="0.45"/>
+  <text x="820"  y="292" font-family="ui-monospace,monospace" font-size="8" fill="#64748b">Citigroup</text>
+  <text x="880"  y="292" font-family="ui-monospace,monospace" font-size="8" fill="#64748b">$97.8B</text>
+  <!-- Row 7 fading -->
+  <rect x="785" y="298" width="365" height="14" rx="0" fill="#0a1628" opacity="0.3"/>
+  <text x="820"  y="309" font-family="ui-monospace,monospace" font-size="8" fill="#4e6070">Morgan Stanley</text>
+  <!-- Row 8 more faded -->
+  <rect x="785" y="314" width="365" height="12" rx="0" fill="#0a1628" opacity="0.15"/>
+  <rect x="785" y="328" width="365" height="10" rx="0" fill="#0a1628" opacity="0.08"/>
+
+  <!-- Conversion rate chart area -->
+  <text x="967" y="360" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#38bdf8" letter-spacing="2" opacity="0.7">EXCHANGE RATES (USD)</text>
+  <line x1="793" y1="366" x2="1152" y2="366" stroke="#0ea5e9" stroke-width="0.4" opacity="0.2"/>
+  <!-- Currency bars -->
+  <rect x="800" y="380" width="55" height="60" rx="2" fill="none" stroke="#0ea5e9" stroke-width="0.5" opacity="0.4"/>
+  <rect x="800" y="410" width="55" height="30" rx="2" fill="#0ea5e9" opacity="0.3"/>
+  <text x="827" y="456" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#64748b">EUR</text>
+
+  <rect x="870" y="380" width="55" height="60" rx="2" fill="none" stroke="#0ea5e9" stroke-width="0.5" opacity="0.4"/>
+  <rect x="870" y="402" width="55" height="38" rx="2" fill="#0ea5e9" opacity="0.35"/>
+  <text x="897" y="456" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#64748b">GBP</text>
+
+  <rect x="940" y="380" width="55" height="60" rx="2" fill="none" stroke="#0ea5e9" stroke-width="0.5" opacity="0.4"/>
+  <rect x="940" y="420" width="55" height="20" rx="2" fill="#38bdf8" opacity="0.4"/>
+  <text x="967" y="456" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#64748b">CAD</text>
+
+  <rect x="1010" y="380" width="55" height="60" rx="2" fill="none" stroke="#0ea5e9" stroke-width="0.5" opacity="0.4"/>
+  <rect x="1010" y="408" width="55" height="32" rx="2" fill="#0ea5e9" opacity="0.3"/>
+  <text x="1037" y="456" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#64748b">JPY</text>
+
+  <rect x="1080" y="380" width="55" height="60" rx="2" fill="none" stroke="#0ea5e9" stroke-width="0.5" opacity="0.4"/>
+  <rect x="1080" y="415" width="55" height="25" rx="2" fill="#0ea5e9" opacity="0.25"/>
+  <text x="1107" y="456" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#64748b">AUD</text>
+
+  <!-- Metric cards row -->
+  <rect x="60"  y="490" width="140" height="52" rx="6" fill="#0a1628" stroke="#0ea5e9" stroke-width="0.6" opacity="0.9"/>
+  <text x="130" y="513" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#38bdf8" font-weight="700">3 SOURCES</text>
+  <text x="130" y="530" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1">DATA INGESTION</text>
+
+  <rect x="220" y="490" width="140" height="52" rx="6" fill="#0a1628" stroke="#3b82f6" stroke-width="0.6" opacity="0.9"/>
+  <text x="290" y="513" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#3b82f6" font-weight="700">PYTHON</text>
+  <text x="290" y="530" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1">ETL ENGINE</text>
+
+  <rect x="380" y="490" width="140" height="52" rx="6" fill="#0a1628" stroke="#10b981" stroke-width="0.6" opacity="0.9"/>
+  <text x="450" y="513" text-anchor="middle" font-family="ui-monospace,monospace" font-size="12" fill="#10b981" font-weight="700">10 BANKS</text>
+  <text x="450" y="530" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" fill="#4e7192" letter-spacing="1">LARGEST BY MCAP</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="575" width="1200" height="55" fill="#010b15" opacity="0.85"/>
+  <line x1="0" y1="575" x2="1200" y2="575" stroke="#0ea5e9" stroke-width="0.5" opacity="0.25"/>
+  <text x="60"  y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">PYTHON</text>
+  <text x="124" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="138" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">APIs</text>
+  <text x="168" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="182" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">WEB SCRAPING</text>
+  <text x="302" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="316" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">DATA COLLECTION</text>
+  <text x="452" y="607" font-family="ui-monospace,monospace" font-size="9" fill="#4e7192">·</text>
+  <text x="466" y="607" font-family="ui-monospace,'Courier New',monospace" font-size="9" fill="#38bdf8" letter-spacing="1.5" opacity="0.8">IBM</text>
+</svg>

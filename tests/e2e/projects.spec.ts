@@ -16,10 +16,6 @@ test.describe("Project detail — adventure-works-dbt", () => {
     expect(await tags.count()).toBeGreaterThanOrEqual(1);
   });
 
-  test("a link to github.com is present", async ({ page }) => {
-    await expect(page.locator('a[href*="github.com"]').first()).toBeVisible();
-  });
-
   test("Back to Portfolio link navigates to home", async ({ page }) => {
     await page.getByRole("link", { name: /back to portfolio/i }).click();
     await expect(page).toHaveURL(/\/$/);

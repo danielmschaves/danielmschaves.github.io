@@ -18,6 +18,15 @@
     "category": "Project Management"
   },
   {
+    "id": "data-intelligence-platform",
+    "title": "Data Intelligence Platform Build",
+    "description": "A 12-month engagement to take a mid-market trading company from scattered operational systems to a unified data platform — Data Lake, Data Warehouse, BI, and predictive models, built from scratch with a hybrid agile planning model.",
+    "image": "/images/data-intelligence-platform.svg",
+    "technologies": ["Project Management", "Scrum + Kanban", "Modern Data Stack", "Data Lake", "Data Warehouse", "BI & Predictive Modeling", "Cloud (AWS / GCP / Azure)"],
+    "featured": false,
+    "category": "Project Management"
+  },
+  {
     "id": "spotify-etl-aws",
     "title": "Spotify ELT Pipeline with AWS, Airflow and dbt",
     "description": "End-to-end ELT data lake pulling Spotify's global playlist data through a 4-stage medallion architecture on AWS S3, orchestrated by Airflow and transformed with dbt — delivered to Power BI dashboards.",

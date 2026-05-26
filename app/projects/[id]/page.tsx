@@ -8,6 +8,7 @@ import DWProgramContent from "@/components/projects/DWProgramContent";
 import SpotifyELTContent from "@/components/projects/SpotifyELTContent";
 import AdventureWorksContent from "@/components/projects/AdventureWorksContent";
 import EcommerceContent from "@/components/projects/EcommerceContent";
+import DataIntelligencePlatformContent from "@/components/projects/DataIntelligencePlatformContent";
 
 interface ProjectPageProps {
   params: {
@@ -45,6 +46,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     notFound();
   }
 
+  if (project.id === "data-intelligence-platform") return <DataIntelligencePlatformContent />;
   if (project.id === "cloud-migration-enterprise") return <CloudMigrationContent />;
   if (project.id === "data-warehouse-modernization") return <DWProgramContent />;
   if (project.id === "spotify-etl-aws") return <SpotifyELTContent />;

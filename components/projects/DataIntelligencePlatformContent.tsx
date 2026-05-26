@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { ArrowLeft, Search, FileText, Database, ClipboardCheck } from "lucide-react";
 
@@ -179,7 +177,14 @@ export default function DataIntelligencePlatformContent() {
               <div style={infographTitle}>Four phases mapped across the 12-month engagement</div>
             </div>
             <div style={{ overflowX: "auto" }}>
-              <svg viewBox="0 0 1100 400" style={{ width: "100%", minWidth: 700, height: "auto", display: "block" }}>
+              <svg
+                viewBox="0 0 1100 400"
+                role="img"
+                aria-labelledby="title-annualTimeline desc-annualTimeline"
+                style={{ width: "100%", minWidth: 700, height: "auto", display: "block" }}
+              >
+                <title id="title-annualTimeline">Annual Project Timeline</title>
+                <desc id="desc-annualTimeline">A timeline showing four quarters and four project phases across a 12-month engagement: Planning (Q1), MVP Execution (Q2), Deploy &amp; Test (Q3), and Monitor &amp; Report (Q4), each with key activities listed.</desc>
                 {/* Quarter labels */}
                 <text x="170" y="22" textAnchor="middle" style={svgLabel()}>Quarter 1</text>
                 <text x="400" y="22" textAnchor="middle" style={svgLabel()}>Quarter 2</text>
@@ -297,7 +302,14 @@ export default function DataIntelligencePlatformContent() {
               <div style={infographSub}>The top two levels live in the project backlog. The bottom level is what enters a sprint.</div>
             </div>
             <div style={{ overflowX: "auto" }}>
-              <svg viewBox="0 0 1100 400" style={{ width: "100%", minWidth: 700, height: "auto", display: "block" }}>
+              <svg
+                viewBox="0 0 1100 400"
+                role="img"
+                aria-labelledby="title-backlogHierarchy desc-backlogHierarchy"
+                style={{ width: "100%", minWidth: 700, height: "auto", display: "block" }}
+              >
+                <title id="title-backlogHierarchy">Backlog Hierarchy Diagram</title>
+                <desc id="desc-backlogHierarchy">A three-level hierarchy: Deliverable (contractual unit the client signs off) at the top, two Activities (bodies of work) in the middle, and four Tasks (atomic sprint-level units) at the bottom. The upper two levels belong to the Project Backlog; tasks live in the Sprint Backlog.</desc>
 
                 {/* Left panels */}
                 <rect x="0" y="40"  width="180" height="100" fill={svgBg} stroke={svgBorder} rx="4"/>
@@ -419,7 +431,14 @@ export default function DataIntelligencePlatformContent() {
               <div style={infographTitle}>Hours per role across activities (2-week sprint)</div>
             </div>
             <div style={{ overflowX: "auto" }}>
-              <svg viewBox="0 0 1100 420" style={{ width: "100%", minWidth: 700, height: "auto", display: "block" }}>
+              <svg
+                viewBox="0 0 1100 420"
+                role="img"
+                aria-labelledby="title-sprintAllocation desc-sprintAllocation"
+                style={{ width: "100%", minWidth: 700, height: "auto", display: "block" }}
+              >
+                <title id="title-sprintAllocation">Sprint 1 Resource Allocation</title>
+                <desc id="desc-sprintAllocation">Hours per role across four activities in the first two-week sprint. Business requirements: Data Scientist 20h, Data Engineer 5h. Technical requirements: Data Scientist 20h, Data Engineer 5h. Cloud cost and provider selection: Data Engineer 10h. Project kick-off: PM 10h. Sprint 1 total: 70 hours, planned with no buffer.</desc>
 
                 {/* Column headers */}
                 <text x="380"  y="22" style={svgLabel({ fill: "var(--text)", fontWeight: 600 })}>Activity</text>
@@ -511,7 +530,14 @@ export default function DataIntelligencePlatformContent() {
               <div style={infographTitle}>Daily activity by role</div>
             </div>
             <div style={{ overflowX: "auto" }}>
-              <svg viewBox="0 0 1100 460" style={{ width: "100%", minWidth: 720, height: "auto", display: "block" }}>
+              <svg
+                viewBox="0 0 1100 460"
+                role="img"
+                aria-labelledby="title-sprintCalendar desc-sprintCalendar"
+                style={{ width: "100%", minWidth: 720, height: "auto", display: "block" }}
+              >
+                <title id="title-sprintCalendar">Two-Week Sprint Calendar</title>
+                <desc id="desc-sprintCalendar">Daily activity schedule across two weeks for three roles: Data Scientist, Data Engineer, and PM. Monday through Wednesday: preparation, cloud cost research, and PM template work. Thursday: stakeholder interviews (business interviews in Week 1, technical interviews in Week 2) followed by a cross-team group discussion. Friday: documentation for all roles.</desc>
 
                 {/* Week headers */}
                 <rect x="80" y="0" width="480" height="32" fill={P800} rx="3"/>
@@ -650,7 +676,14 @@ export default function DataIntelligencePlatformContent() {
               <div style={infographTitle}>Six-column flow with quality gate</div>
             </div>
             <div style={{ overflowX: "auto" }}>
-              <svg viewBox="0 0 1100 360" style={{ width: "100%", minWidth: 700, height: "auto", display: "block" }}>
+              <svg
+                viewBox="0 0 1100 360"
+                role="img"
+                aria-labelledby="title-kanbanBoard desc-kanbanBoard"
+                style={{ width: "100%", minWidth: 700, height: "auto", display: "block" }}
+              >
+                <title id="title-kanbanBoard">Kanban Workflow Board</title>
+                <desc id="desc-kanbanBoard">A six-column kanban board divided into two zones. The Roadmap zone on the left contains a Project Backlog column (with deliverables such as Initial Diagnostic, System Specification, and DL Ingestion) and a Sprint Backlog column (with refined tasks ready for sprint). The Sprint Execution zone on the right contains four columns: To Do, In Progress, Review (amber quality-gate column), and Done. Tasks move leftward to rightward through the sprint columns; every task must pass the Review quality-control gate before it can be marked Done.</desc>
                 <defs>
                   <marker id="dip-kanban-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
                     <path d="M 0 0 L 10 5 L 0 10 z" fill={P500}/>

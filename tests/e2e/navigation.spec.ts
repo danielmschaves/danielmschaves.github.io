@@ -8,7 +8,7 @@ test.describe("Desktop navigation", () => {
   });
 
   test("nav links are visible", async ({ page }) => {
-    await expect(page.getByRole("link", { name: /projects/i }).first()).toBeVisible();
+    await expect(page.getByRole("link", { name: /portfolio/i }).first()).toBeVisible();
     await expect(page.getByRole("link", { name: /resume/i }).first()).toBeVisible();
     await expect(page.getByRole("link", { name: /contact/i }).first()).toBeVisible();
   });
@@ -25,7 +25,7 @@ test.describe("Desktop navigation", () => {
 
   test("site brand link returns to home", async ({ page }) => {
     await page.goto("/resume");
-    await page.getByRole("link", { name: /daniel chaves/i }).first().click();
+    await page.getByRole("link", { name: /daniel.*chaves/i }).first().click();
     await expect(page).toHaveURL(/\/$/);
   });
 });

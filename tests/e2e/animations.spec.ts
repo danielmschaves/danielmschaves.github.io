@@ -17,7 +17,7 @@ test.describe("Hero animations", () => {
 
   test("title pill is visible", async ({ page }) => {
     await expect(
-      page.getByText("Delivery Manager & Data Engineer")
+      page.getByText("Delivery Manager & Data Engineer").first()
     ).toBeVisible({ timeout: 2000 });
   });
 

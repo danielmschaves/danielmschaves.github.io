@@ -12,6 +12,7 @@ interface ProjectCardProps {
   description: string;
   githubUrl?: string;
   image: string;
+  imageAlt?: string;
   technologies: string[];
   featured?: boolean;
   index?: number;
@@ -22,6 +23,7 @@ export default function ProjectCard({
   title,
   description,
   image,
+  imageAlt,
   technologies,
   featured = false,
   index = 0,
@@ -55,15 +57,15 @@ export default function ProjectCard({
       <Link
         href={`/projects/${id}`}
         className={cn(
-          "relative overflow-hidden block",
-          featured ? "min-h-[300px] md:min-h-[340px]" : "aspect-video w-full"
+          "relative block aspect-[3/2] w-full overflow-hidden",
+          featured && "md:self-center"
         )}
         tabIndex={-1}
         aria-hidden="true"
       >
         <Image
           src={image}
-          alt={title}
+          alt={imageAlt ?? title}
           fill
           className="object-cover"
           sizes={
@@ -73,32 +75,25 @@ export default function ProjectCard({
           }
           unoptimized
         />
-        {/* Always-on gradient overlay */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(180deg, transparent 50%, color-mix(in srgb, var(--ink-0) 40%, transparent))',
-          }}
-        />
+      </Link>
+
+      {/* Body */}
+      <div className={cn("flex flex-1 flex-col", featured ? "justify-center p-8" : "p-[18px] gap-2.5")}>
+
         {/* Featured badge */}
         {featured && (
           <div
-            className="absolute left-4 top-4 flex items-center gap-1.5 rounded-full text-xs font-medium"
+            className="mb-4 flex self-start items-center gap-1.5 rounded-full text-xs font-medium"
             style={{
               padding: '4px 10px',
               background: 'var(--accent-glow)',
               color: 'var(--accent)',
               border: '1px solid color-mix(in srgb, var(--accent) 30%, transparent)',
-              backdropFilter: 'blur(8px)',
             }}
           >
             Featured
           </div>
         )}
-      </Link>
-
-      {/* Body */}
-      <div className={cn("flex flex-1 flex-col", featured ? "justify-center p-8" : "p-[18px] gap-2.5")}>
 
         {/* Tech chips */}
         <div className="flex flex-wrap gap-1.5">

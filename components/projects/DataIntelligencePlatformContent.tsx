@@ -1,811 +1,355 @@
+import CaseIntro from "@/components/case/CaseIntro";
+import CaseSection from "@/components/case/CaseSection";
+import Infochart from "@/components/case/Infochart";
+import NumberedGrid from "@/components/case/NumberedGrid";
+import PullQuote from "@/components/case/PullQuote";
+import { withAccent } from "@/components/case/accent";
+import { pad2 } from "@/components/figures/Figure";
+import { Badge, Box, C, Canvas, Lines, T, Wire } from "@/components/case/svg";
+import { copy } from "./DataIntelligencePlatform.copy";
 
-/* ── palette — matches the PM project palette used across CloudMigration & DWProgram ── */
-const P800 = "var(--fg)";
-const P600 = "var(--accent)";
-const P500 = "var(--accent)";
-const P300 = "var(--fig-accent-2)";
-const WARN = "var(--fig-accent-2)";
-const SUCC = "var(--accent)";
+const W = 1100;
 
-/* ── shared style tokens ─────────────────────────────────────────────── */
-const mono = { fontFamily: "var(--font-mono)" } as const;
-const sectionNum: React.CSSProperties = { ...mono, fontSize: 13, color: "var(--muted)", fontWeight: 400, letterSpacing: "0.04em", textTransform: "uppercase", marginBottom: 12, display: "block" };
-const sectionH2: React.CSSProperties = {
-  fontWeight: 600, fontSize: "clamp(26px, 3vw, 38px)", lineHeight: 1.15,
-  letterSpacing: "-0.02em", color: "var(--fg)", marginBottom: 16,
-};
-const sectionLead: React.CSSProperties = {
-  fontSize: 17, color: "var(--body)", lineHeight: 1.55,
-};
-const infograph: React.CSSProperties = { borderTop: "1px solid var(--line-strong)", borderBottom: "1px solid var(--line)", padding: "32px 0", margin: "32px 0", overflow: "hidden" };
-const infographLabel: React.CSSProperties = {
-  ...mono, fontSize: 10, textTransform: "uppercase", letterSpacing: "0.14em",
-  color: P500, fontWeight: 600, marginBottom: 10, display: "block",
-};
-const infographTitle: React.CSSProperties = {
-  fontSize: 22, fontWeight: 600, color: "var(--fg)", letterSpacing: "-0.01em",
-};
-const infographSub: React.CSSProperties = {
-  fontSize: 14, color: "var(--body)", marginTop: 6,
-};
+export default function DataIntelligencePlatformContent({ lang = "en" }: { lang?: "en" }) {
+  const t = copy[lang];
 
-/* SVG inline style helpers */
-const svgText  = (extra?: React.CSSProperties) => ({ fontFamily: "inherit", fontSize: 11, fill: "var(--fg)",      ...extra } as React.CSSProperties);
-const svgMute  = (extra?: React.CSSProperties) => ({ fontFamily: "inherit", fontSize: 11, fill: "var(--body)", ...extra } as React.CSSProperties);
-const svgLabel = (extra?: React.CSSProperties) => ({ ...mono, fontSize: 9, letterSpacing: "0.06em", textTransform: "uppercase" as const, fill: "var(--muted)", ...extra });
-const svgNum   = (extra?: React.CSSProperties) => ({ fontWeight: 600, ...extra } as React.CSSProperties);
-const svgBg     = "var(--surface)";
-const svgBorder = "var(--line)";
-
-const deliverables = [
-  {
-    title: "Initial Diagnostic Report",
-    desc: "Business + technical requirements, cloud cost estimates across AWS / GCP / Azure, architecture validation criteria, data dictionary, and a first modeling proposal.",
-  },
-  {
-    title: "System Specification",
-    desc: "Final DL/DW requirements, access & governance policies, ingestion + processing architecture, initial infrastructure provisioning (buckets, clusters, VPNs, access controls).",
-  },
-  {
-    title: "Data Lake Ingestion",
-    desc: "Ingestion services for all three source systems, transformation routines, dimensional + fact models in the warehouse, and a stakeholder workshop to validate the approach.",
-  },
-  {
-    title: "Acceptance Criteria (per deliverable)",
-    desc: "Diagnostic → PM sign-off · System Spec → client approval · DL Ingestion → service in operation, validated against the spec.",
-  },
-];
-
-export default function DataIntelligencePlatformContent() {
   return (
-    <div className="pt-12">
-      <div>
+    <div>
+      <CaseIntro lead={t.lead} facts={t.facts} tags={t.tags} />
 
-        {/* ── Lead ── */}
-        <section style={{ paddingBottom: 48 }}>
-          <p style={{ fontSize: 19, lineHeight: 1.6, color: "var(--body)", fontWeight: 400 }}>
-            A one-year project to take a growing trading company from scattered operational systems to a unified data platform — Data Lake, Data Warehouse, BI, and predictive models, all built from scratch. This was the foundation engagement where I formalized the planning cadence and sprint discipline I still use today.
-          </p>
-        </section>
+      <CaseSection num={1} kicker={t.context.kicker} title={withAccent(t.context.title)}>
+        <div className="grid grid-cols-1 gap-12 pt-6 md:grid-cols-2">
+          <div>
+            <h3 className="title mb-3">{t.context.start.title}</h3>
+            <p className="body mb-4" style={{ color: "var(--body)" }}>{t.context.start.p1}</p>
+            <p className="body" style={{ color: "var(--body)" }}>{t.context.start.p2}</p>
+          </div>
+          <div>
+            <h3 className="title mb-3">{t.context.challenge.title}</h3>
+            <p className="body mb-4" style={{ color: "var(--body)" }}>
+              <strong style={{ color: "var(--fg)" }}>{t.context.challenge.strong}</strong>
+              {t.context.challenge.p1}
+            </p>
+            <p className="body" style={{ color: "var(--body)" }}>{t.context.challenge.p2}</p>
+          </div>
+        </div>
+      </CaseSection>
 
-        {/* ── Meta strip ── */}
-        <div
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12"
-          style={{ borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)", padding: "28px 0" }}
-        >
-          {[
-            ["Role",         "Project Manager"],
-            ["Duration",     "12 months"],
-            ["Data Sources", "3 systems"],
-            ["Stack Layers", "DL · DW · BI · ML"],
-          ].map(([label, value]) => (
-            <div key={label} style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-              <span style={{ ...mono, fontSize: 10, textTransform: "uppercase", letterSpacing: "0.12em", color: "var(--muted)", fontWeight: 500 }}>{label}</span>
-              <span style={{ fontSize: 18, fontWeight: 600, color: "var(--fg)" }}>{value}</span>
+      <CaseSection num={2} kicker={t.lifecycle.kicker} title={withAccent(t.lifecycle.title)} lead={t.lifecycle.lead}>
+        <Infochart num={1} label={t.lifecycle.chart.label} title={t.lifecycle.chart.title} minWidth={W}>
+          <TimelineChart t={t.lifecycle.chart} />
+        </Infochart>
+      </CaseSection>
+
+      <CaseSection num={3} kicker={t.goals.kicker} title={withAccent(t.goals.title)} lead={t.goals.lead}>
+        <div className="grid grid-cols-1 gap-x-8 gap-y-8 pt-8 sm:grid-cols-2 lg:grid-cols-4">
+          {t.goals.items.map((g) => (
+            <div key={g.q} className="border-t border-line-strong pt-5">
+              <p className="lg-mono-sm lg-muted m-0">{g.q}</p>
+              <h3 className="title mb-3 mt-3">{g.title}</h3>
+              <p className="body-sm mb-4" style={{ color: "var(--body)" }}>{g.desc}</p>
+              <p className="lg-mono-sm m-0 border-t border-line pt-3">{g.milestone}</p>
             </div>
           ))}
         </div>
+      </CaseSection>
 
-        {/* ── Tech tags ── */}
-        <div className="mb-14 flex flex-wrap gap-2">
-          {["Project Management", "Scrum + Kanban", "Modern Data Stack", "Data Lake", "Data Warehouse", "BI & Predictive Modeling", "Cloud (AWS / GCP / Azure)"].map(tag => (
-            <span key={tag} className="lg-chip">{tag}</span>
+      <CaseSection num={4} kicker={t.backlog.kicker} title={withAccent(t.backlog.title)} lead={t.backlog.lead}>
+        <Infochart num={2} label={t.backlog.chart.label} title={t.backlog.chart.title} sub={t.backlog.chart.sub} minWidth={W}>
+          <BacklogChart t={t.backlog.chart} />
+        </Infochart>
+      </CaseSection>
+
+      <CaseSection num={5} kicker={t.q1.kicker} title={withAccent(t.q1.title)} lead={t.q1.lead}>
+        <div className="pt-8">
+          <NumberedGrid items={t.q1.items} />
+        </div>
+      </CaseSection>
+
+      <CaseSection num={6} kicker={t.allocation.kicker} title={withAccent(t.allocation.title)} lead={t.allocation.lead}>
+        <Infochart num={3} label={t.allocation.chart.label} title={t.allocation.chart.title} minWidth={W}>
+          <AllocationChart t={t.allocation.chart} />
+        </Infochart>
+      </CaseSection>
+
+      <CaseSection num={7} kicker={t.calendar.kicker} title={withAccent(t.calendar.title)} lead={t.calendar.lead}>
+        <Infochart num={4} label={t.calendar.chart.label} title={t.calendar.chart.title} minWidth={W}>
+          <CalendarChart t={t.calendar.chart} />
+        </Infochart>
+      </CaseSection>
+
+      <CaseSection num={8} kicker={t.kanban.kicker} title={withAccent(t.kanban.title)} lead={t.kanban.lead}>
+        <Infochart num={5} label={t.kanban.chart.label} title={t.kanban.chart.title} minWidth={W}>
+          <KanbanChart t={t.kanban.chart} />
+        </Infochart>
+      </CaseSection>
+
+      <CaseSection num={9} kicker={t.foundation.kicker} title={withAccent(t.foundation.title)} lead={t.foundation.lead}>
+        <div className="flex flex-col gap-10 pt-8">
+          {t.foundation.items.map((it, i) => (
+            <div key={it.title} className="border-t border-line-strong pt-5">
+              <p className="lg-mono-sm lg-muted m-0">
+                {t.foundation.tag} · {pad2(i + 1)}
+              </p>
+              <h3 className="title mb-3 mt-3">{it.title}</h3>
+              <p className="body m-0" style={{ color: "var(--body)" }}>{it.body}</p>
+            </div>
           ))}
         </div>
+      </CaseSection>
 
-        {/* ══════════════════════════════════════════
-            01 — Context
-        ══════════════════════════════════════════ */}
-        <section style={{ paddingBottom: 64 }}>
-          <div style={{ marginBottom: 40 }}>
-            <span style={sectionNum}>01 — Context</span>
-            <h2 style={sectionH2}>
-              From scattered operational data to a{" "}
-              <em style={{ fontStyle: "normal", color: P500 }}>single source of analytical truth</em>.
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-              <h3 style={{ fontWeight: 600, fontSize: 20, color: "var(--fg)", marginBottom: 10, lineHeight: 1.3 }}>The starting position</h3>
-              <p style={{ color: "var(--body)", lineHeight: 1.7, marginBottom: 16 }}>
-                The client — a mid-market trading company — was running their business on three operational systems that didn&apos;t talk to each other. Reports were assembled manually, leadership decisions ran on stale numbers, and there was no way to look forward: no forecasting, no demand modeling, no predictive view of the business.
-              </p>
-              <p style={{ color: "var(--body)", lineHeight: 1.7 }}>
-                The brief was deliberately ambitious. Build the entire analytical stack — ingestion, lake, warehouse, BI, predictive models — inside a single 12-month engagement, while delivering visible value along the way so leadership could feel the program working before it finished.
-              </p>
-            </div>
-            <div>
-              <h3 style={{ fontWeight: 600, fontSize: 20, color: "var(--fg)", marginBottom: 10, lineHeight: 1.3 }}>The challenge</h3>
-              <p style={{ color: "var(--body)", lineHeight: 1.7, marginBottom: 16 }}>
-                <strong style={{ color: "var(--fg)" }}>One year. Four phases. Continuous value.</strong> Pure waterfall would have given leadership nothing to look at for nine months. Pure agile without a plan would have lost the architectural coherence the platform needed.
-              </p>
-              <p style={{ color: "var(--body)", lineHeight: 1.7 }}>
-                The answer was a hybrid: a high-level annual plan locking the macro phases and milestones, combined with two-week sprint execution inside each phase. Strategy at the top. Iteration at the bottom. The plan you&apos;ll see below is exactly that — and it&apos;s the planning model I still anchor delivery work to today.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════
-            02 — Annual Lifecycle
-        ══════════════════════════════════════════ */}
-        <section style={{ paddingBottom: 64 }}>
-          <div style={{ marginBottom: 40 }}>
-            <span style={sectionNum}>02 — Annual Lifecycle</span>
-            <h2 style={sectionH2}>
-              Four quarters. <em style={{ fontStyle: "normal", color: P500 }}>Four phase shifts</em>. One continuous build.
-            </h2>
-            <p style={sectionLead}>
-              Each quarter has its own dominant phase, but the transitions are soft — planning continues into execution, monitoring begins before deployment ends. The boundaries below show emphasis, not isolation.
-            </p>
-          </div>
-
-          <div style={infograph}>
-            <div style={{ marginBottom: 28 }}>
-              <span style={infographLabel}>Infochart 01 · Annual Timeline</span>
-              <div style={infographTitle}>Four phases mapped across the 12-month engagement</div>
-            </div>
-            <div style={{ overflowX: "auto" }}>
-              <svg
-                viewBox="0 0 1100 400"
-                role="img"
-                aria-labelledby="title-annualTimeline desc-annualTimeline"
-                style={{ width: "100%", minWidth: 700, height: "auto", display: "block" }}
-              >
-                <title id="title-annualTimeline">Annual Project Timeline</title>
-                <desc id="desc-annualTimeline">A timeline showing four quarters and four project phases across a 12-month engagement: Planning (Q1), MVP Execution (Q2), Deploy &amp; Test (Q3), and Monitor &amp; Report (Q4), each with key activities listed.</desc>
-                {/* Quarter labels */}
-                <text x="170" y="22" textAnchor="middle" style={svgLabel()}>Quarter 1</text>
-                <text x="400" y="22" textAnchor="middle" style={svgLabel()}>Quarter 2</text>
-                <text x="630" y="22" textAnchor="middle" style={svgLabel()}>Quarter 3</text>
-                <text x="860" y="22" textAnchor="middle" style={svgLabel()}>Quarter 4</text>
-                <line x1="60" y1="34" x2="1060" y2="34" stroke={svgBorder} strokeWidth="1"/>
-
-                {/* Endpoints */}
-                <circle cx="60"   cy="100" r="10" fill={P800}/>
-                <text x="60"   y="78" textAnchor="middle" style={svgLabel({ fill: P500, fontWeight: 600 })}>Start</text>
-                <circle cx="1060" cy="100" r="10" fill={P800}/>
-                <text x="1060" y="78" textAnchor="middle" style={svgLabel({ fill: P500, fontWeight: 600 })}>Close</text>
-
-                {/* Spine */}
-                <line x1="70" y1="100" x2="1050" y2="100" stroke={P600} strokeWidth="2"/>
-
-                {/* Phase nodes */}
-                {[170, 400, 630, 860].map((cx, i) => (
-                  <g key={cx}>
-                    <circle cx={cx} cy="100" r="14" fill={svgBg} stroke={P600} strokeWidth="2.5"/>
-                    <text x={cx} y="105" textAnchor="middle" style={svgNum({ fontSize: 11, fill: P500 })}>0{i + 1}</text>
-                  </g>
-                ))}
-
-                {/* Connector lines down */}
-                {[170, 400, 630, 860].map(cx => (
-                  <line key={cx} x1={cx} y1="118" x2={cx} y2="148" stroke={P300} strokeWidth="1.5"/>
-                ))}
-
-                {/* Phase boxes */}
-                {[
-                  { x: 70,  cx: 170, title: "Planning",         items: ["• Business & technical reqs", "• Cloud provider selection", "• Architecture for DL/DW + BI", "• Access & governance policy", "• Data dictionary + modeling"] },
-                  { x: 300, cx: 400, title: "MVP Execution",    items: ["• Data Lake ingestion", "• BI MVP build", "• DW implementation + tests", "• Validation + BI feedback", "• Predictive model setup"] },
-                  { x: 530, cx: 630, title: "Deploy & Test",    items: ["• Predictive modeling tests", "• Final predictive deploy", "• End-to-end integration tests"] },
-                  { x: 760, cx: 860, title: "Monitor & Report", items: ["• Solution monitoring", "• Training & enablement", "• Feature expansion", "• Final report & sign-off"] },
-                ].map(({ x, cx, title, items }) => (
-                  <g key={cx}>
-                    <rect x={x} y="155" width="200" height="200" fill={svgBg} stroke={P600} strokeWidth="1.5"/>
-                    <text x={cx} y="180" textAnchor="middle" style={svgText({ fontWeight: 600, fontSize: 13 })}>{title}</text>
-                    {items.map((item, idx) => (
-                      <text key={idx} x={x + 15} y={210 + idx * 17} style={svgMute({ fontSize: 11 })}>{item}</text>
-                    ))}
-                  </g>
-                ))}
-
-                {/* Phase color bars — blues across the spectrum */}
-                <rect x="70"  y="383" width="200" height="3" fill={P800}/>
-                <rect x="300" y="383" width="200" height="3" fill={P600}/>
-                <rect x="530" y="383" width="200" height="3" fill={P500}/>
-                <rect x="760" y="383" width="200" height="3" fill={P300}/>
-              </svg>
-            </div>
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════
-            03 — Quarterly Goals
-        ══════════════════════════════════════════ */}
-        <section style={{ paddingBottom: 64 }}>
-          <div style={{ marginBottom: 40 }}>
-            <span style={sectionNum}>03 — Quarterly Goals</span>
-            <h2 style={sectionH2}>
-              One concrete milestone per quarter,{" "}
-              <em style={{ fontStyle: "normal", color: P500 }}>visible from outside the team</em>.
-            </h2>
-            <p style={sectionLead}>
-              Internal velocity is not a metric the client can feel. Every quarter therefore had to end on something demonstrable — something a stakeholder could see, click, or query.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              { q: "Q1 · Foundation", title: "Data flowing into the lake",     desc: "Diagnostic + system spec complete; cloud provider selected; first ingestion pipelines live with data landing in the raw layer.", milestone: "Data in raw layer" },
-              { q: "Q2 · Insight",    title: "BI MVP, DW operational",          desc: "Warehouse built and validated; BI MVP shipped to business users; predictive modeling foundations laid for Q3.",             milestone: "BI MVP delivered" },
-              { q: "Q3 · Predict",   title: "Predictive solution live",         desc: "Modeling validated, integrated tests passed, predictive solution deployed into production with monitoring.",                  milestone: "Predictive solution shipped" },
-              { q: "Q4 · Sustain",   title: "Operational + opportunity report", desc: "Solution in steady-state monitoring; team trained; expansion roadmap delivered; two new features contracted.",              milestone: "Opportunities report delivered" },
-            ].map(({ q, title, desc, milestone }) => (
-              <div
-                key={q}
-                style={{
-                  borderTop: "1px solid var(--line-strong)", borderRadius: 0, padding: "28px 24px",
-                }}
-              >
-                <div style={{ ...mono, fontSize: 11, color: "var(--accent)", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: 600, marginBottom: 8 }}>{q}</div>
-                <h3 style={{ fontWeight: 600, fontSize: 18, color: "var(--fg)", lineHeight: 1.25, marginBottom: 12 }}>{title}</h3>
-                <p style={{ fontSize: 13, color: "var(--body)", lineHeight: 1.55, marginBottom: 14 }}>{desc}</p>
-                <div style={{ ...mono, fontSize: 13, color: P500, paddingTop: 12, borderTop: "1px dashed var(--line)" }}>
-                  ★ {milestone}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════
-            04 — Backlog Model
-        ══════════════════════════════════════════ */}
-        <section style={{ paddingBottom: 64 }}>
-          <div style={{ marginBottom: 40 }}>
-            <span style={sectionNum}>04 — Backlog Model</span>
-            <h2 style={sectionH2}>
-              Three levels of detail.{" "}
-              <em style={{ fontStyle: "normal", color: P500 }}>Each one earns its place</em>.
-            </h2>
-            <p style={sectionLead}>
-              Coarse-grained items are for the client and the contract. Fine-grained items are for the team and the sprint. The middle layer is where they meet — and where the conversation about scope actually happens.
-            </p>
-          </div>
-
-          <div style={infograph}>
-            <div style={{ marginBottom: 28 }}>
-              <span style={infographLabel}>Infochart 02 · Backlog Hierarchy</span>
-              <div style={infographTitle}>Deliverable → Activity → Task</div>
-              <div style={infographSub}>The top two levels live in the project backlog. The bottom level is what enters a sprint.</div>
-            </div>
-            <div style={{ overflowX: "auto" }}>
-              <svg
-                viewBox="0 0 1100 400"
-                role="img"
-                aria-labelledby="title-backlogHierarchy desc-backlogHierarchy"
-                style={{ width: "100%", minWidth: 700, height: "auto", display: "block" }}
-              >
-                <title id="title-backlogHierarchy">Backlog Hierarchy Diagram</title>
-                <desc id="desc-backlogHierarchy">A three-level hierarchy: Deliverable (contractual unit the client signs off) at the top, two Activities (bodies of work) in the middle, and four Tasks (atomic sprint-level units) at the bottom. The upper two levels belong to the Project Backlog; tasks live in the Sprint Backlog.</desc>
-
-                {/* Left panels */}
-                <rect x="0" y="40"  width="180" height="100" fill={svgBg} stroke={svgBorder}/>
-                <text x="20" y="68"  style={svgLabel({ fill: P500, fontWeight: 600 })}>Project Backlog</text>
-                <text x="20" y="92"  style={svgMute({ fontSize: 11 })}>Deliverables &amp; activities</text>
-                <text x="20" y="108" style={svgMute({ fontSize: 11 })}>refined with the team —</text>
-                <text x="20" y="124" style={svgMute({ fontSize: 11 })}>the contractual outline.</text>
-
-                <rect x="0" y="260" width="180" height="100" fill={svgBg} stroke={WARN}/>
-                <text x="20" y="288" style={svgLabel({ fill: WARN, fontWeight: 600 })}>Sprint Backlog</text>
-                <text x="20" y="312" style={svgMute({ fontSize: 11 })}>Tasks the team commits</text>
-                <text x="20" y="328" style={svgMute({ fontSize: 11 })}>to inside a two-week</text>
-                <text x="20" y="344" style={svgMute({ fontSize: 11 })}>sprint window.</text>
-
-                {/* Divider */}
-                <line x1="220" y1="220" x2="1080" y2="220" stroke={P300} strokeWidth="1" strokeDasharray="4 4"/>
-
-                {/* Deliverable */}
-                <ellipse cx="620" cy="70" rx="120" ry="34" fill={P800}/>
-                <text x="620" y="68" textAnchor="middle" style={svgText({ fill: "var(--bg)", fontWeight: 600, fontSize: 14 })}>Deliverable</text>
-                <text x="620" y="86" textAnchor="middle" style={svgMute({ fontSize: 10, fill: P300 })}>Outcome the client receives</text>
-
-                {/* Lines to activities */}
-                <line x1="560" y1="104" x2="380" y2="148" stroke={P600} strokeWidth="1.5"/>
-                <line x1="680" y1="104" x2="860" y2="148" stroke={P600} strokeWidth="1.5"/>
-
-                {/* Activities */}
-                {[{ cx: 380, label: "Activity 1" }, { cx: 860, label: "Activity 2" }].map(({ cx, label }) => (
-                  <g key={cx}>
-                    <ellipse cx={cx} cy="170" rx="105" ry="28" fill={P600}/>
-                    <text x={cx} y="168" textAnchor="middle" style={svgText({ fill: "var(--bg)", fontWeight: 600, fontSize: 13 })}>{label}</text>
-                    <text x={cx} y="184" textAnchor="middle" style={svgMute({ fontSize: 10, fill: P300 })}>Body of work</text>
-                  </g>
-                ))}
-
-                {/* Lines to tasks */}
-                {[[320, 280], [440, 470], [800, 770], [920, 950]].map(([x1, x2], i) => (
-                  <line key={i} x1={x1} y1="198" x2={x2} y2="240" stroke={WARN} strokeWidth="1.5"/>
-                ))}
-
-                {/* Tasks */}
-                {[{ x: 220, label: "Task 1" }, { x: 410, label: "Task 2" }, { x: 710, label: "Task 3" }, { x: 890, label: "Task 4" }].map(({ x, label }) => (
-                  <g key={x}>
-                    <rect x={x} y="245" width="120" height="44" fill={WARN}/>
-                    <text x={x + 60} y="272" textAnchor="middle" style={svgText({ fill: "var(--bg)", fontWeight: 600, fontSize: 12 })}>{label}</text>
-                  </g>
-                ))}
-
-                {/* Definition strip */}
-                <text x="220" y="320" style={svgLabel({ fill: "var(--fg)", fontWeight: 600 })}>Definition at each level</text>
-                <text x="220" y="342" style={svgMute({ fontSize: 11 })}>
-                  <tspan style={{ fontWeight: 600, fill: P500 }}>Deliverable. </tspan>What the client signs off — the contractual unit.
-                </text>
-                <text x="220" y="360" style={svgMute({ fontSize: 11 })}>
-                  <tspan style={{ fontWeight: 600, fill: P500 }}>Activity. </tspan>A body of work inside a deliverable; how the team groups effort.
-                </text>
-                <text x="220" y="378" style={svgMute({ fontSize: 11 })}>
-                  <tspan style={{ fontWeight: 600, fill: WARN }}>Task. </tspan>An atomic unit a team member can absorb inside a sprint.
-                </text>
-              </svg>
-            </div>
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════
-            05 — Q1 Deliverables
-        ══════════════════════════════════════════ */}
-        <section style={{ paddingBottom: 64 }}>
-          <div style={{ marginBottom: 40 }}>
-            <span style={sectionNum}>05 — Q1 Deliverables</span>
-            <h2 style={sectionH2}>
-              Three deliverables that{" "}
-              <em style={{ fontStyle: "normal", color: P500 }}>set every downstream decision</em>.
-            </h2>
-            <p style={sectionLead}>
-              Q1 is the most consequential quarter of the project — not because it ships the most, but because every Q2–Q4 decision references the artifacts produced here. Get these wrong and the rest of the year compounds the error.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {deliverables.map(({ title, desc }, i) => (
-              <div
-                key={title}
-                style={{
-                  borderTop: "1px solid var(--line-strong)",
-                  padding: "20px 0", display: "flex", gap: 14, alignItems: "flex-start",
-                }}
-              >
-                <span className="lg-mono lg-muted shrink-0" style={{ width: 28, paddingTop: 3 }}>{String(i + 1).padStart(2, "0")}</span>
-                <div>
-                  <div style={{ fontWeight: 600, fontSize: 14, color: "var(--fg)", marginBottom: 4 }}>{title}</div>
-                  <div style={{ fontSize: 13, color: "var(--body)", lineHeight: 1.5 }}>{desc}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════
-            06 — Sprint 1 Resource Allocation
-        ══════════════════════════════════════════ */}
-        <section style={{ paddingBottom: 64 }}>
-          <div style={{ marginBottom: 40 }}>
-            <span style={sectionNum}>06 — Sprint 1 · Resource Allocation</span>
-            <h2 style={sectionH2}>
-              Sprint one was built{" "}
-              <em style={{ fontStyle: "normal", color: P500 }}>tight on purpose</em>.
-            </h2>
-            <p style={sectionLead}>
-              A first sprint is also a calibration exercise. I planned Sprint 1 with no slack to measure real team capacity — then absorbed the learning into Sprint 2 onwards. The numbers below are the planned envelope; the lesson was always going to be in the variance.
-            </p>
-          </div>
-
-          <div style={infograph}>
-            <div style={{ marginBottom: 28 }}>
-              <span style={infographLabel}>Infochart 03 · Sprint 1 Allocation</span>
-              <div style={infographTitle}>Hours per role across activities (2-week sprint)</div>
-            </div>
-            <div style={{ overflowX: "auto" }}>
-              <svg
-                viewBox="0 0 1100 420"
-                role="img"
-                aria-labelledby="title-sprintAllocation desc-sprintAllocation"
-                style={{ width: "100%", minWidth: 700, height: "auto", display: "block" }}
-              >
-                <title id="title-sprintAllocation">Sprint 1 Resource Allocation</title>
-                <desc id="desc-sprintAllocation">Hours per role across four activities in the first two-week sprint. Business requirements: Data Scientist 20h, Data Engineer 5h. Technical requirements: Data Scientist 20h, Data Engineer 5h. Cloud cost and provider selection: Data Engineer 10h. Project kick-off: PM 10h. Sprint 1 total: 70 hours, planned with no buffer.</desc>
-
-                {/* Column headers */}
-                <text x="380"  y="22" style={svgLabel({ fill: "var(--fg)", fontWeight: 600 })}>Activity</text>
-                <text x="730"  y="22" textAnchor="middle" style={svgLabel({ fill: "var(--fg)", fontWeight: 600 })}>Data Eng. (h)</text>
-                <text x="870"  y="22" textAnchor="middle" style={svgLabel({ fill: "var(--fg)", fontWeight: 600 })}>Data Sci. (h)</text>
-                <text x="1010" y="22" textAnchor="middle" style={svgLabel({ fill: "var(--fg)", fontWeight: 600 })}>PM (h)</text>
-                <line x1="20" y1="34" x2="1080" y2="34" stroke="var(--fg)" strokeWidth="1"/>
-
-                {/* Row 01 */}
-                <circle cx="40" cy="74" r="14" fill={P800}/>
-                <text x="40" y="79" textAnchor="middle" style={svgNum({ fontSize: 11, fill: "var(--bg)" })}>01</text>
-                <text x="70" y="68" style={svgText({ fontWeight: 600 })}>Business requirements</text>
-                <text x="70" y="84" style={svgMute({ fontSize: 11 })}>Prep + stakeholder interviews</text>
-                <rect x="660" y="60" width="35" height="28" fill={P300}/>
-                <text x="712" y="79" style={svgText({ fontSize: 13, fontWeight: 600 })}>5</text>
-                <rect x="800" y="60" width="140" height="28" fill={P800}/>
-                <text x="950" y="79" style={svgText({ fontSize: 13, fontWeight: 600 })}>20</text>
-                <text x="1010" y="79" textAnchor="middle" style={svgMute({ fontSize: 13 })}>—</text>
-                <line x1="20" y1="105" x2="1080" y2="105" stroke={svgBorder} strokeWidth="1"/>
-
-                {/* Row 02 */}
-                <circle cx="40" cy="135" r="14" fill={P800}/>
-                <text x="40" y="140" textAnchor="middle" style={svgNum({ fontSize: 11, fill: "var(--bg)" })}>02</text>
-                <text x="70" y="129" style={svgText({ fontWeight: 600 })}>Technical requirements</text>
-                <text x="70" y="145" style={svgMute({ fontSize: 11 })}>Prep + tech-team interviews</text>
-                <rect x="660" y="121" width="35" height="28" fill={P300}/>
-                <text x="712" y="140" style={svgText({ fontSize: 13, fontWeight: 600 })}>5</text>
-                <rect x="800" y="121" width="140" height="28" fill={P800}/>
-                <text x="950" y="140" style={svgText({ fontSize: 13, fontWeight: 600 })}>20</text>
-                <text x="1010" y="140" textAnchor="middle" style={svgMute({ fontSize: 13 })}>—</text>
-                <line x1="20" y1="166" x2="1080" y2="166" stroke={svgBorder} strokeWidth="1"/>
-
-                {/* Row 03 */}
-                <circle cx="40" cy="196" r="14" fill={P800}/>
-                <text x="40" y="201" textAnchor="middle" style={svgNum({ fontSize: 11, fill: "var(--bg)" })}>03</text>
-                <text x="70" y="190" style={svgText({ fontWeight: 600 })}>Cloud cost &amp; provider selection</text>
-                <text x="70" y="206" style={svgMute({ fontSize: 11 })}>Pricing study + proposal compilation</text>
-                <rect x="660" y="182" width="70" height="28" fill={P300}/>
-                <text x="745" y="201" style={svgText({ fontSize: 13, fontWeight: 600 })}>10</text>
-                <text x="870"  y="201" textAnchor="middle" style={svgMute({ fontSize: 13 })}>—</text>
-                <text x="1010" y="201" textAnchor="middle" style={svgMute({ fontSize: 13 })}>—</text>
-                <line x1="20" y1="227" x2="1080" y2="227" stroke={svgBorder} strokeWidth="1"/>
-
-                {/* Row 04 — PM */}
-                <circle cx="40" cy="257" r="14" fill={WARN}/>
-                <text x="40" y="262" textAnchor="middle" style={svgNum({ fontSize: 11, fill: "var(--bg)" })}>04</text>
-                <text x="70" y="251" style={svgText({ fontWeight: 600 })}>Project kick-off (PM)</text>
-                <text x="70" y="267" style={svgMute({ fontSize: 11 })}>Template, comms strategy, schedule</text>
-                <text x="712"  y="262" textAnchor="middle" style={svgMute({ fontSize: 13 })}>—</text>
-                <text x="870"  y="262" textAnchor="middle" style={svgMute({ fontSize: 13 })}>—</text>
-                <rect x="960" y="243" width="70" height="28" fill={WARN}/>
-                <text x="1010" y="262" textAnchor="middle" style={svgText({ fontSize: 13, fontWeight: 600, fill: "var(--bg)" })}>10</text>
-                <line x1="20" y1="288" x2="1080" y2="288" stroke="var(--fg)" strokeWidth="1"/>
-
-                {/* Totals */}
-                <text x="70" y="318" style={svgText({ fontWeight: 600, fontSize: 13 })}>Sprint 1 totals</text>
-                <text x="70" y="334" style={svgMute({ fontSize: 11, fontStyle: "italic" })}>planned with no slack, by design</text>
-                <text x="712"  y="325" textAnchor="middle" style={svgNum({ fontSize: 24, fill: P500 })}>20<tspan style={{ fontSize: 14, fill: "var(--body)" }}>h</tspan></text>
-                <text x="870"  y="325" textAnchor="middle" style={svgNum({ fontSize: 24, fill: P500 })}>40<tspan style={{ fontSize: 14, fill: "var(--body)" }}>h</tspan></text>
-                <text x="1010" y="325" textAnchor="middle" style={svgNum({ fontSize: 24, fill: WARN })}>10<tspan style={{ fontSize: 14, fill: "var(--body)" }}>h</tspan></text>
-
-                {/* Footer annotation */}
-                <rect x="20" y="360" width="1060" height="50" fill={svgBg} stroke={svgBorder}/>
-                <text x="40" y="382" style={svgText({ fontSize: 12, fontWeight: 600, fill: P500 })}>Sprint 1 = 70h total committed across three roles, no buffer.</text>
-                <text x="40" y="400" style={svgMute({ fontSize: 11, fontStyle: "italic" })}>The plan was to measure delivered vs. committed — and feed the gap into Sprint 2&apos;s capacity envelope. This calibration step is now standard in every engagement I lead.</text>
-              </svg>
-            </div>
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════
-            07 — Sprint 1 Daily Plan
-        ══════════════════════════════════════════ */}
-        <section style={{ paddingBottom: 64 }}>
-          <div style={{ marginBottom: 40 }}>
-            <span style={sectionNum}>07 — Sprint 1 · Daily Plan</span>
-            <h2 style={sectionH2}>
-              What the team actually{" "}
-              <em style={{ fontStyle: "normal", color: P500 }}>does on each day</em>.
-            </h2>
-            <p style={sectionLead}>
-              A weekly view that shows the rhythm: prep early in the week, stakeholder time mid-week, group discussion and documentation late in the week. Two weeks of this gets the foundational interviews and cloud proposal done end-to-end.
-            </p>
-          </div>
-
-          <div style={infograph}>
-            <div style={{ marginBottom: 28 }}>
-              <span style={infographLabel}>Infochart 04 · Two-Week Sprint Calendar</span>
-              <div style={infographTitle}>Daily activity by role</div>
-            </div>
-            <div style={{ overflowX: "auto" }}>
-              <svg
-                viewBox="0 0 1100 460"
-                role="img"
-                aria-labelledby="title-sprintCalendar desc-sprintCalendar"
-                style={{ width: "100%", minWidth: 720, height: "auto", display: "block" }}
-              >
-                <title id="title-sprintCalendar">Two-Week Sprint Calendar</title>
-                <desc id="desc-sprintCalendar">Daily activity schedule across two weeks for three roles: Data Scientist, Data Engineer, and PM. Monday through Wednesday: preparation, cloud cost research, and PM template work. Thursday: stakeholder interviews (business interviews in Week 1, technical interviews in Week 2) followed by a cross-team group discussion. Friday: documentation for all roles.</desc>
-
-                {/* Week headers */}
-                <rect x="80" y="0" width="480" height="32" fill={P800}/>
-                <text x="320" y="22" textAnchor="middle" style={svgText({ fill: "var(--bg)", fontWeight: 600, fontSize: 13 })}>WEEK 1</text>
-                <rect x="565" y="0" width="480" height="32" fill={P800}/>
-                <text x="805" y="22" textAnchor="middle" style={svgText({ fill: "var(--bg)", fontWeight: 600, fontSize: 13 })}>WEEK 2</text>
-
-                {/* Role sub-headers */}
-                {[
-                  { x: 160,  label: "Data Sci." },
-                  { x: 320,  label: "Data Eng." },
-                  { x: 480,  label: "PM"        },
-                  { x: 645,  label: "Data Sci." },
-                  { x: 805,  label: "Data Eng." },
-                  { x: 965,  label: "PM"        },
-                ].map(({ x, label }) => (
-                  <text key={x} x={x} y="54" textAnchor="middle" style={svgLabel({ fill: P500, fontWeight: 600 })}>{label}</text>
-                ))}
-
-                {/* Mon – Wed rows */}
-                {[
-                  {
-                    y: 70, dayY: 92, label: "Mon",
-                    cells: [
-                      { x: 80,  text: "Prep biz interview",  border: P600 },
-                      { x: 240, text: "Cloud cost research",  border: WARN },
-                      { x: 400, text: "Template adaptation",  border: P800 },
-                      { x: 565, text: "Prep tech interview",  border: P600 },
-                      { x: 725, text: "Cloud cost research",  border: WARN },
-                      { x: 885, text: "Template adaptation",  border: P800 },
-                    ],
-                  },
-                  {
-                    y: 115, dayY: 137, label: "Tue",
-                    cells: [
-                      { x: 80,  text: "Prep biz interview",  border: P600 },
-                      { x: 240, text: "Cloud cost research",  border: WARN },
-                      { x: 400, text: "Comms strategy",       border: P800 },
-                      { x: 565, text: "Prep tech interview",  border: P600 },
-                      { x: 725, text: "Cloud cost research",  border: WARN },
-                      { x: 885, text: "Comms strategy",       border: P800 },
-                    ],
-                  },
-                  {
-                    y: 160, dayY: 182, label: "Wed",
-                    cells: [
-                      { x: 80,  text: "Prep biz interview",   border: P600 },
-                      { x: 240, text: "Cloud proposal draft",  border: WARN },
-                      { x: 400, text: "Project schedule",      border: P800 },
-                      { x: 565, text: "Prep tech interview",   border: P600 },
-                      { x: 725, text: "Cloud proposal draft",  border: WARN },
-                      { x: 885, text: "Project schedule",      border: P800 },
-                    ],
-                  },
-                ].map(({ y, dayY, label, cells }) => (
-                  <g key={label}>
-                    <text x="20" y={dayY} style={svgText({ fontWeight: 600 })}>{label}</text>
-                    {cells.map(({ x, text, border }) => (
-                      <g key={x}>
-                        <rect x={x} y={y} width="160" height="36" fill={svgBg} stroke={border}/>
-                        <text x={x + 80} y={y + 22} textAnchor="middle" style={svgMute({ fontSize: 10 })}>{text}</text>
-                      </g>
-                    ))}
-                  </g>
-                ))}
-
-                {/* Thu — stakeholder day */}
-                <text x="20" y="227" style={svgText({ fontWeight: 600, fill: P500 })}>Thu</text>
-                {[
-                  { x: 80,  text: "Business interview" },
-                  { x: 240, text: "Business interview" },
-                  { x: 400, text: "Business interview" },
-                  { x: 565, text: "Tech interview"     },
-                  { x: 725, text: "Tech interview"     },
-                  { x: 885, text: "Tech interview"     },
-                ].map(({ x, text }) => (
-                  <g key={x}>
-                    <rect x={x} y="205" width="160" height="36" fill={svgBg} stroke={P500} strokeWidth="1.5"/>
-                    <text x={x + 80} y="227" textAnchor="middle" style={svgText({ fontSize: 10, fontWeight: 600, fill: P500 })}>{text}</text>
-                  </g>
-                ))}
-                {/* Group discussion bands */}
-                <rect x="80"  y="250" width="480" height="28" fill={svgBg} stroke={P300} strokeDasharray="3 2"/>
-                <text x="320" y="268" textAnchor="middle" style={svgMute({ fontSize: 10, fill: P300 })}>Group discussion · share findings across team</text>
-                <rect x="565" y="250" width="480" height="28" fill={svgBg} stroke={P300} strokeDasharray="3 2"/>
-                <text x="805" y="268" textAnchor="middle" style={svgMute({ fontSize: 10, fill: P300 })}>Group discussion · share findings across team</text>
-
-                {/* Fri — documentation */}
-                <text x="20" y="307" style={svgText({ fontWeight: 600 })}>Fri</text>
-                <rect x="80"  y="290" width="480" height="36" fill={svgBg} stroke={WARN}/>
-                <text x="320" y="312" textAnchor="middle" style={svgText({ fontSize: 11, fontWeight: 600 })}>Documentation of results · all roles</text>
-                <rect x="565" y="290" width="480" height="36" fill={svgBg} stroke={WARN}/>
-                <text x="805" y="312" textAnchor="middle" style={svgText({ fontSize: 11, fontWeight: 600 })}>Documentation of results · all roles</text>
-
-                {/* Legend */}
-                <text x="20" y="365" style={svgLabel({ fill: "var(--fg)", fontWeight: 600 })}>Legend</text>
-                {[
-                  { x: 20,  stroke: P600,              label: "Prep · research"    },
-                  { x: 180, stroke: WARN,               label: "Proposal drafting"  },
-                  { x: 340, stroke: P800,               label: "PM activities"      },
-                  { x: 480, stroke: P500, sw: "1.5",   label: "Stakeholder time"   },
-                  { x: 630, stroke: P300, dash: "3 2", label: "Team sync"          },
-                ].map(({ x, stroke, label, sw, dash }) => (
-                  <g key={x}>
-                    <rect x={x} y="379" width="18" height="14" fill={svgBg} stroke={stroke} strokeWidth={sw ?? "1"} strokeDasharray={dash}/>
-                    <text x={x + 26} y="391" style={svgMute({ fontSize: 11 })}>{label}</text>
-                  </g>
-                ))}
-
-                <text x="20" y="430" style={svgMute({ fontSize: 11, fontStyle: "italic" })}>
-                  Scrum ceremonies (daily standup, planning, review, retro) sit outside this view — they&apos;re owned by the Scrum Master, not budgeted into role hours.
-                </text>
-              </svg>
-            </div>
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════
-            08 — Kanban Workflow
-        ══════════════════════════════════════════ */}
-        <section style={{ paddingBottom: 64 }}>
-          <div style={{ marginBottom: 40 }}>
-            <span style={sectionNum}>08 — Kanban Workflow</span>
-            <h2 style={sectionH2}>
-              From the project backlog to &ldquo;done&rdquo; —{" "}
-              <em style={{ fontStyle: "normal", color: P500 }}>six columns, one flow</em>.
-            </h2>
-            <p style={sectionLead}>
-              The board mirrors the backlog hierarchy. Deliverables and activities sit on the left as a roadmap; refined tasks flow rightward through the sprint columns. The Review column is the quality control mechanism — every task gets a second pair of eyes before it can be marked complete.
-            </p>
-          </div>
-
-          <div style={infograph}>
-            <div style={{ marginBottom: 28 }}>
-              <span style={infographLabel}>Infochart 05 · Kanban Board</span>
-              <div style={infographTitle}>Six-column flow with quality gate</div>
-            </div>
-            <div style={{ overflowX: "auto" }}>
-              <svg
-                viewBox="0 0 1100 360"
-                role="img"
-                aria-labelledby="title-kanbanBoard desc-kanbanBoard"
-                style={{ width: "100%", minWidth: 700, height: "auto", display: "block" }}
-              >
-                <title id="title-kanbanBoard">Kanban Workflow Board</title>
-                <desc id="desc-kanbanBoard">A six-column kanban board divided into two zones. The Roadmap zone on the left contains a Project Backlog column (with deliverables such as Initial Diagnostic, System Specification, and DL Ingestion) and a Sprint Backlog column (with refined tasks ready for sprint). The Sprint Execution zone on the right contains four columns: To Do, In Progress, Review (amber quality-gate column), and Done. Tasks move leftward to rightward through the sprint columns; every task must pass the Review quality-control gate before it can be marked Done.</desc>
-                <defs>
-                  <marker id="dip-kanban-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                    <path d="M 0 0 L 10 5 L 0 10 z" fill={P500}/>
-                  </marker>
-                </defs>
-
-                {/* Roadmap zone */}
-                <rect x="20" y="20" width="320" height="260" fill={svgBg} stroke={P600} strokeWidth="1.5"/>
-                <text x="35" y="44" style={svgLabel({ fill: P500, fontWeight: 600 })}>Roadmap</text>
-
-                {/* Project Backlog column */}
-                <rect x="35" y="60" width="140" height="28" fill={P800}/>
-                <text x="105" y="78" textAnchor="middle" style={svgText({ fill: "var(--bg)", fontSize: 11, fontWeight: 600 })}>Project Backlog</text>
-                {[
-                  { label: "Initial Diagnostic",    hi: true  },
-                  { label: "System Specification",  hi: true  },
-                  { label: "DL Ingestion",           hi: true  },
-                  { label: "+ activities (refined)", hi: false },
-                ].map(({ label, hi }, i) => (
-                  <g key={i}>
-                    <rect x="35" y={100 + i * 30} width="140" height="24" fill={svgBg} stroke={P800} opacity={hi ? 1 : 0.5}/>
-                    <text x="43" y={116 + i * 30} style={svgText({ fontSize: 10, fontWeight: hi ? 600 : 400, fill: hi ? P300 : "var(--muted)" })}>{label}</text>
-                  </g>
-                ))}
-
-                {/* Sprint Backlog column */}
-                <rect x="185" y="60" width="140" height="28" fill={WARN}/>
-                <text x="255" y="78" textAnchor="middle" style={svgText({ fill: "var(--bg)", fontSize: 11, fontWeight: 600 })}>Sprint Backlog</text>
-                {["Prep biz interviews", "Biz interviews", "Cloud cost research", "Cloud proposal", "Kick-off comms plan"].map((label, i) => (
-                  <g key={i}>
-                    <rect x="185" y={100 + i * 30} width="140" height="24" fill={svgBg} stroke={WARN}/>
-                    <text x="193" y={116 + i * 30} style={svgMute({ fontSize: 10 })}>{label}</text>
-                  </g>
-                ))}
-
-                {/* Zone separator arrow */}
-                <line x1="345" y1="200" x2="363" y2="200" stroke={P500} strokeWidth="2" markerEnd="url(#dip-kanban-arrow)"/>
-
-                {/* Sprint Execution zone */}
-                <rect x="375" y="20" width="705" height="260" fill={svgBg} stroke={svgBorder} strokeWidth="1"/>
-                <text x="390" y="44" style={svgLabel({ fill: P500, fontWeight: 600 })}>Sprint Execution</text>
-
-                {/* To Do */}
-                <rect x="390" y="60" width="155" height="28" fill={P300}/>
-                <text x="467" y="78" textAnchor="middle" style={svgText({ fill: P800, fontSize: 11, fontWeight: 600 })}>To Do</text>
-                {[
-                  { label: "Task: pull cost data",    sub: "DE · 2h"  },
-                  { label: "Task: define interview Q", sub: "DS · 15h" },
-                ].map(({ label, sub }, i) => (
-                  <g key={i}>
-                    <rect x="390" y={100 + i * 48} width="155" height="40" fill={svgBg} stroke={P300}/>
-                    <text x="400" y={118 + i * 48} style={svgMute({ fontSize: 10 })}>{label}</text>
-                    <text x="400" y={132 + i * 48} style={svgMute({ fontSize: 9 })}>{sub}</text>
-                  </g>
-                ))}
-
-                {/* In Progress */}
-                <rect x="555" y="60" width="155" height="28" fill={P600}/>
-                <text x="632" y="78" textAnchor="middle" style={svgText({ fill: "var(--bg)", fontSize: 11, fontWeight: 600 })}>In Progress</text>
-                {[
-                  { label: "Task: draft cloud spec",  sub: "DE · 4h · in-flight"  },
-                  { label: "Task: schedule biz mtg",  sub: "DS · 5h · in-flight"  },
-                ].map(({ label, sub }, i) => (
-                  <g key={i}>
-                    <rect x="555" y={100 + i * 48} width="155" height="40" fill={svgBg} stroke={P600} strokeWidth="1.5"/>
-                    <text x="565" y={118 + i * 48} style={svgMute({ fontSize: 10 })}>{label}</text>
-                    <text x="565" y={132 + i * 48} style={svgMute({ fontSize: 9 })}>{sub}</text>
-                  </g>
-                ))}
-
-                {/* Review (QC) — amber quality gate, consistent with CloudMigration WARN usage */}
-                <rect x="720" y="60" width="155" height="28" fill={WARN}/>
-                <text x="797" y="78" textAnchor="middle" style={svgText({ fill: "var(--bg)", fontSize: 11, fontWeight: 600 })}>Review (QC)</text>
-                <rect x="720" y="100" width="155" height="40" fill={svgBg} stroke={WARN} strokeWidth="1.5"/>
-                <text x="730" y="118" style={svgMute({ fontSize: 10 })}>Task: cost research v1</text>
-                <text x="730" y="132" style={{ ...mono, fontSize: 9, fill: WARN, fontWeight: 600 } as React.CSSProperties}>DE · awaiting tech-ref review</text>
-
-                {/* Done */}
-                <rect x="885" y="60" width="180" height="28" fill={SUCC}/>
-                <text x="975" y="78" textAnchor="middle" style={svgText({ fill: "var(--bg)", fontSize: 11, fontWeight: 600 })}>Done</text>
-                {[
-                  { label: "Template adaptation", sub: "✓ PM · accepted" },
-                  { label: "Comms strategy v1",   sub: "✓ PM · accepted" },
-                ].map(({ label, sub }, i) => (
-                  <g key={i}>
-                    <rect x="885" y={100 + i * 48} width="180" height="40" fill={svgBg} stroke={SUCC}/>
-                    <text x="895" y={118 + i * 48} style={{ ...svgMute({ fontSize: 10 }), textDecoration: "line-through" }}>{label}</text>
-                    <text x="895" y={132 + i * 48} style={svgMute({ fontSize: 9, fill: SUCC, fontWeight: 600 })}>{sub}</text>
-                  </g>
-                ))}
-
-                {/* Bottom annotation */}
-                <rect x="20" y="295" width="1060" height="50" fill={svgBg} stroke={svgBorder}/>
-                <text x="35" y="317" style={svgText({ fontSize: 12, fontWeight: 600, fill: P500 })}>Two acceptance layers — Definition of Done (internal) + Acceptance Criteria (client).</text>
-                <text x="35" y="335" style={svgMute({ fontSize: 11, fontStyle: "italic" })}>DoD speeds up internal review; AC ensures the client gets exactly what the contract said they would.</text>
-              </svg>
-            </div>
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════
-            09 — Foundation Established
-        ══════════════════════════════════════════ */}
-        <section style={{ paddingBottom: 64 }}>
-          <div style={{ marginBottom: 40 }}>
-            <span style={sectionNum}>09 — Foundation Established</span>
-            <h2 style={sectionH2}>
-              What this project still gives me,{" "}
-              <em style={{ fontStyle: "normal", color: P500 }}>years later</em>.
-            </h2>
-            <p style={sectionLead}>
-              Looking back, the value of this engagement wasn&apos;t only the platform I shipped — it was the planning model I built doing it. The patterns below are still the ones I anchor delivery work to today.
-            </p>
-          </div>
-
-          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-            <div style={{ background: "var(--surface)", borderTop: "1px solid var(--line-strong)", padding: "28px 32px" }}>
-              <div style={{ ...mono, fontSize: 10, textTransform: "uppercase", letterSpacing: "0.14em", color: P500, fontWeight: 600, marginBottom: 14 }}>Carried forward</div>
-              <h3 style={{ fontWeight: 600, fontSize: 20, color: "var(--fg)", marginBottom: 14, lineHeight: 1.3 }}>1. Three-level backlog as the universal translator</h3>
-              <p style={{ fontSize: 15, lineHeight: 1.65, color: "var(--body)" }}>
-                The Deliverable / Activity / Task hierarchy works because it speaks to three different audiences at once. The Deliverable layer is the contract — what the client signs off. The Activity layer is the conversation — where scope and effort actually get negotiated with the team. The Task layer is the sprint — what gets done this week. Most delivery friction I&apos;ve seen since comes from teams collapsing two of these into one.
-              </p>
-            </div>
-
-            <div style={{ background: "var(--surface)", borderTop: "1px solid var(--line-strong)", padding: "28px 32px" }}>
-              <div style={{ ...mono, fontSize: 10, textTransform: "uppercase", letterSpacing: "0.14em", color: P500, fontWeight: 600, marginBottom: 14 }}>Carried forward</div>
-              <h3 style={{ fontWeight: 600, fontSize: 20, color: "var(--fg)", marginBottom: 14, lineHeight: 1.3 }}>2. First sprint as a calibration, not a commitment</h3>
-              <p style={{ fontSize: 15, lineHeight: 1.65, color: "var(--body)" }}>
-                Sprint 1 was deliberately planned without slack — not because I expected the team to hit it perfectly, but because I needed to measure the gap. Velocity is empirical, and you only get a real number by running a tight first iteration and watching what actually lands. Every engagement I&apos;ve led since starts the same way.
-              </p>
-            </div>
-
-            <div style={{ background: "var(--surface)", borderTop: "1px solid var(--line-strong)", padding: "28px 32px" }}>
-              <div style={{ ...mono, fontSize: 10, textTransform: "uppercase", letterSpacing: "0.14em", color: P500, fontWeight: 600, marginBottom: 14 }}>Carried forward</div>
-              <h3 style={{ fontWeight: 600, fontSize: 20, color: "var(--fg)", marginBottom: 14, lineHeight: 1.3 }}>3. Quarterly milestones that a non-technical stakeholder can verify</h3>
-              <p style={{ fontSize: 15, lineHeight: 1.65, color: "var(--body)" }}>
-                &ldquo;Velocity is up&rdquo; is not a milestone. &ldquo;Data is in the raw layer&rdquo; is. Every quarter ended on something the sponsor could see or touch — a working dashboard, a deployed model, a signed report. The discipline of writing the milestone before designing the work has saved more programs from drift than any process artifact I&apos;ve used since.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ── Closing Callout ── */}
-        <section style={{ paddingBottom: 40 }}>
-          <div style={{ borderTop: "1px solid var(--line-strong)", borderBottom: "1px solid var(--line)", padding: "40px 0" }}>
-            <p style={{ fontSize: 22, lineHeight: 1.5, color: "var(--fg)"}}>
-              The platform was the deliverable.{" "}
-              The{" "}
-              <strong style={{ color: "var(--accent)", fontWeight: 600 }}>planning model</strong>{" "}
-              was the asset. Every delivery engagement I&apos;ve led since has been a variation on the framework this project forced me to commit to paper.
-            </p>
-          </div>
-        </section>
-
-      </div>
+      <PullQuote>{withAccent(t.quote)}</PullQuote>
     </div>
+  );
+}
+
+type Copy = (typeof copy)["en"];
+
+/* Infochart 01: a spine with square start/close markers and four numbered phase squares. */
+function TimelineChart({ t }: { t: Copy["lifecycle"]["chart"] }) {
+  const cx = [170, 410, 650, 890];
+  const rule = [C.fg, C.accent, C.accent2, C.tile];
+  return (
+    <Canvas h={370} label={t.alt}>
+      {t.quarters.map((q, i) => (
+        <T key={q} x={cx[i]} y={22} anchor="middle" mono fill={C.muted}>{q}</T>
+      ))}
+      <line x1={40} y1={34} x2={1060} y2={34} stroke={C.line} />
+      <T x={40} y={78} anchor="middle" mono weight={600} fill={C.accent}>{t.start}</T>
+      <T x={1040} y={78} anchor="middle" mono weight={600} fill={C.accent}>{t.close}</T>
+      <line x1={40} y1={100} x2={1040} y2={100} stroke={C.accent} strokeWidth={2} />
+      <Badge cx={40} cy={100} size={18} fill={C.fg} />
+      <Badge cx={1040} cy={100} size={18} fill={C.fg} />
+      {t.phases.map((p, i) => (
+        <g key={p.title}>
+          <Badge cx={cx[i]} cy={100} size={30} fill={C.bg} stroke={C.accent} label={pad2(i + 1)} ink={C.accent} labelSize={12} />
+          <Wire x1={cx[i]} y1={116} x2={cx[i]} y2={150} />
+          <Box x={cx[i] - 110} y={155} width={220} height={176} fill={C.bg} stroke={C.fg} />
+          <T x={cx[i]} y={182} anchor="middle" size={14} weight={600}>{p.title}</T>
+          <Lines x={cx[i] - 96} y={210} fill={C.body} lines={p.items} />
+          <Box x={cx[i] - 110} y={340} width={220} height={4} fill={rule[i]} />
+        </g>
+      ))}
+    </Canvas>
+  );
+}
+
+/* Infochart 02: deliverable (filled fg) → activities (accent) → tasks (outlined). */
+function BacklogChart({ t }: { t: Copy["backlog"]["chart"] }) {
+  const act = [410, 890];
+  const tasks = [320, 500, 800, 980];
+  return (
+    <Canvas h={410} label={t.alt}>
+      <Box x={20} y={40} width={210} height={104} fill={C.bg} stroke={C.line} sw={1} />
+      <T x={36} y={66} mono weight={600} fill={C.accent}>{t.projectBacklog.tag}</T>
+      <Lines x={36} y={90} fill={C.body} lines={t.projectBacklog.lines} />
+      <Box x={20} y={252} width={210} height={104} fill={C.bg} stroke={C.accent2} sw={1} />
+      <T x={36} y={278} mono weight={600}>{t.sprintBacklog.tag}</T>
+      <Lines x={36} y={302} fill={C.body} lines={t.sprintBacklog.lines} />
+
+      <line x1={250} y1={222} x2={1080} y2={222} stroke={C.wire} strokeDasharray="4 4" />
+
+      <Box x={530} y={38} width={240} height={64} fill={C.fg} />
+      <T x={650} y={66} anchor="middle" size={15} weight={600} fill={C.bg}>{t.deliverable[0]}</T>
+      <T x={650} y={86} anchor="middle" size={12} fill={C.bg}>{t.deliverable[1]}</T>
+      {act.map((x) => (
+        <Wire key={x} x1={650} y1={102} x2={x} y2={142} />
+      ))}
+      {act.map((x, i) => (
+        <g key={x}>
+          <Box x={x - 105} y={142} width={210} height={56} fill={C.accent} />
+          <T x={x} y={166} anchor="middle" size={14} weight={600} fill={C.onAccent}>{`${t.activity[0]} ${i + 1}`}</T>
+          <T x={x} y={186} anchor="middle" size={12} fill={C.onAccent}>{t.activity[1]}</T>
+        </g>
+      ))}
+      {tasks.map((x, i) => (
+        <g key={x}>
+          <Wire x1={act[Math.floor(i / 2)]} y1={198} x2={x} y2={244} />
+          <Box x={x - 65} y={244} width={130} height={44} fill={C.bg} stroke={C.fg} />
+          <T x={x} y={271} anchor="middle" weight={600}>{`${t.task} ${i + 1}`}</T>
+        </g>
+      ))}
+
+      <T x={250} y={322} mono weight={600}>{t.definitionsTitle}</T>
+      {t.definitions.map(([term, def], i) => (
+        <T key={term} x={250} y={346 + i * 20} fill={C.body}>
+          <tspan fontWeight={600} fill={i < 2 ? C.accent : C.fg}>{term}</tspan>
+          {def}
+        </T>
+      ))}
+    </Canvas>
+  );
+}
+
+/* Infochart 03: hours per role. Bars: data engineer fig-accent-2, data scientist fg, PM accent. */
+function AllocationChart({ t }: { t: Copy["allocation"]["chart"] }) {
+  const rows = [
+    { de: 5, ds: 20, pm: 0 },
+    { de: 5, ds: 20, pm: 0 },
+    { de: 10, ds: 0, pm: 0 },
+    { de: 0, ds: 0, pm: 10 },
+  ];
+  const head = [70, 730, 870, 1010];
+  const dash = (x: number, y: number) => <T x={x} y={y} anchor="middle" size={14} fill={C.muted}>—</T>;
+  return (
+    <Canvas h={470} label={t.alt}>
+      {t.head.map((h, i) => (
+        <T key={h} x={head[i]} y={22} anchor={i === 0 ? "start" : "middle"} mono weight={600}>{h}</T>
+      ))}
+      <line x1={20} y1={34} x2={1080} y2={34} stroke={C.fg} />
+      {t.rows.map((r, i) => {
+        const c = 74 + i * 61;
+        const v = rows[i];
+        return (
+          <g key={r.title}>
+            <Badge cx={40} cy={c} size={28} fill={C.fg} label={pad2(i + 1)} ink={C.bg} labelSize={12} />
+            <T x={70} y={c - 4} weight={600}>{r.title}</T>
+            <T x={70} y={c + 14} fill={C.body}>{r.sub}</T>
+            {v.de ? (
+              <>
+                <Box x={660} y={c - 14} width={v.de * 7} height={28} fill={C.accent2} />
+                <T x={668 + v.de * 7} y={c + 5} size={14} weight={600}>{String(v.de)}</T>
+              </>
+            ) : dash(730, c + 5)}
+            {v.ds ? (
+              <>
+                <Box x={800} y={c - 14} width={v.ds * 7} height={28} fill={C.fg} />
+                <T x={808 + v.ds * 7} y={c + 5} size={14} weight={600}>{String(v.ds)}</T>
+              </>
+            ) : dash(870, c + 5)}
+            {v.pm ? (
+              <>
+                <Box x={975} y={c - 14} width={v.pm * 7} height={28} fill={C.accent} />
+                <T x={1010} y={c + 5} anchor="middle" size={14} weight={600} fill={C.onAccent}>{String(v.pm)}</T>
+              </>
+            ) : dash(1010, c + 5)}
+            <line x1={20} y1={c + 31} x2={1080} y2={c + 31} stroke={i === 3 ? C.fg : C.line} />
+          </g>
+        );
+      })}
+      <T x={70} y={326} size={14} weight={600}>{t.totals.title}</T>
+      <T x={70} y={346} fill={C.body}>{t.totals.sub}</T>
+      {[["20", 730], ["40", 870], ["10", 1010]].map(([n, x]) => (
+        <T key={x} x={+x} y={336} anchor="middle" size={24} weight={600} fill={C.accent}>
+          {n}
+          <tspan fontSize={14} fill={C.body}>{t.totals.unit}</tspan>
+        </T>
+      ))}
+      <Box x={20} y={372} width={1060} height={80} fill={C.surface} stroke={C.line} sw={1} />
+      <T x={40} y={396} weight={600} fill={C.accent}>{t.note[0]}</T>
+      <Lines x={40} y={418} fill={C.body} lines={t.note.slice(1)} />
+    </Canvas>
+  );
+}
+
+/* Infochart 04: two weeks × three roles × five days. Cell outlines tell activity types apart. */
+function CalendarChart({ t }: { t: Copy["calendar"]["chart"] }) {
+  const weekX = [80, 565];
+  const kinds = [
+    { stroke: C.tile, sw: 1, dash: undefined },
+    { stroke: C.accent2, sw: 1.5, dash: undefined },
+    { stroke: C.fg, sw: 1, dash: undefined },
+    { stroke: C.accent, sw: 2, dash: undefined },
+    { stroke: C.wire, sw: 1.5, dash: "3 2" },
+  ];
+  const cell = (x: number, y: number, text: string, k: number, w = 160) => (
+    <g key={`${x}-${y}`}>
+      <Box x={x} y={y} width={w} height={36} fill={C.bg} stroke={kinds[k].stroke} sw={kinds[k].sw} strokeDasharray={kinds[k].dash} />
+      <T x={x + w / 2} y={y + 23} anchor="middle" weight={k === 3 ? 600 : undefined} fill={k === 3 ? C.accent : C.body}>{text}</T>
+    </g>
+  );
+  return (
+    <Canvas h={470} label={t.alt}>
+      {t.weeks.map((w, i) => (
+        <g key={w}>
+          <Box x={weekX[i]} y={0} width={480} height={32} fill={C.fg} />
+          <T x={weekX[i] + 240} y={21} anchor="middle" mono weight={600} fill={C.bg}>{w}</T>
+          {t.roles.map((r, j) => (
+            <T key={r} x={weekX[i] + 80 + j * 160} y={54} anchor="middle" mono weight={600} fill={C.accent}>{r}</T>
+          ))}
+        </g>
+      ))}
+      {[t.w1, t.w2].map((week, wi) =>
+        week.map((day, d) => day.map((text, r) => cell(weekX[wi] + r * 160, 70 + d * 45, text, r === 0 ? 0 : r === 1 ? 1 : 2))),
+      )}
+      {t.days.slice(0, 3).map((d, i) => (
+        <T key={d} x={20} y={93 + i * 45} mono weight={600}>{d}</T>
+      ))}
+      <T x={20} y={228} mono weight={600} fill={C.accent}>{t.days[3]}</T>
+      {weekX.map((x, wi) => [0, 1, 2].map((r) => cell(x + r * 160, 205, t.thu[wi], 3)))}
+      {weekX.map((x) => cell(x, 250, t.sync, 4, 480))}
+      <T x={20} y={313} mono weight={600}>{t.days[4]}</T>
+      {weekX.map((x) => cell(x, 295, t.fri, 2, 480))}
+
+      <T x={20} y={366} mono weight={600}>{t.legendTitle}</T>
+      {t.legend.map((l, i) => (
+        <g key={l}>
+          <Box x={110 + i * 180} y={355} width={18} height={14} fill={C.bg} stroke={kinds[i].stroke} sw={kinds[i].sw} strokeDasharray={kinds[i].dash} />
+          <T x={136 + i * 180} y={367} fill={C.body}>{l}</T>
+        </g>
+      ))}
+      <T x={20} y={420} fill={C.body}>{t.note}</T>
+    </Canvas>
+  );
+}
+
+/* Infochart 05: roadmap zone → sprint execution zone; review (QC) is the accent column. */
+function KanbanChart({ t }: { t: Copy["kanban"]["chart"] }) {
+  const header = (x: number, w: number, label: string, on = false) => (
+    <g key={label}>
+      <Box x={x} y={60} width={w} height={30} fill={on ? C.accent : C.fg} />
+      <T x={x + w / 2} y={80} anchor="middle" weight={600} fill={on ? C.onAccent : C.bg}>{label}</T>
+    </g>
+  );
+  /* A "\n" in the subtitle breaks it onto a second line inside a taller card. */
+  const card = (x: number, y: number, w: number, [title, sub]: string[], stroke: string, strike = false) => {
+    const subs = sub.split("\n");
+    return (
+      <g key={`${x}-${y}`}>
+        <Box x={x} y={y} width={w} height={44 + (subs.length - 1) * 16} fill={C.bg} stroke={stroke} />
+        <T x={x + 10} y={y + 19} size={12} fill={C.fg}>
+          <tspan textDecoration={strike ? "line-through" : undefined}>{title}</tspan>
+        </T>
+        <Lines x={x + 10} y={y + 36} gap={16} size={12} fill={C.muted} lines={subs} />
+      </g>
+    );
+  };
+  const exX = [405, 570, 735, 900];
+  return (
+    <Canvas h={400} label={t.alt}>
+      <Box x={20} y={20} width={350} height={286} fill={C.bg} stroke={C.fg} />
+      <T x={35} y={44} mono weight={600} fill={C.accent}>{t.zones[0]}</T>
+      {header(35, 155, t.columns[0])}
+      {t.projectBacklog.map((l, i) => (
+        <g key={l}>
+          <Box x={35} y={100 + i * 34} width={155} height={28} fill={C.bg} stroke={i < 3 ? C.fg : C.line} />
+          <T x={45} y={119 + i * 34} size={12} weight={i < 3 ? 600 : undefined} fill={i < 3 ? C.fg : C.muted}>{l}</T>
+        </g>
+      ))}
+      {header(200, 155, t.columns[1])}
+      {t.sprintBacklog.map((l, i) => (
+        <g key={l}>
+          <Box x={200} y={100 + i * 34} width={155} height={28} fill={C.bg} stroke={C.accent2} />
+          <T x={210} y={119 + i * 34} size={12} fill={C.body}>{l}</T>
+        </g>
+      ))}
+
+      <Wire x1={374} y1={200} x2={388} y2={200} arrow stroke={C.fg} />
+
+      <Box x={390} y={20} width={690} height={286} fill={C.bg} stroke={C.line} sw={1} />
+      <T x={405} y={44} mono weight={600} fill={C.accent}>{t.zones[1]}</T>
+      {header(exX[0], 155, t.columns[2])}
+      {t.todo.map((c, i) => card(exX[0], 100 + i * 54, 155, c, C.line))}
+      {header(exX[1], 155, t.columns[3])}
+      {t.doing.map((c, i) => card(exX[1], 100 + i * 54, 155, c, C.fg))}
+      {header(exX[2], 155, t.columns[4], true)}
+      {t.review.map((c, i) => card(exX[2], 100 + i * 54, 155, c, C.accent))}
+      {header(exX[3], 165, t.columns[5])}
+      {t.done.map((c, i) => card(exX[3], 100 + i * 54, 165, c, C.tile, true))}
+
+      <Box x={20} y={324} width={1060} height={58} fill={C.bg} stroke={C.line} sw={1} />
+      <T x={35} y={347} weight={600} fill={C.accent}>{t.note[0]}</T>
+      <T x={35} y={367} fill={C.body}>{t.note[1]}</T>
+    </Canvas>
   );
 }

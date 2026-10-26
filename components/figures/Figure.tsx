@@ -319,16 +319,33 @@ export function figureSVG(n: CaseNumber, bare = false) {
 
 interface FigureProps {
   n: number;
+  /* Single frameless variant, for small fixed sizes. */
   bare?: boolean;
+  /* Default true: render framed + bare, and a container query shows the bare one under 720px
+     (the featured card on desktop, every phone), so frame labels never shrink below legibility. */
+  responsive?: boolean;
   className?: string;
 }
 
-export default function Figure({ n, bare = false, className }: FigureProps) {
+export default function Figure({ n, bare = false, responsive = true, className }: FigureProps) {
   if (!(n in FIGURES)) return null;
+  const k = n as CaseNumber;
+  if (bare || !responsive) {
+    return (
+      <div
+        className={cn("lg-figure", bare && "lg-figure--bare", className)}
+        dangerouslySetInnerHTML={{ __html: figureSVG(k, bare) }}
+      />
+    );
+  }
   return (
-    <div
-      className={cn("lg-figure", bare && "lg-figure--bare", className)}
-      dangerouslySetInnerHTML={{ __html: figureSVG(n as CaseNumber, bare) }}
-    />
+    <div className={cn("lg-figure-set", className)}>
+      <div className="lg-figure lg-figure--full" dangerouslySetInnerHTML={{ __html: figureSVG(k) }} />
+      <div
+        className="lg-figure lg-figure--bare lg-figure--compact"
+        aria-hidden="true"
+        dangerouslySetInnerHTML={{ __html: figureSVG(k, true) }}
+      />
+    </div>
   );
 }

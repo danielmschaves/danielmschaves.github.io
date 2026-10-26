@@ -34,7 +34,7 @@ export default function SiteFooter({ withForm = false }: SiteFooterProps) {
           {withForm ? (
             <ContactForm />
           ) : (
-            <div className="border-t border-line-strong pt-6">
+            <div className="lg-footer__cta">
               <Button variant="primary" href="/contact/">
                 Send a message
               </Button>

@@ -36,7 +36,7 @@ export default function ThemeToggle() {
       aria-pressed={dark}
     >
       <span className="lg-toggle__knob">{dark ? <SunIcon /> : <MoonIcon />}</span>
-      {dark ? "DARK" : "LIGHT"}
+      <span className="lg-toggle__text">{dark ? "DARK" : "LIGHT"}</span>
     </button>
   );
 }

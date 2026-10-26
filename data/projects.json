@@ -2,18 +2,18 @@
   {
     "id": "cloud-migration-enterprise",
     "figure": 1,
-    "title": "Cloud Migration of an Enterprise Data Analytics Platform",
+    "title": "Cloud migration of an enterprise data analytics platform",
     "description": "12-month, $1.2M migration of ~200 servers from 6 legacy data centers to AWS — zero unscheduled downtime, delivered within fixed budget and timeline.",
     "technologies": [
-      "Project Management",
+      "Project management",
       "AWS",
-      "Cloud Migration",
+      "Cloud migration",
       "Agile",
-      "Risk Management",
+      "Risk management",
       "PMI/PMBOK"
     ],
     "featured": true,
-    "category": "Project Management",
+    "category": "Program & project management",
     "overview": "A pilot cloud migration for a global financial services enterprise: ~200 servers behind its internal data analytics platform, spread across six aging data centers, moved to AWS in 12 months on a $1.2M fixed budget with zero unscheduled downtime. The pilot had to prove AWS feasibility and produce the SOPs, architecture decision records and validated patterns for the larger enterprise modernization to follow.",
     "highlights": [
       "Sequenced the lift-and-shift as ten prioritized use cases, each migrated end to end inside a two-week sprint",
@@ -48,19 +48,19 @@
   {
     "id": "data-warehouse-modernization",
     "figure": 2,
-    "title": "Data Warehouse Modernization Program",
+    "title": "Data warehouse modernization program",
     "description": "18-month fixed-fee program migrating a legacy SQL Server data warehouse to Snowflake, dbt, and Tableau — governed by formal change control, contractual gateways, and three-tier stakeholder management.",
     "technologies": [
-      "Program Management",
+      "Program management",
       "Snowflake",
       "dbt",
       "Tableau",
       "Governance",
-      "Change Control",
-      "RAID Management"
+      "Change control",
+      "RAID management"
     ],
     "featured": false,
-    "category": "Project Management",
+    "category": "Program & project management",
     "overview": "A multi-project program migrating a US FinTech enterprise's legacy SQL Server data warehouse to Snowflake, dbt and Tableau. It was designed around three non-negotiables: a fixed 18-month term, fixed consultancy fees and zero scope drift, defended by formal gateways, a parking-lot system and an explicit change-control process.",
     "highlights": [
       "Structured the program as three phases (Initiation, Delivery, Closure), each ending at a contractual gateway",
@@ -95,19 +95,19 @@
   {
     "id": "data-intelligence-platform",
     "figure": 3,
-    "title": "Data Intelligence Platform Build",
+    "title": "Data intelligence platform build",
     "description": "A 12-month engagement to take a mid-market trading company from scattered operational systems to a unified data platform — Data Lake, Data Warehouse, BI, and predictive models, built from scratch with a hybrid agile planning model.",
     "technologies": [
-      "Project Management",
+      "Project management",
       "Scrum + Kanban",
-      "Modern Data Stack",
-      "Data Lake",
-      "Data Warehouse",
-      "BI & Predictive Modeling",
+      "Modern data stack",
+      "Data lake",
+      "Data warehouse",
+      "BI & predictive modeling",
       "Cloud (AWS / GCP / Azure)"
     ],
     "featured": false,
-    "category": "Project Management",
+    "category": "Program & project management",
     "overview": "A 12-month engagement that took a mid-market trading company from three disconnected operational systems to a unified data platform: data lake, data warehouse, BI and predictive models, built from scratch. A high-level annual plan locked the macro phases and milestones, with two-week sprints executing inside each phase.",
     "highlights": [
       "Planned the year as four quarterly milestones a non-technical sponsor could verify: data in the raw layer, BI MVP delivered, predictive solution shipped, opportunities report delivered",
@@ -141,7 +141,7 @@
   {
     "id": "spotify-etl-aws",
     "figure": 4,
-    "title": "Spotify ELT Pipeline with AWS, Airflow and dbt",
+    "title": "Spotify ELT pipeline with AWS, Airflow and dbt",
     "description": "End-to-end ELT data lake pulling Spotify's global playlist data through a 4-stage medallion architecture on AWS S3, orchestrated by Airflow and transformed with dbt — delivered to Power BI dashboards.",
     "githubUrl": "https://github.com/danielmschaves/spotify-etl-aws",
     "technologies": [
@@ -156,7 +156,7 @@
       "Power BI"
     ],
     "featured": false,
-    "category": "Data Engineering",
+    "category": "Data engineering",
     "overview": "A cost-effective data lake built on the \"poor man's data lake\" concept — DuckDB, Motherduck, dbt, and Airflow processing data from the Spotify API. The pipeline extracts tracks, albums, and artists from popular global playlists and moves them through four sequential stages (Raw → Bronze → Silver → Gold), storing each as Parquet files in AWS S3. Airflow on Astronomer orchestrates daily batch runs; dbt handles all transformations with automated testing and documentation; Terraform provisions the S3 infrastructure; and Power BI surfaces the final analytics layer.",
     "highlights": [
       "Designed a 4-stage medallion architecture (Raw/Bronze/Silver/Gold) using DuckDB and AWS S3, keeping infrastructure costs near zero",
@@ -192,7 +192,7 @@
   {
     "id": "adventure-works-dbt",
     "figure": 5,
-    "title": "Adventure Works Data Pipeline with dbt and BigQuery",
+    "title": "Adventure Works data pipeline with dbt and BigQuery",
     "description": "Analytics engineering certification project — a three-layer dbt pipeline (staging, intermediate, marts) transforming 64 SAP source tables into analytics-ready dimensional models on BigQuery.",
     "githubUrl": "https://github.com/danielmschaves/academy-dbt-test",
     "technologies": [
@@ -200,10 +200,10 @@
       "BigQuery",
       "SQL",
       "Python",
-      "Data Modeling"
+      "Data modeling"
     ],
     "featured": false,
-    "category": "Data Engineering",
+    "category": "Data engineering",
     "overview": "Built as part of the Analytics Engineer certification from Indicium Academy, this project ingests and transforms Adventure Works SAP data using dbt Core and BigQuery. Sixty-four source tables flow through three layers: staging standardizes and cleans raw inputs, intermediate applies transformation logic and prepares join-ready datasets, and marts deliver business-facing dimensional models organized by domain. Each layer is covered by automated dbt tests and generated documentation.",
     "highlights": [
       "Modeled 64 SAP source tables into a clean dimensional schema using dbt Core's three-layer architecture on BigQuery",
@@ -213,11 +213,11 @@
     "technicalApproach": "Staging layer handles raw data standardization and type casting. Intermediate layer applies transformation logic and prepares datasets for joining. Marts layer delivers final dimensional models organized by business subject area.",
     "links": [
       {
-        "label": "View Dashboard",
+        "label": "View dashboard",
         "url": "https://drive.google.com/file/d/1P5sIFxPpFo0O0Vb3xIx0Xd5AipQMJtO5/preview"
       },
       {
-        "label": "Conceptual Model",
+        "label": "Conceptual model",
         "url": "https://drive.google.com/file/d/1ltGTRQKS7peliVuWBNowrY_ltx8IU8oJ/preview"
       }
     ],
@@ -246,7 +246,7 @@
   {
     "id": "ecommerce-dbt",
     "figure": 6,
-    "title": "E-commerce ETL Pipeline with BigQuery and DuckDB",
+    "title": "E-commerce ETL pipeline with BigQuery and DuckDB",
     "description": "Python ETL pipeline that extracts e-commerce data from BigQuery public datasets, validates it with Pydantic, loads it into DuckDB, and sinks to multiple destinations — local CSV, Amazon S3, and MotherDuck.",
     "githubUrl": "https://github.com/danielmschaves/gcp-etl-dbt",
     "technologies": [
@@ -259,7 +259,7 @@
       "MotherDuck"
     ],
     "featured": false,
-    "category": "Data Engineering",
+    "category": "Data engineering",
     "overview": "A modular Python ETL pipeline built around the BigQuery public dataset 'thelook_ecommerce'. Data is extracted from BigQuery, validated for type safety and business rules using Pydantic models, loaded into DuckDB for efficient in-process analysis, and then sinked to one of three configurable destinations: local CSV files, Amazon S3, or MotherDuck. The pipeline is composed of independent, testable components for BigQuery interactions, DuckDB operations, and data validation.",
     "highlights": [
       "Extracted and validated e-commerce data from BigQuery using Pydantic models to enforce schema and type safety at ingestion",

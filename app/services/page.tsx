@@ -1,9 +1,10 @@
 import { Metadata } from "next";
 import Button from "@/components/Button";
-import SectionHeading from "@/components/SectionHeading";
-import { CapabilityColumns } from "@/components/Capabilities";
+import PageHeader from "@/components/PageHeader";
+import Capabilities from "@/components/Capabilities";
 import SiteFooter from "@/components/SiteFooter";
 import { siteConfig } from "@/config/site";
+import { capabilityColumns } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: `Services — ${siteConfig.name}`,
@@ -15,21 +16,20 @@ export default function ServicesPage() {
   return (
     <>
       <div className="lg-container">
-        <section className="lg-section">
-          <SectionHeading
-            as="h1"
-            title="Services"
-            aside="DELIVERY · DATA · AI"
-            intro="Three ways I help enterprise teams move data and AI work from pilot to production."
-          />
-          <CapabilityColumns />
-          <div className="lg-actions" style={{ marginTop: 56 }}>
-            <Button variant="primary" href="/contact/">
-              Start a conversation
-            </Button>
-            <Button href="/resume/">See the résumé</Button>
-          </div>
-        </section>
+        <PageHeader
+          eyebrow="SERVICES · DELIVERY · DATA · AI"
+          title="Services"
+          lead="Three ways I help enterprise teams move data and AI work from pilot to production."
+          actions={
+            <>
+              <Button variant="primary" href="/contact/">
+                Start a conversation
+              </Button>
+              <Button href="/resume/">See the résumé</Button>
+            </>
+          }
+        />
+        <Capabilities columns={capabilityColumns()} />
       </div>
 
       <SiteFooter />

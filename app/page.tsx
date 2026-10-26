@@ -7,11 +7,13 @@ import FeaturedCase from "@/components/FeaturedCase";
 import WorkLedger from "@/components/WorkLedger";
 import Capabilities from "@/components/Capabilities";
 import ExperienceList from "@/components/ExperienceList";
-import { EducationList, LanguageList } from "@/components/Education";
+import LedgerList from "@/components/LedgerList";
+import AccountsLine from "@/components/AccountsLine";
 import CredentialGrid from "@/components/CredentialGrid";
 import SiteFooter from "@/components/SiteFooter";
 import { projects, projectHref, projectRow, projectTags } from "@/lib/projects";
 import { siteConfig } from "@/config/site";
+import { capabilityColumns, educationItems, languageItems, stackItems } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: siteConfig.title,
@@ -51,9 +53,7 @@ export default function Home() {
 
         <StatStrip stats={stats} />
 
-        <p className="lg-mono lg-muted" style={{ margin: "28px 0 0" }}>
-          SELECTED ACCOUNTS · NOVO NORDISK · BAYER · ACROSS THE US, LATAM &amp; EMEA
-        </p>
+        <AccountsLine items={["NOVO NORDISK", "BAYER", "ACROSS THE US, LATAM & EMEA"]} />
 
         <section className="lg-section" id="work" aria-labelledby="work-title">
           <SectionHeading id="work-title" title="Selected work" aside={`${projects.length} CASE STUDIES`} />
@@ -81,7 +81,10 @@ export default function Home() {
             title="Capabilities"
             aside="DELIVERY · DATA · AI"
           />
-          <Capabilities />
+          <div className="flex flex-col gap-16">
+            <Capabilities columns={capabilityColumns()} />
+            <LedgerList label="STACK" items={stackItems()} />
+          </div>
         </section>
 
         <section className="lg-section lg-split" id="experience">
@@ -95,11 +98,8 @@ export default function Home() {
         <section className="lg-section lg-split" id="education">
           <SectionHeading title="Education" />
           <div className="flex flex-col gap-12">
-            <EducationList />
-            <div>
-              <div className="lg-label">LANGUAGES</div>
-              <LanguageList />
-            </div>
+            <LedgerList items={educationItems()} />
+            <LedgerList label="LANGUAGES" items={languageItems()} />
           </div>
         </section>
 

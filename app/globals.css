@@ -128,12 +128,28 @@
   .lg-toggle__knob { width: 32px; height: 32px; border-radius: var(--radius-round); background: var(--fg); color: var(--bg); display: inline-flex; align-items: center; justify-content: center; }
   .lg-toggle__knob svg { width: 16px; height: 16px; }
 
+  /* Language toggle: same pill, two link options; the current one wears the knob. */
+  .lg-lang { display: inline-flex; align-items: center; min-height: var(--touch); padding: 0 5px; border: 1px solid var(--control); border-radius: var(--radius-pill); }
+  .lg-lang__opt { display: inline-flex; align-items: center; min-height: 42px; padding: 0 1px; color: var(--muted); font-family: var(--font-mono); font-size: 12px; letter-spacing: .04em; text-decoration: none; }
+  .lg-lang__knob { display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 32px; padding: 0 8px; border-radius: var(--radius-pill); }
+  .lg-lang__opt[aria-current="true"] { color: var(--bg); }
+  .lg-lang__opt[aria-current="true"] .lg-lang__knob { background: var(--fg); }
+  :where(.lg) .lg-lang__opt:not([aria-current="true"]):hover { opacity: 1; color: var(--fg); }
+
   /* Site header */
   .lg-header { border-bottom: 1px solid var(--line); }
-  .lg-header__inner { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; justify-content: space-between; padding-top: var(--space-4); padding-bottom: var(--space-4); }
+  .lg-header__inner { display: flex; flex-wrap: wrap; gap: var(--space-2) 28px; align-items: center; padding-top: var(--space-4); padding-bottom: var(--space-4); }
   .lg-header__brand { font-weight: 600; font-size: 17px; letter-spacing: -.01em; padding: 12px 0; }
-  .lg-header__right { display: flex; flex-wrap: wrap; gap: 8px 28px; align-items: center; }
-  .lg-nav { display: flex; flex-wrap: wrap; gap: 4px 24px; font-size: 15px; }
+  .lg-header__toggles { display: flex; gap: var(--space-2); align-items: center; }
+  .lg-nav { display: flex; flex-wrap: wrap; gap: 4px 24px; font-size: 15px; margin-left: auto; }
+  @media (max-width: 640px) {
+    .lg-header__inner { column-gap: var(--space-3); }
+    .lg-header__toggles { margin-left: auto; gap: 6px; }
+    /* Phones: the theme toggle shows its knob only; the mode word stays in the accessible name. */
+    .lg-header .lg-toggle { padding: 0 5px; }
+    .lg-header .lg-toggle__text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .lg-nav { order: 3; flex-basis: 100%; margin-left: 0; gap: 4px 20px; }
+  }
   .lg-nav a { padding: 12px 0; }
   .lg-nav a[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--accent); }
 
@@ -160,14 +176,13 @@
   .lg-stat { padding: 28px var(--space-5); border-right: 1px solid var(--line); }
   .lg-stat:first-child { padding-left: 0; }
   .lg-stat:last-child { border-right: 0; }
-  /* Once the strip stacks to one column, cells become rows. */
+  .lg-stat__value { font-size: 44px; line-height: 1; font-weight: 600; letter-spacing: -.03em; }
+  .lg-stat__unit { font-size: 20px; color: var(--muted); }
+  .lg-stat__label { margin-top: 6px; font-size: 14px; line-height: 1.45; color: var(--muted); }
   @media (max-width: 520px) {
     .lg-stat { padding-left: 0; padding-right: 0; border-right: 0; }
     .lg-stat + .lg-stat { border-top: 1px solid var(--line); }
   }
-  .lg-stat__value { font-size: 44px; line-height: 1; font-weight: 600; letter-spacing: -.03em; }
-  .lg-stat__unit { font-size: 20px; color: var(--muted); }
-  .lg-stat__label { margin-top: 6px; font-size: 14px; line-height: 1.45; color: var(--muted); }
 
   /* Featured case */
   .lg-feature { display: flex; flex-wrap: wrap; border: 1px solid var(--line-strong); color: var(--fg); }
@@ -185,6 +200,15 @@
   /* Figure */
   .lg-figure { width: 100%; aspect-ratio: 3 / 2; background: var(--bg); display: block; }
   .lg-figure svg { display: block; width: 100%; height: 100%; }
+  .lg-figure--bare { aspect-ratio: 1380 / 720; }
+  /* Responsive pair: the frameless figure takes over when the figure is under 720px wide. */
+  .lg-figure-set { container-type: inline-size; width: 100%; }
+  .lg-figure-set > .lg-figure--compact { display: none; }
+  @container (max-width: 719px) {
+    .lg-figure-set > .lg-figure--full { display: none; }
+    .lg-figure-set > .lg-figure--compact { display: block; }
+  }
+  /* Figure SVGs name "Inter Tight" / "JetBrains Mono"; map them to the site's loaded families (next/font renames them). */
   .lg-figure text { font-family: var(--font-sans), "Inter Tight", system-ui, sans-serif; }
   .lg-figure text[font-family^="JetBrains"] { font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace; }
 
@@ -224,12 +248,12 @@
   .lg-role__date { font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
   .lg-role__date--current { color: var(--accent); }
   .lg-role__panel { padding: 0 0 28px; max-width: 760px; }
+  .lg-role__panel .lg-bullets { margin-top: 0; }
 
   /* Credential grid */
-  /* Each cell draws its own full hairline border; the -1px margins overlap neighbours into one
-     1px rule. Nothing is drawn on the grid itself, so a short row ends with its last cell. */
-  .lg-creds { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); padding: 0 1px 1px 0; }
-  .lg-cred { padding: 22px; border: 1px solid var(--line); margin: 0 -1px -1px 0; }
+  /* Rules live on the cells, not a painted gap: an incomplete last row stays empty, not grey. */
+  .lg-creds { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .lg-cred { padding: 22px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .lg-cred__name { font-size: 17px; font-weight: 600; line-height: 1.3; }
   .lg-cred__issuer { margin-top: 6px; font-size: 13px; color: var(--muted); }
   .lg-cred-group + .lg-cred-group { margin-top: 32px; }
@@ -260,6 +284,7 @@
   .lg-footer { padding-bottom: 48px; }
   .lg-footer__mail { display: inline-flex; align-items: center; min-height: var(--touch); font-size: 17px; font-weight: 600; box-shadow: inset 0 -2px 0 var(--accent); word-break: break-word; }
   .lg-footer__bar { margin-top: 72px; padding-top: var(--space-5); border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: var(--space-4) 32px; justify-content: space-between; align-items: center; font-size: 14px; color: var(--muted); }
+  .lg-footer__cta { border-top: 1px solid var(--line-strong); padding-top: var(--space-6); }
   .lg-footer__links { display: flex; gap: var(--space-5); }
   .lg-footer__links a { padding: 12px 0; }
 
@@ -270,5 +295,77 @@
   .lg-og__metrics { margin-top: 24px; font-size: 22px; line-height: 1.45; color: var(--body); }
   .lg-og__media { display: flex; align-items: center; border-left: 1px solid var(--line); }
   .lg-og__foot { display: flex; justify-content: space-between; color: var(--muted); font-family: var(--font-mono); font-size: 18px; letter-spacing: .04em; }
-  .lg-figure--bare { aspect-ratio: 1380 / 720; }
+
+
+  /* ───────── page patterns adopted from the v1 build ───────── */
+  /* Page header (inner pages) */
+  .lg-page-head { padding-top: clamp(48px, 7vw, 96px); padding-bottom: clamp(40px, 5vw, 64px); }
+  .lg-page-head__back { display: inline-flex; align-items: center; min-height: var(--touch); margin-bottom: var(--space-5); color: var(--muted); }
+  .lg-page-head__title { margin: 0; font-size: clamp(40px, 5vw, 64px); line-height: 1.02; letter-spacing: -.035em; font-weight: 600; }
+  .lg-page-head .lg-hero__foot { margin-top: var(--space-6); }
+
+  /* Accounts line */
+  .lg-accounts { margin: 0; padding-top: var(--space-5); color: var(--muted); }
+
+  /* Capabilities */
+  .lg-caps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-6); }
+  .lg-cap { border-top: 1px solid var(--line-strong); padding-top: var(--space-4); }
+  .lg-cap__title { margin: var(--space-3) 0 var(--space-3); font-size: 20px; font-weight: 600; line-height: 1.3; letter-spacing: -.01em; }
+  .lg-cap .lg-bullets { margin-top: 0; }
+
+  /* Ledger list (stack table, education, languages) */
+  .lg-list__row { display: flex; flex-wrap: wrap; gap: 6px var(--space-5); justify-content: space-between; align-items: baseline; padding: var(--space-4) 0; border-bottom: 1px solid var(--line); }
+  .lg-list__row--kv { display: grid; grid-template-columns: minmax(0, 240px) minmax(0, 1fr); justify-content: start; }
+  .lg-list__title { font-size: 18px; font-weight: 600; line-height: 1.3; }
+  .lg-list__sub { margin-top: 4px; font-size: 15px; color: var(--muted); }
+  .lg-list--soft { border-top-color: var(--line); }
+  @media (max-width: 520px) { .lg-list__row--kv { grid-template-columns: 1fr; } }
+
+  /* Fact strip */
+  .lg-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: var(--space-5); margin: 0; padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .lg-fact { margin: 0; }
+  .lg-fact dt { margin-bottom: 6px; }
+  .lg-fact dd { margin: 0; font-size: 18px; font-weight: 600; }
+
+  /* Case-study section */
+  .lg-case-sec { padding-top: clamp(56px, 7vw, 96px); }
+  .lg-case-sec__num { margin: 0 0 12px; }
+  .lg-case-sec__title { margin: 0 0 var(--space-4); font-size: clamp(26px, 3vw, 38px); line-height: 1.15; letter-spacing: -.02em; font-weight: 600; max-width: 900px; }
+  .lg-case-sec__title em { font-style: normal; color: var(--accent); }
+  .lg-case-sec__lead { margin: 0; font-size: 17px; line-height: 1.6; color: var(--body); max-width: 760px; }
+
+  /* Infochart frame */
+  .lg-chart { margin: var(--space-6) 0; padding: var(--space-6) 0; border-top: 1px solid var(--line-strong); border-bottom: 1px solid var(--line); }
+  .lg-chart figcaption { margin-bottom: var(--space-5); }
+  .lg-chart__title { margin-top: 10px; font-size: 22px; font-weight: 600; letter-spacing: -.01em; }
+  .lg-chart__sub { margin-top: 6px; font-size: 14px; line-height: 1.5; color: var(--body); }
+  .lg-chart__scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .lg-chart__hint { display: none; margin-top: var(--space-3); text-align: right; }
+  @media (max-width: 760px) { .lg-chart__hint { display: block; } }
+  /* Text inside charts: 12px minimum at rendered size, mono labels at .04em, units are squares. */
+  .lg-chart svg text { font-family: var(--font-sans); }
+
+  /* Numbered grid */
+  .lg-ngrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); column-gap: var(--space-7); margin: 0; padding: 0; list-style: none; }
+  .lg-ngrid__item { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: var(--space-3); padding: var(--space-4) 0; border-top: 1px solid var(--line-strong); }
+  .lg-ngrid__title { font-size: 16px; font-weight: 600; }
+  .lg-ngrid__desc { margin-top: 4px; font-size: 14px; line-height: 1.5; color: var(--muted); }
+
+  /* Pull quote */
+  .lg-quote { margin: clamp(56px, 7vw, 96px) 0 0; padding: var(--space-6) 0; border-top: 1px solid var(--line-strong); border-bottom: 1px solid var(--line); font-size: clamp(22px, 2.4vw, 28px); line-height: 1.35; letter-spacing: -.015em; font-weight: 500; max-width: 980px; }
+  .lg-quote em { font-style: normal; color: var(--accent); }
+
+  /* ───────── site overrides of Ledger v3 (pending the design-system update) ───────── */
+  /* Credential grid: every rule on the cells, none on the grid; -1px margins collapse
+     neighbours into one hairline, so a short row ends with its last cell (PR #30). */
+  .lg-creds { padding: 0 1px 1px 0; border-top: 0; border-left: 0; }
+  .lg-cred { border: 1px solid var(--line); margin: 0 -1px -1px 0; }
+  /* Case-study leads span the full column (PR #30), not the 760px cap. */
+  .lg-case-sec__lead { max-width: none; }
+  /* Chart mono labels: v3 sets every chart text to the sans family; keep JetBrains-named
+     labels mono, as the figure rules do. */
+  .lg-chart svg text[font-family^="JetBrains"] { font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace; }
+  /* Case intro: lead → fact strip → chips (README › Pages). */
+  .lg-case-intro { display: flex; flex-direction: column; gap: var(--space-6); padding-top: var(--space-6); }
+  .lg-case-intro__lead { margin: 0; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.55; color: var(--body); }
 }

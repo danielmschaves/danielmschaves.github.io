@@ -1,18 +1,17 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Figure from "@/components/figures/Figure";
 
 interface ProjectCardProps {
   id: string;
   title: string;
   description: string;
   githubUrl?: string;
-  image: string;
-  imageAlt?: string;
+  figure: number;
   technologies: string[];
   featured?: boolean;
   index?: number;
@@ -22,8 +21,7 @@ export default function ProjectCard({
   id,
   title,
   description,
-  image,
-  imageAlt,
+  figure,
   technologies,
   featured = false,
   index = 0,
@@ -63,18 +61,7 @@ export default function ProjectCard({
         tabIndex={-1}
         aria-hidden="true"
       >
-        <Image
-          src={image}
-          alt={imageAlt ?? title}
-          fill
-          className="object-cover"
-          sizes={
-            featured
-              ? "(max-width: 768px) 100vw, 55vw"
-              : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          }
-          unoptimized
-        />
+        <Figure n={figure} />
       </Link>
 
       {/* Body */}

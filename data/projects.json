@@ -1,42 +1,134 @@
 [
   {
     "id": "cloud-migration-enterprise",
+    "figure": 1,
     "title": "Cloud Migration of an Enterprise Data Analytics Platform",
     "description": "12-month, $1.2M migration of ~200 servers from 6 legacy data centers to AWS — zero unscheduled downtime, delivered within fixed budget and timeline.",
-    "image": "/images/projects/01-cloud-migration.webp",
-    "imageAlt": "Cover: Six data centers, one cloud — AWS migration case study",
-    "technologies": ["Project Management", "AWS", "Cloud Migration", "Agile", "Risk Management", "PMI/PMBOK"],
+    "technologies": [
+      "Project Management",
+      "AWS",
+      "Cloud Migration",
+      "Agile",
+      "Risk Management",
+      "PMI/PMBOK"
+    ],
     "featured": true,
-    "category": "Project Management"
+    "category": "Project Management",
+    "ogTitle": "Six data centers, one cloud.",
+    "accentWord": "one cloud.",
+    "ogLine": "12 months · $1.2M fixed budget · zero unscheduled downtime",
+    "caption": "One square per server — before and after.",
+    "alt": "Figure: six legacy data centers, about 200 servers in total, consolidated into one AWS environment.",
+    "metrics": [
+      {
+        "value": "12 mo",
+        "label": "Timeline, held"
+      },
+      {
+        "value": "$1.2M",
+        "label": "Fixed budget"
+      },
+      {
+        "value": "0",
+        "label": "Unscheduled downtime"
+      }
+    ],
+    "og": "/images/og/og-01.png",
+    "eyebrow": "PROJECT MANAGEMENT"
   },
   {
     "id": "data-warehouse-modernization",
+    "figure": 2,
     "title": "Data Warehouse Modernization Program",
     "description": "18-month fixed-fee program migrating a legacy SQL Server data warehouse to Snowflake, dbt, and Tableau — governed by formal change control, contractual gateways, and three-tier stakeholder management.",
-    "image": "/images/projects/02-dw-modernization.webp",
-    "imageAlt": "Cover: A warehouse, rebuilt under contract — Snowflake, dbt and Tableau modernization case study",
-    "technologies": ["Program Management", "Snowflake", "dbt", "Tableau", "Governance", "Change Control", "RAID Management"],
+    "technologies": [
+      "Program Management",
+      "Snowflake",
+      "dbt",
+      "Tableau",
+      "Governance",
+      "Change Control",
+      "RAID Management"
+    ],
     "featured": false,
-    "category": "Project Management"
+    "category": "Project Management",
+    "ogTitle": "A warehouse, rebuilt under contract.",
+    "accentWord": "rebuilt",
+    "ogLine": "18 months · fixed fee · three-tier stakeholder model",
+    "caption": "Program shape and contractual gateways (illustrative).",
+    "alt": "Figure: 18-month program plan. Discovery, Snowflake, dbt models, Tableau and cutover workstreams across four contractual gateways.",
+    "metrics": [
+      {
+        "value": "18 mo",
+        "label": "Program length"
+      },
+      {
+        "value": "Fixed fee",
+        "label": "Commercial model"
+      },
+      {
+        "value": "3 tiers",
+        "label": "Stakeholder model"
+      }
+    ],
+    "og": "/images/og/og-02.png",
+    "eyebrow": "PROGRAM MANAGEMENT"
   },
   {
     "id": "data-intelligence-platform",
+    "figure": 3,
     "title": "Data Intelligence Platform Build",
     "description": "A 12-month engagement to take a mid-market trading company from scattered operational systems to a unified data platform — Data Lake, Data Warehouse, BI, and predictive models, built from scratch with a hybrid agile planning model.",
-    "image": "/images/projects/03-data-intelligence-platform.webp",
-    "imageAlt": "Cover: Scattered systems, unified — data intelligence platform build case study",
-    "technologies": ["Project Management", "Scrum + Kanban", "Modern Data Stack", "Data Lake", "Data Warehouse", "BI & Predictive Modeling", "Cloud (AWS / GCP / Azure)"],
+    "technologies": [
+      "Project Management",
+      "Scrum + Kanban",
+      "Modern Data Stack",
+      "Data Lake",
+      "Data Warehouse",
+      "BI & Predictive Modeling",
+      "Cloud (AWS / GCP / Azure)"
+    ],
     "featured": false,
-    "category": "Project Management"
+    "category": "Project Management",
+    "ogTitle": "Scattered systems, unified.",
+    "accentWord": "unified.",
+    "ogLine": "12 months · 3 systems unified · every milestone on time",
+    "caption": "The platform, layer by layer, quarter by quarter.",
+    "alt": "Figure: a data platform built over four quarters — data lake, then warehouse, BI layer and predictive models stacked on top.",
+    "metrics": [
+      {
+        "value": "12 mo",
+        "label": "Engagement"
+      },
+      {
+        "value": "3",
+        "label": "Systems unified"
+      },
+      {
+        "value": "100%",
+        "label": "Milestones on time"
+      }
+    ],
+    "og": "/images/og/og-03.png",
+    "eyebrow": "PROJECT MANAGEMENT"
   },
   {
     "id": "spotify-etl-aws",
+    "figure": 4,
     "title": "Spotify ELT Pipeline with AWS, Airflow and dbt",
     "description": "End-to-end ELT data lake pulling Spotify's global playlist data through a 4-stage medallion architecture on AWS S3, orchestrated by Airflow and transformed with dbt — delivered to Power BI dashboards.",
     "githubUrl": "https://github.com/danielmschaves/spotify-etl-aws",
-    "image": "/images/projects/04-spotify-elt.webp",
-    "imageAlt": "Cover: Spotify, refined in four passes — medallion ELT pipeline case study",
-    "technologies": ["AWS", "Python", "Airflow", "DuckDB", "dbt", "Terraform", "Motherduck", "S3", "Power BI"],
+    "technologies": [
+      "AWS",
+      "Python",
+      "Airflow",
+      "DuckDB",
+      "dbt",
+      "Terraform",
+      "Motherduck",
+      "S3",
+      "Power BI"
+    ],
     "featured": false,
     "category": "Data Engineering",
     "overview": "A cost-effective data lake built on the \"poor man's data lake\" concept — DuckDB, Motherduck, dbt, and Airflow processing data from the Spotify API. The pipeline extracts tracks, albums, and artists from popular global playlists and moves them through four sequential stages (Raw → Bronze → Silver → Gold), storing each as Parquet files in AWS S3. Airflow on Astronomer orchestrates daily batch runs; dbt handles all transformations with automated testing and documentation; Terraform provisions the S3 infrastructure; and Power BI surfaces the final analytics layer.",
@@ -48,16 +140,42 @@
       "Delivered analytics-ready Power BI dashboards covering playlist trends, artist reach, and track-level metrics"
     ],
     "technicalApproach": "Raw stage ingests JSON from the Spotify API into S3. Bronze converts raw JSON to Parquet via DuckDB. Silver applies business-rule cleaning and enrichment. Gold runs dbt models to produce analytics-ready dimensional tables in Motherduck, which Power BI queries directly.",
-    "links": []
+    "links": [],
+    "ogTitle": "Spotify, refined in four passes.",
+    "accentWord": "four passes.",
+    "ogLine": "4 medallion stages · ~$0 infrastructure · daily runs",
+    "caption": "Each stage narrower, cleaner, closer to a decision.",
+    "alt": "Figure: Spotify API data moving through raw, bronze, silver and gold stages into Power BI.",
+    "metrics": [
+      {
+        "value": "4",
+        "label": "Medallion stages"
+      },
+      {
+        "value": "~$0",
+        "label": "Infrastructure cost"
+      },
+      {
+        "value": "Daily",
+        "label": "Scheduled run"
+      }
+    ],
+    "og": "/images/og/og-04.png",
+    "eyebrow": "DATA ENGINEERING"
   },
   {
     "id": "adventure-works-dbt",
+    "figure": 5,
     "title": "Adventure Works Data Pipeline with dbt and BigQuery",
     "description": "Analytics engineering certification project — a three-layer dbt pipeline (staging, intermediate, marts) transforming 64 SAP source tables into analytics-ready dimensional models on BigQuery.",
     "githubUrl": "https://github.com/danielmschaves/academy-dbt-test",
-    "image": "/images/projects/05-adventure-works.webp",
-    "imageAlt": "Cover: Sixty-four tables, three layers — dbt and BigQuery case study",
-    "technologies": ["dbt", "BigQuery", "SQL", "Python", "Data Modeling"],
+    "technologies": [
+      "dbt",
+      "BigQuery",
+      "SQL",
+      "Python",
+      "Data Modeling"
+    ],
     "featured": false,
     "category": "Data Engineering",
     "overview": "Built as part of the Analytics Engineer certification from Indicium Academy, this project ingests and transforms Adventure Works SAP data using dbt Core and BigQuery. Sixty-four source tables flow through three layers: staging standardizes and cleans raw inputs, intermediate applies transformation logic and prepares join-ready datasets, and marts deliver business-facing dimensional models organized by domain. Each layer is covered by automated dbt tests and generated documentation.",
@@ -76,16 +194,44 @@
         "label": "Conceptual Model",
         "url": "https://drive.google.com/file/d/1ltGTRQKS7peliVuWBNowrY_ltx8IU8oJ/preview"
       }
-    ]
+    ],
+    "ogTitle": "Sixty-four tables, three layers.",
+    "accentWord": "three layers.",
+    "ogLine": "64 SAP tables · 3 dbt layers · every layer tested",
+    "caption": "From source sprawl to a dimensional model.",
+    "alt": "Figure: 64 SAP source tables reduced to one star schema through staging, intermediate and mart layers.",
+    "metrics": [
+      {
+        "value": "64",
+        "label": "SAP source tables"
+      },
+      {
+        "value": "3",
+        "label": "dbt layers"
+      },
+      {
+        "value": "Every",
+        "label": "Layer tested"
+      }
+    ],
+    "og": "/images/og/og-05.png",
+    "eyebrow": "ANALYTICS ENGINEERING"
   },
   {
     "id": "ecommerce-dbt",
+    "figure": 6,
     "title": "E-commerce ETL Pipeline with BigQuery and DuckDB",
     "description": "Python ETL pipeline that extracts e-commerce data from BigQuery public datasets, validates it with Pydantic, loads it into DuckDB, and sinks to multiple destinations — local CSV, Amazon S3, and MotherDuck.",
     "githubUrl": "https://github.com/danielmschaves/gcp-etl-dbt",
-    "image": "/images/projects/06-ecommerce-etl.webp",
-    "imageAlt": "Cover: Validate once, sink anywhere — Python e-commerce ETL case study",
-    "technologies": ["dbt", "BigQuery", "Python", "Pydantic", "DuckDB", "S3", "MotherDuck"],
+    "technologies": [
+      "dbt",
+      "BigQuery",
+      "Python",
+      "Pydantic",
+      "DuckDB",
+      "S3",
+      "MotherDuck"
+    ],
     "featured": false,
     "category": "Data Engineering",
     "overview": "A modular Python ETL pipeline built around the BigQuery public dataset 'thelook_ecommerce'. Data is extracted from BigQuery, validated for type safety and business rules using Pydantic models, loaded into DuckDB for efficient in-process analysis, and then sinked to one of three configurable destinations: local CSV files, Amazon S3, or MotherDuck. The pipeline is composed of independent, testable components for BigQuery interactions, DuckDB operations, and data validation.",
@@ -96,6 +242,27 @@
       "Structured the pipeline as modular Python components — BigQuery extractor, DuckDB loader, Pydantic validator, and sink adapters — for independent testing and reuse"
     ],
     "technicalApproach": "Extract from BigQuery using table names as input, validate records with Pydantic models, load into DuckDB for processing, then sink to the configured destination (CSV, S3, or MotherDuck) based on runtime parameters.",
-    "links": []
+    "links": [],
+    "ogTitle": "Validate once, sink anywhere.",
+    "accentWord": "sink anywhere.",
+    "ogLine": "3 runtime sinks · 4 testable modules · typed ingestion",
+    "caption": "Typed at the gate, routed by configuration.",
+    "alt": "Figure: BigQuery rows validated by Pydantic, loaded into DuckDB, then routed to CSV, S3 or MotherDuck.",
+    "metrics": [
+      {
+        "value": "3",
+        "label": "Runtime sinks"
+      },
+      {
+        "value": "4",
+        "label": "Testable modules"
+      },
+      {
+        "value": "Typed",
+        "label": "Pydantic ingestion"
+      }
+    ],
+    "og": "/images/og/og-06.png",
+    "eyebrow": "DATA ENGINEERING"
   }
 ]

@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Figure from "@/components/figures/Figure";
 import Link from "next/link";
 import { ArrowLeft, Github, ExternalLink } from "lucide-react";
 
@@ -8,7 +8,7 @@ interface Project {
   id: string;
   title: string;
   description: string;
-  image: string;
+  figure: number;
   technologies: string[];
   githubUrl?: string;
   overview?: string;
@@ -81,25 +81,8 @@ export default function ProjectContent({ project }: ProjectContentProps) {
           )}
         </div>
 
-        {/* Hero image */}
-        <div
-          className="relative mb-12 overflow-hidden"
-          style={{
-            aspectRatio: '21/9',
-            borderRadius: 18,
-            border: '1px solid var(--line)',
-          }}
-        >
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            className="object-cover"
-            sizes="(max-width: 1200px) 100vw, 1200px"
-            priority
-            unoptimized
-          />
-        </div>
+        {/* Hero figure */}
+        <Figure n={project.figure} className="mb-12" />
 
         {/* Body */}
         {hasDetails ? (

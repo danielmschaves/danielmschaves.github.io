@@ -110,7 +110,9 @@ function LifecycleChart({ t }: { t: Copy["lifecycle"]["chart"] }) {
       ))}
       {t.gateways.map((g, i) => (
         <g key={g.id}>
-          <Wire x1={gatewayX[i]} y1={60} x2={gatewayX[i]} y2={220} stroke={C.accent} dash="3 3" />
+          {/* Broken around the phase bars, so a gateway never runs through a phase label. */}
+          <Wire x1={gatewayX[i]} y1={60} x2={gatewayX[i]} y2={72} stroke={C.accent} dash="3 3" />
+          <Wire x1={gatewayX[i]} y1={128} x2={gatewayX[i]} y2={220} stroke={C.accent} dash="3 3" />
           <Badge cx={gatewayX[i]} cy={236} size={30} fill={C.accent} label={g.id} labelSize={12} />
           <T x={gatewayX[i]} y={276} anchor="middle" weight={600}>{g.title}</T>
           <Lines x={gatewayX[i]} y={296} anchor="middle" fill={C.body} lines={g.lines} />
@@ -265,7 +267,7 @@ function TiersChart({ t }: { t: Copy["stakeholders"]["chart"] }) {
         );
       })}
       <Wire x1={1054} y1={392} x2={1054} y2={28} arrow stroke={C.fg} dash="6 4" />
-      <T x={1054} y={410} anchor="middle" mono size={12} fill={C.muted}>{t.escalation}</T>
+      <T x={1080} y={410} anchor="end" mono size={12} fill={C.muted}>{t.escalation}</T>
       <Lines x={20} y={438} fill={C.body} lines={t.note} />
     </Canvas>
   );

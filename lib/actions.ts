@@ -67,7 +67,7 @@ export async function sendEmail(prevState: ContactState, formData: FormData): Pr
     if (!validatedFields.success) {
         return {
             success: false,
-            message: "Validation failed. Please check your input.",
+            message: "Please check the highlighted fields.",
             errors: validatedFields.error.flatten().fieldErrors,
         };
     }
@@ -102,13 +102,13 @@ export async function sendEmail(prevState: ContactState, formData: FormData): Pr
 
         return {
             success: true,
-            message: "Message sent successfully! I'll get back to you soon.",
+            message: "Thanks — I’ll get back to you within two working days.",
         };
     } catch (error) {
         console.error("Error sending email:", error);
         return {
             success: false,
-            message: "Something went wrong. Please try again.",
+            message: "Something went wrong. Please try again, or email me directly.",
         };
     }
 }

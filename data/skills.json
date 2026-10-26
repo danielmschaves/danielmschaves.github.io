@@ -17,17 +17,66 @@
       "Strong background in data modeling, ETL/ELT processes, and pipeline development, ensuring efficient data flow and transformation at scale."
     ]
   },
+  "aiDelivery": {
+    "title": "AI & GenAI Delivery",
+    "skills": [
+      "Building AI agents that automate key program-management workflows at phData, shifting focus from operational work to business outcomes.",
+      "Scoped and launched AI service offerings — intelligent agents, ML models, GenAI and chatbots — that contributed directly to enterprise account expansion.",
+      "Designed an AI-augmented planning and execution workflow for a data migration, integrating AI across discovery, modeling and validation and accelerating delivery 4×.",
+      "Delivered ML, GenAI and agent applications to production for pharmaceutical clients across LATAM and EMEA."
+    ]
+  },
   "technical": {
     "title": "Technical Skills",
     "categories": {
-      "Project Management Tools": ["Project Professional", "Project Online", "Azure DevOps", "Jira Cloud"],
-      "Programming Languages": ["Python", "SQL", "NoSQL"],
-      "Data Engineering": ["dbt", "Airflow", "Dagster", "Spark", "Kafka", "ETL/ELT"],
-      "Cloud Platforms": ["AWS", "GCP", "Azure"],
-      "Databases": ["Snowflake", "BigQuery", "PostgreSQL", "MySQL", "DuckDB"],
-      "Data Visualization": ["Power BI", "Tableau", "Looker", "Streamlit"],
-      "AI/ML": ["Machine Learning", "TensorFlow", "PyTorch", "Scikit-learn"],
-      "DevOps": ["Docker", "Terraform", "Git"]
+      "Project Management Tools": [
+        "Project Professional",
+        "Project Online",
+        "Azure DevOps",
+        "Jira Cloud"
+      ],
+      "Programming Languages": [
+        "Python",
+        "SQL",
+        "NoSQL"
+      ],
+      "Data Engineering": [
+        "dbt",
+        "Airflow",
+        "Dagster",
+        "Spark",
+        "Kafka",
+        "ETL/ELT"
+      ],
+      "Cloud Platforms": [
+        "AWS",
+        "GCP",
+        "Azure"
+      ],
+      "Databases": [
+        "Snowflake",
+        "BigQuery",
+        "PostgreSQL",
+        "MySQL",
+        "DuckDB"
+      ],
+      "Data Visualization": [
+        "Power BI",
+        "Tableau",
+        "Looker",
+        "Streamlit"
+      ],
+      "AI/ML": [
+        "Machine Learning",
+        "TensorFlow",
+        "PyTorch",
+        "Scikit-learn"
+      ],
+      "DevOps": [
+        "Docker",
+        "Terraform",
+        "Git"
+      ]
     }
   },
   "languages": {

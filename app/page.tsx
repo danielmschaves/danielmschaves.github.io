@@ -1,9 +1,16 @@
 import { Metadata } from "next";
 import Hero from "@/components/Hero";
-import ProjectCard from "@/components/ProjectCard";
-import SkillsGrid from "@/components/SkillsGrid";
+import Button from "@/components/Button";
+import StatStrip from "@/components/StatStrip";
 import SectionHeading from "@/components/SectionHeading";
-import projectsData from "@/data/projects.json";
+import FeaturedCase from "@/components/FeaturedCase";
+import WorkLedger from "@/components/WorkLedger";
+import Capabilities from "@/components/Capabilities";
+import ExperienceList from "@/components/ExperienceList";
+import { EducationList, LanguageList } from "@/components/Education";
+import CredentialGrid from "@/components/CredentialGrid";
+import SiteFooter from "@/components/SiteFooter";
+import { projects, projectHref, projectRow, projectTags } from "@/lib/projects";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -11,57 +18,98 @@ export const metadata: Metadata = {
   description: siteConfig.description,
 };
 
+const stats = [
+  { value: "10 → 30+", label: "FTEs — delivery portfolio scaled 3×" },
+  { value: "~4,000", label: "Monthly service hours at peak" },
+  { value: "4.7", unit: "CSAT", label: "Across 12 concurrent engagements" },
+  { value: "4×", label: "Faster delivery with an AI-augmented workflow" },
+];
+
 export default function Home() {
-  const featuredProject = projectsData.find((p) => p.featured);
-  const otherProjects = projectsData.filter((p) => !p.featured);
+  const featured = projects.find((p) => p.featured);
+  const rows = projects.filter((p) => !p.featured).map(projectRow);
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Hero />
+    <>
+      <div className="lg-container">
+        <Hero
+          eyebrow="PROGRAM MANAGER · DATA & AI · FLORIANÓPOLIS, BR · REMOTE"
+          title="I take enterprise data & AI programs from pilot to production — and to"
+          accent="business outcomes."
+          lead="Program Manager at phData, leading multi-workstream delivery on modern data platforms for large US enterprises. Before that, I owned pharma data & AI accounts across LATAM and EMEA — and started out running R&D programs in the energy sector."
+          actions={
+            <>
+              <Button variant="primary" href="#work">
+                See selected work
+              </Button>
+              <Button href={siteConfig.resumePdf} download="Daniel-Chaves-Resume.pdf">
+                Download résumé
+              </Button>
+            </>
+          }
+        />
 
-      {/* Featured Project */}
-      {featuredProject && (
-        <section className="section-padding section-tint">
-          <div className="container-custom">
-            <SectionHeading
-              label="Featured"
-              title="Featured Project"
-              subtitle="A highlight of my recent technical work and architectural decisions."
-            />
-            <div className="mx-auto max-w-5xl">
-              <ProjectCard {...featuredProject} featured={true} index={0} />
+        <StatStrip stats={stats} />
+
+        <p className="lg-mono lg-muted" style={{ margin: "28px 0 0" }}>
+          SELECTED ACCOUNTS · NOVO NORDISK · BAYER · ACROSS THE US, LATAM &amp; EMEA
+        </p>
+
+        <section className="lg-section" id="work" aria-labelledby="work-title">
+          <SectionHeading id="work-title" title="Selected work" aside={`${projects.length} CASE STUDIES`} />
+          <WorkLedger
+            featured={
+              featured && (
+                <FeaturedCase
+                  n={featured.figure}
+                  eyebrow={featured.eyebrow}
+                  title={featured.ogTitle}
+                  description={featured.description}
+                  href={projectHref(featured)}
+                  metrics={featured.metrics}
+                  tags={projectTags(featured)}
+                />
+              )
+            }
+            rows={rows}
+          />
+        </section>
+
+        <section className="lg-section" id="capabilities" aria-labelledby="capabilities-title">
+          <SectionHeading
+            id="capabilities-title"
+            title="Capabilities"
+            aside="DELIVERY · DATA · AI"
+          />
+          <Capabilities />
+        </section>
+
+        <section className="lg-section lg-split" id="experience">
+          <SectionHeading
+            title="Experience"
+            intro="Program delivery, data platforms and AI — newest first."
+          />
+          <ExperienceList />
+        </section>
+
+        <section className="lg-section lg-split" id="education">
+          <SectionHeading title="Education" />
+          <div className="flex flex-col gap-12">
+            <EducationList />
+            <div>
+              <div className="lg-label">LANGUAGES</div>
+              <LanguageList />
             </div>
           </div>
         </section>
-      )}
 
-      {/* Skills Section */}
-      <section className="section-padding">
-        <div className="container-custom">
-          <SectionHeading
-            label="Expertise"
-            title="Technical Expertise"
-            subtitle="A comprehensive overview of my technical skills and technology stack."
-          />
-          <SkillsGrid />
-        </div>
-      </section>
+        <section className="lg-section lg-split" id="creds">
+          <SectionHeading title="Credentials" intro="Anthropic, PMI and the data engineering programs behind the work." />
+          <CredentialGrid />
+        </section>
+      </div>
 
-      {/* All Projects */}
-      <section className="section-padding section-tint">
-        <div className="container-custom">
-          <SectionHeading
-            label="Portfolio"
-            title="All Projects"
-            subtitle="Data engineering and analytics projects showcasing modern data stack implementations."
-          />
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {otherProjects.map((project, i) => (
-              <ProjectCard key={project.id} {...project} index={i} />
-            ))}
-          </div>
-        </div>
-      </section>
-    </div>
+      <SiteFooter />
+    </>
   );
 }

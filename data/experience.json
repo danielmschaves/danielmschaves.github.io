@@ -1,9 +1,23 @@
 [
   {
+    "company": "phData",
+    "position": "Program Manager",
+    "startDate": "2026-08",
+    "endDate": "Present",
+    "location": "Remote",
+    "description": "Program Manager for data and AI engagements with large US enterprises, accountable for value delivery, client experience, and moving work from pilot to production.",
+    "achievements": [
+      "Leading the data services workstream of a large enterprise transformation program, coordinating engineering, QA, business analysis, and client stakeholders across parallel teams and time zones.",
+      "Driving delivery of modern data platform work on Snowflake and dbt, including integrations between the DW and operational and CRM systems, legacy workflow rebuilds, and migration of low code workflows into dbt.",
+      "Owning program governance end to end: sprint planning, RAID and dependency management, cross team sign off gates, and status reporting for program leadership.",
+      "Building AI agents that automate key PM workflows, shifting focus from operational work to driving business outcomes."
+    ]
+  },
+  {
     "company": "Indicium",
     "position": "Data & AI Delivery Manager",
     "startDate": "2024-08",
-    "endDate": "Present",
+    "endDate": "2026-08",
     "location": "Florianópolis, Brazil",
     "description": "Delivery Lead for enterprise data and AI accounts across LATAM and EMEA, accountable for value delivery, client experience, account growth, and renewals in the pharmaceutical sector.",
     "achievements": [

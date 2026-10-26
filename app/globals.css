@@ -159,6 +159,11 @@
   .lg-stat { padding: 28px var(--space-5); border-right: 1px solid var(--line); }
   .lg-stat:first-child { padding-left: 0; }
   .lg-stat:last-child { border-right: 0; }
+  /* Once the strip stacks to one column, cells become rows. */
+  @media (max-width: 520px) {
+    .lg-stat { padding-left: 0; padding-right: 0; border-right: 0; }
+    .lg-stat + .lg-stat { border-top: 1px solid var(--line); }
+  }
   .lg-stat__value { font-size: 44px; line-height: 1; font-weight: 600; letter-spacing: -.03em; }
   .lg-stat__unit { font-size: 20px; color: var(--muted); }
   .lg-stat__label { margin-top: 6px; font-size: 14px; line-height: 1.45; color: var(--muted); }

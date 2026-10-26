@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import SiteHeader from "@/components/SiteHeader";
 
 const interTight = localFont({
   src: [
@@ -89,9 +88,8 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="lg font-sans">
-        <Header />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+        <SiteHeader />
+        <main>{children}</main>
       </body>
     </html>
   );

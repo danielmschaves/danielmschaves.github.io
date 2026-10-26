@@ -1,5 +1,6 @@
 export const siteConfig = {
   name: "Daniel Chaves",
+  role: "Program Manager · Data & AI",
   title: "Daniel Chaves - Delivery Manager & Data Engineer",
   description:
     "Results-driven Delivery Manager with 6 years of experience leading enterprise data initiatives and cross-functional teams. Specializing in AI/ML solutions, modern data stack implementations, and data platform architecture.",

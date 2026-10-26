@@ -1,12 +1,11 @@
 "use client";
 
 import { useFormState, useFormStatus } from "react-dom";
-import { sendEmail } from "@/lib/actions";
-import { motion } from "framer-motion";
-import { Loader2, Send, CheckCircle, AlertCircle } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Turnstile } from "@marsidev/react-turnstile";
-import { ContactState } from "@/lib/actions";
+import { sendEmail, type ContactState } from "@/lib/actions";
+import Button from "@/components/Button";
+import { AlertIcon, CheckIcon, SendIcon, SpinnerIcon } from "@/components/Icons";
 
 const initialState: ContactState = {
   success: false,
@@ -14,48 +13,26 @@ const initialState: ContactState = {
   errors: {},
 };
 
-const inputStyle: React.CSSProperties = {
-  width: '100%',
-  padding: '10px 14px',
-  background: 'var(--ink-1)',
-  border: '1px solid var(--line)',
-  borderRadius: 'var(--radius-md)',
-  color: 'var(--text)',
-  fontSize: '0.875rem',
-  outline: 'none',
-  transition: 'all 250ms var(--ease-out)',
-  fontFamily: 'inherit',
-};
+type FieldName = "name" | "email" | "subject" | "message";
 
-const labelStyle: React.CSSProperties = {
-  display: 'block',
-  marginBottom: 6,
-  fontSize: '0.8125rem',
-  fontWeight: 500,
-  color: 'var(--text)',
-};
+const fields: { name: FieldName; label: string; type: string; placeholder: string }[] = [
+  { name: "name", label: "NAME", type: "text", placeholder: "Your name" },
+  { name: "email", label: "EMAIL", type: "email", placeholder: "you@company.com" },
+  { name: "subject", label: "SUBJECT", type: "text", placeholder: "What’s it about?" },
+  { name: "message", label: "MESSAGE", type: "textarea", placeholder: "A few lines on the program, team or question." },
+];
 
 function SubmitButton({ isVerified }: { isVerified: boolean }) {
   const { pending } = useFormStatus();
   return (
-    <button
+    <Button
+      variant="primary"
       type="submit"
       disabled={pending || !isVerified}
-      className="btn-primary w-full justify-center"
-      style={{ opacity: pending || !isVerified ? 0.6 : 1, cursor: pending || !isVerified ? 'not-allowed' : 'pointer' }}
+      icon={pending ? <SpinnerIcon /> : <SendIcon />}
     >
-      {pending ? (
-        <>
-          <Loader2 className="h-4 w-4 animate-spin" />
-          Sending...
-        </>
-      ) : (
-        <>
-          <Send className="h-4 w-4" />
-          Send Message
-        </>
-      )}
-    </button>
+      {pending ? "Sending…" : "Send message"}
+    </Button>
   );
 }
 
@@ -71,176 +48,68 @@ export default function ContactForm() {
     }
   }, [state.success]);
 
+  const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+
   return (
-    <div
-      style={{
-        background: 'var(--ink-2)',
-        border: '1px solid var(--line)',
-        borderRadius: 18,
-        padding: 32,
-      }}
-    >
-      <h3
-        className="mb-2 font-bold"
-        style={{ fontSize: 22, color: 'var(--text)', letterSpacing: '-0.015em' }}
-      >
-        Get in Touch
-      </h3>
-      <p className="mb-6 text-sm" style={{ color: 'var(--text-muted)' }}>
-        Send a message and I&apos;ll get back to you soon.
-      </p>
-
+    <form ref={formRef} action={formAction} className="lg-form" style={{ marginTop: 56 }} noValidate>
       {state.success && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-5 flex items-center gap-2 rounded-md text-sm"
-          style={{
-            padding: '10px 12px',
-            background: 'rgba(16,185,129,0.10)',
-            color: 'var(--success)',
-            borderRadius: 'var(--radius-md)',
-          }}
-        >
-          <CheckCircle className="h-4 w-4 shrink-0" />
-          {state.message}
-        </motion.div>
+        <div className="lg-notice lg-notice--success" role="status">
+          <CheckIcon />
+          <span>
+            <b>Sent. </b>
+            {state.message}
+          </span>
+        </div>
+      )}
+      {!state.success && state.message && (
+        <div className="lg-notice lg-notice--error" role="alert">
+          <AlertIcon />
+          <span>
+            <b>Not sent. </b>
+            {state.message}
+          </span>
+        </div>
       )}
 
-      {state.success === false && state.message && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-5 flex items-center gap-2 text-sm"
-          style={{
-            padding: '10px 12px',
-            background: 'rgba(239,68,68,0.10)',
-            color: 'var(--danger)',
-            borderRadius: 'var(--radius-md)',
-          }}
-        >
-          <AlertCircle className="h-4 w-4 shrink-0" />
-          {state.message}
-        </motion.div>
+      {fields.map((f) => {
+        const id = `cf-${f.name}`;
+        const err = state.errors?.[f.name]?.[0];
+        const common = {
+          id,
+          name: f.name,
+          className: "lg-input",
+          placeholder: f.placeholder,
+          required: true,
+          "aria-invalid": !!err,
+          "aria-describedby": err ? `${id}-err` : undefined,
+        };
+        return (
+          <div key={f.name} className="lg-field">
+            <label className="lg-field__label" htmlFor={id}>
+              {f.label}
+            </label>
+            {f.type === "textarea" ? <textarea rows={5} {...common} /> : <input type={f.type} {...common} />}
+            {err && (
+              <p className="lg-field__error" id={`${id}-err`} role="alert">
+                <AlertIcon />
+                {err}
+              </p>
+            )}
+          </div>
+        );
+      })}
+
+      {siteKey ? (
+        <Turnstile siteKey={siteKey} onSuccess={setToken} />
+      ) : (
+        <div className="lg-captcha">CAPTCHA NOT CONFIGURED — SET NEXT_PUBLIC_TURNSTILE_SITE_KEY</div>
       )}
+      <input type="hidden" name="cf-turnstile-response" value={token} />
 
-      <form ref={formRef} action={formAction} className="flex flex-col gap-4">
-        <div>
-          <label htmlFor="name" style={labelStyle}>Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="John Doe"
-            required
-            aria-invalid={!!state.errors?.name}
-            aria-describedby={state.errors?.name ? "name-error" : undefined}
-            style={inputStyle}
-            onFocus={(e) => {
-              (e.target as HTMLInputElement).style.borderColor = 'var(--primary-500)';
-              (e.target as HTMLInputElement).style.boxShadow = '0 0 0 3px var(--primary-ring)';
-            }}
-            onBlur={(e) => {
-              (e.target as HTMLInputElement).style.borderColor = state.errors?.name ? 'var(--danger)' : 'var(--line)';
-              (e.target as HTMLInputElement).style.boxShadow = 'none';
-            }}
-          />
-          {state.errors?.name && (
-            <p id="name-error" role="alert" className="mt-1 text-xs" style={{ color: 'var(--danger)' }}>{state.errors.name[0]}</p>
-          )}
-        </div>
-
-        <div>
-          <label htmlFor="email" style={labelStyle}>Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="john@example.com"
-            required
-            aria-invalid={!!state.errors?.email}
-            aria-describedby={state.errors?.email ? "email-error" : undefined}
-            style={inputStyle}
-            onFocus={(e) => {
-              (e.target as HTMLInputElement).style.borderColor = 'var(--primary-500)';
-              (e.target as HTMLInputElement).style.boxShadow = '0 0 0 3px var(--primary-ring)';
-            }}
-            onBlur={(e) => {
-              (e.target as HTMLInputElement).style.borderColor = state.errors?.email ? 'var(--danger)' : 'var(--line)';
-              (e.target as HTMLInputElement).style.boxShadow = 'none';
-            }}
-          />
-          {state.errors?.email && (
-            <p id="email-error" role="alert" className="mt-1 text-xs" style={{ color: 'var(--danger)' }}>{state.errors.email[0]}</p>
-          )}
-        </div>
-
-        <div>
-          <label htmlFor="subject" style={labelStyle}>Subject</label>
-          <input
-            type="text"
-            id="subject"
-            name="subject"
-            placeholder="Project Inquiry"
-            required
-            aria-invalid={!!state.errors?.subject}
-            aria-describedby={state.errors?.subject ? "subject-error" : undefined}
-            style={inputStyle}
-            onFocus={(e) => {
-              (e.target as HTMLInputElement).style.borderColor = 'var(--primary-500)';
-              (e.target as HTMLInputElement).style.boxShadow = '0 0 0 3px var(--primary-ring)';
-            }}
-            onBlur={(e) => {
-              (e.target as HTMLInputElement).style.borderColor = state.errors?.subject ? 'var(--danger)' : 'var(--line)';
-              (e.target as HTMLInputElement).style.boxShadow = 'none';
-            }}
-          />
-          {state.errors?.subject && (
-            <p id="subject-error" role="alert" className="mt-1 text-xs" style={{ color: 'var(--danger)' }}>{state.errors.subject[0]}</p>
-          )}
-        </div>
-
-        <div>
-          <label htmlFor="message" style={labelStyle}>Message</label>
-          <textarea
-            id="message"
-            name="message"
-            rows={4}
-            placeholder="Tell me about your project..."
-            required
-            aria-invalid={!!state.errors?.message}
-            aria-describedby={state.errors?.message ? "message-error" : undefined}
-            style={{ ...inputStyle, resize: 'vertical' }}
-            onFocus={(e) => {
-              (e.target as HTMLTextAreaElement).style.borderColor = 'var(--primary-500)';
-              (e.target as HTMLTextAreaElement).style.boxShadow = '0 0 0 3px var(--primary-ring)';
-            }}
-            onBlur={(e) => {
-              (e.target as HTMLTextAreaElement).style.borderColor = state.errors?.message ? 'var(--danger)' : 'var(--line)';
-              (e.target as HTMLTextAreaElement).style.boxShadow = 'none';
-            }}
-          />
-          {state.errors?.message && (
-            <p id="message-error" role="alert" className="mt-1 text-xs" style={{ color: 'var(--danger)' }}>{state.errors.message[0]}</p>
-          )}
-        </div>
-
-        <div className="flex justify-center">
-          {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ? (
-            <Turnstile
-              siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
-              onSuccess={setToken}
-            />
-          ) : (
-            <p className="text-xs" style={{ color: 'var(--danger)' }}>
-              CAPTCHA not configured — set NEXT_PUBLIC_TURNSTILE_SITE_KEY.
-            </p>
-          )}
-        </div>
-        <input type="hidden" name="cf-turnstile-response" value={token} />
-
+      <div className="lg-form__foot">
+        <span className="lg-mono-sm lg-muted">GOES STRAIGHT TO MY INBOX</span>
         <SubmitButton isVerified={!!token} />
-      </form>
-    </div>
+      </div>
+    </form>
   );
 }

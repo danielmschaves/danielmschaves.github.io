@@ -2,6 +2,7 @@
 
 import { Resend } from "resend";
 import { z } from "zod";
+import { notificationHTML } from "@/lib/email";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -80,17 +81,7 @@ export async function sendEmail(prevState: ContactState, formData: FormData): Pr
             to: ["danielmschaves@gmail.com"],
             subject: `New Message from ${name}: ${subject}`,
             replyTo: email,
-            html: `
-                <div style="font-family: sans-serif; padding: 20px; color: #333;">
-                    <h1>New Message from Portfolio</h1>
-                    <p><strong>From:</strong> ${name} (${email})</p>
-                    <p><strong>Subject:</strong> ${subject}</p>
-                    <hr />
-                    <div style="white-space: pre-wrap; margin-top: 20px;">
-                        ${message}
-                    </div>
-                </div>
-            `,
+            html: notificationHTML({ name, email, subject, message }),
         });
 
         if (data.error) {

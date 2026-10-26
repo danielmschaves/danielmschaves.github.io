@@ -300,7 +300,7 @@ const pt: SpotifyELTCopy = {
         { name: "S3 BRONZE", note: "Parquet · tipado" },
         { name: "S3 SILVER", note: "Parquet enriquecido" },
       ],
-      duckdb: { name: "DuckDB", tags: ["IN-PROCESS", "SEM SERVIDOR"], items: ["JSON → Parquet (bronze)", "Lê do S3", "Limpa/enriquece (silver)"], note: "Sem custo ocioso" },
+      duckdb: { name: "DuckDB", tags: ["EM PROCESSO", "SEM SERVIDOR"], items: ["JSON → Parquet (bronze)", "Lê do S3", "Limpa/enriquece (silver)"], note: "Sem custo ocioso" },
       motherduck: { name: "Motherduck", tags: ["DUCKDB NA NUVEM", "TABELAS EXTERNAS"], items: ["dim_artist · dim_track", "fct_stream · fct_playlist"] },
       terraform: { name: "TERRAFORM (IAC)", items: ["Provisiona buckets S3", "+ tabelas ext. Motherduck"] },
       powerbi: { name: "Power BI", tags: ["CAMADA ANALÍTICA", "3 PÁGINAS DE RELATÓRIO"], items: ["Tendências de playlists", "Alcance de artistas · faixas"] },

@@ -57,7 +57,7 @@ const WORDS = {
     fact: "fato",
     dbtLayers: [["STAGING", "LIMPEZA · CAST"], ["INTERMEDIATE", "PRONTO PARA JOIN"], ["MARTS", "POR ÁREA DE NEGÓCIO"]],
     rejected: "REJEITADOS",
-    inProcess: "IN-PROCESS",
+    inProcess: "EM PROCESSO",
     where: ["LOCAL", "AWS", "NUVEM"],
   },
 };

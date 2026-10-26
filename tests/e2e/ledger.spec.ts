@@ -10,9 +10,9 @@ const cases = [
 ];
 
 /* Ledger chart rules: squares only, text at 12px or more as rendered, charts scroll inside their frame. */
-for (const slug of cases) {
+for (const slug of cases.flatMap((c) => [c, `pt:${c}`])) {
   test(`${slug} charts follow the Ledger chart rules`, async ({ page }) => {
-    await page.goto(`/projects/${slug}/`);
+    await page.goto(slug.startsWith("pt:") ? `/pt/projects/${slug.slice(3)}/` : `/projects/${slug}/`);
     const charts = page.locator(".lg-chart");
     expect(await charts.count()).toBeGreaterThan(0);
     await expect(page.locator(".lg-chart .lg-chart__scroll[role='region']")).toHaveCount(await charts.count());
@@ -47,8 +47,9 @@ test.describe("At phone width", () => {
 test.describe("Header at 360px", () => {
   test.use({ viewport: { width: 360, height: 800 } });
 
-  test("brand, nav and toggles fit on two rows", async ({ page }) => {
-    await page.goto("/");
+  for (const path of ["/", "/pt/"]) {
+  test(`brand, nav and toggles fit on two rows (${path})`, async ({ page }) => {
+    await page.goto(path);
     /* Elements on one row share a vertical centre (to within a few px). */
     const rows = await page.evaluate(() =>
       [".lg-header__brand", ".lg-nav", ".lg-header__toggles"].map((s) => {
@@ -62,4 +63,5 @@ test.describe("Header at 360px", () => {
     );
     expect(right).toBeLessThanOrEqual(360);
   });
+  }
 });

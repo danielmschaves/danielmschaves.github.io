@@ -12,7 +12,7 @@ const SUCC = "var(--accent)";
 const mono = { fontFamily: "var(--font-mono)" } as const;
 const sectionNum: React.CSSProperties = { ...mono, fontSize: 13, color: "var(--muted)", fontWeight: 400, letterSpacing: "0.04em", textTransform: "uppercase", marginBottom: 12, display: "block" };
 const sectionH2: React.CSSProperties = { fontWeight: 600, fontSize: "clamp(26px, 3vw, 38px)", lineHeight: 1.15, letterSpacing: "-0.02em", color: "var(--fg)", marginBottom: 16 };
-const sectionLead: React.CSSProperties = { fontSize: 17, color: "var(--body)", maxWidth: 720, lineHeight: 1.55 };
+const sectionLead: React.CSSProperties = { fontSize: 17, color: "var(--body)", lineHeight: 1.55 };
 const infograph: React.CSSProperties = { borderTop: "1px solid var(--line-strong)", borderBottom: "1px solid var(--line)", padding: "32px 0", margin: "32px 0", overflow: "hidden" };
 const infographLabel: React.CSSProperties = { ...mono, fontSize: 10, textTransform: "uppercase", letterSpacing: "0.14em", color: "var(--accent)", fontWeight: 500, marginBottom: 10, display: "block" };
 const infographTitle: React.CSSProperties = { fontSize: 22, fontWeight: 600, color: "var(--fg)", letterSpacing: "-0.01em" };
@@ -44,7 +44,7 @@ export default function CloudMigrationContent() {
 
         {/* ── Lead ── */}
         <section style={{ paddingBottom: 48 }}>
-          <p style={{ fontSize: 19, lineHeight: 1.6, color: "var(--body)", maxWidth: 680, fontWeight: 400 }}>
+          <p style={{ fontSize: 19, lineHeight: 1.6, color: "var(--body)", fontWeight: 400 }}>
             Project Management framework for a global financial services enterprise&apos;s pilot cloud migration — designed to prove AWS feasibility for a much larger enterprise modernization program. Twelve months. $1.2M fixed budget. Zero tolerance for unscheduled downtime.
           </p>
         </section>

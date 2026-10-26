@@ -226,9 +226,10 @@
   .lg-role__panel { padding: 0 0 28px; max-width: 760px; }
 
   /* Credential grid */
-  /* Rules drawn per cell, so a short last row leaves empty space instead of a filled grey cell. */
-  .lg-creds { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
-  .lg-cred { padding: 22px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  /* Each cell draws its own full hairline border; the -1px margins overlap neighbours into one
+     1px rule. Nothing is drawn on the grid itself, so a short row ends with its last cell. */
+  .lg-creds { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); padding: 0 1px 1px 0; }
+  .lg-cred { padding: 22px; border: 1px solid var(--line); margin: 0 -1px -1px 0; }
   .lg-cred__name { font-size: 17px; font-weight: 600; line-height: 1.3; }
   .lg-cred__issuer { margin-top: 6px; font-size: 13px; color: var(--muted); }
   .lg-cred-group + .lg-cred-group { margin-top: 32px; }

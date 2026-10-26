@@ -15,7 +15,7 @@ const sectionH2: React.CSSProperties = {
   letterSpacing: "-0.02em", color: "var(--fg)", marginBottom: 16,
 };
 const sectionLead: React.CSSProperties = {
-  fontSize: 17, color: "var(--body)", maxWidth: 720, lineHeight: 1.55,
+  fontSize: 17, color: "var(--body)", lineHeight: 1.55,
 };
 const infograph: React.CSSProperties = { borderTop: "1px solid var(--line-strong)", borderBottom: "1px solid var(--line)", padding: "32px 0", margin: "32px 0", overflow: "hidden" };
 const infographLabel: React.CSSProperties = {
@@ -63,7 +63,7 @@ export default function DataIntelligencePlatformContent() {
 
         {/* ── Lead ── */}
         <section style={{ paddingBottom: 48 }}>
-          <p style={{ fontSize: 19, lineHeight: 1.6, color: "var(--body)", maxWidth: 680, fontWeight: 400 }}>
+          <p style={{ fontSize: 19, lineHeight: 1.6, color: "var(--body)", fontWeight: 400 }}>
             A one-year project to take a growing trading company from scattered operational systems to a unified data platform — Data Lake, Data Warehouse, BI, and predictive models, all built from scratch. This was the foundation engagement where I formalized the planning cadence and sprint discipline I still use today.
           </p>
         </section>

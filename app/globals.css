@@ -362,4 +362,10 @@
   .lg-cred { border: 1px solid var(--line); margin: 0 -1px -1px 0; }
   /* Case-study leads span the full column (PR #30), not the 760px cap. */
   .lg-case-sec__lead { max-width: none; }
+  /* Chart mono labels: v3 sets every chart text to the sans family; keep JetBrains-named
+     labels mono, as the figure rules do. */
+  .lg-chart svg text[font-family^="JetBrains"] { font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace; }
+  /* Case intro: lead → fact strip → chips (README › Pages). */
+  .lg-case-intro { display: flex; flex-direction: column; gap: var(--space-6); padding-top: var(--space-6); }
+  .lg-case-intro__lead { margin: 0; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.55; color: var(--body); }
 }

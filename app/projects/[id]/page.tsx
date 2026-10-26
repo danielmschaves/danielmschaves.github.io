@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import Link from "next/link";
+import PageHeader, { BackLink } from "@/components/PageHeader";
 import { notFound } from "next/navigation";
 import { siteConfig } from "@/config/site";
 import { getProject, projects, type Project } from "@/lib/projects";
@@ -19,7 +19,7 @@ interface ProjectPageProps {
   };
 }
 
-const bodies: Record<string, () => JSX.Element> = {
+const bodies: Record<string, (props: { lang?: "en" }) => JSX.Element> = {
   "data-intelligence-platform": DataIntelligencePlatformContent,
   "cloud-migration-enterprise": CloudMigrationContent,
   "data-warehouse-modernization": DWProgramContent,
@@ -66,20 +66,15 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   };
 }
 
+/* README › Pages: back link → Figure → title → metrics → body. The back link sits above the
+   figure, so PageHeader is used without its own `back`. */
 function ProjectHeader({ project }: { project: Project }) {
   return (
-    <header className="lg-hero" style={{ paddingBottom: 0 }}>
-      <Link href="/#work" className="lg-mono lg-muted" style={{ display: "inline-block", padding: "12px 0", marginBottom: 16 }}>
-        ← ALL WORK
-      </Link>
+    <header style={{ paddingTop: "clamp(24px, 4vw, 48px)" }}>
+      <BackLink label="ALL WORK" href="/#work" />
       <Figure n={project.figure} />
-      <p className="lg-mono lg-accent" style={{ margin: "40px 0 16px" }}>
-        {pad2(project.figure)} · {project.eyebrow}
-      </p>
-      <h1 className="heading-2" style={{ margin: 0, fontSize: "clamp(28px, 3.4vw, 36px)", maxWidth: 900 }}>
-        {project.title}
-      </h1>
-      <div className="lg-feature__metrics" style={{ marginTop: 32 }}>
+      <PageHeader eyebrow={`${pad2(project.figure)} · ${project.eyebrow}`} title={project.title} />
+      <div className="lg-feature__metrics">
         {project.metrics.map((m) => (
           <div key={m.label} className="lg-feature__metric">
             <b>{m.value}</b>

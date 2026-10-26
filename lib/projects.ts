@@ -41,9 +41,9 @@ export function projectHref(p: Project, lang: Lang) {
   return href(lang, `/projects/${p.id}/`);
 }
 
-/* Tags drop the discipline itself ("Project management"), which the eyebrow already says. */
+/* Tags drop the management disciplines ("Project management" / "Gestão de projetos"); the eyebrow already says it. */
 export function projectTags(p: Project) {
-  return p.technologies.filter((t) => !/(management|gestão de (projetos|programas))$/i.test(t));
+  return p.technologies.filter((t) => !/(management$|^gestão de )/i.test(t));
 }
 
 export function projectRow(p: Project, lang: Lang): ProjectRowData & { category: string } {

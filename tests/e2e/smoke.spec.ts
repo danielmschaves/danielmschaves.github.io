@@ -32,3 +32,12 @@ test("contact form keeps submit disabled until the CAPTCHA passes", async ({ pag
   }
   await expect(page.getByRole("button", { name: /send message/i })).toBeDisabled();
 });
+
+test("only /contact carries the form; other footers link to it", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator("form.lg-form")).toHaveCount(0);
+  await page.locator("footer").getByRole("link", { name: "Send a message" }).click();
+  await expect(page).toHaveURL(/\/contact/);
+  await expect(page.getByRole("heading", { level: 1, name: "Contact" })).toBeVisible();
+  await expect(page.locator("form.lg-form")).toHaveCount(1);
+});

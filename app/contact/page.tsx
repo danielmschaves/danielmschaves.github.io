@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  return <SiteFooter headingAs="h1" />;
+  return <SiteFooter withForm />;
 }

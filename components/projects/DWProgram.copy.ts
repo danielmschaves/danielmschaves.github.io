@@ -174,4 +174,174 @@ const en = {
 };
 
 export type DWProgramCopy = typeof en;
-export const copy: Record<Lang, DWProgramCopy> = { en, pt: en };
+const pt: DWProgramCopy = {
+  lead: "Um programa com vários projetos para migrar um data warehouse legado em SQL Server para o modern data stack (Snowflake, dbt, Tableau). Desenhado em torno de três condições inegociáveis: prazo fixo, honorários de consultoria fixos e zero desvio de escopo — defendidas por gates formais, um parking lot e um processo explícito de controle de mudanças.",
+  facts: [
+    ["PAPEL", "Program Manager"],
+    ["DURAÇÃO", "18 meses"],
+    ["CONTRATO", "Preço fixo"],
+    ["PROJETOS NO PROGRAMA", "Vários"],
+  ],
+  tags: ["Gestão de programas", "Modern data stack", "Snowflake · dbt · Tableau", "Governança", "Controle de mudanças", "Gestão de RAID", "Stakeholders C-level"],
+
+  objective: {
+    kicker: "OBJETIVO ESTRATÉGICO & RESULTADOS-CHAVE",
+    title: ["Um mandato. ", "Três condições inegociáveis", "."],
+    lead: "Migrar o data warehouse para o modern data stack — dentro dos 18 meses e dos honorários acordados. Todo o resto do programa existe para servir a essas três restrições.",
+    stats: [
+      { value: "< 5%", label: "Variação de custo sobre o total de honorários acordado" },
+      { value: "100%", label: "Marcos cumpridos em todas as fases do cronograma macro" },
+      { value: "> 98%", label: "Taxa de validação de dados na fase obrigatória de UAT" },
+      { value: "0", label: "Escopo não gerenciado: toda adição passou pelo CCP formal" },
+    ],
+  },
+
+  lifecycle: {
+    kicker: "CICLO DE VIDA DO PROGRAMA",
+    title: ["Três fases. ", "Cada uma termina em um gate contratual", "."],
+    lead: "O programa segue o ciclo de vida padrão — iniciação, entrega, encerramento —, mas com uma diferença: cada fronteira entre fases é também um ponto formal de controle. Nenhuma fase avança antes de seus entregáveis serem aprovados, o que trava o escopo que ficou para trás.",
+    phases: [
+      { num: "I", phase: "INICIAÇÃO", duration: "~3 MESES", title: "Definir a fronteira", body: "Kick-off formal do programa, definição de escopo e o reconhecimento crucial do prazo fixo de 18 meses. Atividade central: mapeamento das fontes de dados e análise de dependências.", outputs: "Avaliação da migração · Estratégia de migração · Forma de trabalho" },
+      { num: "II", phase: "ENTREGA", duration: "~13 MESES", title: "Executar & validar", body: "A migração começa com uma PoC para validar a abordagem e refinar estimativas e depois avança em ciclos ágeis. O UAT obrigatório com os analistas de dados do cliente é o gate de cada release.", outputs: "DW migrado · Qualidade validada · Legado desativado" },
+      { num: "III", phase: "ENCERRAMENTO", duration: "~2 MESES", title: "Confirmar a aderência", body: "Aprovação formal contra o mandato fixo. O sucesso é definido de forma estrita: migração completa para Snowflake/dbt/Tableau em 18 meses e dentro dos honorários acordados.", outputs: "Relatório final · Transição de recursos · Fechamento do contrato" },
+    ],
+    chart: {
+      label: "CRONOGRAMA MESTRE",
+      title: "Ciclo de vida de 18 meses com gates entre as fases",
+      sub: "Cada gate é uma aprovação formal — o escopo da fase anterior fica travado e a próxima fase não começa sem ela.",
+      alt: "Ciclo de vida de 18 meses: iniciação por cerca de 3 meses, entrega por cerca de 13 meses em quatro ondas e encerramento por cerca de 2 meses, com quatro gates contratuais: congelamento de escopo, revisão de meio de programa, trava de validação e encerramento.",
+      months: ["M1", "M3", "M5", "M7", "M9", "M11", "M13", "M15", "M17", "M18"],
+      phases: {
+        initiation: ["I · INICIAÇÃO", "~3 meses"],
+        delivery: ["II · ENTREGA", "~13 meses · migração · validação · desativação"],
+        closure: ["III · ENCERRAMENTO", "~2 meses"],
+      },
+      initiationNote: ["Kickoff · avaliação", "Estratégia · governança"],
+      closureNote: ["Cutover · aprovação", "Relatório final"],
+      waves: ["PoC · onda 1", "Onda 2", "Onda 3", "Onda 4 · UAT"],
+      gateways: [
+        { id: "G1", title: "Escopo congelado", lines: ["Avaliação + estratégia", "aprovadas pelo sponsor"] },
+        { id: "G2", title: "Revisão intermediária", lines: ["Variação de custo, marcos,", "3 principais riscos"] },
+        { id: "G3", title: "Trava de validação", lines: ["UAT acima de 98%;", "cutover autorizado"] },
+        { id: "G4", title: "Encerramento", lines: ["Aprovação do contrato"] },
+      ],
+      legend: { phase: "Fase", wave: "Onda de entrega", gateway: "Gate contratual" },
+    },
+  },
+
+  governance: {
+    kicker: "FRAMEWORK DE GOVERNANÇA",
+    title: ["Uma forma de trabalho construída em ", "quatro passos deliberados", "."],
+    lead: "Antes de a execução começar, as regras da execução são definidas, apresentadas, aprovadas e só então operadas. Governança não é subproduto da gestão de programas — é o primeiro entregável dela.",
+    chart: {
+      label: "MONTAGEM DA FORMA DE TRABALHO",
+      title: "De regras compartilhadas a uma execução cumprida",
+      alt: "Quatro passos em sequência: desenvolvimento, apresentação, acordo formal e execução e revisão, cada um com seu objetivo.",
+      caption: "SEQUÊNCIA · CADA PASSO É PRÉ-CONDIÇÃO DO SEGUINTE",
+      steps: [
+        { title: "Desenvolvimento", lines: ["Definir cadência,", "alçadas de decisão e", "formato de reporte —", "junto com o cliente."] },
+        { title: "Apresentação", lines: ["Documentar e apresentar", "formalmente a forma", "de trabalho a todos os", "stakeholders-chave."] },
+        { title: "Acordo formal", lines: ["Obter a aprovação do", "PM do cliente — garante", "o compromisso contratual", "com os padrões."] },
+        { title: "Execução & revisão", lines: ["Aderência medida por", "CV, taxa de marcos e", "frequência de CRs;", "revisão periódica."] },
+      ],
+      goalsTitle: "OBJETIVO DE CADA PASSO",
+      goals: ["Padrões operacionais comuns", "Transparência & entendimento comum", "Compromisso contratual de aderência", "Controle efetivo"],
+    },
+  },
+
+  change: {
+    kicker: "CONTROLE DE MUDANÇAS",
+    title: ["Como adições de escopo são tratadas — e como o ", "contrato de preço fixo", " é defendido."],
+    lead: "Um programa de preço e prazo fixos vive ou morre pela disciplina de controle de mudanças. O programa opera um CCP rígido de três passos, apoiado por um parking lot para registrar tudo o que for ambíguo e por gates formais que travam as fases anteriores contra retrabalho retroativo.",
+    chart: {
+      label: "PROCESSO DE CONTROLE DE MUDANÇAS (CCP)",
+      title: "Do pedido de escopo à decisão do sponsor",
+      alt: "Processo de controle de mudanças: um pedido de adição de escopo vai para o CCP, seu impacto é quantificado e três opções chegam ao sponsor C-level: aceitar a mudança, trocar por escopo equivalente (preferida) ou adiar. Quatro mecanismos de defesa o sustentam.",
+      trigger: { tag: "GATILHO", title: "Adição de escopo", line: "pedida pelo cliente" },
+      steps: [
+        { tag: "PASSO 01 · IMEDIATO", title: "Encaminhar ao CCP", lines: ["Estacionar se ambíguo;", "nunca absorver calado."] },
+        { tag: "PASSO 02 · QUANTIFICAR", title: "Análise de impacto", lines: ["Esforço, prazo, delta de preço", "— por BA + engenharia."] },
+        { tag: "PASSO 03 · DECIDIR", title: "Apresentar 3 opções", lines: ["ao sponsor C-level", "para decisão."] },
+      ],
+      options: [
+        { tag: "OPÇÃO A", title: "Aceitar a mudança", lines: ["Custo maior.", "Prazo maior se o", "atraso passar do", "prazo de 18 meses."] },
+        { tag: "OPÇÃO B · PREFERIDA", title: "Trocar por equivalente", lines: ["Manter custo e prazo", "retirando do escopo", "itens de esforço", "equivalente."] },
+        { tag: "OPÇÃO C", title: "Adiar", lines: ["Levar o pedido para", "um projeto seguinte,", "depois do encerramento", "formal dos 18 meses."] },
+      ],
+      defenseTitle: "MECANISMOS DE DEFESA QUE SUSTENTAM O CCP",
+      defenses: [
+        { title: "Parking lot", lines: ["Registra todo item fora do escopo", "e o leva à avaliação do CCP."] },
+        { title: "Gates formais", lines: ["Travam as fases ao final;", "escopo anterior não reabre."] },
+        { title: "KPI de frequência de CRs", lines: ["Indicador antecedente — volume alto", "sinaliza pressão sobre o contrato."] },
+        { title: "Regra de quantificação", lines: ["Nenhum CR é decidido sem", "impacto explícito em esforço e preço."] },
+      ],
+    },
+  },
+
+  kpis: {
+    kicker: "MONITORAMENTO DE DESEMPENHO",
+    title: ["Quatro KPIs que importam ao C-level — e ", "nada além disso no dashboard", "."],
+    lead: "A telemetria operacional fica com os times. O que sobe ao sponsor é exatamente o que embasa decisões de sponsor: aderência financeira, aderência ao cronograma, qualidade e o indicador antecedente de pressão sobre o escopo.",
+    chart: {
+      label: "DASHBOARD EXECUTIVO DE KPIS",
+      title: "O que o head de dados vê, todo mês",
+      alt: "Quatro KPIs: variação de custo abaixo de 5%, 100% dos marcos cumpridos, validação de dados acima de 98% e frequência de pedidos de mudança como indicador antecedente; sustentados pela gestão de RAID de riscos, premissas, problemas e dependências.",
+      cards: [
+        { tag: "KPI 01 · CONTROLE FINANCEIRO", title: "Variação de custo (CV)", value: "< 5%", unit: "meta", lines: ["Compara o gasto real com", "os honorários acordados."] },
+        { tag: "KPI 02 · CRONOGRAMA", title: "Taxa de marcos cumpridos", value: "100%", unit: "meta", lines: ["Confirma a aderência ao", "prazo fixo de 18 meses."] },
+        { tag: "KPI 03 · QUALIDADE", title: "Taxa de validação de dados", value: "> 98%", unit: "meta", lines: ["Medida no UAT — gate de", "cada release em produção."] },
+        { tag: "KPI 04 · CONTROLE DE ESCOPO", title: "Frequência de CRs", value: "↓", unit: "indicador antecedente", lines: ["Volume alto = pressão sobre o", "CCP; tendência vista mês a mês."] },
+      ],
+      raidTitle: "SUSTENTADO POR UMA GESTÃO DE RAID CENTRALIZADA",
+      raid: [
+        { letter: "R", title: "Riscos", lines: ["Mitigação proativa;", "foco nas restrições fixas."] },
+        { letter: "A", title: "Premissas", lines: ["Base do planejamento;", "se invalidada → risco/problema."] },
+        { letter: "I", title: "Problemas", lines: ["Resolução reativa; escalonados", "só com impacto em prazo/preço."] },
+        { letter: "D", title: "Dependências", lines: ["Restrições externas — acesso", "às fontes, infra pronta."] },
+      ],
+    },
+  },
+
+  stakeholders: {
+    kicker: "GESTÃO DE STAKEHOLDERS",
+    title: ["Comunicar com o sponsor é ", "filtrar, não inundar", "."],
+    lead: "O head de dados não precisa dos bloqueios da daily. Precisa saber se o programa está no rumo estratégico, no rumo financeiro e se os principais riscos estão sendo tratados. O modelo de comunicação foi construído em torno dessa distinção.",
+    chart: {
+      label: "NÍVEIS DE STAKEHOLDERS",
+      title: "Quem ouve o quê, e com que frequência",
+      alt: "Três níveis de stakeholders: estratégico (head de dados do cliente e sponsor C-level, mensal), tático (PMs da entrega e do cliente, semanal) e operacional (times de desenvolvimento, diário), com escalonamento subindo só quando necessário.",
+      cadence: "CADÊNCIA",
+      tiers: [
+        { tag: "NÍVEL 01 · ESTRATÉGICO", who: "Head de dados do cliente · sponsor C-level", receives: "Recebe: status dos marcos, CV, 3 principais riscos mitigados, aprovações de gates", cadence: "Comitê mensal · revisão trimestral", lines: ["Escalonamento sob demanda, só quando", "as restrições fixas estão em risco"] },
+        { tag: "NÍVEL 02 · TÁTICO", who: "Gestão conjunta · PM da entrega + PM do cliente", receives: "Recebe: aplicação da governança, decisões do CCP, revisão de RAID, coordenação de fornecedores", cadence: "Sync semanal de PMs · status quinzenal", lines: ["Toda decisão de escopo, prazo e orçamento", "nasce ou passa por aqui"] },
+        { tag: "NÍVEL 03 · OPERACIONAL", who: "Times de desenvolvimento da entrega e do cliente", receives: "Recebe: metas da sprint, decisões técnicas, agenda de UAT, bloqueios", cadence: "Dailies · reviews da sprint", lines: ["O detalhe técnico é tratado aqui;", "só escala quando afeta o cronograma macro"] },
+      ],
+      escalation: "ESCALONAMENTO",
+      note: [
+        "A fronteira entre os níveis é respeitada — o detalhe operacional não sobe sem ser chamado,",
+        "e as diretrizes estratégicas não passam por cima da gestão tática.",
+        "É essa fronteira que torna o programa gerenciável no nível do sponsor sem perder fidelidade na execução.",
+      ],
+    },
+  },
+
+  deliverables: {
+    kicker: "ENTREGÁVEIS DO PROGRAMA",
+    title: ["Os artefatos que sustentam o programa — e ", "o contrato", "."],
+    lead: "Num contrato de preço fixo, cada artefato serve a dois públicos: o time de entrega, que opera a partir dele, e o contrato, que é protegido por ele. Cada entrega abaixo foi desenhada pensando nos dois.",
+    items: [
+      { title: "Termo de abertura & pacote de kick-off", desc: "Objetivos formais do programa, premissas, a restrição de prazo fixo de 18 meses e a fronteira contratual reconhecida." },
+      { title: "Avaliação & estratégia de migração", desc: "Mapa das fontes de dados, análise de dependências e o documento de estratégia que define a fronteira fixa do contrato." },
+      { title: "Framework de governança (forma de trabalho)", desc: "Modelo em quatro passos: desenvolvimento → apresentação → acordo formal → execução e revisão." },
+      { title: "Processo de controle de mudanças (CCP)", desc: "Protocolo em três passos — encaminhar → quantificar → decidir —, com o parking lot e os gates formais como defesas." },
+      { title: "Cronograma mestre integrado", desc: "Mapa de dependências entre projetos; acompanha recursos compartilhados, em especial data engineers e data analysts." },
+      { title: "Log de RAID & registro de controle", desc: "Riscos, premissas, problemas e dependências centralizados — responsáveis, prazos e critérios de escalonamento." },
+      { title: "Dashboard executivo de KPIs", desc: "Só quatro KPIs: variação de custo, taxa de marcos, taxa de validação de dados e frequência de pedidos de mudança." },
+      { title: "Plano de gestão de stakeholders", desc: "Modelo em três níveis, com cadência, conteúdo e critérios de escalonamento definidos para cada nível." },
+    ],
+  },
+
+  quote: ["Um programa com prazo e honorários fixos tem exatamente uma função: proteger os dois. ", "Governança, controle de mudanças e disciplina com stakeholders", " não são overhead — são o próprio programa."],
+};
+
+export const copy: Record<Lang, DWProgramCopy> = { en, pt };

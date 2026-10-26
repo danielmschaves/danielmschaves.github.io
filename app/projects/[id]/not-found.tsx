@@ -1,22 +1,22 @@
-import Link from "next/link";
+import Button from "@/components/Button";
 
-export default function NotFound() {
+export default function ProjectNotFound() {
   return (
-    <div className="section-padding bg-dark-900">
-      <div className="container-custom">
-        <div className="mx-auto max-w-2xl text-center">
-          <h1 className="mb-4 text-4xl font-bold text-white md:text-5xl">
-            Project Not Found
-          </h1>
-          <p className="mb-8 text-lg text-dark-200">
-            The project you&apos;re looking for doesn&apos;t exist or has been moved.
-          </p>
-          <Link href="/" className="btn-primary">
-            Back to Portfolio
-          </Link>
+    <div className="lg-container">
+      <section className="lg-hero">
+        <p className="lg-hero__eyebrow lg-mono">NOT FOUND</p>
+        <h1 className="display-l" style={{ margin: 0, fontSize: "clamp(56px, 8vw, 84px)" }}>
+          404
+        </h1>
+        <div className="lg-hero__foot" style={{ marginTop: 28 }}>
+          <p className="lg-hero__lead">This case study doesn’t exist or has moved.</p>
+          <div className="lg-actions">
+            <Button variant="link" href="/#work">
+              All work →
+            </Button>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
-

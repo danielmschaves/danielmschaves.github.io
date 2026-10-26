@@ -2,6 +2,7 @@
 
 import { Resend } from "resend";
 import { z } from "zod";
+import { notificationHTML } from "@/lib/email";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -67,7 +68,7 @@ export async function sendEmail(prevState: ContactState, formData: FormData): Pr
     if (!validatedFields.success) {
         return {
             success: false,
-            message: "Validation failed. Please check your input.",
+            message: "Please check the highlighted fields.",
             errors: validatedFields.error.flatten().fieldErrors,
         };
     }
@@ -80,17 +81,7 @@ export async function sendEmail(prevState: ContactState, formData: FormData): Pr
             to: ["danielmschaves@gmail.com"],
             subject: `New Message from ${name}: ${subject}`,
             replyTo: email,
-            html: `
-                <div style="font-family: sans-serif; padding: 20px; color: #333;">
-                    <h1>New Message from Portfolio</h1>
-                    <p><strong>From:</strong> ${name} (${email})</p>
-                    <p><strong>Subject:</strong> ${subject}</p>
-                    <hr />
-                    <div style="white-space: pre-wrap; margin-top: 20px;">
-                        ${message}
-                    </div>
-                </div>
-            `,
+            html: notificationHTML({ name, email, subject, message }),
         });
 
         if (data.error) {
@@ -102,13 +93,13 @@ export async function sendEmail(prevState: ContactState, formData: FormData): Pr
 
         return {
             success: true,
-            message: "Message sent successfully! I'll get back to you soon.",
+            message: "Thanks — I’ll get back to you within two working days.",
         };
     } catch (error) {
         console.error("Error sending email:", error);
         return {
             success: false,
-            message: "Something went wrong. Please try again.",
+            message: "Something went wrong. Please try again, or email me directly.",
         };
     }
 }

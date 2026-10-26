@@ -1,66 +1,50 @@
 "use client";
 
-import Link from "next/link";
-import { ArrowLeft, FileText, Calendar, DollarSign, AlertTriangle, Radio, Users, BookOpen, Database } from "lucide-react";
 
 /* ── portfolio palette ───────────────────────────────────────────────── */
-const P800 = "#075985";  // --primary-800 — dark navy structure
-const P500 = "#0ea5e9";  // --primary-500 — sky blue secondary elements
-const WARN = "#f59e0b";  // --warning     — amber: quality gates, escalation
-const DNGR = "#ef4444";  // --danger      — red: milestones, high risk
-const SUCC = "#10b981";  // --success     — green: positive outcomes, low risk
+const P800 = "var(--fg)";
+const P500 = "var(--accent)";
+const WARN = "var(--fig-accent-2)";
+const DNGR = "var(--fg)";
+const SUCC = "var(--accent)";
 
 /* ── shared style tokens ─────────────────────────────────────────────── */
 const mono = { fontFamily: "var(--font-mono)" } as const;
-const sectionNum: React.CSSProperties = { ...mono, fontSize: 12, color: "var(--primary-400)", fontWeight: 600, letterSpacing: "0.08em", marginBottom: 12, display: "block" };
-const sectionH2: React.CSSProperties = { fontWeight: 700, fontSize: "clamp(26px, 3vw, 38px)", lineHeight: 1.15, letterSpacing: "-0.02em", color: "var(--text)", marginBottom: 16 };
-const sectionLead: React.CSSProperties = { fontSize: 17, color: "var(--text-body)", maxWidth: 720, lineHeight: 1.55 };
-const infograph: React.CSSProperties = { background: "var(--bg-card)", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", padding: 40, margin: "32px 0", overflow: "hidden" };
-const infographLabel: React.CSSProperties = { ...mono, fontSize: 10, textTransform: "uppercase", letterSpacing: "0.14em", color: "var(--primary-400)", fontWeight: 500, marginBottom: 10, display: "block" };
-const infographTitle: React.CSSProperties = { fontSize: 22, fontWeight: 600, color: "var(--text)", letterSpacing: "-0.01em" };
-const infographSub: React.CSSProperties = { fontSize: 14, color: "var(--text-body)", marginTop: 6 };
+const sectionNum: React.CSSProperties = { ...mono, fontSize: 13, color: "var(--muted)", fontWeight: 400, letterSpacing: "0.04em", textTransform: "uppercase", marginBottom: 12, display: "block" };
+const sectionH2: React.CSSProperties = { fontWeight: 600, fontSize: "clamp(26px, 3vw, 38px)", lineHeight: 1.15, letterSpacing: "-0.02em", color: "var(--fg)", marginBottom: 16 };
+const sectionLead: React.CSSProperties = { fontSize: 17, color: "var(--body)", maxWidth: 720, lineHeight: 1.55 };
+const infograph: React.CSSProperties = { borderTop: "1px solid var(--line-strong)", borderBottom: "1px solid var(--line)", padding: "32px 0", margin: "32px 0", overflow: "hidden" };
+const infographLabel: React.CSSProperties = { ...mono, fontSize: 10, textTransform: "uppercase", letterSpacing: "0.14em", color: "var(--accent)", fontWeight: 500, marginBottom: 10, display: "block" };
+const infographTitle: React.CSSProperties = { fontSize: 22, fontWeight: 600, color: "var(--fg)", letterSpacing: "-0.01em" };
+const infographSub: React.CSSProperties = { fontSize: 14, color: "var(--body)", marginTop: 6 };
 
 /* SVG inline style helpers */
-const svgText = (extra?: React.CSSProperties) => ({ fontFamily: "inherit", fontSize: 11, fill: "var(--text)", ...extra } as React.CSSProperties);
-const svgMute = (extra?: React.CSSProperties) => ({ fontFamily: "inherit", fontSize: 11, fill: "var(--text-body)", ...extra } as React.CSSProperties);
-const svgLabel = (extra?: React.CSSProperties) => ({ ...mono, fontSize: 9, letterSpacing: "0.06em", textTransform: "uppercase" as const, fill: "var(--text-muted)", ...extra });
+const svgText = (extra?: React.CSSProperties) => ({ fontFamily: "inherit", fontSize: 11, fill: "var(--fg)", ...extra } as React.CSSProperties);
+const svgMute = (extra?: React.CSSProperties) => ({ fontFamily: "inherit", fontSize: 11, fill: "var(--body)", ...extra } as React.CSSProperties);
+const svgLabel = (extra?: React.CSSProperties) => ({ ...mono, fontSize: 9, letterSpacing: "0.06em", textTransform: "uppercase" as const, fill: "var(--muted)", ...extra });
 const svgNum = (extra?: React.CSSProperties) => ({ fontWeight: 600, ...extra } as React.CSSProperties);
-const svgBg = "var(--ink-3)";
+const svgBg = "var(--surface)";
 const svgBorder = "var(--line)";
 
 const deliverables = [
-  { icon: FileText,      title: "Project Charter & Scope Statement",  desc: "Formal mandate, objectives, fixed-term and fixed-fee constraints, and explicit out-of-scope list." },
-  { icon: Calendar,      title: "Master Gantt Schedule",              desc: "12-month timeline with phases, parallel streams, milestones, and dependencies tracked weekly." },
-  { icon: DollarSign,    title: "Budget & Resource Plan",             desc: "Fixed-rate envelope with monthly burn, FTE allocation, and per-server unit economics." },
-  { icon: AlertTriangle, title: "Risk Register & Mitigation Plan",    desc: "Four prioritized risk domains with mitigations, owners, and measurable target outcomes." },
-  { icon: Radio,         title: "Communication Plan",                 desc: "Two-tier governance, defined ceremonies and channels, sprint report template, escalation paths." },
-  { icon: Users,         title: "Team Structure & RACI",              desc: "Roles, responsibilities, and decision rights mapped across both organisations." },
-  { icon: BookOpen,      title: "Standard Operating Procedures",      desc: "Reusable SOPs covering the five-step migration cycle, applicable to the enterprise rollout." },
-  { icon: Database,      title: "Architecture Decision Records",      desc: "Pattern library and ADRs that constitute the operational blueprint for enterprise scale-out." },
+  { title: "Project Charter & Scope Statement",  desc: "Formal mandate, objectives, fixed-term and fixed-fee constraints, and explicit out-of-scope list." },
+  { title: "Master Gantt Schedule",              desc: "12-month timeline with phases, parallel streams, milestones, and dependencies tracked weekly." },
+  { title: "Budget & Resource Plan",             desc: "Fixed-rate envelope with monthly burn, FTE allocation, and per-server unit economics." },
+  { title: "Risk Register & Mitigation Plan",    desc: "Four prioritized risk domains with mitigations, owners, and measurable target outcomes." },
+  { title: "Communication Plan",                 desc: "Two-tier governance, defined ceremonies and channels, sprint report template, escalation paths." },
+  { title: "Team Structure & RACI",              desc: "Roles, responsibilities, and decision rights mapped across both organisations." },
+  { title: "Standard Operating Procedures",      desc: "Reusable SOPs covering the five-step migration cycle, applicable to the enterprise rollout." },
+  { title: "Architecture Decision Records",      desc: "Pattern library and ADRs that constitute the operational blueprint for enterprise scale-out." },
 ];
 
 export default function CloudMigrationContent() {
   return (
-    <div className="min-h-screen pt-12 pb-20">
-      <div className="container-custom">
+    <div className="pt-12">
+      <div>
 
-        {/* Back */}
-        <Link href="/" className="group mb-10 inline-flex items-center gap-2 text-sm transition-colors duration-[250ms] hover:text-[var(--primary-400)]" style={{ color: "var(--text-muted)" }}>
-          <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-          Back to Portfolio
-        </Link>
-
-        {/* ── Hero ── */}
+        {/* ── Lead ── */}
         <section style={{ paddingBottom: 48 }}>
-          <span style={{ ...mono, fontSize: 11, textTransform: "uppercase", letterSpacing: "0.14em", color: "var(--accent)", fontWeight: 500, marginBottom: 28, display: "inline-block" }}>
-            Project · Cloud Migration · 12 months
-          </span>
-          <h1 style={{ fontWeight: 700, fontSize: "clamp(36px, 5vw, 62px)", lineHeight: 1.05, letterSpacing: "-0.025em", color: "var(--text)", marginBottom: 24 }}>
-            Migrating a 200-server data analytics platform to AWS under a{" "}
-            <em style={{ fontStyle: "italic", color: "var(--accent)" }}>fixed-budget, fixed-term</em>{" "}
-            mandate.
-          </h1>
-          <p style={{ fontSize: 19, lineHeight: 1.6, color: "var(--text-body)", maxWidth: 680, fontWeight: 400 }}>
+          <p style={{ fontSize: 19, lineHeight: 1.6, color: "var(--body)", maxWidth: 680, fontWeight: 400 }}>
             Project Management framework for a global financial services enterprise&apos;s pilot cloud migration — designed to prove AWS feasibility for a much larger enterprise modernization program. Twelve months. $1.2M fixed budget. Zero tolerance for unscheduled downtime.
           </p>
         </section>
@@ -69,8 +53,8 @@ export default function CloudMigrationContent() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12" style={{ borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)", padding: "28px 0" }}>
           {[["Role", "Project Manager"], ["Duration", "12 months"], ["Budget", "USD 1.2M"], ["Scope", "~200 servers"]].map(([label, value]) => (
             <div key={label} style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-              <span style={{ ...mono, fontSize: 10, textTransform: "uppercase", letterSpacing: "0.12em", color: "var(--text-muted)", fontWeight: 500 }}>{label}</span>
-              <span style={{ fontSize: 18, fontWeight: 600, color: "var(--text)" }}>{value}</span>
+              <span style={{ ...mono, fontSize: 10, textTransform: "uppercase", letterSpacing: "0.12em", color: "var(--muted)", fontWeight: 500 }}>{label}</span>
+              <span style={{ fontSize: 18, fontWeight: 600, color: "var(--fg)" }}>{value}</span>
             </div>
           ))}
         </div>
@@ -78,7 +62,7 @@ export default function CloudMigrationContent() {
         {/* ── Tech tags ── */}
         <div className="mb-14 flex flex-wrap gap-2">
           {["Project Management", "Cloud Migration", "AWS", "Agile · 2-week sprints", "Risk Management", "Stakeholder Governance", "PMI / PMBOK"].map(tag => (
-            <span key={tag} className="tech-tag">{tag}</span>
+            <span key={tag} className="lg-chip">{tag}</span>
           ))}
         </div>
 
@@ -86,18 +70,18 @@ export default function CloudMigrationContent() {
         <section style={{ paddingBottom: 64 }}>
           <div style={{ marginBottom: 40 }}>
             <span style={sectionNum}>01 — Context &amp; Diagnosis</span>
-            <h2 style={sectionH2}>An aging footprint, <em style={{ fontStyle: "italic", color: "var(--accent)" }}>rising risk</em>, and a feasibility window that closes quickly.</h2>
+            <h2 style={sectionH2}>An aging footprint, <em style={{ fontStyle: "normal", color: "var(--accent)" }}>rising risk</em>, and a feasibility window that closes quickly.</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
-              <h3 style={{ fontWeight: 600, fontSize: 20, color: "var(--text)", marginBottom: 10, lineHeight: 1.3 }}>The starting position</h3>
-              <p style={{ color: "var(--text-body)", lineHeight: 1.7, marginBottom: 16 }}>The client operated a complex legacy infrastructure built through decades of growth and acquisitions — spread across six aging data centers, with roughly 200 servers supporting the internally-facing data analytics platform. Operational overhead was high, technological risk was rising, and the cost base was no longer defensible.</p>
-              <p style={{ color: "var(--text-body)", lineHeight: 1.7 }}>Leadership had committed to a multi-year enterprise modernization. But before signing off on that broader program, they needed proof: a contained migration that demonstrates AWS feasibility, validates the operating model, and produces reusable patterns for the larger effort to follow.</p>
+              <h3 style={{ fontWeight: 600, fontSize: 20, color: "var(--fg)", marginBottom: 10, lineHeight: 1.3 }}>The starting position</h3>
+              <p style={{ color: "var(--body)", lineHeight: 1.7, marginBottom: 16 }}>The client operated a complex legacy infrastructure built through decades of growth and acquisitions — spread across six aging data centers, with roughly 200 servers supporting the internally-facing data analytics platform. Operational overhead was high, technological risk was rising, and the cost base was no longer defensible.</p>
+              <p style={{ color: "var(--body)", lineHeight: 1.7 }}>Leadership had committed to a multi-year enterprise modernization. But before signing off on that broader program, they needed proof: a contained migration that demonstrates AWS feasibility, validates the operating model, and produces reusable patterns for the larger effort to follow.</p>
             </div>
             <div>
-              <h3 style={{ fontWeight: 600, fontSize: 20, color: "var(--text)", marginBottom: 10, lineHeight: 1.3 }}>The mandate</h3>
-              <p style={{ color: "var(--text-body)", lineHeight: 1.7, marginBottom: 16 }}><strong style={{ color: "var(--text)" }}>Move fast, but don&apos;t break the business.</strong> The data analytics platform had to keep running during core working hours — every minute of unscheduled downtime translated directly to financial loss and disrupted decision-making across the company.</p>
-              <p style={{ color: "var(--text-body)", lineHeight: 1.7 }}>The project also had to do double duty: deliver the migration <em>and</em> produce the SOPs, architecture decision records, and validated patterns the enterprise would later use to scale the same approach across the remaining infrastructure.</p>
+              <h3 style={{ fontWeight: 600, fontSize: 20, color: "var(--fg)", marginBottom: 10, lineHeight: 1.3 }}>The mandate</h3>
+              <p style={{ color: "var(--body)", lineHeight: 1.7, marginBottom: 16 }}><strong style={{ color: "var(--fg)" }}>Move fast, but don&apos;t break the business.</strong> The data analytics platform had to keep running during core working hours — every minute of unscheduled downtime translated directly to financial loss and disrupted decision-making across the company.</p>
+              <p style={{ color: "var(--body)", lineHeight: 1.7 }}>The project also had to do double duty: deliver the migration <em>and</em> produce the SOPs, architecture decision records, and validated patterns the enterprise would later use to scale the same approach across the remaining infrastructure.</p>
             </div>
           </div>
         </section>
@@ -106,7 +90,7 @@ export default function CloudMigrationContent() {
         <section style={{ paddingBottom: 64 }}>
           <div style={{ marginBottom: 40 }}>
             <span style={sectionNum}>02 — Strategic Approach</span>
-            <h2 style={sectionH2}>A lift-and-shift, sequenced as <em style={{ fontStyle: "italic", color: "var(--accent)" }}>ten iterative cycles</em>.</h2>
+            <h2 style={sectionH2}>A lift-and-shift, sequenced as <em style={{ fontStyle: "normal", color: "var(--accent)" }}>ten iterative cycles</em>.</h2>
             <p style={sectionLead}>Rather than treating the platform as one monolithic migration, I structured delivery around ten prioritized use cases — each migrated end-to-end inside a 2-week sprint cadence. Risk is localized. Value is demonstrated continuously. The team learns and tightens estimates with every cycle.</p>
           </div>
 
@@ -159,8 +143,8 @@ export default function CloudMigrationContent() {
                 {/* Step 4 — Quality Gate */}
                 <g>
                   <circle cx="685" cy="130" r="48" fill={WARN} stroke={WARN} strokeWidth="2" />
-                  <text x="685" y="125" textAnchor="middle" style={svgNum({ fontSize: 24, fill: "#FFFFFF" })}>04</text>
-                  <text x="685" y="148" textAnchor="middle" style={svgLabel({ fill: "#FFFFFF" })}>Validate</text>
+                  <text x="685" y="125" textAnchor="middle" style={svgNum({ fontSize: 24, fill: "var(--bg)" })}>04</text>
+                  <text x="685" y="148" textAnchor="middle" style={svgLabel({ fill: "var(--bg)" })}>Validate</text>
                   <text x="685" y="208" textAnchor="middle" style={svgText({ fontWeight: 600 })}>Web Server + UAT</text>
                   <text x="685" y="226" textAnchor="middle" style={svgMute({ fontSize: 10 })}>End-to-end experience,</text>
                   <text x="685" y="240" textAnchor="middle" style={svgMute({ fontSize: 10 })}>mandatory UAT gate</text>
@@ -176,7 +160,7 @@ export default function CloudMigrationContent() {
                   <text x="880" y="240" textAnchor="middle" style={svgMute({ fontSize: 10 })}>retirement</text>
                 </g>
                 {/* Quality gate callout */}
-                <rect x="595" y="50" width="180" height="22" fill={WARN} fillOpacity="0.15" rx="4" />
+                <rect x="595" y="50" width="180" height="22" fill={WARN} fillOpacity="0.15" />
                 <text x="685" y="64" textAnchor="middle" style={{ ...mono, fontSize: 9, letterSpacing: "0.06em", textTransform: "uppercase", fill: WARN, fontWeight: 600 }}>Mandatory Quality Gate</text>
                 <line x1="685" y1="72" x2="685" y2="82" stroke={WARN} strokeWidth="1.5" />
               </svg>
@@ -188,7 +172,7 @@ export default function CloudMigrationContent() {
         <section style={{ paddingBottom: 64 }}>
           <div style={{ marginBottom: 40 }}>
             <span style={sectionNum}>03 — Master Schedule</span>
-            <h2 style={sectionH2}>The 12-month <em style={{ fontStyle: "italic", color: "var(--accent)" }}>Gantt</em>: phased setup, parallel use-case streams, hypercare close-out.</h2>
+            <h2 style={sectionH2}>The 12-month <em style={{ fontStyle: "normal", color: "var(--accent)" }}>Gantt</em>: phased setup, parallel use-case streams, hypercare close-out.</h2>
             <p style={sectionLead}>Use Case 1 functions as the pathfinder — extended timeline to absorb learning. Subsequent use cases run in parallel pairs to double throughput without doubling cost.</p>
           </div>
 
@@ -213,19 +197,19 @@ export default function CloudMigrationContent() {
                 {([["Q1",378],["Q2",552],["Q3",726],["Q4",900]] as [string, number][]).map(([q,x]) => (
                   <text key={q} x={x} y="44" textAnchor="middle" style={{ ...mono, fontSize: 9, letterSpacing: "0.06em", textTransform: "uppercase", fill: P800, fontWeight: 600 }}>{q}</text>
                 ))}
-                <line x1="291" y1="55" x2="987" y2="55" style={{ stroke: "var(--text)" }} strokeWidth="1" />
+                <line x1="291" y1="55" x2="987" y2="55" style={{ stroke: "var(--fg)" }} strokeWidth="1" />
 
                 {/* Planning & Setup row */}
                 <text x="280" y="78" textAnchor="end" style={svgText({ fontWeight: 600 })}>Planning &amp; Setup</text>
-                <rect x="291" y="68" width="116" height="18" fill={P800} rx="2" />
-                <text x="349" y="97" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 9, fill: "var(--text-muted)" }}>Inventory · Env. · PoC</text>
+                <rect x="291" y="68" width="116" height="18" fill={P800} />
+                <text x="349" y="97" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 9, fill: "var(--muted)" }}>Inventory · Env. · PoC</text>
 
                 {/* Use Case row label */}
                 <text x="280" y="113" textAnchor="end" style={svgText({ fontWeight: 600 })}>Use Case Migration</text>
 
                 {/* UC1 pathfinder */}
-                <rect x="349" y="103" width="174" height="14" fill={P500} rx="2" />
-                <text x="436" y="114" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 9, fill: "#FFFFFF", fontWeight: 600 }}>UC1 · Pathfinder</text>
+                <rect x="349" y="103" width="174" height="14" fill={P500} />
+                <text x="436" y="114" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 9, fill: "var(--bg)", fontWeight: 600 }}>UC1 · Pathfinder</text>
 
                 {/* UC pairs */}
                 {([
@@ -235,18 +219,18 @@ export default function CloudMigrationContent() {
                   [726,213,"UC8"],[726,228,"UC9"],
                 ] as [number, number, string][]).map(([x,y,label]) => (
                   <g key={`${y}`}>
-                    <rect x={x} y={y} width="100" height="11" fill={P500} rx="2" opacity="0.85" />
-                    <text x={x+50} y={y+9} textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 9, fill: "#FFFFFF" }}>{label}</text>
+                    <rect x={x} y={y} width="100" height="11" fill={P500} opacity="0.85" />
+                    <text x={x+50} y={y+9} textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 9, fill: "var(--bg)" }}>{label}</text>
                   </g>
                 ))}
                 {/* UC10 */}
-                <rect x="813" y="243" width="100" height="11" fill={P500} rx="2" opacity="0.85" />
-                <text x="863" y="252" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 9, fill: "#FFFFFF" }}>UC10</text>
+                <rect x="813" y="243" width="100" height="11" fill={P500} opacity="0.85" />
+                <text x="863" y="252" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 9, fill: "var(--bg)" }}>UC10</text>
 
                 {/* Closure */}
                 <text x="280" y="285" textAnchor="end" style={svgText({ fontWeight: 600 })}>Closure &amp; Hypercare</text>
-                <rect x="895" y="275" width="92" height="18" fill={WARN} rx="2" />
-                <text x="941" y="288" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 9, fill: "#FFFFFF", fontWeight: 600 }}>Hypercare</text>
+                <rect x="895" y="275" width="92" height="18" fill={WARN} />
+                <text x="941" y="288" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 9, fill: "var(--bg)", fontWeight: 600 }}>Hypercare</text>
 
                 {/* Milestones */}
                 {([
@@ -265,12 +249,12 @@ export default function CloudMigrationContent() {
 
                 {/* Legend */}
                 <g transform="translate(20, 415)">
-                  <text x="0" y="0" style={{ ...mono, fontSize: 9, letterSpacing: "0.06em", textTransform: "uppercase", fill: "var(--text)", fontWeight: 600 }}>Legend</text>
-                  <rect x="0" y="14" width="18" height="10" fill={P800} rx="2" />
+                  <text x="0" y="0" style={{ ...mono, fontSize: 9, letterSpacing: "0.06em", textTransform: "uppercase", fill: "var(--fg)", fontWeight: 600 }}>Legend</text>
+                  <rect x="0" y="14" width="18" height="10" fill={P800} />
                   <text x="26" y="24" style={svgMute({ fontSize: 11 })}>Setup &amp; foundational phases</text>
-                  <rect x="220" y="14" width="18" height="10" fill={P500} rx="2" />
+                  <rect x="220" y="14" width="18" height="10" fill={P500} />
                   <text x="246" y="24" style={svgMute({ fontSize: 11 })}>Use-case migration sprint</text>
-                  <rect x="440" y="14" width="18" height="10" fill={WARN} rx="2" />
+                  <rect x="440" y="14" width="18" height="10" fill={WARN} />
                   <text x="466" y="24" style={svgMute({ fontSize: 11 })}>Hypercare &amp; closure</text>
                   <polygon points="660,14 668,24 660,34 652,24" fill={DNGR} />
                   <text x="680" y="28" style={svgMute({ fontSize: 11 })}>Executive milestone</text>
@@ -284,7 +268,7 @@ export default function CloudMigrationContent() {
         <section style={{ paddingBottom: 64 }}>
           <div style={{ marginBottom: 40 }}>
             <span style={sectionNum}>04 — Budget &amp; Resourcing</span>
-            <h2 style={sectionH2}>A <em style={{ fontStyle: "italic", color: "var(--accent)" }}>fixed-rate, fixed-FTE</em> envelope that absorbs scope variance without absorbing margin.</h2>
+            <h2 style={sectionH2}>A <em style={{ fontStyle: "normal", color: "var(--accent)" }}>fixed-rate, fixed-FTE</em> envelope that absorbs scope variance without absorbing margin.</h2>
             <p style={sectionLead}>The financial model is deliberately simple: 800 hours per month at a blended rate of $125/hour, totaling exactly $100,000 in monthly burn. Predictable for the client, defensible internally, transparent under audit.</p>
           </div>
 
@@ -295,10 +279,10 @@ export default function CloudMigrationContent() {
               { num: "$6K",   unit: "Per server migrated", label: "Within the industry benchmark of $3K–$8K" },
               { num: "9,600", unit: "Total billable hours", label: "800 hours / month × 12 months" },
             ].map(({ num, unit, label }) => (
-              <div key={unit} style={{ background: "var(--bg-card)", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", padding: "28px 24px" }}>
-                <div style={{ fontSize: 44, fontWeight: 700, color: "var(--primary-400)", lineHeight: 1, letterSpacing: "-0.03em" }}>{num}</div>
-                <div style={{ ...mono, fontSize: 11, color: "var(--text-muted)", marginTop: 4, letterSpacing: "0.05em" }}>{unit}</div>
-                <div style={{ fontSize: 13, color: "var(--text-body)", marginTop: 16, lineHeight: 1.45 }}>{label}</div>
+              <div key={unit} style={{ borderTop: "1px solid var(--line-strong)", padding: "28px 0" }}>
+                <div style={{ fontSize: 44, fontWeight: 600, color: "var(--accent)", lineHeight: 1, letterSpacing: "-0.03em" }}>{num}</div>
+                <div style={{ ...mono, fontSize: 11, color: "var(--muted)", marginTop: 4, letterSpacing: "0.05em" }}>{unit}</div>
+                <div style={{ fontSize: 13, color: "var(--body)", marginTop: 16, lineHeight: 1.45 }}>{label}</div>
               </div>
             ))}
           </div>
@@ -315,27 +299,27 @@ export default function CloudMigrationContent() {
                 <text x="20" y="20" style={svgLabel()}>Hours per month per role</text>
                 {/* Cloud Engineer */}
                 <text x="180" y="65" textAnchor="end" style={svgText({ fontWeight: 600 })}>Cloud Engineer</text>
-                <rect x="200" y="50" width="540" height="22" fill={P800} rx="3" />
+                <rect x="200" y="50" width="540" height="22" fill={P800} />
                 <text x="750" y="65" style={svgText({ fontSize: 12, fontWeight: 600 })}>336h · 42%</text>
                 {/* Data Engineer */}
                 <text x="180" y="105" textAnchor="end" style={svgText({ fontWeight: 600 })}>Data Engineer</text>
-                <rect x="200" y="90" width="540" height="22" fill={P800} rx="3" />
+                <rect x="200" y="90" width="540" height="22" fill={P800} />
                 <text x="750" y="105" style={svgText({ fontSize: 12, fontWeight: 600 })}>336h · 42%</text>
                 {/* Tech Lead */}
                 <text x="180" y="145" textAnchor="end" style={svgText({ fontWeight: 600 })}>Cloud Engineering Tech Lead</text>
-                <rect x="200" y="130" width="103" height="22" fill={P500} rx="3" />
+                <rect x="200" y="130" width="103" height="22" fill={P500} />
                 <text x="313" y="145" style={svgText({ fontSize: 12, fontWeight: 600 })}>64h · 8%</text>
                 {/* PM */}
                 <text x="180" y="185" textAnchor="end" style={svgText({ fontWeight: 600 })}>Project Manager</text>
-                <rect x="200" y="170" width="103" height="22" fill={WARN} rx="3" />
+                <rect x="200" y="170" width="103" height="22" fill={WARN} />
                 <text x="313" y="185" style={svgText({ fontSize: 12, fontWeight: 600 })}>64h · 8%</text>
                 {/* Total */}
                 <line x1="200" y1="220" x2="900" y2="220" style={{ stroke: svgBorder }} strokeWidth="1" />
                 <text x="180" y="248" textAnchor="end" style={svgText({ fontWeight: 600 })}>Total monthly capacity</text>
-                <text x="200" y="248" style={svgNum({ fontSize: 24, fill: "var(--text)" })}>800h</text>
+                <text x="200" y="248" style={svgNum({ fontSize: 24, fill: "var(--fg)" })}>800h</text>
                 <text x="305" y="248" style={svgMute({ fontSize: 13 })}> = USD 100,000 / month @ $125/hr blended rate</text>
                 {/* Annotation */}
-                <rect x="820" y="60" width="252" height="100" style={{ fill: svgBg }} stroke={svgBorder} rx="4" />
+                <rect x="820" y="60" width="252" height="100" style={{ fill: svgBg }} stroke={svgBorder} />
                 <text x="835" y="80" style={svgLabel({ fill: "var(--accent)" })}>Throughput note</text>
                 <text x="835" y="100" style={svgMute({ fontSize: 11 })}>2 parallel engineering streams</text>
                 <text x="835" y="115" style={svgMute({ fontSize: 11 })}>double output without doubling</text>
@@ -350,7 +334,7 @@ export default function CloudMigrationContent() {
         <section style={{ paddingBottom: 64 }}>
           <div style={{ marginBottom: 40 }}>
             <span style={sectionNum}>05 — Risk Management</span>
-            <h2 style={sectionH2}>Four risk domains, each with <em style={{ fontStyle: "italic", color: "var(--accent)" }}>concrete mitigations</em> and a measurable success state.</h2>
+            <h2 style={sectionH2}>Four risk domains, each with <em style={{ fontStyle: "normal", color: "var(--accent)" }}>concrete mitigations</em> and a measurable success state.</h2>
           </div>
 
           {/* Infochart 04 */}
@@ -362,15 +346,15 @@ export default function CloudMigrationContent() {
             <div style={{ overflowX: "auto" }}>
               <svg viewBox="0 0 1100 520" style={{ width: "100%", minWidth: 700, height: "auto", display: "block" }}>
                 {/* Header */}
-                <text x="20" y="24" style={svgLabel({ fontWeight: 600, fill: "var(--text)" })}>Domain</text>
-                <text x="220" y="24" style={svgLabel({ fontWeight: 600, fill: "var(--text)" })}>Risk</text>
-                <text x="500" y="24" style={svgLabel({ fontWeight: 600, fill: "var(--text)" })}>Mitigation</text>
-                <text x="900" y="24" style={svgLabel({ fontWeight: 600, fill: "var(--text)" })}>Target Outcome</text>
-                <line x1="20" y1="34" x2="1080" y2="34" style={{ stroke: "var(--text)" }} strokeWidth="1" />
+                <text x="20" y="24" style={svgLabel({ fontWeight: 600, fill: "var(--fg)" })}>Domain</text>
+                <text x="220" y="24" style={svgLabel({ fontWeight: 600, fill: "var(--fg)" })}>Risk</text>
+                <text x="500" y="24" style={svgLabel({ fontWeight: 600, fill: "var(--fg)" })}>Mitigation</text>
+                <text x="900" y="24" style={svgLabel({ fontWeight: 600, fill: "var(--fg)" })}>Target Outcome</text>
+                <line x1="20" y1="34" x2="1080" y2="34" style={{ stroke: "var(--fg)" }} strokeWidth="1" />
 
                 {/* Row A: Business Continuity — High */}
                 <circle cx="40" cy="80" r="18" fill={DNGR} />
-                <text x="40" y="86" textAnchor="middle" style={svgNum({ fontSize: 16, fill: "#FFFFFF" })}>A</text>
+                <text x="40" y="86" textAnchor="middle" style={svgNum({ fontSize: 16, fill: "var(--bg)" })}>A</text>
                 <text x="70" y="74" style={svgText({ fontWeight: 600 })}>Business</text>
                 <text x="70" y="90" style={svgText({ fontWeight: 600 })}>Continuity</text>
                 <text x="220" y="74" style={svgText({ fontWeight: 600 })}>Unscheduled downtime</text>
@@ -385,7 +369,7 @@ export default function CloudMigrationContent() {
 
                 {/* Row B: Project Delivery — Medium */}
                 <circle cx="40" cy="180" r="18" fill={WARN} />
-                <text x="40" y="186" textAnchor="middle" style={svgNum({ fontSize: 16, fill: "#FFFFFF" })}>B</text>
+                <text x="40" y="186" textAnchor="middle" style={svgNum({ fontSize: 16, fill: "var(--bg)" })}>B</text>
                 <text x="70" y="174" style={svgText({ fontWeight: 600 })}>Project</text>
                 <text x="70" y="190" style={svgText({ fontWeight: 600 })}>Delivery</text>
                 <text x="220" y="174" style={svgText({ fontWeight: 600 })}>Speed vs. quality</text>
@@ -400,7 +384,7 @@ export default function CloudMigrationContent() {
 
                 {/* Row C: Technical Discovery — Medium */}
                 <circle cx="40" cy="280" r="18" fill={P800} />
-                <text x="40" y="286" textAnchor="middle" style={svgNum({ fontSize: 16, fill: "#FFFFFF" })}>C</text>
+                <text x="40" y="286" textAnchor="middle" style={svgNum({ fontSize: 16, fill: "var(--bg)" })}>C</text>
                 <text x="70" y="274" style={svgText({ fontWeight: 600 })}>Technical</text>
                 <text x="70" y="290" style={svgText({ fontWeight: 600 })}>Discovery</text>
                 <text x="220" y="274" style={svgText({ fontWeight: 600 })}>Legacy system</text>
@@ -415,7 +399,7 @@ export default function CloudMigrationContent() {
 
                 {/* Row D: Budget — Low */}
                 <circle cx="40" cy="380" r="18" fill={SUCC} />
-                <text x="40" y="386" textAnchor="middle" style={svgNum({ fontSize: 16, fill: "#FFFFFF" })}>D</text>
+                <text x="40" y="386" textAnchor="middle" style={svgNum({ fontSize: 16, fill: "var(--bg)" })}>D</text>
                 <text x="70" y="374" style={svgText({ fontWeight: 600 })}>Budget &amp;</text>
                 <text x="70" y="390" style={svgText({ fontWeight: 600 })}>Timeline</text>
                 <text x="220" y="374" style={svgText({ fontWeight: 600 })}>Cost overruns,</text>
@@ -430,7 +414,7 @@ export default function CloudMigrationContent() {
 
                 {/* Legend */}
                 <g transform="translate(20, 460)">
-                  <text x="0" y="0" style={svgLabel({ fill: "var(--text)" })}>Risk severity</text>
+                  <text x="0" y="0" style={svgLabel({ fill: "var(--fg)" })}>Risk severity</text>
                   <circle cx="100" cy="-4" r="6" fill={DNGR} />
                   <text x="113" y="0" style={svgMute({ fontSize: 11 })}>High</text>
                   <circle cx="170" cy="-4" r="6" fill={WARN} />
@@ -448,7 +432,7 @@ export default function CloudMigrationContent() {
         <section style={{ paddingBottom: 64 }}>
           <div style={{ marginBottom: 40 }}>
             <span style={sectionNum}>06 — Communication &amp; Team</span>
-            <h2 style={sectionH2}>A <em style={{ fontStyle: "italic", color: "var(--accent)" }}>two-tier governance</em> model that protects delivery focus and routes escalation cleanly.</h2>
+            <h2 style={sectionH2}>A <em style={{ fontStyle: "normal", color: "var(--accent)" }}>two-tier governance</em> model that protects delivery focus and routes escalation cleanly.</h2>
             <p style={sectionLead}>Operational decisions stay with the working team. Strategic decisions — scope, budget, escalated risk — route to a defined steering committee on a defined cadence. The structure is deliberately small and the responsibilities are deliberately clear.</p>
           </div>
 
@@ -461,20 +445,20 @@ export default function CloudMigrationContent() {
             <div style={{ overflowX: "auto" }}>
               <svg viewBox="0 0 1100 460" style={{ width: "100%", minWidth: 700, height: "auto", display: "block" }}>
                 {/* Strategic header */}
-                <rect x="20" y="20" width="1060" height="34" fill="#050914" rx="3" />
-                <text x="40" y="42" style={svgText({ fill: "#FFFFFF", fontWeight: 600 })}>STRATEGIC TIER · Steering committee · Bi-weekly</text>
+                <rect x="20" y="20" width="1060" height="34" fill="var(--fg)" />
+                <text x="40" y="42" style={svgText({ fill: "var(--bg)", fontWeight: 600 })}>STRATEGIC TIER · Steering committee · Bi-weekly</text>
                 {/* Strategic boxes */}
-                <rect x="100" y="80" width="180" height="80" style={{ fill: svgBg }} stroke={P800} strokeWidth="1.5" rx="4" />
+                <rect x="100" y="80" width="180" height="80" style={{ fill: svgBg }} stroke={P800} strokeWidth="1.5" />
                 <text x="190" y="105" textAnchor="middle" style={svgText({ fontWeight: 600, fontSize: 13 })}>Delivery Org</text>
                 <text x="190" y="125" textAnchor="middle" style={svgMute({ fontSize: 11 })}>Executive Lead</text>
                 <text x="190" y="143" textAnchor="middle" style={svgMute({ fontSize: 11 })}>+ Management</text>
 
-                <rect x="460" y="80" width="180" height="80" fill={P800} rx="4" />
-                <text x="550" y="105" textAnchor="middle" style={svgText({ fill: "#FFFFFF", fontWeight: 600, fontSize: 13 })}>Project Manager</text>
-                <text x="550" y="125" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 11, fill: "#FFFFFF" }}>Scope · Time · Cost</text>
-                <text x="550" y="143" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 11, fill: "#FFFFFF" }}>Risk · Communication</text>
+                <rect x="460" y="80" width="180" height="80" fill={P800} />
+                <text x="550" y="105" textAnchor="middle" style={svgText({ fill: "var(--bg)", fontWeight: 600, fontSize: 13 })}>Project Manager</text>
+                <text x="550" y="125" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--bg)" }}>Scope · Time · Cost</text>
+                <text x="550" y="143" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--bg)" }}>Risk · Communication</text>
 
-                <rect x="820" y="80" width="180" height="80" style={{ fill: svgBg }} stroke={P800} strokeWidth="1.5" rx="4" />
+                <rect x="820" y="80" width="180" height="80" style={{ fill: svgBg }} stroke={P800} strokeWidth="1.5" />
                 <text x="910" y="105" textAnchor="middle" style={svgText({ fontWeight: 600, fontSize: 13 })}>Client Sponsors</text>
                 <text x="910" y="125" textAnchor="middle" style={svgMute({ fontSize: 11 })}>Head of Data</text>
                 <text x="910" y="143" textAnchor="middle" style={svgMute({ fontSize: 11 })}>+ Tech Leadership</text>
@@ -486,25 +470,25 @@ export default function CloudMigrationContent() {
                 <line x1="20" y1="200" x2="1080" y2="200" style={{ stroke: svgBorder }} strokeWidth="1" strokeDasharray="4 4" />
 
                 {/* Operational header */}
-                <rect x="20" y="220" width="1060" height="34" fill={P500} rx="3" />
-                <text x="40" y="242" style={svgText({ fill: "#FFFFFF", fontWeight: 600 })}>OPERATIONAL TIER · Working teams · Daily standups + bi-weekly sprint ceremonies</text>
+                <rect x="20" y="220" width="1060" height="34" fill={P500} />
+                <text x="40" y="242" style={svgText({ fill: "var(--bg)", fontWeight: 600 })}>OPERATIONAL TIER · Working teams · Daily standups + bi-weekly sprint ceremonies</text>
 
                 {/* Operational boxes */}
-                <rect x="40" y="280" width="220" height="120" style={{ fill: svgBg }} stroke={P500} strokeWidth="1.5" rx="4" />
+                <rect x="40" y="280" width="220" height="120" style={{ fill: svgBg }} stroke={P500} strokeWidth="1.5" />
                 <text x="150" y="305" textAnchor="middle" style={svgText({ fontWeight: 600, fontSize: 13 })}>Delivery Engineering</text>
                 <text x="150" y="328" textAnchor="middle" style={svgMute({ fontSize: 11 })}>Cloud Engineering Tech Lead</text>
                 <text x="150" y="346" textAnchor="middle" style={svgMute({ fontSize: 11 })}>Data Engineering Tech Lead</text>
                 <text x="150" y="364" textAnchor="middle" style={svgMute({ fontSize: 11 })}>2× Cloud Engineers</text>
                 <text x="150" y="382" textAnchor="middle" style={svgMute({ fontSize: 11 })}>2× Data Engineers</text>
 
-                <rect x="440" y="280" width="220" height="120" fill={P500} rx="4" />
-                <text x="550" y="305" textAnchor="middle" style={svgText({ fill: "#FFFFFF", fontWeight: 600, fontSize: 13 })}>Joint Workgroup</text>
-                <text x="550" y="328" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 11, fill: "#FFFFFF" }}>Daily standups (15 min)</text>
-                <text x="550" y="346" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 11, fill: "#FFFFFF" }}>Sprint planning · Reviews</text>
-                <text x="550" y="364" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 11, fill: "#FFFFFF" }}>Retrospectives</text>
-                <text x="550" y="382" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 11, fill: "#FFFFFF", fontStyle: "italic" }}>Sprint reports → PM → exec.</text>
+                <rect x="440" y="280" width="220" height="120" fill={P500} />
+                <text x="550" y="305" textAnchor="middle" style={svgText({ fill: "var(--bg)", fontWeight: 600, fontSize: 13 })}>Joint Workgroup</text>
+                <text x="550" y="328" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--bg)" }}>Daily standups (15 min)</text>
+                <text x="550" y="346" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--bg)" }}>Sprint planning · Reviews</text>
+                <text x="550" y="364" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--bg)" }}>Retrospectives</text>
+                <text x="550" y="382" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--bg)", fontStyle: "italic" }}>Sprint reports → PM → exec.</text>
 
-                <rect x="840" y="280" width="220" height="120" style={{ fill: svgBg }} stroke={P500} strokeWidth="1.5" rx="4" />
+                <rect x="840" y="280" width="220" height="120" style={{ fill: svgBg }} stroke={P500} strokeWidth="1.5" />
                 <text x="950" y="305" textAnchor="middle" style={svgText({ fontWeight: 600, fontSize: 13 })}>Client Technical</text>
                 <text x="950" y="328" textAnchor="middle" style={svgMute({ fontSize: 11 })}>Client Tech Lead</text>
                 <text x="950" y="346" textAnchor="middle" style={svgMute({ fontSize: 11 })}>UAT validators</text>
@@ -517,7 +501,7 @@ export default function CloudMigrationContent() {
                 {/* Escalation arrow */}
                 <path d="M 550 280 L 550 160" stroke={WARN} strokeWidth="2" strokeDasharray="6 4" fill="none" />
                 <polygon points="550,155 545,168 555,168" fill={WARN} />
-                <rect x="585" y="163" width="160" height="36" fill={WARN} fillOpacity="0.15" rx="4" />
+                <rect x="585" y="163" width="160" height="36" fill={WARN} fillOpacity="0.15" />
                 <text x="665" y="180" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 11, fill: WARN, fontWeight: 600 }}>Escalation path</text>
                 <text x="665" y="194" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 10, fill: WARN }}>scope · budget · risk</text>
               </svg>
@@ -533,12 +517,12 @@ export default function CloudMigrationContent() {
             <p style={sectionLead}>The mandate has two layers: deliver the migration <em>and</em> produce the reusable artifacts that enable the broader enterprise rollout. Every output below was designed to outlive this engagement.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {deliverables.map(({ icon: Icon, title, desc }) => (
-              <div key={title} style={{ background: "var(--bg-card)", border: "1px solid var(--line)", borderLeft: `3px solid ${P800}`, padding: "20px 24px", borderRadius: "0 var(--radius-md) var(--radius-md) 0", display: "flex", gap: 14, alignItems: "flex-start" }}>
-                <Icon className="shrink-0 mt-0.5" style={{ width: 22, height: 22, color: "var(--primary-400)" }} />
+            {deliverables.map(({ title, desc }, i) => (
+              <div key={title} style={{ borderTop: "1px solid var(--line-strong)", padding: "20px 0", display: "flex", gap: 14, alignItems: "flex-start" }}>
+                <span className="lg-mono lg-muted shrink-0" style={{ width: 28, paddingTop: 3 }}>{String(i + 1).padStart(2, "0")}</span>
                 <div>
-                  <div style={{ fontWeight: 600, fontSize: 14, marginBottom: 4, color: "var(--text)" }}>{title}</div>
-                  <div style={{ fontSize: 13, color: "var(--text-body)", lineHeight: 1.5 }}>{desc}</div>
+                  <div style={{ fontWeight: 600, fontSize: 14, marginBottom: 4, color: "var(--fg)" }}>{title}</div>
+                  <div style={{ fontSize: 13, color: "var(--body)", lineHeight: 1.5 }}>{desc}</div>
                 </div>
               </div>
             ))}
@@ -546,10 +530,9 @@ export default function CloudMigrationContent() {
         </section>
 
         {/* ── Closing callout ── */}
-        <div style={{ position: "relative", background: "var(--ink-2)", color: "var(--text)", padding: "56px 48px", borderRadius: "var(--radius-lg)", marginBottom: 0, border: "1px solid var(--line)" }}>
-          <span style={{ fontSize: 96, position: "absolute", top: 8, left: 24, color: "var(--primary-400)", opacity: 0.4, lineHeight: 1, fontWeight: 700 }}>&ldquo;</span>
-          <p style={{ paddingLeft: 48, fontStyle: "italic", fontSize: 24, lineHeight: 1.4, fontWeight: 400, color: "var(--text-body)" }}>
-            The project is the migration. The <strong style={{ fontStyle: "normal", fontWeight: 700, color: "var(--text)" }}>deliverable</strong> is the blueprint.
+        <div style={{ borderTop: "1px solid var(--line-strong)", borderBottom: "1px solid var(--line)", padding: "40px 0" }}>
+          <p style={{ fontSize: 24, lineHeight: 1.4, fontWeight: 400, color: "var(--fg)"}}>
+            The project is the migration. The <strong style={{ fontWeight: 600, color: "var(--accent)"}}>deliverable</strong> is the blueprint.
             A well-run pilot is the most expensive thing an enterprise can skip — and the cheapest one it can run.
           </p>
         </div>

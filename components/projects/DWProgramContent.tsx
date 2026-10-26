@@ -1,64 +1,49 @@
 "use client";
 
-import Link from "next/link";
-import { ArrowLeft, FileText, Layers, Settings, Globe, Calendar, AlertTriangle, BarChart2, Users } from "lucide-react";
 
 /* ── portfolio palette (design system tokens) ── */
-const ACCENT = "#075985";  // --primary-800 — dark navy structure
-const GOLD   = "#0ea5e9";  // --primary-500 — sky blue highlights & numbers
-const BURG   = "#0284c7";  // --primary-600 — medium blue gateways & control
-const SLATE  = "#0369a1";  // --primary-700 — secondary structure
+const ACCENT = "var(--fg)";
+const GOLD   = "var(--accent)";
+const BURG   = "var(--accent)";
+const SLATE  = "var(--fg)";
 
 /* ── shared style tokens ─────────────────────────────────────────────── */
 const mono = { fontFamily: "var(--font-mono)" } as const;
-const sectionNum: React.CSSProperties = { ...mono, fontSize: 12, color: GOLD, fontWeight: 600, letterSpacing: "0.08em", marginBottom: 12, display: "block" };
-const sectionH2: React.CSSProperties = { fontWeight: 700, fontSize: "clamp(26px, 3vw, 38px)", lineHeight: 1.15, letterSpacing: "-0.02em", color: "var(--text)", marginBottom: 16 };
-const sectionLead: React.CSSProperties = { fontSize: 17, color: "var(--text-body)", maxWidth: 720, lineHeight: 1.55 };
-const infograph: React.CSSProperties = { background: "var(--bg-card)", border: "1px solid var(--line)", borderRadius: "var(--radius-lg)", padding: 40, margin: "32px 0", overflow: "hidden" };
+const sectionNum: React.CSSProperties = { ...mono, fontSize: 13, color: "var(--muted)", fontWeight: 400, letterSpacing: "0.04em", textTransform: "uppercase", marginBottom: 12, display: "block" };
+const sectionH2: React.CSSProperties = { fontWeight: 600, fontSize: "clamp(26px, 3vw, 38px)", lineHeight: 1.15, letterSpacing: "-0.02em", color: "var(--fg)", marginBottom: 16 };
+const sectionLead: React.CSSProperties = { fontSize: 17, color: "var(--body)", maxWidth: 720, lineHeight: 1.55 };
+const infograph: React.CSSProperties = { borderTop: "1px solid var(--line-strong)", borderBottom: "1px solid var(--line)", padding: "32px 0", margin: "32px 0", overflow: "hidden" };
 const infographLabel: React.CSSProperties = { ...mono, fontSize: 10, textTransform: "uppercase", letterSpacing: "0.14em", color: GOLD, fontWeight: 600, marginBottom: 10, display: "block" };
-const infographTitle: React.CSSProperties = { fontSize: 22, fontWeight: 600, color: "var(--text)", letterSpacing: "-0.01em" };
-const infographSub: React.CSSProperties = { fontSize: 14, color: "var(--text-body)", marginTop: 6 };
+const infographTitle: React.CSSProperties = { fontSize: 22, fontWeight: 600, color: "var(--fg)", letterSpacing: "-0.01em" };
+const infographSub: React.CSSProperties = { fontSize: 14, color: "var(--body)", marginTop: 6 };
 
 /* SVG helpers */
-const svgText = (extra?: React.CSSProperties) => ({ fontFamily: "inherit", fontSize: 11, fill: "var(--text)", ...extra } as React.CSSProperties);
-const svgMute = (extra?: React.CSSProperties) => ({ fontFamily: "inherit", fontSize: 11, fill: "var(--text-body)", ...extra } as React.CSSProperties);
-const svgLabel = (extra?: React.CSSProperties) => ({ ...mono, fontSize: 9, letterSpacing: "0.06em", textTransform: "uppercase" as const, fill: "var(--text-muted)", ...extra });
+const svgText = (extra?: React.CSSProperties) => ({ fontFamily: "inherit", fontSize: 11, fill: "var(--fg)", ...extra } as React.CSSProperties);
+const svgMute = (extra?: React.CSSProperties) => ({ fontFamily: "inherit", fontSize: 11, fill: "var(--body)", ...extra } as React.CSSProperties);
+const svgLabel = (extra?: React.CSSProperties) => ({ ...mono, fontSize: 9, letterSpacing: "0.06em", textTransform: "uppercase" as const, fill: "var(--muted)", ...extra });
 const svgNum = (extra?: React.CSSProperties) => ({ fontWeight: 600, ...extra } as React.CSSProperties);
-const svgBg = "var(--ink-3)";
+const svgBg = "var(--surface)";
 const svgBorder = "var(--line)";
 
 const deliverables = [
-  { icon: FileText,      title: "Program Charter & Kick-off Pack",       desc: "Formal program objectives, premises, the 18-month fixed-term constraint, and acknowledged contractual boundary." },
-  { icon: Layers,        title: "Migration Assessment & Strategy",        desc: "Data source map, dependency analysis, and the strategy document that defines the fixed contract boundary." },
-  { icon: Settings,      title: "Governance Framework (Way-of-Working)",  desc: "Four-step model: Development → Presentation → Formal Agreement → Execution & Review." },
-  { icon: Globe,         title: "Change Control Process (CCP)",           desc: "Three-step protocol — Route → Quantify → Decide — with Parking Lot and Formal Gateways as defenses." },
-  { icon: Calendar,      title: "Integrated Master Schedule",             desc: "Cross-project dependency map; tracks shared resources, particularly Data Engineers and Data Analysts." },
-  { icon: AlertTriangle, title: "RAID Log & Control Register",            desc: "Centralised Risks, Assumptions, Issues, Dependencies — owners, deadlines, and escalation criteria." },
-  { icon: BarChart2,     title: "Executive KPI Dashboard",                desc: "Four KPIs only: Cost Variance, Milestone Rate, Data Validation Rate, Change Request Frequency." },
-  { icon: Users,         title: "Stakeholder Management Plan",            desc: "Three-tier model with defined cadence, content, and escalation criteria for each tier." },
+  { title: "Program Charter & Kick-off Pack",       desc: "Formal program objectives, premises, the 18-month fixed-term constraint, and acknowledged contractual boundary." },
+  { title: "Migration Assessment & Strategy",        desc: "Data source map, dependency analysis, and the strategy document that defines the fixed contract boundary." },
+  { title: "Governance Framework (Way-of-Working)",  desc: "Four-step model: Development → Presentation → Formal Agreement → Execution & Review." },
+  { title: "Change Control Process (CCP)",           desc: "Three-step protocol — Route → Quantify → Decide — with Parking Lot and Formal Gateways as defenses." },
+  { title: "Integrated Master Schedule",             desc: "Cross-project dependency map; tracks shared resources, particularly Data Engineers and Data Analysts." },
+  { title: "RAID Log & Control Register",            desc: "Centralised Risks, Assumptions, Issues, Dependencies — owners, deadlines, and escalation criteria." },
+  { title: "Executive KPI Dashboard",                desc: "Four KPIs only: Cost Variance, Milestone Rate, Data Validation Rate, Change Request Frequency." },
+  { title: "Stakeholder Management Plan",            desc: "Three-tier model with defined cadence, content, and escalation criteria for each tier." },
 ];
 
 export default function DWProgramContent() {
   return (
-    <div className="min-h-screen pt-12 pb-20">
-      <div className="container-custom">
+    <div className="pt-12">
+      <div>
 
-        {/* Back */}
-        <Link href="/" className="group mb-10 inline-flex items-center gap-2 text-sm transition-colors duration-[250ms] hover:text-[var(--primary-400)]" style={{ color: "var(--text-muted)" }}>
-          <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-          Back to Portfolio
-        </Link>
-
-        {/* ── Hero ── */}
+        {/* ── Lead ── */}
         <section style={{ paddingBottom: 48 }}>
-          <span style={{ ...mono, fontSize: 11, textTransform: "uppercase", letterSpacing: "0.14em", color: BURG, fontWeight: 500, marginBottom: 28, display: "inline-block" }}>
-            Program · Data Modernization · 18 months
-          </span>
-          <h1 style={{ fontWeight: 700, fontSize: "clamp(36px, 5vw, 62px)", lineHeight: 1.05, letterSpacing: "-0.025em", color: "var(--text)", marginBottom: 24 }}>
-            Governing an 18-month, fixed-fee data warehouse modernization program for a{" "}
-            <em style={{ fontStyle: "italic", color: GOLD }}>US FinTech enterprise</em>.
-          </h1>
-          <p style={{ fontSize: 19, lineHeight: 1.6, color: "var(--text-body)", maxWidth: 680, fontWeight: 400 }}>
+          <p style={{ fontSize: 19, lineHeight: 1.6, color: "var(--body)", maxWidth: 680, fontWeight: 400 }}>
             A multi-project program migrating a legacy SQL Server data warehouse to the Modern Data Stack (Snowflake, dbt, Tableau). Designed around three non-negotiables: fixed term, fixed consultancy fees, and zero scope drift — defended by formal gateways, a parking-lot system, and an explicit change-control process.
           </p>
         </section>
@@ -67,8 +52,8 @@ export default function DWProgramContent() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12" style={{ borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)", padding: "28px 0" }}>
           {[["Role", "Program Manager"], ["Duration", "18 months"], ["Engagement", "Fixed-fee"], ["Constituent Projects", "Multiple"]].map(([label, value]) => (
             <div key={label} style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-              <span style={{ ...mono, fontSize: 10, textTransform: "uppercase", letterSpacing: "0.12em", color: "var(--text-muted)", fontWeight: 500 }}>{label}</span>
-              <span style={{ fontSize: 18, fontWeight: 600, color: "var(--text)" }}>{value}</span>
+              <span style={{ ...mono, fontSize: 10, textTransform: "uppercase", letterSpacing: "0.12em", color: "var(--muted)", fontWeight: 500 }}>{label}</span>
+              <span style={{ fontSize: 18, fontWeight: 600, color: "var(--fg)" }}>{value}</span>
             </div>
           ))}
         </div>
@@ -76,7 +61,7 @@ export default function DWProgramContent() {
         {/* ── Tech tags ── */}
         <div className="mb-14 flex flex-wrap gap-2">
           {["Program Management", "Modern Data Stack", "Snowflake · dbt · Tableau", "Governance", "Change Control", "RAID Management", "C-level Stakeholder"].map(tag => (
-            <span key={tag} className="tech-tag">{tag}</span>
+            <span key={tag} className="lg-chip">{tag}</span>
           ))}
         </div>
 
@@ -84,7 +69,7 @@ export default function DWProgramContent() {
         <section style={{ paddingBottom: 64 }}>
           <div style={{ marginBottom: 40 }}>
             <span style={sectionNum}>01 — Strategic Objective &amp; Key Results</span>
-            <h2 style={sectionH2}>One mandate. <em style={{ fontStyle: "italic", color: GOLD }}>Three non-negotiables</em>.</h2>
+            <h2 style={sectionH2}>One mandate. <em style={{ fontStyle: "normal", color: GOLD }}>Three non-negotiables</em>.</h2>
             <p style={sectionLead}>Migrate the data warehouse to the Modern Data Stack — and do it within the agreed 18 months and consultancy fees. Everything else in the program is in service of those three constraints.</p>
           </div>
 
@@ -96,10 +81,10 @@ export default function DWProgramContent() {
               { num: "> 98%", unit: "Data validation",   label: "Validation rate during the mandatory UAT phase." },
               { num: "0",     unit: "Unmanaged scope",   label: "All scope additions routed through the formal CCP." },
             ].map(({ num, unit, label }) => (
-              <div key={unit} style={{ background: "var(--bg-card)", border: "1px solid var(--line)", borderTop: `3px solid ${GOLD}`, borderRadius: "var(--radius-lg)", padding: "28px 24px" }}>
-                <div style={{ fontSize: 38, fontWeight: 700, color: "var(--primary-400)", lineHeight: 1, letterSpacing: "-0.03em" }}>{num}</div>
-                <div style={{ ...mono, fontSize: 11, color: "var(--text-muted)", marginTop: 4, letterSpacing: "0.05em" }}>{unit}</div>
-                <div style={{ fontSize: 13, color: "var(--text-body)", marginTop: 14, lineHeight: 1.45 }}>{label}</div>
+              <div key={unit} style={{ borderTop: "1px solid var(--line-strong)", padding: "28px 0" }}>
+                <div style={{ fontSize: 38, fontWeight: 600, color: "var(--accent)", lineHeight: 1, letterSpacing: "-0.03em" }}>{num}</div>
+                <div style={{ ...mono, fontSize: 11, color: "var(--muted)", marginTop: 4, letterSpacing: "0.05em" }}>{unit}</div>
+                <div style={{ fontSize: 13, color: "var(--body)", marginTop: 14, lineHeight: 1.45 }}>{label}</div>
               </div>
             ))}
           </div>
@@ -109,7 +94,7 @@ export default function DWProgramContent() {
         <section style={{ paddingBottom: 64 }}>
           <div style={{ marginBottom: 40 }}>
             <span style={sectionNum}>02 — Program Lifecycle</span>
-            <h2 style={sectionH2}>Three phases. <em style={{ fontStyle: "italic", color: GOLD }}>Each ends at a contractual gateway</em>.</h2>
+            <h2 style={sectionH2}>Three phases. <em style={{ fontStyle: "normal", color: GOLD }}>Each ends at a contractual gateway</em>.</h2>
             <p style={sectionLead}>The program is structured around the standard lifecycle — Initiation, Delivery, Closure — but with one twist: every phase boundary is also a formal control point. No phase advances until its deliverables are signed off, locking the scope behind it.</p>
           </div>
 
@@ -120,12 +105,12 @@ export default function DWProgramContent() {
               { num: "II.",  phase: "Delivery",   title: "Execute & validate",    duration: "~13 months", body: "Migration begins with PoC to validate the approach and refine estimates, then iterates through agile cycles. Mandatory UAT with client Data Analysts gates every release.", outputs: "Migrated DW · Validated quality · Decommissioned legacy" },
               { num: "III.", phase: "Closure",    title: "Confirm adherence",     duration: "~2 months",  body: "Formal sign-off against the fixed mandate. Success is defined narrowly: full migration to Snowflake/dbt/Tableau within 18 months and within the agreed fees.", outputs: "Final report · Resource transition · Contract close-out" },
             ].map(({ num, phase, title, duration, body, outputs }) => (
-              <div key={num} style={{ background: "var(--bg-card)", border: "1px solid var(--line)", padding: "32px 28px", borderRadius: "var(--radius-lg)" }}>
-                <div style={{ fontWeight: 700, fontSize: 56, color: GOLD, lineHeight: 1, opacity: 0.35 }}>{num}</div>
+              <div key={num} style={{ borderTop: "1px solid var(--line-strong)", padding: "32px 0" }}>
+                <div style={{ fontWeight: 600, fontSize: 56, color: GOLD, lineHeight: 1, opacity: 0.35 }}>{num}</div>
                 <div style={{ ...mono, fontSize: 10, color: BURG, textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: 600, marginBottom: 8, marginTop: 8 }}>{phase}</div>
-                <h3 style={{ fontWeight: 600, fontSize: 18, color: "var(--text)", marginBottom: 12, lineHeight: 1.3 }}>{title}</h3>
-                <p style={{ fontSize: 14, color: "var(--text-body)", lineHeight: 1.6, marginBottom: 10 }}>{body}</p>
-                <p style={{ ...mono, fontSize: 11, color: "var(--text-muted)", fontStyle: "italic" }}>{duration} · {outputs}</p>
+                <h3 style={{ fontWeight: 600, fontSize: 18, color: "var(--fg)", marginBottom: 12, lineHeight: 1.3 }}>{title}</h3>
+                <p style={{ fontSize: 14, color: "var(--body)", lineHeight: 1.6, marginBottom: 10 }}>{body}</p>
+                <p style={{ ...mono, fontSize: 11, color: "var(--muted)", fontStyle: "italic" }}>{duration} · {outputs}</p>
               </div>
             ))}
           </div>
@@ -135,7 +120,7 @@ export default function DWProgramContent() {
             <div style={{ marginBottom: 28 }}>
               <span style={infographLabel}>Infochart 01 · Master Schedule</span>
               <div style={infographTitle}>18-month program lifecycle with phase gateways</div>
-              <div style={infographSub}>Each gateway represents a formal sign-off — the prior phase's scope is locked, and the next phase cannot begin without it.</div>
+              <div style={infographSub}>Each gateway represents a formal sign-off — the prior phase&apos;s scope is locked, and the next phase cannot begin without it.</div>
             </div>
             <div style={{ overflowX: "auto" }}>
               <svg viewBox="0 0 1100 360" style={{ width: "100%", minWidth: 600, height: "auto", display: "block" }}>
@@ -146,27 +131,27 @@ export default function DWProgramContent() {
                 <line x1="60" y1="100" x2="980" y2="100" style={{ stroke: svgBorder }} strokeWidth="2" />
 
                 {/* Phases */}
-                <rect x="60" y="80" width="160" height="40" fill={ACCENT} rx="3" />
-                <text x="140" y="98" textAnchor="middle" style={svgText({ fill: "#FFFFFF", fontWeight: 600, fontSize: 13 })}>I · INITIATION</text>
+                <rect x="60" y="80" width="160" height="40" fill={ACCENT} />
+                <text x="140" y="98" textAnchor="middle" style={svgText({ fill: "var(--bg)", fontWeight: 600, fontSize: 13 })}>I · INITIATION</text>
                 <text x="140" y="114" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 10, fill: GOLD }}>~3 months</text>
                 <text x="140" y="178" textAnchor="middle" style={svgMute({ fontSize: 11 })}>Kickoff · Assessment</text>
                 <text x="140" y="193" textAnchor="middle" style={svgMute({ fontSize: 11 })}>Strategy · Governance</text>
 
-                <rect x="225" y="80" width="600" height="40" fill={SLATE} rx="3" />
-                <text x="525" y="98" textAnchor="middle" style={svgText({ fill: "#FFFFFF", fontWeight: 600, fontSize: 13 })}>II · DELIVERY</text>
-                <text x="525" y="114" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 10, fill: "#FFFFFF" }}>~13 months · Migration · Validation · Decommissioning</text>
+                <rect x="225" y="80" width="600" height="40" fill={SLATE} />
+                <text x="525" y="98" textAnchor="middle" style={svgText({ fill: "var(--bg)", fontWeight: 600, fontSize: 13 })}>II · DELIVERY</text>
+                <text x="525" y="114" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 10, fill: "var(--bg)" }}>~13 months · Migration · Validation · Decommissioning</text>
 
                 {/* Delivery sub-phases */}
                 {[[240,"PoC · Wave 1"],[370,"Wave 2"],[500,"Wave 3"],[630,"Wave 4 · UAT"]].map(([x,label],i) => (
                   <g key={label as string}>
-                    <rect x={x} y="148" width="120" height="18" fill={GOLD} rx="2" opacity={1 - i * 0.15} />
-                    <text x={+x+60} y="160" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 10, fill: "#FFFFFF", fontWeight: 600 }}>{label}</text>
+                    <rect x={x} y="148" width="120" height="18" fill={GOLD} opacity={1 - i * 0.15} />
+                    <text x={+x+60} y="160" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 10, fill: "var(--bg)", fontWeight: 600 }}>{label}</text>
                   </g>
                 ))}
 
-                <rect x="830" y="80" width="150" height="40" fill={BURG} rx="3" />
-                <text x="905" y="98" textAnchor="middle" style={svgText({ fill: "#FFFFFF", fontWeight: 600, fontSize: 13 })}>III · CLOSURE</text>
-                <text x="905" y="114" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 10, fill: "#FFFFFF" }}>~2 months</text>
+                <rect x="830" y="80" width="150" height="40" fill={BURG} />
+                <text x="905" y="98" textAnchor="middle" style={svgText({ fill: "var(--bg)", fontWeight: 600, fontSize: 13 })}>III · CLOSURE</text>
+                <text x="905" y="114" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 10, fill: "var(--bg)" }}>~2 months</text>
                 <text x="905" y="178" textAnchor="middle" style={svgMute({ fontSize: 11 })}>Cutover · Sign-off</text>
                 <text x="905" y="193" textAnchor="middle" style={svgMute({ fontSize: 11 })}>Final reporting</text>
 
@@ -175,7 +160,7 @@ export default function DWProgramContent() {
                   <g key={g}>
                     <line x1={x} y1="60" x2={x} y2="143" stroke={BURG} strokeWidth="1.5" strokeDasharray="3 3" />
                     <circle cx={x} cy="240" r="14" fill={BURG} />
-                    <text x={x} y="246" textAnchor="middle" style={svgText({ fill: "#FFFFFF", fontSize: 11, fontWeight: 700 })}>{g}</text>
+                    <text x={x} y="246" textAnchor="middle" style={svgText({ fill: "var(--bg)", fontSize: 11, fontWeight: 600 })}>{g}</text>
                     <text x={x} y="275" textAnchor="middle" style={{ fontFamily: "inherit", fontSize: 11, fontWeight: 600, fill: BURG }}>{l1}</text>
                     <text x={x} y="290" textAnchor="middle" style={svgMute({ fontSize: 10 })}>{l2}</text>
                     {l3 && <text x={x} y="304" textAnchor="middle" style={svgMute({ fontSize: 10 })}>{l3}</text>}
@@ -184,9 +169,9 @@ export default function DWProgramContent() {
 
                 {/* Legend */}
                 <g transform="translate(60, 335)">
-                  <rect x="0" y="-10" width="14" height="14" fill={ACCENT} rx="2" />
+                  <rect x="0" y="-10" width="14" height="14" fill={ACCENT} />
                   <text x="20" y="0" style={svgMute({ fontSize: 11 })}>Phase</text>
-                  <rect x="80" y="-10" width="14" height="14" fill={GOLD} rx="2" />
+                  <rect x="80" y="-10" width="14" height="14" fill={GOLD} />
                   <text x="100" y="0" style={svgMute({ fontSize: 11 })}>Delivery wave</text>
                   <circle cx="207" cy="-3" r="8" fill={BURG} />
                   <text x="222" y="0" style={svgMute({ fontSize: 11 })}>Contractual gateway</text>
@@ -200,7 +185,7 @@ export default function DWProgramContent() {
         <section style={{ paddingBottom: 64 }}>
           <div style={{ marginBottom: 40 }}>
             <span style={sectionNum}>03 — Governance Framework</span>
-            <h2 style={sectionH2}>A way-of-working built in <em style={{ fontStyle: "italic", color: GOLD }}>four deliberate steps</em>.</h2>
+            <h2 style={sectionH2}>A way-of-working built in <em style={{ fontStyle: "normal", color: GOLD }}>four deliberate steps</em>.</h2>
             <p style={sectionLead}>Before execution begins, the rules of execution are defined, presented, signed off, and then operated. Governance is not the byproduct of program management — it is the first deliverable of program management.</p>
           </div>
 
@@ -228,11 +213,11 @@ export default function DWProgramContent() {
                   { x: 830, fill: GOLD,  num: "04", title: "Execution & Review", lines: ["Adherence monitored","via CV, milestone rate,","and CR frequency;","periodic review."] },
                 ].map(({ x, fill, num, title, lines }, i) => (
                   <g key={num}>
-                    <rect x={x} y="80" width="200" height="160" fill={fill} rx="6" />
-                    <text x={x+20} y="108" style={svgNum({ fontSize: 38, fill: i === 3 ? "#FFFFFF" : GOLD })}>{ num}</text>
-                    <text x={x+20} y="138" style={svgText({ fill: "#FFFFFF", fontWeight: 600, fontSize: 14 })}>{title}</text>
+                    <rect x={x} y="80" width="200" height="160" fill={fill} />
+                    <text x={x+20} y="108" style={svgNum({ fontSize: 38, fill: i === 3 ? "var(--bg)" : GOLD })}>{ num}</text>
+                    <text x={x+20} y="138" style={svgText({ fill: "var(--bg)", fontWeight: 600, fontSize: 14 })}>{title}</text>
                     {lines.map((l, li) => (
-                      <text key={li} x={x+20} y={170 + li*16} style={{ fontFamily: "inherit", fontSize: 11, fill: "#FFFFFF" }}>{l}</text>
+                      <text key={li} x={x+20} y={170 + li*16} style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--bg)" }}>{l}</text>
                     ))}
                     {i < 3 && <line x1={x+205} y1="160" x2={x+255} y2="160" stroke={ACCENT} strokeWidth="2" markerEnd="url(#dw-arrow2)" />}
                   </g>
@@ -240,7 +225,7 @@ export default function DWProgramContent() {
 
                 {/* Goal band */}
                 <g transform="translate(50, 260)">
-                  <text x="0" y="0" style={svgLabel({ fontWeight: 600, fill: "var(--text)" })}>Goal at each step</text>
+                  <text x="0" y="0" style={svgLabel({ fontWeight: 600, fill: "var(--fg)" })}>Goal at each step</text>
                   {[
                     [0, "01.", "Shared operational standards"],
                     [260, "02.", "Transparency & common understanding"],
@@ -261,7 +246,7 @@ export default function DWProgramContent() {
         <section style={{ paddingBottom: 64 }}>
           <div style={{ marginBottom: 40 }}>
             <span style={sectionNum}>04 — Change Control</span>
-            <h2 style={sectionH2}>How scope additions are handled — and how the <em style={{ fontStyle: "italic", color: GOLD }}>fixed-fee contract</em> is defended.</h2>
+            <h2 style={sectionH2}>How scope additions are handled — and how the <em style={{ fontStyle: "normal", color: GOLD }}>fixed-fee contract</em> is defended.</h2>
             <p style={sectionLead}>A fixed-fee, fixed-term program lives or dies by its change-control discipline. The program operates a strict three-step CCP, backed by a Parking Lot to capture anything ambiguous and Formal Gateways that lock prior phases against retroactive rework.</p>
           </div>
 
@@ -280,7 +265,7 @@ export default function DWProgramContent() {
                 </defs>
 
                 {/* Trigger */}
-                <rect x="20" y="40" width="200" height="90" style={{ fill: svgBg }} stroke={GOLD} strokeWidth="2" strokeDasharray="4 3" rx="4" />
+                <rect x="20" y="40" width="200" height="90" style={{ fill: svgBg }} stroke={GOLD} strokeWidth="2" strokeDasharray="4 3" />
                 <text x="120" y="64" textAnchor="middle" style={svgLabel({ fill: GOLD, fontWeight: 600 })}>Trigger</text>
                 <text x="120" y="90" textAnchor="middle" style={svgText({ fontWeight: 600, fontSize: 12 })}>Scope addition</text>
                 <text x="120" y="107" textAnchor="middle" style={svgMute({ fontSize: 11 })}>request from client</text>
@@ -293,11 +278,11 @@ export default function DWProgramContent() {
                   { x: 840, fill: BURG,   label: "Step 03 · Decide",    title: "Present 3 options", sub1: "to C-level sponsor", sub2: "for resolution." },
                 ].map(({ x, fill, label, title, sub1, sub2 }, i) => (
                   <g key={label}>
-                    <rect x={x} y="40" width="220" height="90" fill={fill} rx="4" />
+                    <rect x={x} y="40" width="220" height="90" fill={fill} />
                     <text x={x+20} y="64" style={svgLabel({ fill: GOLD })}>{ label}</text>
-                    <text x={x+20} y="90" style={svgText({ fill: "#FFFFFF", fontWeight: 600, fontSize: 13 })}>{title}</text>
-                    <text x={x+20} y="110" style={{ fontFamily: "inherit", fontSize: 11, fill: "#FFFFFF" }}>{sub1}</text>
-                    <text x={x+20} y="124" style={{ fontFamily: "inherit", fontSize: 11, fill: "#FFFFFF" }}>{sub2}</text>
+                    <text x={x+20} y="90" style={svgText({ fill: "var(--bg)", fontWeight: 600, fontSize: 13 })}>{title}</text>
+                    <text x={x+20} y="110" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--bg)" }}>{sub1}</text>
+                    <text x={x+20} y="124" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--bg)" }}>{sub2}</text>
                     {i < 2 && <line x1={x+225} y1="85" x2={x+275} y2="85" stroke={BURG} strokeWidth="2" markerEnd="url(#dw-arrow3)" />}
                   </g>
                 ))}
@@ -310,7 +295,7 @@ export default function DWProgramContent() {
                 ))}
 
                 {/* Options */}
-                <rect x="265" y="196" width="230" height="140" style={{ fill: svgBg }} stroke={ACCENT} strokeWidth="1.5" rx="4" />
+                <rect x="265" y="196" width="230" height="140" style={{ fill: svgBg }} stroke={ACCENT} strokeWidth="1.5" />
                 <text x="285" y="220" style={svgLabel({ fill: ACCENT, fontWeight: 600 })}>Option A</text>
                 <text x="285" y="242" style={svgText({ fontWeight: 600, fontSize: 13 })}>Accept change</text>
                 <text x="285" y="266" style={svgMute({ fontSize: 11 })}>Higher cost.</text>
@@ -318,15 +303,15 @@ export default function DWProgramContent() {
                 <text x="285" y="298" style={svgMute({ fontSize: 11 })}>delay pushes beyond</text>
                 <text x="285" y="314" style={svgMute({ fontSize: 11 })}>the 18-month term.</text>
 
-                <rect x="550" y="196" width="230" height="140" fill={ACCENT} rx="4" />
+                <rect x="550" y="196" width="230" height="140" fill={ACCENT} />
                 <text x="570" y="220" style={svgLabel({ fill: GOLD, fontWeight: 600 })}>Option B · Preferred</text>
-                <text x="570" y="242" style={svgText({ fill: "#FFFFFF", fontWeight: 600, fontSize: 13 })}>Swap equivalent</text>
-                <text x="570" y="266" style={{ fontFamily: "inherit", fontSize: 11, fill: "#FFFFFF" }}>Maintain cost and time</text>
-                <text x="570" y="282" style={{ fontFamily: "inherit", fontSize: 11, fill: "#FFFFFF" }}>by removing existing</text>
-                <text x="570" y="298" style={{ fontFamily: "inherit", fontSize: 11, fill: "#FFFFFF" }}>items of equivalent</text>
-                <text x="570" y="314" style={{ fontFamily: "inherit", fontSize: 11, fill: "#FFFFFF" }}>effort from scope.</text>
+                <text x="570" y="242" style={svgText({ fill: "var(--bg)", fontWeight: 600, fontSize: 13 })}>Swap equivalent</text>
+                <text x="570" y="266" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--bg)" }}>Maintain cost and time</text>
+                <text x="570" y="282" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--bg)" }}>by removing existing</text>
+                <text x="570" y="298" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--bg)" }}>items of equivalent</text>
+                <text x="570" y="314" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--bg)" }}>effort from scope.</text>
 
-                <rect x="835" y="196" width="230" height="140" style={{ fill: svgBg }} stroke={ACCENT} strokeWidth="1.5" rx="4" />
+                <rect x="835" y="196" width="230" height="140" style={{ fill: svgBg }} stroke={ACCENT} strokeWidth="1.5" />
                 <text x="855" y="220" style={svgLabel({ fill: ACCENT, fontWeight: 600 })}>Option C</text>
                 <text x="855" y="242" style={svgText({ fontWeight: 600, fontSize: 13 })}>Postpone</text>
                 <text x="855" y="266" style={svgMute({ fontSize: 11 })}>Defer the request</text>
@@ -335,7 +320,7 @@ export default function DWProgramContent() {
                 <text x="855" y="314" style={svgMute({ fontSize: 11 })}>is formally closed.</text>
 
                 {/* Defensive mechanisms */}
-                <text x="20" y="388" style={svgLabel({ fontWeight: 600, fill: "var(--text)" })}>Defensive mechanisms supporting the CCP</text>
+                <text x="20" y="388" style={svgLabel({ fontWeight: 600, fill: "var(--fg)" })}>Defensive mechanisms supporting the CCP</text>
                 <line x1="20" y1="396" x2="1080" y2="396" style={{ stroke: svgBorder }} strokeWidth="1" />
                 {[
                   [20,  "Parking Lot",         "Capture every out-of-scope","item; route to CCP evaluation."],
@@ -358,7 +343,7 @@ export default function DWProgramContent() {
         <section style={{ paddingBottom: 64 }}>
           <div style={{ marginBottom: 40 }}>
             <span style={sectionNum}>05 — Performance Monitoring</span>
-            <h2 style={sectionH2}>Four KPIs the C-level cares about — and <em style={{ fontStyle: "italic", color: GOLD }}>nothing else on the dashboard</em>.</h2>
+            <h2 style={sectionH2}>Four KPIs the C-level cares about — and <em style={{ fontStyle: "normal", color: GOLD }}>nothing else on the dashboard</em>.</h2>
             <p style={sectionLead}>Operational telemetry stays in the working teams. What rises to the sponsor is exactly what informs sponsor-level decisions: financial adherence, schedule adherence, quality, and the leading indicator of scope stress.</p>
           </div>
 
@@ -378,10 +363,10 @@ export default function DWProgramContent() {
                   { x: 830, label: "KPI 04 · Scope Control",     title: "Change Request Frequency",        num: "↓",    unit: "leading indicator", d1: "High volume = stress on the", d2: "CCP; trend monitored monthly." },
                 ].map(({ x, label, title, num, unit, d1, d2 }) => (
                   <g key={label}>
-                    <rect x={x} y="20" width={x === 830 ? 250 : 260} height="160" style={{ fill: svgBg }} stroke={svgBorder} rx="6" />
+                    <rect x={x} y="20" width={x === 830 ? 250 : 260} height="160" style={{ fill: svgBg }} stroke={svgBorder} />
                     <text x={x+20} y="48" style={svgLabel({ fill: BURG, fontWeight: 600 })}>{label}</text>
                     <text x={x+20} y="78" style={svgText({ fontWeight: 600, fontSize: 14 })}>{title}</text>
-                    <text x={x+20} y="112" style={svgNum({ fontSize: 36, fill: "var(--primary-400)" })}>{num}</text>
+                    <text x={x+20} y="112" style={svgNum({ fontSize: 36, fill: "var(--accent)" })}>{num}</text>
                     <text x={x+20} y="130" style={svgMute({ fontSize: 11 })}>{unit}</text>
                     <text x={x+20} y="150" style={svgMute({ fontSize: 11 })}>{d1}</text>
                     <text x={x+20} y="164" style={svgMute({ fontSize: 11 })}>{d2}</text>
@@ -389,7 +374,7 @@ export default function DWProgramContent() {
                 ))}
 
                 {/* RAID strip */}
-                <text x="20" y="225" style={svgLabel({ fontWeight: 600, fill: "var(--text)" })}>Supported by centralised RAID management</text>
+                <text x="20" y="225" style={svgLabel({ fontWeight: 600, fill: "var(--fg)" })}>Supported by centralised RAID management</text>
                 <line x1="20" y1="234" x2="1080" y2="234" style={{ stroke: svgBorder }} strokeWidth="1" />
                 {[
                   { x: 20,  fill: ACCENT, letter: "R", title: "Risks",        d1: "Proactive mitigation;",       d2: "focus on fixed constraints." },
@@ -398,11 +383,11 @@ export default function DWProgramContent() {
                   { x: 830, fill: GOLD,   letter: "D", title: "Dependencies",  d1: "External constraints —",      d2: "source access, infra readiness." },
                 ].map(({ x, fill, letter, title, d1, d2 }) => (
                   <g key={letter}>
-                    <rect x={x} y="255" width={x === 830 ? 250 : 260} height="80" fill={fill} rx="4" />
-                    <text x={x+20} y="280" style={svgNum({ fontSize: 24, fill: "#FFFFFF" })}>{letter}</text>
-                    <text x={x+50} y="280" style={svgText({ fill: "#FFFFFF", fontWeight: 600, fontSize: 13 })}>{title}</text>
-                    <text x={x+20} y="305" style={{ fontFamily: "inherit", fontSize: 11, fill: "#FFFFFF" }}>{d1}</text>
-                    <text x={x+20} y="320" style={{ fontFamily: "inherit", fontSize: 11, fill: "#FFFFFF" }}>{d2}</text>
+                    <rect x={x} y="255" width={x === 830 ? 250 : 260} height="80" fill={fill} />
+                    <text x={x+20} y="280" style={svgNum({ fontSize: 24, fill: "var(--bg)" })}>{letter}</text>
+                    <text x={x+50} y="280" style={svgText({ fill: "var(--bg)", fontWeight: 600, fontSize: 13 })}>{title}</text>
+                    <text x={x+20} y="305" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--bg)" }}>{d1}</text>
+                    <text x={x+20} y="320" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--bg)" }}>{d2}</text>
                   </g>
                 ))}
               </svg>
@@ -414,7 +399,7 @@ export default function DWProgramContent() {
         <section style={{ paddingBottom: 64 }}>
           <div style={{ marginBottom: 40 }}>
             <span style={sectionNum}>06 — Stakeholder Management</span>
-            <h2 style={sectionH2}>Communicating with the sponsor means <em style={{ fontStyle: "italic", color: GOLD }}>filtering, not flooding</em>.</h2>
+            <h2 style={sectionH2}>Communicating with the sponsor means <em style={{ fontStyle: "normal", color: GOLD }}>filtering, not flooding</em>.</h2>
             <p style={sectionLead}>The Head of Data does not need standup blockers. The Head of Data needs to know whether the program is strategically on track, financially on track, and that the top risks are being handled. The communication model is built around that distinction.</p>
           </div>
 
@@ -427,43 +412,43 @@ export default function DWProgramContent() {
             <div style={{ overflowX: "auto" }}>
               <svg viewBox="0 0 1100 480" style={{ width: "100%", minWidth: 700, height: "auto", display: "block" }}>
                 {/* Tier 1 */}
-                <rect x="20" y="20" width="1060" height="110" fill={BURG} rx="4" />
-                <text x="40" y="48" style={svgLabel({ fill: "#FFFFFF", fontWeight: 600 })}>Tier 01 · Strategic</text>
-                <text x="40" y="76" style={svgText({ fill: "#FFFFFF", fontWeight: 600, fontSize: 16 })}>Client Head of Data · C-level Sponsor</text>
-                <text x="40" y="98" style={{ fontFamily: "inherit", fontSize: 11, fill: "#FFFFFF" }}>Receives: milestone status, CV, top-3 mitigated risks, gateway approvals</text>
-                <text x="640" y="48" style={svgLabel({ fill: "#FFFFFF", fontWeight: 600 })}>Cadence</text>
-                <text x="640" y="76" style={svgText({ fill: "#FFFFFF", fontSize: 13, fontWeight: 600 })}>Monthly steering · Quarterly review</text>
-                <text x="640" y="96" style={{ fontFamily: "inherit", fontSize: 11, fill: "#FFFFFF" }}>Escalation on demand only when</text>
-                <text x="640" y="110" style={{ fontFamily: "inherit", fontSize: 11, fill: "#FFFFFF" }}>fixed constraints are at risk</text>
+                <rect x="20" y="20" width="1060" height="110" fill={BURG} />
+                <text x="40" y="48" style={svgLabel({ fill: "var(--bg)", fontWeight: 600 })}>Tier 01 · Strategic</text>
+                <text x="40" y="76" style={svgText({ fill: "var(--bg)", fontWeight: 600, fontSize: 16 })}>Client Head of Data · C-level Sponsor</text>
+                <text x="40" y="98" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--bg)" }}>Receives: milestone status, CV, top-3 mitigated risks, gateway approvals</text>
+                <text x="640" y="48" style={svgLabel({ fill: "var(--bg)", fontWeight: 600 })}>Cadence</text>
+                <text x="640" y="76" style={svgText({ fill: "var(--bg)", fontSize: 13, fontWeight: 600 })}>Monthly steering · Quarterly review</text>
+                <text x="640" y="96" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--bg)" }}>Escalation on demand only when</text>
+                <text x="640" y="110" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--bg)" }}>fixed constraints are at risk</text>
 
                 {/* Tier 2 */}
-                <rect x="20" y="150" width="1060" height="110" fill={ACCENT} rx="4" />
+                <rect x="20" y="150" width="1060" height="110" fill={ACCENT} />
                 <text x="40" y="178" style={svgLabel({ fill: GOLD, fontWeight: 600 })}>Tier 02 · Tactical</text>
-                <text x="40" y="206" style={svgText({ fill: "#FFFFFF", fontWeight: 600, fontSize: 16 })}>Joint Management · Delivery PM + Client PM</text>
-                <text x="40" y="228" style={{ fontFamily: "inherit", fontSize: 11, fill: "#FFFFFF" }}>Receives: governance enforcement, CCP decisions, RAID review, vendor coordination</text>
+                <text x="40" y="206" style={svgText({ fill: "var(--bg)", fontWeight: 600, fontSize: 16 })}>Joint Management · Delivery PM + Client PM</text>
+                <text x="40" y="228" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--bg)" }}>Receives: governance enforcement, CCP decisions, RAID review, vendor coordination</text>
                 <text x="640" y="178" style={svgLabel({ fill: GOLD, fontWeight: 600 })}>Cadence</text>
-                <text x="640" y="206" style={svgText({ fill: "#FFFFFF", fontSize: 13, fontWeight: 600 })}>Weekly PM sync · Bi-weekly status</text>
-                <text x="640" y="226" style={{ fontFamily: "inherit", fontSize: 11, fill: "#FFFFFF" }}>All scope, schedule, and budget decisions</text>
-                <text x="640" y="240" style={{ fontFamily: "inherit", fontSize: 11, fill: "#FFFFFF" }}>originate or pass through here</text>
+                <text x="640" y="206" style={svgText({ fill: "var(--bg)", fontSize: 13, fontWeight: 600 })}>Weekly PM sync · Bi-weekly status</text>
+                <text x="640" y="226" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--bg)" }}>All scope, schedule, and budget decisions</text>
+                <text x="640" y="240" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--bg)" }}>originate or pass through here</text>
 
                 {/* Tier 3 */}
-                <rect x="20" y="280" width="1060" height="110" fill={SLATE} rx="4" />
-                <text x="40" y="308" style={svgLabel({ fill: "#FFFFFF", fontWeight: 600 })}>Tier 03 · Operational</text>
-                <text x="40" y="336" style={svgText({ fill: "#FFFFFF", fontWeight: 600, fontSize: 16 })}>Delivery + Client Development Teams</text>
-                <text x="40" y="358" style={{ fontFamily: "inherit", fontSize: 11, fill: "#FFFFFF" }}>Receives: sprint goals, technical decisions, UAT scheduling, blockers</text>
-                <text x="640" y="308" style={svgLabel({ fill: "#FFFFFF", fontWeight: 600 })}>Cadence</text>
-                <text x="640" y="336" style={svgText({ fill: "#FFFFFF", fontSize: 13, fontWeight: 600 })}>Daily standups · Sprint reviews</text>
-                <text x="640" y="356" style={{ fontFamily: "inherit", fontSize: 11, fill: "#FFFFFF" }}>Technical detail managed here;</text>
-                <text x="640" y="370" style={{ fontFamily: "inherit", fontSize: 11, fill: "#FFFFFF" }}>escalates only when impacting macro schedule</text>
+                <rect x="20" y="280" width="1060" height="110" fill={SLATE} />
+                <text x="40" y="308" style={svgLabel({ fill: "var(--bg)", fontWeight: 600 })}>Tier 03 · Operational</text>
+                <text x="40" y="336" style={svgText({ fill: "var(--bg)", fontWeight: 600, fontSize: 16 })}>Delivery + Client Development Teams</text>
+                <text x="40" y="358" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--bg)" }}>Receives: sprint goals, technical decisions, UAT scheduling, blockers</text>
+                <text x="640" y="308" style={svgLabel({ fill: "var(--bg)", fontWeight: 600 })}>Cadence</text>
+                <text x="640" y="336" style={svgText({ fill: "var(--bg)", fontSize: 13, fontWeight: 600 })}>Daily standups · Sprint reviews</text>
+                <text x="640" y="356" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--bg)" }}>Technical detail managed here;</text>
+                <text x="640" y="370" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--bg)" }}>escalates only when impacting macro schedule</text>
 
                 {/* Escalation arrow */}
                 <path d="M 1050 390 L 1050 140" stroke={GOLD} strokeWidth="2" strokeDasharray="6 4" fill="none" />
                 <polygon points="1050,135 1045,148 1055,148" fill={GOLD} />
 
                 {/* Bottom note */}
-                <text x="20" y="415" style={{ fontFamily: "inherit", fontSize: 11, fontStyle: "italic", fill: "var(--text-body)" }}>The boundary between tiers is enforced — operational detail does not flow up uninvited,</text>
-                <text x="20" y="430" style={{ fontFamily: "inherit", fontSize: 11, fontStyle: "italic", fill: "var(--text-body)" }}>and strategic directives do not bypass tactical management.</text>
-                <text x="20" y="452" style={{ fontFamily: "inherit", fontSize: 11, fontStyle: "italic", fill: "var(--text-body)" }}>This boundary is what makes the program manageable at sponsor level without losing fidelity at execution level.</text>
+                <text x="20" y="415" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--body)" }}>The boundary between tiers is enforced — operational detail does not flow up uninvited,</text>
+                <text x="20" y="430" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--body)" }}>and strategic directives do not bypass tactical management.</text>
+                <text x="20" y="452" style={{ fontFamily: "inherit", fontSize: 11, fill: "var(--body)" }}>This boundary is what makes the program manageable at sponsor level without losing fidelity at execution level.</text>
               </svg>
             </div>
           </div>
@@ -474,15 +459,15 @@ export default function DWProgramContent() {
           <div style={{ marginBottom: 40 }}>
             <span style={sectionNum}>07 — Program Deliverables</span>
             <h2 style={sectionH2}>The artifacts that carry the program — and the contract.</h2>
-            <p style={sectionLead}>In a fixed-fee engagement, every artifact serves two audiences: the delivery team that operates against it, and the contract that's protected by it. Each output below was designed with both in mind.</p>
+            <p style={sectionLead}>In a fixed-fee engagement, every artifact serves two audiences: the delivery team that operates against it, and the contract that&apos;s protected by it. Each output below was designed with both in mind.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {deliverables.map(({ icon: Icon, title, desc }) => (
-              <div key={title} style={{ background: "var(--bg-card)", border: "1px solid var(--line)", borderLeft: `3px solid ${BURG}`, padding: "20px 24px", borderRadius: "0 var(--radius-md) var(--radius-md) 0", display: "flex", gap: 14, alignItems: "flex-start" }}>
-                <Icon className="shrink-0 mt-0.5" style={{ width: 22, height: 22, color: GOLD }} />
+            {deliverables.map(({ title, desc }, i) => (
+              <div key={title} style={{ borderTop: "1px solid var(--line-strong)", padding: "20px 0", display: "flex", gap: 14, alignItems: "flex-start" }}>
+                <span className="lg-mono lg-muted shrink-0" style={{ width: 28, paddingTop: 3 }}>{String(i + 1).padStart(2, "0")}</span>
                 <div>
-                  <div style={{ fontWeight: 600, fontSize: 14, marginBottom: 4, color: "var(--text)" }}>{title}</div>
-                  <div style={{ fontSize: 13, color: "var(--text-body)", lineHeight: 1.5 }}>{desc}</div>
+                  <div style={{ fontWeight: 600, fontSize: 14, marginBottom: 4, color: "var(--fg)" }}>{title}</div>
+                  <div style={{ fontSize: 13, color: "var(--body)", lineHeight: 1.5 }}>{desc}</div>
                 </div>
               </div>
             ))}
@@ -490,11 +475,10 @@ export default function DWProgramContent() {
         </section>
 
         {/* ── Closing callout ── */}
-        <div style={{ position: "relative", background: "var(--ink-2)", color: "var(--text)", padding: "56px 48px", borderRadius: "var(--radius-lg)", borderLeft: `4px solid ${GOLD}`, marginBottom: 0, border: "1px solid var(--line)", borderLeftColor: GOLD }}>
-          <span style={{ fontSize: 96, position: "absolute", top: 8, left: 24, color: GOLD, opacity: 0.5, lineHeight: 1, fontWeight: 700 }}>&ldquo;</span>
-          <p style={{ paddingLeft: 48, fontStyle: "italic", fontSize: 24, lineHeight: 1.4, fontWeight: 400, color: "var(--text-body)" }}>
+        <div style={{ borderTop: "1px solid var(--line-strong)", borderBottom: "1px solid var(--line)", padding: "40px 0" }}>
+          <p style={{ fontSize: 24, lineHeight: 1.4, fontWeight: 400, color: "var(--fg)"}}>
             A program with a fixed term and fixed fees has exactly one job: protect both.{" "}
-            <strong style={{ fontStyle: "normal", fontWeight: 700, color: "var(--text)" }}>Governance, change control, and stakeholder discipline</strong>{" "}
+            <strong style={{ fontWeight: 600, color: "var(--accent)"}}>Governance, change control, and stakeholder discipline</strong>{" "}
             are not overhead — they are the program.
           </p>
         </div>

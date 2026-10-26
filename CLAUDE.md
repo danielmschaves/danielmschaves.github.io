@@ -29,13 +29,16 @@ Deployed on Vercel (Node runtime: the contact form is a server action). The GitH
 
 ```
 app/                  # Next.js App Router pages
-  layout.tsx          # Root layout — metadata, header, footer
-  page.tsx            # Home page (Hero, Featured Project, Skills, Projects)
   globals.css         # Tailwind directives + CSS variables + utility classes
-  resume/             # Resume page
-  contact/            # Contact form page
-  services/           # Services page
-  projects/[id]/      # Dynamic project detail page
+  sitemap.ts, robots.ts, manifest.ts, icon.svg, apple-icon.png
+  [lang]/             # Every page, once per language (en at /, pt at /pt/)
+    layout.tsx        # Root layout — <html lang>, theme script, header, metadata
+    page.tsx          # Home page (Hero, Featured Project, Skills, Projects)
+    resume/ contact/ services/ projects/[id]/
+    not-found.tsx     # Localized 404 (both languages render; CSS keyed on <html lang> shows one)
+    [...rest]/        # Catch-all → notFound(), so unknown URLs get the localized 404
+middleware.ts         # Rewrites unprefixed paths to /en, passes /pt through, redirects /en/* to the unprefixed URL
+dictionaries/         # en.json / pt.json UI strings (from the design system's ui-strings.json)
 
 components/           # Ledger components (TSX ports of the design system bundle, lg- classes)
   SiteHeader.tsx, ThemeToggle.tsx, Hero.tsx, StatStrip.tsx, SectionHeading.tsx
@@ -47,17 +50,14 @@ components/           # Ledger components (TSX ports of the design system bundle
   case/               # Case-study kit: CaseIntro, CaseSection, Infochart, FactStrip, NumberedGrid, PullQuote, svg.tsx chart primitives
   projects/*Content.tsx  # Long-form case-study bodies; their prose and chart labels live in the sibling *.copy.ts
 
-data/                 # JSON content files (acts as lightweight CMS)
-  projects.json
-  experience.json
-  education.json
-  certifications.json
-  skills.json
+data/                 # JSON content files (acts as lightweight CMS), one folder per language
+  en/ pt/             # projects, experience, education, certifications, skills
 
 lib/
   utils.ts            # cn() utility (clsx + tailwind-merge)
   actions.ts          # Server action for sending email via Resend
   email.ts            # Escaped, email-safe notification template
+  i18n.ts             # Lang, getDictionary, href(), localeHref(), pageMetadata(), resumePdf()
   projects.ts         # Typed access to projects.json
   content.ts          # Capability columns, stack, education and language rows from data/
   format.ts           # Date range formatting
@@ -75,7 +75,7 @@ public/images/        # Static assets
 Dark by default, light behind a toggle. Hairline rules instead of boxes, numbered rows, real numbers, one accent per view.
 
 - **Tokens** live in `app/globals.css` (from the design system's `tokens.css`): `--bg`, `--surface`, `--fg`, `--body`, `--muted`, `--line`, `--line-strong`, `--control`, `--chip`, `--accent`, `--on-accent`, `--success`, `--danger`, `--fig-*`, plus spacing, `--container`, `--measure`, `--dur-*`, `--ease-out`. Use semantic tokens only.
-- **Theme**: `data-theme="dark" | "light"` on `<html>`. An inline script in `app/layout.tsx` applies `localStorage.theme` before paint; `ThemeToggle` is the only switch (no `prefers-color-scheme`).
+- **Theme**: `data-theme="dark" | "light"` on `<html>`. An inline script in `app/[lang]/layout.tsx` applies `localStorage.theme` before paint; `ThemeToggle` is the only switch (no `prefers-color-scheme`).
 - **Component styles** are the design system's `bundle.css`, pasted under `@layer components` with `lg-` class names. Tailwind purges component classes it can't find in source, so always write `lg-` class names literally (no template-built names).
 - **Tailwind** maps the same tokens (`bg-bg`, `text-muted`, `border-line`, …); radii are `none`/`pill`/`full` only; no shadows or gradients.
 - **Figures**: each project has `figure: 1–6` in `projects.json`; render `<Figure n={…} />`. Static exports are in `public/images/covers/`, social cards in `public/images/og/`.
@@ -86,7 +86,7 @@ Dark by default, light behind a toggle. Hairline rules instead of boxes, numbere
 
 ## Content Management
 
-All content is driven by JSON files in `/data/`. To update portfolio content, edit the relevant JSON file — no code changes needed.
+All content is driven by JSON files in `/data/en/` and `/data/pt/`. To update portfolio content, edit the relevant JSON file in **both** languages — no code changes needed. UI strings live in `dictionaries/{en,pt}.json` (`pt` is typed against `en`, so a missing key fails the build). Case-study prose and chart labels live in `components/projects/*.copy.ts` as `{ en, pt }`.
 
 - **projects.json** — portfolio projects (id, figure, title, description, technologies, featured, category, metrics, OG fields, links)
 - **experience.json** — work history
@@ -104,6 +104,8 @@ All content is driven by JSON files in `/data/`. To update portfolio content, ed
 - **Path alias** — use `@/` for all imports from root (e.g., `@/components/Hero`)
 - **Images** — always use `next/image` with `unoptimized` for static export compatibility (project covers are `<Figure>`, not images)
 - **cn() utility** — use `cn()` from `@/lib/utils` for conditional classnames
+- **Languages** — pages get `params.lang`; pass `lang` down and build internal links with `href(lang, path)`. Client components receive their strings as props
+- **Portuguese copy** — pt-BR per the design system README: first person, no "você" in headings, Brazilian numbers (`4,7`, `~4.000`, `US$ 1,2 mi`), tool/method/certification/client names in English, mono labels in UPPERCASE Portuguese
 
 ---
 
@@ -131,7 +133,7 @@ npm run lint      # ESLint check
 
 ## Deployment
 
-- **Target**: Vercel. Server actions (and, from step 13, `middleware.ts`) need a Node host, so a GitHub Pages static export is no longer an option
+- **Target**: Vercel. Server actions and `middleware.ts` need a Node host, so a GitHub Pages static export is no longer an option
 - **Output mode**: `standalone` when `DOCKER_BUILD=true`, otherwise default
 - `trailingSlash: true` in next.config.js (kept from the static-hosting days; URLs end in `/`)
 - Docker support via `Dockerfile` + `docker-compose.yml`
@@ -140,6 +142,8 @@ npm run lint      # ESLint check
 
 ## Redesign status
 
-The site was rebuilt on Ledger following the design system's implementation.md (steps 1–12). The e2e suite in `tests/e2e` covers the Ledger markup and the chart rules (squares only, SVG text ≥ 12px as rendered). Step 13 (English/Portuguese) is next.
+The site was rebuilt on Ledger following the design system's implementation.md (steps 1–13, English/Portuguese included). The e2e suite in `tests/e2e` covers the Ledger markup, the chart rules (squares only, SVG text ≥ 12px as rendered) in both languages, and the language switch, hreflang and localized form errors.
+
+Résumé PDF: `siteConfig.resumePdf.pt` is `null` until a Portuguese PDF is added to `public/`; until then `/pt/` links the English one, labelled "Baixar PDF (inglês)".
 
 Charts are drawn at 1100px and rendered 1:1 (`<Infochart minWidth={1100}>`); use the `svg.tsx` primitives (`T` clamps text to 12px, `Box`, `Badge`, `Wire`) and token colours only.

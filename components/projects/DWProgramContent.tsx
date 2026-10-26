@@ -6,11 +6,12 @@ import PullQuote from "@/components/case/PullQuote";
 import StatStrip from "@/components/StatStrip";
 import { withAccent } from "@/components/case/accent";
 import { Badge, Box, C, Canvas, Lines, T, Wire } from "@/components/case/svg";
+import type { Lang } from "@/lib/i18n";
 import { copy } from "./DWProgram.copy";
 
 const W = 1100;
 
-export default function DWProgramContent({ lang = "en" }: { lang?: "en" }) {
+export default function DWProgramContent({ lang }: { lang: Lang }) {
   const t = copy[lang];
 
   return (
@@ -36,31 +37,31 @@ export default function DWProgramContent({ lang = "en" }: { lang?: "en" }) {
             </div>
           ))}
         </div>
-        <Infochart num={1} label={t.lifecycle.chart.label} title={t.lifecycle.chart.title} sub={t.lifecycle.chart.sub} minWidth={W}>
+        <Infochart lang={lang} num={1} label={t.lifecycle.chart.label} title={t.lifecycle.chart.title} sub={t.lifecycle.chart.sub} minWidth={W}>
           <LifecycleChart t={t.lifecycle.chart} />
         </Infochart>
       </CaseSection>
 
       <CaseSection num={3} kicker={t.governance.kicker} title={withAccent(t.governance.title)} lead={t.governance.lead}>
-        <Infochart num={2} label={t.governance.chart.label} title={t.governance.chart.title} minWidth={W}>
+        <Infochart lang={lang} num={2} label={t.governance.chart.label} title={t.governance.chart.title} minWidth={W}>
           <WayOfWorkingChart t={t.governance.chart} />
         </Infochart>
       </CaseSection>
 
       <CaseSection num={4} kicker={t.change.kicker} title={withAccent(t.change.title)} lead={t.change.lead}>
-        <Infochart num={3} label={t.change.chart.label} title={t.change.chart.title} minWidth={W}>
+        <Infochart lang={lang} num={3} label={t.change.chart.label} title={t.change.chart.title} minWidth={W}>
           <ChangeControlChart t={t.change.chart} />
         </Infochart>
       </CaseSection>
 
       <CaseSection num={5} kicker={t.kpis.kicker} title={withAccent(t.kpis.title)} lead={t.kpis.lead}>
-        <Infochart num={4} label={t.kpis.chart.label} title={t.kpis.chart.title} minWidth={W}>
+        <Infochart lang={lang} num={4} label={t.kpis.chart.label} title={t.kpis.chart.title} minWidth={W}>
           <KpiChart t={t.kpis.chart} />
         </Infochart>
       </CaseSection>
 
       <CaseSection num={6} kicker={t.stakeholders.kicker} title={withAccent(t.stakeholders.title)} lead={t.stakeholders.lead}>
-        <Infochart num={5} label={t.stakeholders.chart.label} title={t.stakeholders.chart.title} minWidth={W}>
+        <Infochart lang={lang} num={5} label={t.stakeholders.chart.label} title={t.stakeholders.chart.title} minWidth={W}>
           <TiersChart t={t.stakeholders.chart} />
         </Infochart>
       </CaseSection>
@@ -109,7 +110,9 @@ function LifecycleChart({ t }: { t: Copy["lifecycle"]["chart"] }) {
       ))}
       {t.gateways.map((g, i) => (
         <g key={g.id}>
-          <Wire x1={gatewayX[i]} y1={60} x2={gatewayX[i]} y2={220} stroke={C.accent} dash="3 3" />
+          {/* Broken around the phase bars, so a gateway never runs through a phase label. */}
+          <Wire x1={gatewayX[i]} y1={60} x2={gatewayX[i]} y2={72} stroke={C.accent} dash="3 3" />
+          <Wire x1={gatewayX[i]} y1={128} x2={gatewayX[i]} y2={220} stroke={C.accent} dash="3 3" />
           <Badge cx={gatewayX[i]} cy={236} size={30} fill={C.accent} label={g.id} labelSize={12} />
           <T x={gatewayX[i]} y={276} anchor="middle" weight={600}>{g.title}</T>
           <Lines x={gatewayX[i]} y={296} anchor="middle" fill={C.body} lines={g.lines} />
@@ -264,7 +267,7 @@ function TiersChart({ t }: { t: Copy["stakeholders"]["chart"] }) {
         );
       })}
       <Wire x1={1054} y1={392} x2={1054} y2={28} arrow stroke={C.fg} dash="6 4" />
-      <T x={1054} y={410} anchor="middle" mono size={12} fill={C.muted}>{t.escalation}</T>
+      <T x={1080} y={410} anchor="end" mono size={12} fill={C.muted}>{t.escalation}</T>
       <Lines x={20} y={438} fill={C.body} lines={t.note} />
     </Canvas>
   );

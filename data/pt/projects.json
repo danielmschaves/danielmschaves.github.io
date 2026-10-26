@@ -1,0 +1,294 @@
+[
+  {
+    "id": "cloud-migration-enterprise",
+    "figure": 1,
+    "title": "Migração para a nuvem de uma plataforma enterprise de analytics",
+    "description": "Migração de ~200 servidores de 6 data centers legados para a AWS em 12 meses e US$ 1,2 mi — zero paradas não programadas, dentro do orçamento e do prazo fixos.",
+    "technologies": [
+      "Gestão de projetos",
+      "AWS",
+      "Migração para a nuvem",
+      "Agile",
+      "Gestão de riscos",
+      "PMI/PMBOK"
+    ],
+    "featured": true,
+    "category": "Gestão de programas e projetos",
+    "overview": "Uma migração piloto para a nuvem em uma empresa global de serviços financeiros: ~200 servidores por trás da plataforma interna de analytics, espalhados por seis data centers envelhecidos, levados para a AWS em 12 meses, com orçamento fixo de US$ 1,2 mi e zero paradas não programadas. O piloto precisava provar a viabilidade da AWS e produzir os SOPs, os registros de decisão de arquitetura e os padrões validados para a modernização enterprise que viria depois.",
+    "highlights": [
+      "Sequenciei o lift-and-shift em dez casos de uso priorizados, cada um migrado de ponta a ponta dentro de uma sprint de duas semanas",
+      "Passei cada caso de uso pelo mesmo ciclo de cinco etapas (Descoberta → Migração → Reconstrução → Validação → Cutover), com UAT como gate obrigatório de qualidade antes de qualquer cutover em produção",
+      "Planejei um Gantt de 12 meses com o Caso de Uso 1 como pathfinder estendido, os seguintes em pares paralelos e um encerramento em hypercare",
+      "Mantive um orçamento de taxa e FTEs fixos e um registro de riscos em quatro domínios, cada um com mitigações, responsáveis e um estado de sucesso mensurável",
+      "Entreguei os SOPs, os registros de decisão de arquitetura e a biblioteca de padrões que a empresa usa para escalar a mesma abordagem"
+    ],
+    "technicalApproach": "Cada caso de uso passou por Descoberta (análise de dependências, confirmação de escopo), Migração (fontes de dados para o destino na AWS), Reconstrução (lógica de processamento e de aplicação), Validação (servidor web e UAT de ponta a ponta) e Cutover (virada formal e desativação dos recursos). Um modelo de governança em dois níveis, com cerimônias e caminhos de escalonamento definidos, manteve a entrega focada.",
+    "ogTitle": "Seis data centers, uma nuvem.",
+    "accentWord": "uma nuvem.",
+    "ogLine": "12 meses · orçamento fixo de US$ 1,2 mi · zero paradas não programadas",
+    "caption": "Um quadrado por servidor — antes e depois.",
+    "alt": "Figura: seis data centers legados, cerca de 200 servidores no total, consolidados em um único ambiente AWS.",
+    "metrics": [
+      {
+        "value": "12 meses",
+        "label": "Prazo cumprido"
+      },
+      {
+        "value": "US$ 1,2 mi",
+        "label": "Orçamento fixo"
+      },
+      {
+        "value": "0",
+        "label": "Paradas não programadas"
+      }
+    ],
+    "og": "/images/og/og-01.png",
+    "eyebrow": "GESTÃO DE PROJETOS"
+  },
+  {
+    "id": "data-warehouse-modernization",
+    "figure": 2,
+    "title": "Programa de modernização de data warehouse",
+    "description": "Programa de 18 meses com preço fixo para migrar um data warehouse legado em SQL Server para Snowflake, dbt e Tableau — governado por controle formal de mudanças, gates contratuais e gestão de stakeholders em três níveis.",
+    "technologies": [
+      "Gestão de programas",
+      "Snowflake",
+      "dbt",
+      "Tableau",
+      "Governança",
+      "Controle de mudanças",
+      "Gestão de RAID"
+    ],
+    "featured": false,
+    "category": "Gestão de programas e projetos",
+    "overview": "Um programa com vários projetos para migrar o data warehouse legado em SQL Server de uma fintech dos EUA para Snowflake, dbt e Tableau. Foi desenhado em torno de três condições inegociáveis: prazo fixo de 18 meses, honorários de consultoria fixos e zero desvio de escopo, defendidas por gates formais, um parking lot e um processo explícito de controle de mudanças.",
+    "highlights": [
+      "Estruturei o programa em três fases (Iniciação, Entrega, Encerramento), cada uma terminando em um gate contratual",
+      "Passei toda adição de escopo por um Processo de Controle de Mudanças em três passos (Encaminhar → Quantificar → Decidir), para que o preço fixo nunca absorvesse nada em silêncio",
+      "Conduzi uma forma de trabalho em quatro passos (Desenvolvimento → Apresentação → Acordo formal → Execução e revisão), aprovada pelo PM do cliente",
+      "Reportei quatro KPIs ao C-level: variação de custo abaixo de 5%, 100% dos marcos cumpridos, validação de dados acima de 98% e frequência de pedidos de mudança",
+      "Mantive um log de RAID centralizado e um modelo de stakeholders em três níveis, com cadência e critérios de escalonamento definidos"
+    ],
+    "technicalApproach": "A Iniciação mapeou fontes de dados e dependências para fixar a fronteira do contrato. A Entrega começou com uma PoC para validar a abordagem e refinar estimativas e depois avançou em ciclos ágeis, com UAT obrigatório pelos analistas de dados do cliente como gate de cada release. O Encerramento confirmou a aderência ao mandato fixo e desativou o warehouse legado.",
+    "ogTitle": "Um warehouse, reconstruído sob contrato.",
+    "accentWord": "reconstruído",
+    "ogLine": "18 meses · preço fixo · stakeholders em três níveis",
+    "caption": "Formato do programa e gates contratuais (ilustrativo).",
+    "alt": "Figura: plano de um programa de 18 meses. Frentes de descoberta, Snowflake, modelos dbt, Tableau e virada, atravessando quatro gates contratuais.",
+    "metrics": [
+      {
+        "value": "18 meses",
+        "label": "Duração do programa"
+      },
+      {
+        "value": "Preço fixo",
+        "label": "Modelo comercial"
+      },
+      {
+        "value": "3 níveis",
+        "label": "Modelo de stakeholders"
+      }
+    ],
+    "og": "/images/og/og-02.png",
+    "eyebrow": "GESTÃO DE PROGRAMAS"
+  },
+  {
+    "id": "data-intelligence-platform",
+    "figure": 3,
+    "title": "Construção de uma plataforma de inteligência de dados",
+    "description": "Um projeto de 12 meses para levar uma trading de médio porte de sistemas operacionais dispersos a uma plataforma de dados unificada — data lake, data warehouse, BI e modelos preditivos, construídos do zero com um planejamento ágil híbrido.",
+    "technologies": [
+      "Gestão de projetos",
+      "Scrum + Kanban",
+      "Modern data stack",
+      "Data lake",
+      "Data warehouse",
+      "BI & modelagem preditiva",
+      "Nuvem (AWS / GCP / Azure)"
+    ],
+    "featured": false,
+    "category": "Gestão de programas e projetos",
+    "overview": "Um projeto de 12 meses que levou uma trading de médio porte de três sistemas operacionais desconectados a uma plataforma de dados unificada: data lake, data warehouse, BI e modelos preditivos, construídos do zero. Um plano anual de alto nível fixou as macrofases e os marcos, com sprints de duas semanas rodando dentro de cada fase.",
+    "highlights": [
+      "Planejei o ano em quatro marcos trimestrais que um sponsor não técnico conseguia verificar: dados na camada raw, MVP de BI entregue, solução preditiva entregue, relatório de oportunidades entregue",
+      "Introduzi um backlog em três níveis (Entregável → Atividade → Tarefa) que conecta o contrato, a conversa do time e a sprint",
+      "Rodei a Sprint 1 sem folga, como exercício de calibração, e usei a capacidade medida a partir da Sprint 2",
+      "Fechei o ano com o time treinado, um roadmap de expansão entregue e duas novas funcionalidades contratadas"
+    ],
+    "technicalApproach": "Planejamento híbrido: um plano anual de quatro fases (Planejamento, Execução do MVP, Implantação e testes, Monitoramento e relatórios), com sprints Scrum e um fluxo Kanban dentro de cada uma. O Q1 produziu o relatório de diagnóstico, a especificação do sistema e a primeira ingestão no data lake, cada um com seus próprios critérios de aceite.",
+    "ogTitle": "Sistemas dispersos, unificados.",
+    "accentWord": "unificados.",
+    "ogLine": "12 meses · 3 sistemas unificados · todos os marcos no prazo",
+    "caption": "A plataforma, camada a camada, trimestre a trimestre.",
+    "alt": "Figura: uma plataforma de dados construída em quatro trimestres — data lake, depois warehouse, camada de BI e modelos preditivos empilhados por cima.",
+    "metrics": [
+      {
+        "value": "12 meses",
+        "label": "Duração do projeto"
+      },
+      {
+        "value": "3",
+        "label": "Sistemas unificados"
+      },
+      {
+        "value": "100%",
+        "label": "Marcos no prazo"
+      }
+    ],
+    "og": "/images/og/og-03.png",
+    "eyebrow": "GESTÃO DE PROJETOS"
+  },
+  {
+    "id": "spotify-etl-aws",
+    "figure": 4,
+    "title": "Pipeline ELT do Spotify com AWS, Airflow e dbt",
+    "description": "Data lake ELT de ponta a ponta que leva dados das playlists globais do Spotify por uma arquitetura medallion de 4 etapas no AWS S3, orquestrada pelo Airflow e transformada com dbt — entregue em dashboards do Power BI.",
+    "githubUrl": "https://github.com/danielmschaves/spotify-etl-aws",
+    "technologies": [
+      "AWS",
+      "Python",
+      "Airflow",
+      "DuckDB",
+      "dbt",
+      "Terraform",
+      "Motherduck",
+      "S3",
+      "Power BI"
+    ],
+    "featured": false,
+    "category": "Engenharia de dados",
+    "overview": "Um data lake de baixo custo construído sobre a ideia do \"poor man’s data lake\" — DuckDB, Motherduck, dbt e Airflow processando dados da API do Spotify. O pipeline extrai faixas, álbuns e artistas de playlists globais populares e os leva por quatro etapas em sequência (Raw → Bronze → Silver → Gold), guardando cada uma como arquivos Parquet no AWS S3. O Airflow no Astronomer orquestra as execuções batch diárias; o dbt faz todas as transformações, com testes automatizados e documentação; o Terraform provisiona a infraestrutura no S3; e o Power BI expõe a camada analítica final.",
+    "highlights": [
+      "Desenhei uma arquitetura medallion de 4 etapas (Raw/Bronze/Silver/Gold) com DuckDB e AWS S3, mantendo o custo de infraestrutura perto de zero",
+      "Orquestrei a extração diária da API do Spotify com Astronomer e Airflow, em task groups modulares e testáveis",
+      "Provisionei buckets S3 e tabelas externas no Motherduck com Terraform, para uma infraestrutura reproduzível e definida em código",
+      "Transformei os dados com dbt-core, com testes automatizados e documentação, implantado em ambientes de dev e prod",
+      "Entreguei dashboards do Power BI prontos para análise, cobrindo tendências de playlists, alcance de artistas e métricas por faixa"
+    ],
+    "technicalApproach": "A etapa Raw ingere JSON da API do Spotify no S3. A Bronze converte o JSON bruto em Parquet com o DuckDB. A Silver aplica limpeza e enriquecimento por regras de negócio. A Gold roda modelos dbt que produzem tabelas dimensionais prontas para análise no Motherduck, consultadas diretamente pelo Power BI.",
+    "links": [],
+    "ogTitle": "Spotify, refinado em quatro passadas.",
+    "accentWord": "quatro passadas.",
+    "ogLine": "4 etapas medallion · ~US$ 0 de infraestrutura · execução diária",
+    "caption": "Cada etapa mais enxuta, mais limpa, mais perto de uma decisão.",
+    "alt": "Figura: dados da API do Spotify passando pelas etapas raw, bronze, silver e gold até o Power BI.",
+    "metrics": [
+      {
+        "value": "4",
+        "label": "Etapas medallion"
+      },
+      {
+        "value": "~US$ 0",
+        "label": "Custo de infraestrutura"
+      },
+      {
+        "value": "Diária",
+        "label": "Execução agendada"
+      }
+    ],
+    "og": "/images/og/og-04.png",
+    "eyebrow": "ENGENHARIA DE DADOS"
+  },
+  {
+    "id": "adventure-works-dbt",
+    "figure": 5,
+    "title": "Pipeline de dados Adventure Works com dbt e BigQuery",
+    "description": "Projeto de certificação em analytics engineering — um pipeline dbt em três camadas (staging, intermediate, marts) que transforma 64 tabelas de origem do SAP em modelos dimensionais prontos para análise no BigQuery.",
+    "githubUrl": "https://github.com/danielmschaves/academy-dbt-test",
+    "technologies": [
+      "dbt",
+      "BigQuery",
+      "SQL",
+      "Python",
+      "Modelagem de dados"
+    ],
+    "featured": false,
+    "category": "Engenharia de dados",
+    "overview": "Construído para a certificação Analytics Engineer da Indicium Academy, este projeto ingere e transforma dados SAP da Adventure Works com dbt Core e BigQuery. Sessenta e quatro tabelas de origem passam por três camadas: a staging padroniza e limpa os dados brutos, a intermediate aplica a lógica de transformação e prepara conjuntos prontos para join, e a marts entrega modelos dimensionais voltados ao negócio, organizados por domínio. Cada camada é coberta por testes automatizados do dbt e por documentação gerada.",
+    "highlights": [
+      "Modelei 64 tabelas de origem do SAP em um schema dimensional limpo, com a arquitetura de três camadas do dbt Core no BigQuery",
+      "Escrevi testes automatizados no dbt (not-null, unique, accepted-values) e gerei documentação em todas as camadas de modelos",
+      "Desenhei modelos da camada marts organizados por assunto de negócio, prontos para consumo por ferramentas de BI"
+    ],
+    "technicalApproach": "A camada staging cuida da padronização dos dados brutos e da conversão de tipos. A intermediate aplica a lógica de transformação e prepara os conjuntos para join. A marts entrega os modelos dimensionais finais, organizados por área de negócio.",
+    "links": [
+      {
+        "label": "Ver o dashboard",
+        "url": "https://drive.google.com/file/d/1P5sIFxPpFo0O0Vb3xIx0Xd5AipQMJtO5/preview"
+      },
+      {
+        "label": "Modelo conceitual",
+        "url": "https://drive.google.com/file/d/1ltGTRQKS7peliVuWBNowrY_ltx8IU8oJ/preview"
+      }
+    ],
+    "ogTitle": "Sessenta e quatro tabelas, três camadas.",
+    "accentWord": "três camadas.",
+    "ogLine": "64 tabelas SAP · 3 camadas dbt · todas as camadas testadas",
+    "caption": "Da dispersão de fontes a um modelo dimensional.",
+    "alt": "Figura: 64 tabelas de origem do SAP reduzidas a um único star schema pelas camadas staging, intermediate e marts.",
+    "metrics": [
+      {
+        "value": "64",
+        "label": "Tabelas de origem SAP"
+      },
+      {
+        "value": "3",
+        "label": "Camadas dbt"
+      },
+      {
+        "value": "Todas",
+        "label": "Camadas testadas"
+      }
+    ],
+    "og": "/images/og/og-05.png",
+    "eyebrow": "ANALYTICS ENGINEERING"
+  },
+  {
+    "id": "ecommerce-dbt",
+    "figure": 6,
+    "title": "Pipeline ETL de e-commerce com BigQuery e DuckDB",
+    "description": "Pipeline ETL em Python que extrai dados de e-commerce dos datasets públicos do BigQuery, valida com Pydantic, carrega no DuckDB e grava em vários destinos — CSV local, Amazon S3 e MotherDuck.",
+    "githubUrl": "https://github.com/danielmschaves/gcp-etl-dbt",
+    "technologies": [
+      "dbt",
+      "BigQuery",
+      "Python",
+      "Pydantic",
+      "DuckDB",
+      "S3",
+      "MotherDuck"
+    ],
+    "featured": false,
+    "category": "Engenharia de dados",
+    "overview": "Um pipeline ETL modular em Python construído em torno do dataset público 'thelook_ecommerce' do BigQuery. Os dados são extraídos do BigQuery, validados quanto a tipos e regras de negócio com modelos Pydantic, carregados no DuckDB para análise eficiente in-process e então gravados em um de três destinos configuráveis: arquivos CSV locais, Amazon S3 ou MotherDuck. O pipeline é formado por componentes independentes e testáveis para as interações com o BigQuery, as operações no DuckDB e a validação dos dados.",
+    "highlights": [
+      "Extraí e validei dados de e-commerce do BigQuery com modelos Pydantic, garantindo schema e tipos na ingestão",
+      "Carreguei os dados validados no DuckDB para consultas analíticas rápidas in-process, sem subir um servidor de banco de dados à parte",
+      "Construí uma camada de destinos flexível, com suporte a CSV local, Amazon S3 e MotherDuck conforme a configuração em runtime",
+      "Estruturei o pipeline em componentes Python modulares — extrator do BigQuery, loader do DuckDB, validador Pydantic e adaptadores de destino — para testes independentes e reúso"
+    ],
+    "technicalApproach": "Extrai do BigQuery usando nomes de tabela como entrada, valida os registros com modelos Pydantic, carrega no DuckDB para processamento e grava no destino configurado (CSV, S3 ou MotherDuck) conforme os parâmetros de execução.",
+    "links": [],
+    "ogTitle": "Valide uma vez, grave em qualquer lugar.",
+    "accentWord": "grave em qualquer lugar.",
+    "ogLine": "3 destinos em runtime · 4 módulos testáveis · ingestão tipada",
+    "caption": "Tipado na entrada, roteado por configuração.",
+    "alt": "Figura: linhas do BigQuery validadas pelo Pydantic, carregadas no DuckDB e roteadas para CSV, S3 ou MotherDuck.",
+    "metrics": [
+      {
+        "value": "3",
+        "label": "Destinos em runtime"
+      },
+      {
+        "value": "4",
+        "label": "Módulos testáveis"
+      },
+      {
+        "value": "Tipada",
+        "label": "Ingestão com Pydantic"
+      }
+    ],
+    "og": "/images/og/og-06.png",
+    "eyebrow": "ENGENHARIA DE DADOS"
+  }
+]

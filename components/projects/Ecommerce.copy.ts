@@ -1,6 +1,8 @@
 /* Copy for the e-commerce ETL pipeline case study, prose and chart labels included.
    Mono labels are typed in UPPERCASE here, as the Ledger content rules ask; code stays as written. */
 
+import type { Lang } from "@/lib/i18n";
+
 const en = {
   lead: "Built on BigQuery’s public thelook_ecommerce dataset, this pipeline enforces type safety via Pydantic models, processes data in-process via DuckDB, and routes results to CSV, Amazon S3, or MotherDuck based on runtime configuration — with every component independently testable.",
   facts: [
@@ -183,4 +185,185 @@ const en = {
 };
 
 export type EcommerceCopy = typeof en;
-export const copy: Record<"en", EcommerceCopy> = { en };
+const pt: EcommerceCopy = {
+  lead: "Construído sobre o dataset público thelook_ecommerce do BigQuery, este pipeline garante tipos com modelos Pydantic, processa os dados in-process com DuckDB e envia os resultados para CSV, Amazon S3 ou MotherDuck conforme a configuração em runtime — com cada componente testável de forma independente.",
+  facts: [
+    ["TIPO", "Pipeline ETL"],
+    ["ORIGEM", "BigQuery público"],
+    ["MOTOR", "DuckDB (in-process)"],
+    ["DESTINOS", "3 · CSV · S3 · MotherDuck"],
+  ],
+  tags: ["Python", "BigQuery", "Pydantic", "DuckDB", "Amazon S3", "MotherDuck", "dbt"],
+  links: [{ label: "Repositório no GitHub", href: "https://github.com/danielmschaves/gcp-etl-dbt" }],
+
+  context: {
+    kicker: "CONTEXTO & ARQUITETURA",
+    title: ["Extrair uma vez, ", "validar com rigor", ", gravar em qualquer lugar."],
+    problem: {
+      title: "O problema de desenho",
+      p1: "A maioria dos scripts de ETL junta extração, transformação e carga em um único bloco procedural — o que impede testar cada etapa de forma independente e transforma cada mudança de destino em uma cirurgia. O objetivo aqui era construir um pipeline em que cada etapa fosse um módulo Python autocontido: o extrator do BigQuery não conhece o DuckDB, o validador Pydantic não conhece o S3 e a camada de destino é escolhida em runtime, não fixada no código.",
+      p2: "O dataset de e-commerce do catálogo público do BigQuery oferece uma carga realista com várias tabelas — pedidos, itens de pedido, usuários, produtos, estoque e eventos — em um volume que exercita padrões reais de ingestão sem exigir credenciais privadas.",
+    },
+    why: {
+      title: "Por que a validação com Pydantic no meio",
+      strong: "Contratos de dados na fronteira.",
+      p1: " O extrator do BigQuery devolve dicts sem validação. Os modelos Pydantic interceptam cada registro antes de ele entrar no DuckDB, garantindo os tipos, rejeitando nulos em colunas não anuláveis e sinalizando violações de regras de negócio — tudo antes que dados ruins corrompam a camada analítica.",
+      p2: "Falhas de validação são registradas com o contexto da linha, nunca engolidas em silêncio. O pipeline pode ser configurado para parar no primeiro registro inválido (modo strict) ou colocar as linhas inválidas em quarentena e seguir (modo tolerant), conforme a sensibilidade do destino.",
+    },
+    chart: {
+      label: "FLUXO ETL DE PONTA A PONTA",
+      title: "BigQuery → Extrair → Validar → DuckDB → Destino",
+      sub: "Cada etapa é um módulo Python independente — nenhuma importa diretamente a seguinte. O destino é o único componente que muda em runtime.",
+      alt: "Fluxo ETL: dataset público do BigQuery, depois o extrator do BigQuery, o validador Pydantic e o DuckDB, que se abrem para um de três destinos escolhidos em runtime: CSV local, Amazon S3 ou MotherDuck.",
+      source: { name: "BigQuery", sub: "Dataset público", items: ["orders", "order_items · users", "products · events"] },
+      stages: [
+        { name: ["Extrator do", "BigQuery"], file: "bq_client.py", items: ["Nome da tabela como entrada", "Retorna list[dict]", "Paginação tratada", "Auth por service account"] },
+        { name: ["Validador", "Pydantic"], file: "models.py", items: ["Garantia de tipos", "Checagens de not-null", "Regras de negócio", "Modo strict ou tolerant"] },
+      ],
+      engine: { name: "DuckDB", sub: "Motor in-process", items: ["Carrega registros validados", "DB analítico em memória", "Sem servidor ocioso"] },
+      sinks: [
+        { name: "CSV local", lines: ["sink de arquivos", "dev / testes"] },
+        { name: "Amazon S3", lines: ["object storage", "integração com data lake"] },
+        { name: "MotherDuck", lines: ["DuckDB na nuvem", "endpoint de consulta analítica"] },
+      ],
+      runtime: "DESTINO DEFINIDO EM RUNTIME",
+      flag: "--sink csv | s3 | motherduck",
+    },
+  },
+
+  schema: {
+    kicker: "SCHEMA DE ORIGEM",
+    title: ["Seis tabelas do dataset público ", "thelook_ecommerce", " do BigQuery."],
+    lead: "O pipeline não depende de tabela — qualquer nome de tabela é uma entrada válida para o extrator do BigQuery. As seis tabelas abaixo representam o núcleo do domínio de e-commerce: transacional (orders, order_items), dimensional (users, products), operacional (inventory_items) e comportamental (events).",
+    chart: {
+      label: "SCHEMA DE ORIGEM — THELOOK_ECOMMERCE",
+      title: "Seis tabelas de e-commerce · colunas-chave · volume de linhas",
+      sub: "O extrator do BigQuery aceita qualquer nome de tabela deste dataset. As classes de modelo Pydantic correspondem 1-para-1 a cada tabela.",
+      alt: "Seis tabelas de origem com volume de linhas: orders cerca de 125 mil, order_items cerca de 250 mil, users cerca de 100 mil, products cerca de 29 mil, inventory_items cerca de 500 mil e events cerca de 2,5 milhões, ligadas por chaves estrangeiras a orders, users e products.",
+      tables: {
+        orders: { name: "orders", cols: ["order_id (PK)", "user_id (FK)", "status · created_at", "num_of_item", "gender · traffic_source"], rows: "~125 MIL LINHAS" },
+        orderItems: { name: "order_items", cols: ["id (PK)", "order_id (FK) · user_id (FK)", "product_id (FK)", "sale_price · status", "shipped_at · returned_at"], rows: "~250 MIL LINHAS" },
+        users: { name: "users", cols: ["id (PK)", "first_name · last_name", "email · gender · age", "country · city · state", "traffic_source · created_at"], rows: "~100 MIL LINHAS" },
+        products: { name: "products", cols: ["id (PK)", "name · brand · category", "department · sku", "retail_price · cost", "distribution_center_id"], rows: "~29 MIL LINHAS" },
+        inventory: { name: "inventory_items", cols: ["id (PK)", "product_id (FK)", "product_category", "cost · sold_at", "created_at · sold_at"], rows: "~500 MIL LINHAS" },
+        events: { name: "events", cols: ["id (PK)", "user_id (FK)", "event_type · session_id", "browser · os · ip_address", "uri · created_at"], rows: "~2,5 MI DE LINHAS" },
+      },
+      legend: { title: "LEGENDA", primary: "Alvo principal do extrator", secondary: "Secundária / dimensão", fk: "Join por foreign key" },
+    },
+  },
+
+  validation: {
+    kicker: "CAMADA DE VALIDAÇÃO COM PYDANTIC",
+    title: ["Tipos garantidos na ", "fronteira de ingestão", " — antes que um único registro entre no DuckDB."],
+    lead: "Os modelos do Pydantic v2 funcionam como contrato entre o extrator do BigQuery e o loader do DuckDB. Todo registro passa pela classe de modelo correspondente — registros inválidos são interceptados, registrados e rejeitados ou colocados em quarentena antes de corromperem a camada analítica.",
+    chart: {
+      label: "VALIDAÇÃO COM PYDANTIC — EXEMPLO DO ORDERMODEL",
+      title: "Dict de entrada → OrderModel → registro válido OU erro de validação",
+      sub: "Cada tabela de origem tem sua classe de modelo Pydantic. A validação roda registro a registro na ingestão, não em batch depois da carga.",
+      alt: "Um dict bruto do BigQuery, com valores em string e created_at nulo, passa pelo OrderModel. Registros válidos têm os tipos convertidos e são carregados no DuckDB; o created_at nulo gera um ValidationError que para o pipeline no modo strict ou coloca a linha em quarentena no modo tolerant.",
+      input: {
+        title: "Dict bruto do BigQuery",
+        lines: ["\"order_id\": \"12345\"", "\"user_id\": \"789\"", "\"status\": \"Complete\"", "\"num_of_item\": \"3\""],
+        nullLine: "\"created_at\": null",
+        nullNote: "← nulo em campo não anulável",
+        note: "strings ainda sem conversão de tipo",
+      },
+      model: {
+        title: "OrderModel (Pydantic v2)",
+        head: "class OrderModel(BaseModel):",
+        fields: ["order_id: int", "user_id: int", "status: OrderStatus", "num_of_item: int", "created_at: datetime", "gender: str | None = None"],
+        rulesTitle: "Regras de validação",
+        rules: ["coerção str → int (order_id, user_id)", "status precisa estar no enum OrderStatus", "created_at: não anulável — falha aqui", "gender: opcional, padrão None"],
+        config: ["model_config = ConfigDict(", "coerce_numbers_to_str=False)"],
+      },
+      valid: {
+        tag: "VÁLIDO",
+        title: "Registro válido → DuckDB",
+        lines: ["order_id: 12345 (int)", "status: OrderStatus.COMPLETE (enum)", "num_of_item: 3 (int) · gender: None"],
+      },
+      invalid: {
+        tag: "INVÁLIDO",
+        title: "ValidationError → log + ação",
+        code: ["ValidationError: created_at", "Input should be a valid datetime [null]"],
+        modes: ["modo strict: o pipeline para", "modo tolerant: linha em quarentena, o pipeline segue"],
+      },
+      runtime: "FLAG DE RUNTIME",
+      flag: "--mode strict | tolerant",
+    },
+  },
+
+  sinks: {
+    kicker: "DESTINOS MÚLTIPLOS",
+    title: ["Um pipeline, ", "três destinos de saída", " — escolhidos em runtime."],
+    lead: "Depois que o DuckDB processa os registros validados, o adaptador de destino grava a saída onde a execução indicar. Cada adaptador é uma classe Python separada que implementa uma interface SinkAdapter comum — trocar de destino não exige nenhuma mudança nas camadas de extração e validação.",
+    chart: {
+      label: "COMPARAÇÃO DOS DESTINOS",
+      title: "CSV · Amazon S3 · MotherDuck — quando usar cada um",
+      sub: "Cada destino é configurável de forma independente por variáveis de ambiente. O pipeline exporta resultados de consultas no DuckDB — a saída sempre vem depois da validação e do processamento no DuckDB.",
+      alt: "Três destinos comparados: o CSV grava arquivos UTF-8 na hora, para desenvolvimento local; o Amazon S3 grava Parquet com snappy em cerca de 2–5 segundos por batch, para o data lake; o MotherDuck grava tabelas DuckDB persistentes em cerca de 1–3 segundos, para consultas de BI.",
+      header: "ADAPTADOR · FORMATO DE SAÍDA · LATÊNCIA · CASO DE USO · CONFIGURAÇÃO",
+      columns: { sink: "DESTINO", format: "FORMATO", latency: "LATÊNCIA", best: "IDEAL PARA", config: "CONFIG" },
+      rows: [
+        { name: "CSV", tag: "SINK DE ARQUIVOS", format: [".csv (UTF-8)", "via DuckDB COPY"], latency: ["Imediata", "sem I/O de rede"], best: ["Desenvolvimento local · testes", "Checagens de validação de schema", "Ambientes offline"], config: ["OUTPUT_PATH=./data/", "--sink csv"] },
+        { name: "Amazon S3", tag: "OBJECT STORAGE", format: ["Parquet (snappy)", "particionado por data"], latency: ["~2–5 s", "por upload em batch"], best: ["Integração com data lake", "Glue / Athena a jusante", "Arquivamento de longo prazo"], config: ["AWS_BUCKET · AWS_KEY", "--sink s3"] },
+        { name: "MotherDuck", tag: "DUCKDB NA NUVEM", format: ["Tabela DuckDB", "persistente · consultável"], latency: ["~1–3 s", "por ATTACH + INSERT"], best: ["Endpoint de consulta analítica", "Conexão com BI (Power BI)", "Resultados persistentes e compartilháveis"], config: ["MOTHERDUCK_TOKEN=...", "--sink motherduck"] },
+      ],
+      iface: {
+        name: "Interface SinkAdapter",
+        lines: [
+          "— os três destinos implementam write(df: duckdb.DuckDBPyRelation, table_name: str) → None.",
+          "Um quarto destino não exige nenhuma mudança no extrator nem no validador.",
+        ],
+      },
+    },
+  },
+
+  modules: {
+    kicker: "ARQUITETURA DE COMPONENTES",
+    title: ["Quatro módulos independentes, ", "zero imports cruzados", " entre as etapas."],
+    lead: "Cada componente é um módulo Python com uma única interface pública. O orquestrador (main.py) é o único arquivo que importa de vários módulos — o que garante que cada componente possa ser testado isoladamente e que uma mudança em um módulo não quebre outro.",
+    stats: [
+      { value: "4", unit: "módulos Python", label: "Extrator do BigQuery, validador Pydantic, loader do DuckDB e adaptador de destinos — testáveis de forma independente" },
+      { value: "3", unit: "destinos de saída", label: "CSV, Amazon S3, MotherDuck — escolhidos em runtime pela flag --sink, sem mudar código" },
+      { value: "6", unit: "tabelas de origem", label: "orders, order_items, users, products, inventory_items, events — cada uma com sua classe de modelo Pydantic" },
+    ],
+    chart: {
+      label: "MAPA DE DEPENDÊNCIAS ENTRE MÓDULOS",
+      title: "O main.py orquestra — os módulos nunca importam uns aos outros",
+      sub: "A inversão de dependências mantém cada módulo testável de forma independente. Os testes do extrator do BigQuery usam mock do cliente BQ; os do validador Pydantic usam dicts fixos; os dos destinos usam relações DuckDB em memória.",
+      alt: "O main.py, ponto de entrada da CLI, importa quatro módulos que nunca importam uns aos outros: bq_client.py, models.py, duckdb_loader.py e sinks.py, cada um testado isoladamente.",
+      main: { name: "main.py", role: "Orquestrador · ponto de entrada da CLI", args: "argparse: --table · --sink · --mode" },
+      mods: [
+        { name: "bq_client.py", role: "Extrator do BigQuery", lines: ["fetch_table(table_name) → list[dict]", "BigQueryClient(credentials)", "mock nos testes unitários"] },
+        { name: "models.py", role: "Validador Pydantic", lines: ["OrderModel, UserModel, …", "validate(records, model_class)", "testado com dicts fixos"] },
+        { name: "duckdb_loader.py", role: "Loader do DuckDB", lines: ["load(records) → DuckDBRelation", "Cria tabelas em memória", "testado com DB em memória"] },
+        { name: "sinks.py", role: "Adaptadores de destino", lines: ["CSVSink · S3Sink · MotherDuckSink", "write(relation, table_name)", "testado com DuckDB temporário"] },
+      ],
+      rule: {
+        name: "Regra de dependências",
+        lines: [
+          "— bq_client, models, duckdb_loader e sinks nunca importam uns dos outros.",
+          "Só o main.py tem dependências entre módulos — garantido por lint de imports no CI.",
+        ],
+      },
+    },
+  },
+
+  deliverables: {
+    kicker: "ENTREGÁVEIS",
+    title: ["Uma base de código ETL reproduzível e ", "testável de forma independente", "."],
+    lead: "Todo componente vem com testes unitários, configuração por variáveis de ambiente e um README com o setup local e as credenciais exigidas por cada destino.",
+    items: [
+      { title: "Extrator do BigQuery (bq_client.py)", desc: "Extrator agnóstico de tabela usando o cliente Python do BigQuery. Retorna uma saída list[dict] validada. Autenticação por JSON de service account ou ADC." },
+      { title: "Modelos Pydantic (models.py)", desc: "Uma subclasse de BaseModel por tabela de origem. Coerção de tipos, validação de enums, garantia de nulidade e configuração dos modos strict/tolerant." },
+      { title: "Loader do DuckDB (duckdb_loader.py)", desc: "Motor analítico in-process. Recebe os registros validados, cria tabelas DuckDB em memória e expõe uma DuckDBRelation para os destinos consumirem." },
+      { title: "Adaptadores de destino (sinks.py)", desc: "CSVSink, S3Sink e MotherDuckSink — todos implementando um protocolo SinkAdapter comum. Escolhidos em runtime pela flag --sink da CLI." },
+      { title: "Suíte de testes unitários (pytest)", desc: "Testes independentes por módulo. BigQuery com mock via unittest.mock. Testes do validador com dicts válidos/inválidos fixos. Testes dos destinos com DuckDB em memória." },
+      { title: "README + template de .env", desc: "Guia de setup local, configuração da service account do GCP, credenciais da AWS, token do MotherDuck e exemplos de chamadas da CLI para cada destino." },
+    ],
+  },
+
+  quote: ["Um pipeline é tão confiável quanto os dados que entram nele. ", "Valide na fronteira", ", processe em memória e faça do destino uma decisão de execução — não uma suposição fixada no código."],
+};
+
+export const copy: Record<Lang, EcommerceCopy> = { en, pt };

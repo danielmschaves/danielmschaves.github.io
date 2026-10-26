@@ -26,6 +26,8 @@ interface NotificationData {
   email: string;
   subject: string;
   message: string;
+  /* The form's language. The notification stays in English; a Portuguese submission says where it came from. */
+  lang?: "en" | "pt";
 }
 
 export function notificationHTML(d: NotificationData) {
@@ -42,6 +44,9 @@ export function notificationHTML(d: NotificationData) {
     `<tr><td style="padding:28px 0 8px;font-size:28px;line-height:1.15;font-weight:700;letter-spacing:-0.02em;">${subject}</td></tr>` +
     `<tr><td style="padding:0 0 24px;font-size:15px;line-height:1.5;color:${EM.muted};">From <b style="color:${EM.ink};">${name}</b> · ${mailto}</td></tr>` +
     `<tr><td style="border-top:1px solid ${EM.line};padding:24px 0;font-size:16px;line-height:1.6;color:${EM.body};white-space:pre-wrap;">${message}</td></tr>` +
+    (d.lang === "pt"
+      ? `<tr><td style="padding:0 0 16px;font-family:${EM.mono};font-size:12px;letter-spacing:0.04em;color:${EM.muted};">SENT FROM /pt/contact/</td></tr>`
+      : "") +
     `<tr><td style="border-top:1px solid ${EM.line};padding-top:16px;font-family:${EM.mono};font-size:12px;letter-spacing:0.04em;color:${EM.muted};">REPLY TO THIS EMAIL TO ANSWER ${esc(d.name.toUpperCase())} DIRECTLY</td></tr>` +
     `</table></td></tr></table>`
   );

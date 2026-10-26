@@ -6,11 +6,12 @@ import PullQuote from "@/components/case/PullQuote";
 import StatStrip from "@/components/StatStrip";
 import { withAccent } from "@/components/case/accent";
 import { Badge, Box, C, Canvas, Lines, T, Wire } from "@/components/case/svg";
+import type { Lang } from "@/lib/i18n";
 import { copy } from "./CloudMigration.copy";
 
 const W = 1100;
 
-export default function CloudMigrationContent({ lang = "en" }: { lang?: "en" }) {
+export default function CloudMigrationContent({ lang }: { lang: Lang }) {
   const t = copy[lang];
 
   return (
@@ -36,13 +37,13 @@ export default function CloudMigrationContent({ lang = "en" }: { lang?: "en" }) 
       </CaseSection>
 
       <CaseSection num={2} kicker={t.approach.kicker} title={withAccent(t.approach.title)} lead={t.approach.lead}>
-        <Infochart num={1} label={t.approach.chart.label} title={t.approach.chart.title} sub={t.approach.chart.sub} minWidth={W}>
+        <Infochart lang={lang} num={1} label={t.approach.chart.label} title={t.approach.chart.title} sub={t.approach.chart.sub} minWidth={W}>
           <StepsChart t={t.approach.chart} />
         </Infochart>
       </CaseSection>
 
       <CaseSection num={3} kicker={t.schedule.kicker} title={withAccent(t.schedule.title)} lead={t.schedule.lead}>
-        <Infochart num={2} label={t.schedule.chart.label} title={t.schedule.chart.title} minWidth={W}>
+        <Infochart lang={lang} num={2} label={t.schedule.chart.label} title={t.schedule.chart.title} minWidth={W}>
           <GanttChart t={t.schedule.chart} />
         </Infochart>
       </CaseSection>
@@ -51,19 +52,19 @@ export default function CloudMigrationContent({ lang = "en" }: { lang?: "en" }) 
         <div className="pt-8">
           <StatStrip stats={t.budget.stats} label={t.budget.kicker} />
         </div>
-        <Infochart num={3} label={t.budget.chart.label} title={t.budget.chart.title} sub={t.budget.chart.sub} minWidth={W}>
+        <Infochart lang={lang} num={3} label={t.budget.chart.label} title={t.budget.chart.title} sub={t.budget.chart.sub} minWidth={W}>
           <ResourceChart t={t.budget.chart} />
         </Infochart>
       </CaseSection>
 
       <CaseSection num={5} kicker={t.risk.kicker} title={withAccent(t.risk.title)}>
-        <Infochart num={4} label={t.risk.chart.label} title={t.risk.chart.title} minWidth={W}>
+        <Infochart lang={lang} num={4} label={t.risk.chart.label} title={t.risk.chart.title} minWidth={W}>
           <RiskChart t={t.risk.chart} />
         </Infochart>
       </CaseSection>
 
       <CaseSection num={6} kicker={t.governance.kicker} title={withAccent(t.governance.title)} lead={t.governance.lead}>
-        <Infochart num={5} label={t.governance.chart.label} title={t.governance.chart.title} minWidth={W}>
+        <Infochart lang={lang} num={5} label={t.governance.chart.label} title={t.governance.chart.title} minWidth={W}>
           <GovernanceChart t={t.governance.chart} />
         </Infochart>
       </CaseSection>
@@ -138,7 +139,7 @@ function GanttChart({ t }: { t: Copy["schedule"]["chart"] }) {
 
       <T x={284} y={135} anchor="end" weight={600}>{t.rows.useCases}</T>
       {bar(1, 4, 122, C.accent, t.pathfinder)}
-      {pairs.map(([m, y], i) => bar(m, m + 1.75, y, C.accent, `UC${i + 2}`))}
+      {pairs.map(([m, y], i) => bar(m, m + 1.75, y, C.accent, `${t.ucPrefix}${i + 2}`))}
 
       <T x={284} y={389} anchor="end" weight={600}>{t.rows.closure}</T>
       {bar(10.4, 12, 376, C.accent2)}
@@ -200,6 +201,9 @@ function RiskChart({ t }: { t: Copy["risk"]["chart"] }) {
     low: { fill: C.tile, stroke: undefined, ink: C.bg },
   } as const;
   const cols = [76, 240, 500, 870];
+  const mono = (str: string) => str.length * 7.7;
+  const legendX = [44 + mono(t.legend.title)];
+  for (const k of ["high", "medium", "low"] as const) legendX.push(legendX[legendX.length - 1] + 22 + mono(t.severity[k]) + 26);
   return (
     <Canvas h={556} label={t.alt}>
       {t.head.map((h, i) => (
@@ -209,7 +213,7 @@ function RiskChart({ t }: { t: Copy["risk"]["chart"] }) {
       {t.rows.map((r, i) => {
         const top = 56 + i * 112;
         const s = sev[r.severity];
-        return (
+  return (
           <g key={r.id}>
             <Badge cx={38} cy={top + 28} size={36} fill={s.fill} stroke={s.stroke} label={r.id} ink={s.ink} labelSize={16} />
             <Lines x={cols[0]} y={top + 22} weight={600} lines={r.domain} />
@@ -223,13 +227,17 @@ function RiskChart({ t }: { t: Copy["risk"]["chart"] }) {
         );
       })}
       <T x={20} y={532} mono weight={600}>{t.legend.title}</T>
-      <Badge cx={177} cy={528} size={14} fill={sev.high.fill} />
-      <T x={192} y={532} mono fill={C.body}>{t.severity.high}</T>
-      <Badge cx={257} cy={528} size={14} fill={sev.medium.fill} stroke={sev.medium.stroke} />
-      <T x={272} y={532} mono fill={C.body}>{t.severity.medium}</T>
-      <Badge cx={355} cy={528} size={14} fill={sev.low.fill} />
-      <T x={370} y={532} mono fill={C.body}>{t.severity.low}</T>
-      <T x={430} y={532} fill={C.body}>— {t.legend.note}</T>
+      {(["high", "medium", "low"] as const).map((k, i) => {
+        /* Mono 12px at .04em runs ~7.7px a character; lay the keys out after the title. */
+        const x = legendX[i];
+        return (
+          <g key={k}>
+            <Badge cx={x + 7} cy={528} size={14} fill={sev[k].fill} stroke={k === "medium" ? sev.medium.stroke : undefined} />
+            <T x={x + 22} y={532} mono fill={C.body}>{t.severity[k]}</T>
+          </g>
+        );
+      })}
+      <T x={legendX[3]} y={532} fill={C.body}>— {t.legend.note}</T>
     </Canvas>
   );
 }
@@ -257,6 +265,8 @@ function GovernanceChart({ t }: { t: Copy["governance"]["chart"] }) {
 
       <line x1={20} y1={200} x2={1080} y2={200} stroke={C.line} strokeDasharray="4 4" />
 
+      {/* The escalation path runs behind the operational band, so the band label reads clean. */}
+      <Wire x1={550} y1={286} x2={550} y2={168} arrow stroke={C.fg} dash="6 4" />
       <Box x={20} y={226} width={1060} height={34} fill={C.accent} />
       <T x={40} y={248} mono weight={600} fill={C.onAccent}>{t.operational}</T>
       {t.bottom.map((b, i) => {
@@ -272,7 +282,6 @@ function GovernanceChart({ t }: { t: Copy["governance"]["chart"] }) {
       <Wire x1={260} y1={352} x2={440} y2={352} />
       <Wire x1={660} y1={352} x2={840} y2={352} />
 
-      <Wire x1={550} y1={286} x2={550} y2={168} arrow stroke={C.fg} dash="6 4" />
       <T x={566} y={186} mono weight={600}>{t.escalation[0]}</T>
       <T x={566} y={216} fill={C.body}>{t.escalation[1]}</T>
     </Canvas>

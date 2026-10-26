@@ -1,6 +1,8 @@
 /* Copy for the Spotify ELT pipeline case study, prose and chart labels included.
    Mono labels are typed in UPPERCASE here, as the Ledger content rules ask. */
 
+import type { Lang } from "@/lib/i18n";
+
 const en = {
   lead: "End-to-end ELT pipeline built on DuckDB, Motherduck, dbt, and Astronomer Airflow. Spotify API data flows through a Raw → Bronze → Silver → Gold medallion architecture on AWS S3, transformed by dbt into analytics-ready dimensional models, and surfaced in Power BI — with Terraform provisioning the entire infrastructure.",
   facts: [
@@ -234,4 +236,236 @@ const en = {
 };
 
 export type SpotifyELTCopy = typeof en;
-export const copy: Record<"en", SpotifyELTCopy> = { en };
+const pt: SpotifyELTCopy = {
+  lead: "Pipeline ELT de ponta a ponta construído com DuckDB, Motherduck, dbt e Astronomer Airflow. Os dados da API do Spotify passam por uma arquitetura medallion Raw → Bronze → Silver → Gold no AWS S3, são transformados pelo dbt em modelos dimensionais prontos para análise e chegam ao Power BI — com o Terraform provisionando toda a infraestrutura.",
+  facts: [
+    ["TIPO", "Pipeline ELT"],
+    ["ARQUITETURA", "Medallion · 4 camadas"],
+    ["ORQUESTRAÇÃO", "Airflow · diária"],
+    ["ORIGEM", "API do Spotify"],
+  ],
+  tags: ["AWS", "Python", "Airflow", "DuckDB", "dbt", "Terraform", "Motherduck", "S3", "Power BI"],
+  links: [{ label: "Repositório no GitHub", href: "https://github.com/danielmschaves/spotify-etl-aws" }],
+
+  context: {
+    kicker: "CONTEXTO & ARQUITETURA",
+    title: ["Um ", "data lake de custo zero", " construído sobre analytics embarcado, não sobre servidores ligados."],
+    premise: {
+      title: "A premissa do “poor man’s data lake”",
+      p1: "A maioria das arquiteturas de data lake exige subir um cluster — Spark, EMR, Redshift — que consome computação esteja processando dados ou não. O DuckDB quebra essa restrição: roda in-process, lê Parquet direto do S3 e não custa nada parado.",
+      p2: "O objetivo era provar que dá para construir um pipeline ELT sério, de nível de produção — com camadas de transformação, testes automatizados e integração com BI — sem pagar por infraestrutura ociosa. O Motherduck leva o DuckDB para a nuvem e dá ao Power BI um endpoint de consulta persistente, sem o peso de um warehouse tradicional.",
+    },
+    job: {
+      title: "O que o pipeline precisava fazer",
+      strong: "Extrair em escala.",
+      p1: " A API do Spotify expõe dados de playlists globais — faixas, álbuns, artistas — em JSON aninhado. O pipeline precisava lidar com paginação, limites de requisição e variações de schema entre os tipos de recurso.",
+      p2: "Cada payload bruto passa então por um medallion estruturado de quatro etapas — a Raw preserva a resposta original da API, a Bronze converte para Parquet, a Silver aplica a limpeza por regras de negócio e a Gold entrega modelos dimensionais prontos para análise, consultáveis direto pelo Power BI.",
+    },
+    chart: {
+      label: "ARQUITETURA MEDALLION",
+      title: "Data lake em quatro etapas: Raw → Bronze → Silver → Gold",
+      sub: "Cada etapa transforma a fidelidade — preserva o original na Raw, padroniza o formato na Bronze, enriquece na Silver e entrega modelos prontos para análise na Gold.",
+      alt: "Quatro etapas medallion no AWS S3: a Raw guarda a resposta JSON da API, a Bronze converte para Parquet tipado com o DuckDB, a Silver aplica regras de negócio e a Gold mantém tabelas dimensionais do dbt no Motherduck, lidas pelo Power BI.",
+      header: "PIPELINE ELT MEDALLION · ZONAS NO AWS S3 · BATCH DIÁRIO VIA AIRFLOW",
+      fields: { format: "FORMATO", tool: "FERRAMENTA", storage: "STORAGE" },
+      stages: [
+        { name: "Raw", format: "JSON (resposta bruta da API)", tool: "Extrator da API do Spotify", storage: "S3 · prefixo raw/", notes: ["Faixas · Álbuns · Artistas", "Playlists — pouso imutável"] },
+        { name: "Bronze", format: "Parquet (colunar)", tool: "DuckDB · JSON → Parquet", storage: "S3 · prefixo bronze/", notes: ["Schema aplicado, tipado,", "comprimido — pronto para leitura"] },
+        { name: "Silver", format: "Parquet (enriquecido)", tool: "DuckDB · regras de negócio", storage: "S3 · prefixo silver/", notes: ["Sem duplicatas, normalizado,", "nulos tratados, pronto para join"] },
+        { name: "Gold", format: "Tabelas dimensionais", tool: "dbt + Motherduck", storage: "Motherduck + S3 gold/", notes: ["O Power BI lê direto", "do endpoint do Motherduck"] },
+      ],
+      callout: "→ POWER BI",
+    },
+  },
+
+  topology: {
+    kicker: "TOPOLOGIA DO SISTEMA",
+    title: ["Nove ferramentas, ", "um pipeline coerente", " — da chamada de API ao dashboard."],
+    lead: "Cada componente tem uma única função bem definida. A API do Spotify é a única fonte da verdade. O Airflow orquestra sem ser o motor de transformação. O DuckDB processa sem rodar um servidor. O Terraform provisiona sem estado manual. A arquitetura é modular: qualquer componente pode ser trocado de forma independente.",
+    chart: {
+      label: "FLUXO DE DADOS DE PONTA A PONTA",
+      title: "Origem → Orquestração → Storage → Analytics",
+      sub: "Fluxo da esquerda para a direita: os dados nascem na API do Spotify, são orquestrados pelo Airflow, passam por quatro zonas no S3, são processados pelo DuckDB, armazenados no Motherduck e consultados pelo Power BI.",
+      alt: "Fluxo de dados: a API do Spotify alimenta quatro task groups do Airflow; eles gravam nas zonas raw, bronze e silver do S3, o DuckDB processa, o dbt constrói modelos no Motherduck, o Power BI consulta o Motherduck e o Terraform provisiona os buckets S3 e as tabelas do Motherduck.",
+      layers: { source: "ORIGEM", orchestration: "ORQUESTRAÇÃO", storage: "STORAGE (S3)", processing: "PROCESSAMENTO", warehouse: "WAREHOUSE", analytics: "ANALYTICS" },
+      spotify: { name: ["API do", "Spotify"], items: ["Faixas", "Álbuns", "Artistas", "Playlists"] },
+      airflow: {
+        name: ["Astronomer", "Airflow"],
+        schedule: "DIÁRIO · 06:00 UTC",
+        tasks: ["extract_spotify", "bronze_transform", "silver_transform", "dbt_run"],
+        notes: ["Retries do DAG: 2 · timeout: 2h", "Task groups modulares em Python", "com testes independentes"],
+      },
+      zones: [
+        { name: "S3 RAW", note: "JSON · por data" },
+        { name: "S3 BRONZE", note: "Parquet · tipado" },
+        { name: "S3 SILVER", note: "Parquet enriquecido" },
+      ],
+      duckdb: { name: "DuckDB", tags: ["IN-PROCESS", "SEM SERVIDOR"], items: ["JSON → Parquet (bronze)", "Lê do S3", "Limpa/enriquece (silver)"], note: "Sem custo ocioso" },
+      motherduck: { name: "Motherduck", tags: ["DUCKDB NA NUVEM", "TABELAS EXTERNAS"], items: ["dim_artist · dim_track", "fct_stream · fct_playlist"] },
+      terraform: { name: "TERRAFORM (IAC)", items: ["Provisiona buckets S3", "+ tabelas ext. Motherduck"] },
+      powerbi: { name: "Power BI", tags: ["CAMADA ANALÍTICA", "3 PÁGINAS DE RELATÓRIO"], items: ["Tendências de playlists", "Alcance de artistas · faixas"] },
+      dbtPath: "DBT_RUN → MOTHERDUCK",
+    },
+  },
+
+  orchestration: {
+    kicker: "ORQUESTRAÇÃO",
+    title: ["Quatro task groups modulares, ", "cada um testável de forma independente", " e com retry próprio."],
+    lead: "O DAG do Airflow é estruturado para que cada etapa do medallion corresponda a exatamente um task group. Se a transformação silver falha, os dados bronze já estão gravados e seguros — o retry roda de novo só o que falhou. Essa é a principal propriedade de resiliência que o desenho modular garante.",
+    chart: {
+      label: "ESTRUTURA DO DAG NO AIRFLOW",
+      title: "Cadeia de dependências entre task groups · diária às 06:00 UTC",
+      sub: "Cada grupo é um módulo Python autocontido — pode ser testado de forma unitária e reexecutado isoladamente, sem rodar de novo as etapas anteriores.",
+      alt: "DAG spotify_daily_dag do Airflow com quatro task groups em sequência: extract_spotify, bronze_transform, silver_transform e dbt_run. Faz dois retries; em caso de falha, só a etapa que falhou roda de novo.",
+      dag: "spotify_daily_dag",
+      schedule: "schedule: @daily · start_date: 2024-01-01 · retries: 2 · retry_delay: 5min",
+      platform: "Astronomer · Airflow 2.8",
+      groups: [
+        { name: "extract_spotify", tag: "TASK GROUP 01", steps: ["get_tracks()", "get_albums()", "get_artists()", "get_playlists()"], note: "→ JSON bruto no S3 raw/" },
+        { name: "bronze_transform", tag: "TASK GROUP 02", steps: ["read_raw_s3()", "json_to_parquet()", "enforce_schema()", "write_bronze_s3()"], note: "DuckDB · in-process" },
+        { name: "silver_transform", tag: "TASK GROUP 03", steps: ["read_bronze_s3()", "deduplicate()", "normalise_nulls()", "write_silver_s3()"], note: "DuckDB · enriquecimento" },
+        { name: "dbt_run", tag: "TASK GROUP 04 · ETAPA GOLD", steps: ["dbt run --select staging", "dbt run --select intermediate", "dbt run --select marts", "dbt test"], note: "Motherduck · targets dev + prod" },
+      ],
+      retry: {
+        title: "RETRY & ISOLAMENTO DE FALHAS",
+        lines: [
+          "Cada task group só roda depois que o grupo anterior termina com sucesso — garantido por XCom, sem acoplamento implícito de dados.",
+          "Em caso de falha, o Airflow tenta mais duas vezes. Se esgotar, os dados das zonas anteriores ficam seguros — só a etapa que falhou roda de novo.",
+        ],
+      },
+    },
+  },
+
+  transformation: {
+    kicker: "TRANSFORMAÇÃO",
+    title: ["Três camadas do dbt, cada uma com ", "cobertura de testes automatizada", "."],
+    lead: "O dbt é o motor de transformação da etapa Gold. Todo modelo é testado — as fontes têm testes de schema, os modelos de staging têm restrições de not-null e unique e os marts carregam checagens de integridade referencial. Os targets de dev e prod apontam para o Motherduck, com documentação completa gerada a cada execução.",
+    chart: {
+      label: "ARQUITETURA DE MODELOS DO DBT",
+      title: "Sources → Staging → Intermediate → Marts · com cobertura de testes automatizada",
+      alt: "Camadas do dbt e seus testes: sources com 6 testes de schema e 4 de freshness, staging com 18 de not-null e unique e 8 de accepted-values, intermediate com 12 testes, marts com 24 testes, e targets de dev e prod no Motherduck.",
+      header: "DBT-CORE · TARGET MOTHERDUCK · AMBIENTES DEV + PROD",
+      columns: { layer: "CAMADA", models: "MODELOS", coverage: "COBERTURA DE TESTES", tests: "TESTES" },
+      layers: [
+        {
+          name: "Sources",
+          sub: ["Parquet via Motherduck", "tabelas externas"],
+          models: [
+            { code: "source_spotify.tracks" },
+            { code: "source_spotify.albums" },
+            { code: "source_spotify.artists" },
+            { code: "source_spotify.playlists" },
+          ],
+          tests: [
+            { label: "Schema · not-null", share: 0.625, count: "6 testes" },
+            { label: "Checagens de freshness", share: 0.8125, count: "4 testes" },
+          ],
+        },
+        {
+          name: "Staging",
+          sub: ["modelos 1-para-1", "com a fonte"],
+          models: [
+            { code: "stg_tracks", note: "cast de tipos · renomeação · defaults de nulos" },
+            { code: "stg_albums · stg_artists · stg_playlists", note: "grão padronizado · pronto para joins" },
+          ],
+          tests: [
+            { label: "not_null · unique (todos os modelos)", share: 0.906, count: "18 testes" },
+            { label: "accepted_values", share: 0.5, count: "8 testes" },
+          ],
+        },
+        {
+          name: "Intermediate",
+          sub: ["enriquecimento por", "regras de negócio"],
+          models: [
+            { code: "int_tracks_enriched", note: "junta faixa, álbum e artista · decil de popularidade" },
+            { code: "int_playlist_tracks", note: "achata a relação aninhada playlist ↔ faixa" },
+          ],
+          tests: [{ label: "not_null · unique · relationships", share: 0.75, count: "12 testes" }],
+        },
+        {
+          name: "Marts",
+          sub: ["modelos dimensionais", "prontos para análise"],
+          models: [
+            { code: "dim_artist · dim_track · dim_album", note: "dimensões de mudança lenta · SCD tipo 1" },
+            { code: "fct_stream · fct_playlist_snapshot", note: "grão: uma linha por stream / data de snapshot" },
+          ],
+          tests: [{ label: "not_null · unique · relationships · accepted_values", share: 1, count: "24 testes" }],
+        },
+      ],
+      targets: {
+        title: "Targets dev + prod",
+        lines: ["O profiles.yml configura dois targets no Motherduck —", "dev para iterar, prod para o Power BI."],
+      },
+    },
+  },
+
+  cost: {
+    kicker: "MÉTRICAS & MODELO DE CUSTO",
+    title: ["Custo de infraestrutura quase zero — ", "sem abrir mão da qualidade de engenharia", "."],
+    lead: "O “poor man’s data lake” não é um atalho — é uma decisão de arquitetura deliberada para eliminar o custo de computação ociosa. O DuckDB só roda durante a execução do DAG. O S3 cobra só pelo storage usado. O Motherduck cobra só pelas consultas feitas.",
+    stats: [
+      { value: "4", unit: "etapas medallion", label: "Raw → Bronze → Silver → Gold, cada uma com retry e testes independentes" },
+      { value: "68", unit: "testes automatizados no dbt", label: "Checagens de schema, not-null, unique e integridade referencial em todas as camadas de modelos" },
+      { value: "US$ 0", unit: "de servidor ligado", label: "Nenhum cluster, nenhuma instância rodando — o DuckDB só consome computação durante a execução diária do DAG" },
+    ],
+    chart: {
+      label: "MODELO DE CUSTO DE INFRAESTRUTURA",
+      title: "Esta arquitetura vs. um stack tradicional de data warehouse",
+      sub: "A vantagem de custo é estrutural, não acidental — vem de eliminar a computação ociosa, não de cortar funcionalidades ou qualidade.",
+      alt: "Custo mensal estimado: um stack tradicional com Redshift, EMR, RDS e Airflow no EC2 por cerca de US$ 810 por mês, contra cerca de US$ 4 por mês com S3, DuckDB, Motherduck e Astronomer — uma redução de 200×.",
+      header: "CUSTO MENSAL ESTIMADO DE INFRAESTRUTURA (USD)",
+      total: "Total",
+      traditional: {
+        title: "Stack tradicional de data warehouse",
+        tag: "REDSHIFT + EMR + RDS + AIRFLOW EC2",
+        rows: [
+          { name: "Redshift (2 nós)", value: "~ US$ 360/mês", w: 270 },
+          { name: "EMR Spark (cluster pequeno)", value: "~ US$ 240/mês", w: 180 },
+          { name: "RDS PostgreSQL (t3.medium)", value: "~ US$ 140/mês", w: 105 },
+          { name: "Airflow no EC2 (m5.large)", value: "~ US$ 70/mês", w: 52 },
+        ],
+        sum: "US$ 810",
+        sumNote: "por mês — com ou sem dados sendo processados",
+      },
+      lean: {
+        title: "Esta arquitetura",
+        tag: "DUCKDB + S3 + MOTHERDUCK + ASTRONOMER",
+        rows: [
+          { name: "AWS S3 (10 GB de dados)", value: "~ US$ 2/mês", w: 18 },
+          { name: "DuckDB (in-process)", value: "US$ 0/mês", w: 0 },
+          { name: "Motherduck", value: "~ US$ 2/mês", w: 24 },
+          { name: "Astronomer (plano dev)", value: "~ US$ 0/mês", w: 8 },
+        ],
+        sum: "~ US$ 4",
+        sumNote: "por mês — acompanha o volume de dados",
+      },
+      badge: { title: "Custo 200× menor", line: "US$ 810/mês no tradicional → ~US$ 4/mês", note: "com a mesma qualidade de engenharia" },
+      why: {
+        title: "Por que a diferença de custo é estrutural, não acidental",
+        lines: [
+          "Stacks tradicionais pagam por capacidade ociosa 24/7. DuckDB,",
+          "S3 e Motherduck cobram só pelo que roda — mesma qualidade",
+          "de transformação, custo 200× menor.",
+        ],
+      },
+    },
+  },
+
+  deliverables: {
+    kicker: "ENTREGÁVEIS",
+    title: ["Seis artefatos — todos ", "de nível de produção e reproduzíveis", "."],
+    lead: ["O pipeline é open-source. Cada componente é autocontido, documentado e implantável de forma independente. O Terraform garante que a infraestrutura seja reproduzível com um único ", "terraform apply", "."],
+    items: [
+      { title: "DAG do Airflow (Python)", desc: "Quatro task groups modulares (extract → bronze → silver → dbt_run), com dependências passadas por XCom, lógica de retry e testes unitários independentes por grupo." },
+      { title: "Projeto dbt (staging → intermediate → marts)", desc: "68 testes automatizados em quatro camadas de modelos. Documentação gerada a cada execução. Targets de dev e prod no Motherduck configurados no profiles.yml." },
+      { title: "Módulo Terraform (IaC)", desc: "Definição dos buckets S3 com versionamento e regras de ciclo de vida. DDL das tabelas externas do Motherduck gerado automaticamente para as quatro zonas do medallion." },
+      { title: "Dashboard no Power BI (3 páginas de relatório)", desc: "Análise de tendências de playlists, alcance de artistas por mercado e métricas de streaming por faixa — tudo consultando o Motherduck direto via DirectQuery." },
+      { title: "README & registro de decisões de arquitetura", desc: "Setup local passo a passo, referência de variáveis de ambiente, configuração das credenciais da API do Spotify e a justificativa de cada decisão de desenho importante." },
+      { title: "Camada de extração com DuckDB (Python)", desc: "Módulos Python reutilizáveis para cada tipo de recurso do Spotify — lidam com paginação, back-off de limite de requisições e variações de schema entre versões da API." },
+    ],
+  },
+
+  quote: ["O melhor data lake é o que dá para ", "manter rodando", ". Embarque o motor, elimine o servidor, pague só pelo que processa — e invista a economia em qualidade de engenharia."],
+};
+
+export const copy: Record<Lang, SpotifyELTCopy> = { en, pt };

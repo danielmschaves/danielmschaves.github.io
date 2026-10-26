@@ -1,0 +1,12 @@
+[
+  { "group": "IA · ANTHROPIC", "name": "Claude Certified Architect — Professional", "issuer": "CCA-P · 2026" },
+  { "group": "IA · ANTHROPIC", "name": "Claude Certified Architect — Foundations", "issuer": "CCA-F" },
+  { "group": "IA · ANTHROPIC", "name": "Claude Certified Developer", "issuer": "CCDV-F · 2026" },
+  { "group": "IA · ANTHROPIC", "name": "Claude Certified Associate", "issuer": "2026" },
+  { "group": "DELIVERY", "name": "Project Management Professional (PMP)", "issuer": "PMI" },
+  { "group": "DELIVERY", "name": "Certified ScrumMaster (CSM)", "issuer": "Scrum Alliance" },
+  { "group": "DADOS", "name": "Analytics Engineer", "issuer": "Indicium Academy" },
+  { "group": "DADOS", "name": "Data Engineering Professional Certificate", "issuer": "IBM" },
+  { "group": "DADOS", "name": "Data Warehouse Engineer Professional Certificate", "issuer": "IBM" },
+  { "group": "DADOS", "name": "Data Science Professional Certificate", "issuer": "IBM" }
+]

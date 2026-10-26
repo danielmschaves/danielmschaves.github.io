@@ -1,6 +1,8 @@
 /* Copy for the Data Intelligence Platform case study, prose and chart labels included.
    Mono labels are typed in UPPERCASE here, as the Ledger content rules ask. */
 
+import type { Lang } from "@/lib/i18n";
+
 const en = {
   lead: "A one-year project to take a growing trading company from scattered operational systems to a unified data platform — data lake, data warehouse, BI and predictive models, all built from scratch. This was the foundation engagement where I formalized the planning cadence and sprint discipline I still use today.",
   facts: [
@@ -187,4 +189,189 @@ const en = {
 };
 
 export type DataIntelligencePlatformCopy = typeof en;
-export const copy: Record<"en", DataIntelligencePlatformCopy> = { en };
+const pt: DataIntelligencePlatformCopy = {
+  lead: "Um projeto de um ano para levar uma trading em crescimento de sistemas operacionais dispersos a uma plataforma de dados unificada — data lake, data warehouse, BI e modelos preditivos, tudo construído do zero. Foi o projeto de base em que formalizei a cadência de planejamento e a disciplina de sprints que uso até hoje.",
+  facts: [
+    ["PAPEL", "Project Manager"],
+    ["DURAÇÃO", "12 meses"],
+    ["FONTES DE DADOS", "3 sistemas"],
+    ["CAMADAS DO STACK", "DL · DW · BI · ML"],
+  ],
+  tags: ["Gestão de projetos", "Scrum + Kanban", "Modern data stack", "Data lake", "Data warehouse", "BI & modelagem preditiva", "Nuvem (AWS / GCP / Azure)"],
+
+  context: {
+    kicker: "CONTEXTO",
+    title: ["De dados operacionais dispersos a ", "uma única fonte de verdade analítica", "."],
+    start: {
+      title: "O ponto de partida",
+      p1: "O cliente — uma trading de médio porte — tocava o negócio em três sistemas operacionais que não conversavam entre si. Os relatórios eram montados à mão, a liderança decidia com números desatualizados e não havia como olhar para frente: nenhuma previsão, nenhuma modelagem de demanda, nenhuma visão preditiva do negócio.",
+      p2: "O escopo era ambicioso de propósito. Construir o stack analítico inteiro — ingestão, lake, warehouse, BI, modelos preditivos — em um único projeto de 12 meses, entregando valor visível no caminho para que a liderança sentisse o programa funcionando antes de ele terminar.",
+    },
+    challenge: {
+      title: "O desafio",
+      strong: "Um ano. Quatro fases. Valor contínuo.",
+      p1: " Um cascata puro deixaria a liderança sem nada para ver por nove meses. Um ágil puro, sem plano, perderia a coerência de arquitetura de que a plataforma precisava.",
+      p2: "A resposta foi um modelo híbrido: um plano anual de alto nível fixando as macrofases e os marcos, combinado com execução em sprints de duas semanas dentro de cada fase. Estratégia em cima. Iteração embaixo. O plano a seguir é exatamente isso — e é o modelo de planejamento em que ainda ancoro meu trabalho de delivery.",
+    },
+  },
+
+  lifecycle: {
+    kicker: "CICLO ANUAL",
+    title: ["Quatro trimestres. ", "Quatro mudanças de fase", ". Uma construção contínua."],
+    lead: "Cada trimestre tem uma fase dominante, mas as transições são suaves — o planejamento continua na execução e o monitoramento começa antes de a implantação terminar. As fronteiras abaixo mostram ênfase, não isolamento.",
+    chart: {
+      label: "LINHA DO TEMPO ANUAL",
+      title: "Quatro fases distribuídas nos 12 meses do projeto",
+      alt: "Linha do tempo com quatro trimestres e quatro fases: planejamento no Q1, execução do MVP no Q2, implantação e testes no Q3 e monitoramento e relatórios no Q4, cada uma com suas atividades-chave.",
+      quarters: ["Q1", "Q2", "Q3", "Q4"],
+      start: "INÍCIO",
+      close: "FIM",
+      phases: [
+        { title: "Planejamento", items: ["• Requisitos de negócio e técnicos", "• Escolha do provedor de nuvem", "• Arquitetura de DL/DW + BI", "• Política de acesso e governança", "• Dicionário de dados e modelos"] },
+        { title: "Execução do MVP", items: ["• Ingestão no data lake", "• Construção do MVP de BI", "• Implementação do DW + testes", "• Validação + feedback do BI", "• Base do modelo preditivo"] },
+        { title: "Implantação & testes", items: ["• Testes da modelagem preditiva", "• Implantação final do preditivo", "• Testes de integração completos"] },
+        { title: "Monitoramento & relatórios", items: ["• Monitoramento da solução", "• Treinamento e capacitação", "• Expansão de funcionalidades", "• Relatório final e aprovação"] },
+      ],
+    },
+  },
+
+  goals: {
+    kicker: "METAS TRIMESTRAIS",
+    title: ["Um marco concreto por trimestre, ", "visível de fora do time", "."],
+    lead: "Velocidade interna não é uma métrica que o cliente sente. Por isso, todo trimestre precisava terminar em algo demonstrável — algo que um stakeholder pudesse ver, clicar ou consultar.",
+    items: [
+      { q: "Q1 · FUNDAÇÃO", title: "Dados chegando ao lake", desc: "Diagnóstico e especificação do sistema concluídos; provedor de nuvem escolhido; primeiros pipelines de ingestão no ar, com dados chegando à camada raw.", milestone: "MARCO · DADOS NA CAMADA RAW" },
+      { q: "Q2 · INSIGHT", title: "MVP de BI, DW em operação", desc: "Warehouse construído e validado; MVP de BI entregue aos usuários de negócio; base da modelagem preditiva preparada para o Q3.", milestone: "MARCO · MVP DE BI ENTREGUE" },
+      { q: "Q3 · PREVISÃO", title: "Solução preditiva no ar", desc: "Modelagem validada, testes integrados aprovados e solução preditiva implantada em produção com monitoramento.", milestone: "MARCO · SOLUÇÃO PREDITIVA ENTREGUE" },
+      { q: "Q4 · SUSTENTAÇÃO", title: "Operação + relatório de oportunidades", desc: "Solução em monitoramento contínuo; time treinado; roadmap de expansão entregue; duas novas funcionalidades contratadas.", milestone: "MARCO · RELATÓRIO DE OPORTUNIDADES ENTREGUE" },
+    ],
+  },
+
+  backlog: {
+    kicker: "MODELO DE BACKLOG",
+    title: ["Três níveis de detalhe. ", "Cada um justifica seu lugar", "."],
+    lead: "Os itens de grão grosso são para o cliente e para o contrato. Os de grão fino são para o time e para a sprint. A camada do meio é onde os dois se encontram — e onde a conversa sobre escopo de fato acontece.",
+    chart: {
+      label: "HIERARQUIA DO BACKLOG",
+      title: "Entregável → atividade → tarefa",
+      sub: "Os dois níveis de cima vivem no backlog do projeto. O nível de baixo é o que entra na sprint.",
+      alt: "Hierarquia em três níveis: um entregável que o cliente aprova, duas atividades (blocos de trabalho) e quatro tarefas que entram na sprint. Os dois níveis de cima pertencem ao backlog do projeto; as tarefas ficam no backlog da sprint.",
+      projectBacklog: { tag: "BACKLOG DO PROJETO", lines: ["Entregáveis e atividades", "refinados com o time —", "o contorno do contrato."] },
+      sprintBacklog: { tag: "BACKLOG DA SPRINT", lines: ["Tarefas que o time assume", "dentro de uma janela", "de sprint de duas semanas."] },
+      deliverable: ["Entregável", "Resultado que o cliente recebe"],
+      activity: ["Atividade", "Bloco de trabalho"],
+      task: "Tarefa",
+      definitionsTitle: "DEFINIÇÃO DE CADA NÍVEL",
+      definitions: [
+        ["Entregável.", " O que o cliente aprova — a unidade do contrato."],
+        ["Atividade.", " Um bloco de trabalho dentro de um entregável; como o time agrupa o esforço."],
+        ["Tarefa.", " Uma unidade atômica que alguém do time consegue absorver em uma sprint."],
+      ],
+    },
+  },
+
+  q1: {
+    kicker: "ENTREGÁVEIS DO Q1",
+    title: ["Três entregáveis que ", "orientam todas as decisões seguintes", "."],
+    lead: "O Q1 é o trimestre de maior consequência do projeto — não porque entrega mais, mas porque toda decisão do Q2 ao Q4 se apoia nos artefatos produzidos aqui. Se eles saem errados, o resto do ano multiplica o erro.",
+    items: [
+      { title: "Relatório de diagnóstico inicial", desc: "Requisitos de negócio e técnicos, estimativas de custo de nuvem em AWS / GCP / Azure, critérios de validação da arquitetura, um dicionário de dados e uma primeira proposta de modelagem." },
+      { title: "Especificação do sistema", desc: "Requisitos finais de DL/DW, políticas de acesso e governança, arquitetura de ingestão e processamento e o provisionamento inicial da infraestrutura (buckets, clusters, VPNs, controles de acesso)." },
+      { title: "Ingestão no data lake", desc: "Serviços de ingestão para os três sistemas de origem, rotinas de transformação, modelos dimensionais e de fato no warehouse e um workshop com stakeholders para validar a abordagem." },
+      { title: "Critérios de aceite (por entregável)", desc: "Diagnóstico → aprovação do PM · especificação → aprovação do cliente · ingestão no DL → serviço em operação, validado contra a especificação." },
+    ],
+  },
+
+  allocation: {
+    kicker: "SPRINT 1 · ALOCAÇÃO DE RECURSOS",
+    title: ["A sprint um foi montada ", "apertada de propósito", "."],
+    lead: "Uma primeira sprint é também um exercício de calibração. Planejei a Sprint 1 sem folga para medir a capacidade real do time — e incorporei o aprendizado da Sprint 2 em diante. Os números abaixo são o envelope planejado; a lição sempre estaria na variação.",
+    chart: {
+      label: "ALOCAÇÃO DA SPRINT 1",
+      title: "Horas por papel em cada atividade (sprint de 2 semanas)",
+      alt: "Horas por papel na primeira sprint de duas semanas. Requisitos de negócio: data scientist 20h, data engineer 5h. Requisitos técnicos: data scientist 20h, data engineer 5h. Custo de nuvem e escolha do provedor: data engineer 10h. Kick-off do projeto: PM 10h. 70 horas no total, planejadas sem margem.",
+      head: ["ATIVIDADE", "DATA ENG. (H)", "DATA SCI. (H)", "PM (H)"],
+      rows: [
+        { title: "Requisitos de negócio", sub: "Preparação + entrevistas com stakeholders" },
+        { title: "Requisitos técnicos", sub: "Preparação + entrevistas com o time técnico" },
+        { title: "Custo de nuvem e escolha do provedor", sub: "Estudo de preços + montagem da proposta" },
+        { title: "Kick-off do projeto (PM)", sub: "Modelo, estratégia de comunicação, cronograma" },
+      ],
+      totals: { title: "Totais da Sprint 1", sub: "planejados sem folga, de propósito", unit: "h" },
+      note: [
+        "Sprint 1 = 70h comprometidas no total entre três papéis, sem margem.",
+        "O plano era medir entregue vs. comprometido — e usar a diferença no envelope de capacidade da Sprint 2.",
+        "Essa etapa de calibração hoje é padrão em todo projeto que lidero.",
+      ],
+    },
+  },
+
+  calendar: {
+    kicker: "SPRINT 1 · PLANO DIÁRIO",
+    title: ["O que o time ", "faz em cada dia", "."],
+    lead: "Uma visão semanal que mostra o ritmo: preparação no começo da semana, tempo com stakeholders no meio, discussão em grupo e documentação no fim. Duas semanas assim fecham de ponta a ponta as entrevistas de base e a proposta de nuvem.",
+    chart: {
+      label: "CALENDÁRIO DE SPRINT DE DUAS SEMANAS",
+      title: "Atividade diária por papel",
+      alt: "Agenda de duas semanas para três papéis (data scientist, data engineer, PM): preparação, pesquisa de custo de nuvem e modelos do PM de segunda a quarta; entrevistas de negócio na quinta da semana 1 e técnicas na quinta da semana 2, seguidas de discussão em grupo; documentação na sexta.",
+      weeks: ["SEMANA 1", "SEMANA 2"],
+      roles: ["DATA SCI.", "DATA ENG.", "PM"],
+      days: ["SEG", "TER", "QUA", "QUI", "SEX"],
+      w1: [
+        ["Prep. entrevista negócio", "Pesquisa custo nuvem", "Adaptação de modelos"],
+        ["Prep. entrevista negócio", "Pesquisa custo nuvem", "Plano de comunicação"],
+        ["Prep. entrevista negócio", "Rascunho da proposta", "Cronograma do projeto"],
+      ],
+      w2: [
+        ["Prep. entrevista técnica", "Pesquisa custo nuvem", "Adaptação de modelos"],
+        ["Prep. entrevista técnica", "Pesquisa custo nuvem", "Plano de comunicação"],
+        ["Prep. entrevista técnica", "Rascunho da proposta", "Cronograma do projeto"],
+      ],
+      thu: ["Entrevista de negócio", "Entrevista técnica"],
+      sync: "Discussão em grupo · resultados compartilhados com o time",
+      fri: "Documentação dos resultados · todos os papéis",
+      legendTitle: "LEGENDA",
+      legend: ["Preparação · pesquisa", "Rascunho da proposta", "Atividades do PM", "Tempo com stakeholders", "Sync do time"],
+      note: "As cerimônias do Scrum (daily, planning, review, retro) ficam fora desta visão — pertencem ao Scrum Master e não entram nas horas dos papéis.",
+    },
+  },
+
+  kanban: {
+    kicker: "FLUXO KANBAN",
+    title: ["Do backlog do projeto ao “concluído” — ", "seis colunas, um fluxo", "."],
+    lead: "O quadro espelha a hierarquia do backlog. Entregáveis e atividades ficam à esquerda, como roadmap; as tarefas refinadas avançam para a direita pelas colunas da sprint. A coluna de revisão é o mecanismo de controle de qualidade — toda tarefa passa por um segundo par de olhos antes de ser concluída.",
+    chart: {
+      label: "QUADRO KANBAN",
+      title: "Fluxo de seis colunas com um gate de qualidade",
+      alt: "Quadro kanban de seis colunas em duas zonas. Roadmap: uma coluna de backlog do projeto (diagnóstico inicial, especificação do sistema, ingestão no DL) e uma de backlog da sprint com tarefas refinadas. Execução da sprint: a fazer, em andamento, revisão (o gate de qualidade) e concluído. Toda tarefa passa pela revisão antes de ser concluída.",
+      zones: ["ROADMAP", "EXECUÇÃO DA SPRINT"],
+      columns: ["Backlog do projeto", "Backlog da sprint", "A fazer", "Em andamento", "Revisão (QC)", "Concluído"],
+      projectBacklog: ["Diagnóstico inicial", "Especificação do sistema", "Ingestão no DL", "+ atividades (refinadas)"],
+      sprintBacklog: ["Prep. entrevistas", "Entrevistas de negócio", "Pesquisa custo nuvem", "Proposta de nuvem", "Plano de comunicação"],
+      todo: [["Tarefa: levantar custos", "DE · 2h"], ["Tarefa: roteiro entrevista", "DS · 15h"]],
+      doing: [["Tarefa: spec de nuvem", "DE · 4h · em andamento"], ["Tarefa: agendar reunião", "DS · 5h · em andamento"]],
+      review: [["Tarefa: pesquisa custo v1", "DE · aguardando\nrevisão do tech ref"]],
+      done: [["Adaptação de modelos", "✓ PM · aceito"], ["Plano de comunicação v1", "✓ PM · aceito"]],
+      note: [
+        "Duas camadas de aceite — Definition of Done (interna) + Critérios de Aceite (cliente).",
+        "A DoD acelera a revisão interna; os critérios de aceite garantem que o cliente recebe exatamente o que o contrato prometeu.",
+      ],
+    },
+  },
+
+  foundation: {
+    kicker: "BASE CONSTRUÍDA",
+    title: ["O que este projeto ainda me dá, ", "anos depois", "."],
+    lead: "Olhando para trás, o valor deste projeto não foi só a plataforma que entreguei — foi o modelo de planejamento que construí no caminho. Os padrões abaixo ainda são os que ancoram meu trabalho de delivery hoje.",
+    tag: "LEVADO ADIANTE",
+    items: [
+      { title: "Backlog em três níveis como tradutor universal", body: "A hierarquia entregável / atividade / tarefa funciona porque fala com três públicos ao mesmo tempo. A camada de entregáveis é o contrato — o que o cliente aprova. A de atividades é a conversa — onde escopo e esforço são de fato negociados com o time. A de tarefas é a sprint — o que sai nesta semana. Boa parte do atrito de delivery que vi depois vem de times que fundem duas dessas camadas em uma." },
+      { title: "Primeira sprint como calibração, não como compromisso", body: "A Sprint 1 foi planejada sem folga de propósito — não porque eu esperasse que o time a cumprisse perfeitamente, mas porque eu precisava medir a diferença. Velocidade é empírica, e só se chega a um número real rodando uma primeira iteração apertada e observando o que de fato é entregue. Todo projeto que liderei depois começa do mesmo jeito." },
+      { title: "Marcos trimestrais que um stakeholder não técnico consegue verificar", body: "“A velocidade subiu” não é um marco. “Os dados estão na camada raw” é. Todo trimestre terminou em algo que o sponsor podia ver ou tocar — um dashboard funcionando, um modelo implantado, um relatório assinado. A disciplina de escrever o marco antes de desenhar o trabalho salvou mais programas da deriva do que qualquer artefato de processo que usei depois." },
+    ],
+  },
+
+  quote: ["A plataforma foi o entregável. O ", "modelo de planejamento", " foi o ativo. Todo projeto de delivery que liderei depois foi uma variação do framework que este projeto me obrigou a colocar no papel."],
+};
+
+export const copy: Record<Lang, DataIntelligencePlatformCopy> = { en, pt };

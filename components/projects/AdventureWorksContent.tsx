@@ -6,11 +6,12 @@ import PullQuote from "@/components/case/PullQuote";
 import StatStrip from "@/components/StatStrip";
 import { withAccent } from "@/components/case/accent";
 import { Box, C, Canvas, Lines, T, Wire } from "@/components/case/svg";
+import type { Lang } from "@/lib/i18n";
 import { copy } from "./AdventureWorks.copy";
 
 const W = 1100;
 
-export default function AdventureWorksContent({ lang = "en" }: { lang?: "en" }) {
+export default function AdventureWorksContent({ lang }: { lang: Lang }) {
   const t = copy[lang];
 
   return (
@@ -33,25 +34,25 @@ export default function AdventureWorksContent({ lang = "en" }: { lang?: "en" }) 
             <p className="body" style={{ color: "var(--body)" }}>{t.context.why.p2}</p>
           </div>
         </div>
-        <Infochart num={1} label={t.context.chart.label} title={t.context.chart.title} sub={t.context.chart.sub} minWidth={W}>
+        <Infochart lang={lang} num={1} label={t.context.chart.label} title={t.context.chart.title} sub={t.context.chart.sub} minWidth={W}>
           <InventoryChart t={t.context.chart} />
         </Infochart>
       </CaseSection>
 
       <CaseSection num={2} kicker={t.layers.kicker} title={withAccent(t.layers.title)} lead={t.layers.lead}>
-        <Infochart num={2} label={t.layers.chart.label} title={t.layers.chart.title} sub={t.layers.chart.sub} minWidth={W}>
+        <Infochart lang={lang} num={2} label={t.layers.chart.label} title={t.layers.chart.title} sub={t.layers.chart.sub} minWidth={W}>
           <LayersChart t={t.layers.chart} />
         </Infochart>
       </CaseSection>
 
       <CaseSection num={3} kicker={t.datasets.kicker} title={withAccent(t.datasets.title)} lead={t.datasets.lead}>
-        <Infochart num={3} label={t.datasets.chart.label} title={t.datasets.chart.title} sub={t.datasets.chart.sub} minWidth={W}>
+        <Infochart lang={lang} num={3} label={t.datasets.chart.label} title={t.datasets.chart.title} sub={t.datasets.chart.sub} minWidth={W}>
           <DatasetsChart t={t.datasets.chart} />
         </Infochart>
       </CaseSection>
 
       <CaseSection num={4} kicker={t.star.kicker} title={withAccent(t.star.title)} lead={t.star.lead}>
-        <Infochart num={4} label={t.star.chart.label} title={t.star.chart.title} sub={t.star.chart.sub} minWidth={W}>
+        <Infochart lang={lang} num={4} label={t.star.chart.label} title={t.star.chart.title} sub={t.star.chart.sub} minWidth={W}>
           <StarChart t={t.star.chart} />
         </Infochart>
       </CaseSection>
@@ -60,7 +61,7 @@ export default function AdventureWorksContent({ lang = "en" }: { lang?: "en" }) 
         <div className="pt-8">
           <StatStrip stats={t.tests.stats} label={t.tests.kicker} />
         </div>
-        <Infochart num={5} label={t.tests.chart.label} title={t.tests.chart.title} sub={t.tests.chart.sub} minWidth={W}>
+        <Infochart lang={lang} num={5} label={t.tests.chart.label} title={t.tests.chart.title} sub={t.tests.chart.sub} minWidth={W}>
           <TestsChart t={t.tests.chart} />
         </Infochart>
       </CaseSection>

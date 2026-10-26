@@ -1,0 +1,185 @@
+{
+  "nav": {
+    "work": "Trabalhos",
+    "resume": "Currículo",
+    "services": "Serviços",
+    "contact": "Contato",
+    "primary": "Principal",
+    "language": "Idioma"
+  },
+  "theme": {
+    "dark": "ESCURO",
+    "light": "CLARO",
+    "toLight": "Mudar para o modo claro",
+    "toDark": "Mudar para o modo escuro"
+  },
+  "hero": {
+    "eyebrow": "PROGRAM MANAGER · DADOS & IA · FLORIANÓPOLIS, BR · REMOTO",
+    "title": "Levo programas enterprise de dados e IA do piloto à produção — e a",
+    "accent": "resultados de negócio.",
+    "lead": "Program Manager na phData, liderando o delivery de várias frentes em plataformas de dados modernas para grandes empresas dos EUA. Antes, cuidei de contas de dados e IA do setor farmacêutico na América Latina e na EMEA — e comecei gerenciando programas de P&D no setor de energia.",
+    "ctaWork": "Ver trabalhos selecionados",
+    "ctaResume": "Baixar currículo",
+    "ctaResumeFallback": "Baixar currículo (inglês)"
+  },
+  "stats": [
+    {
+      "value": "10 → 30+",
+      "label": "FTEs — portfólio de delivery 3× maior"
+    },
+    {
+      "value": "~4.000",
+      "label": "Horas de serviço por mês, no pico"
+    },
+    {
+      "value": "4,7",
+      "unit": "CSAT",
+      "label": "Em 12 projetos enterprise simultâneos"
+    },
+    {
+      "value": "4×",
+      "label": "Entrega mais rápida com um fluxo apoiado por IA"
+    }
+  ],
+  "sections": {
+    "work": "Trabalhos selecionados",
+    "workAside": "6 ESTUDOS DE CASO",
+    "capabilities": "Competências",
+    "capabilitiesAside": "DELIVERY · DADOS · IA",
+    "stack": "STACK",
+    "experience": "Experiência",
+    "experienceIntro": "Delivery de programas, plataformas de dados e IA — do mais recente ao mais antigo.",
+    "education": "Formação",
+    "languages": "IDIOMAS",
+    "credentials": "Certificações",
+    "credentialsIntro": "Anthropic, PMI e os programas de engenharia de dados por trás do trabalho.",
+    "skills": "Habilidades técnicas"
+  },
+  "filters": {
+    "all": "Todos",
+    "pm": "Gestão de programas e projetos",
+    "de": "Engenharia de dados",
+    "label": "Filtrar projetos"
+  },
+  "row": {
+    "overview": "VISÃO GERAL",
+    "approach": "ABORDAGEM TÉCNICA",
+    "stack": "STACK",
+    "readCase": "Ler o estudo de caso →",
+    "github": "Ver no GitHub ↗",
+    "featured": "DESTAQUE"
+  },
+  "metrics": {
+    "timeline": "Prazo cumprido",
+    "budget": "Orçamento fixo",
+    "downtime": "Paradas não programadas"
+  },
+  "dates": {
+    "present": "ATUAL"
+  },
+  "languagesList": {
+    "pt": "Português",
+    "en": "Inglês",
+    "es": "Espanhol",
+    "native": "NATIVO",
+    "fluent": "FLUENTE",
+    "intermediate": "INTERMEDIÁRIO"
+  },
+  "credGroups": {
+    "ai": "IA · ANTHROPIC",
+    "delivery": "DELIVERY",
+    "data": "DADOS"
+  },
+  "resume": {
+    "eyebrow": "CURRÍCULO · PROGRAM MANAGER · DADOS & IA",
+    "download": "Baixar PDF",
+    "downloadFallback": "Baixar PDF (inglês)"
+  },
+  "services": {
+    "title": "Serviços",
+    "intro": "Três formas como ajudo times enterprise a levar dados e IA do piloto à produção.",
+    "ctaContact": "Iniciar uma conversa",
+    "ctaResume": "Ver o currículo",
+    "eyebrow": "SERVIÇOS · DELIVERY · DADOS · IA"
+  },
+  "case": {
+    "back": "TODOS OS TRABALHOS",
+    "role": "PAPEL",
+    "duration": "DURAÇÃO",
+    "budget": "ORÇAMENTO",
+    "scope": "ESCOPO",
+    "infochart": "INFOGRÁFICO",
+    "scroll": "ROLE →",
+    "deliverables": "ENTREGÁVEIS"
+  },
+  "contact": {
+    "title": "Contato",
+    "intro": "Aberto a conversas sobre delivery de dados e IA: programas, times e plataformas.",
+    "direct": "OU ESCREVA DIRETAMENTE",
+    "send": "Enviar mensagem"
+  },
+  "form": {
+    "name": "NOME",
+    "email": "E-MAIL",
+    "subject": "ASSUNTO",
+    "message": "MENSAGEM",
+    "phName": "Seu nome",
+    "phEmail": "voce@empresa.com",
+    "phSubject": "Sobre o que é?",
+    "phMessage": "Algumas linhas sobre o programa, o time ou a pergunta.",
+    "inbox": "VAI DIRETO PARA A MINHA CAIXA DE ENTRADA",
+    "submit": "Enviar mensagem",
+    "sending": "Enviando…",
+    "sentLead": "Enviada.",
+    "sent": "Obrigado — respondo em até dois dias úteis.",
+    "failedLead": "Não enviada.",
+    "failed": "Algo deu errado. Tente de novo ou me escreva diretamente.",
+    "captcha": "Conclua a verificação CAPTCHA.",
+    "errName": "O nome precisa ter pelo menos 2 caracteres.",
+    "errEmail": "Informe um e-mail válido.",
+    "errSubject": "O assunto precisa ter pelo menos 5 caracteres.",
+    "errMessage": "A mensagem precisa ter pelo menos 10 caracteres.",
+    "captchaFailed": "A verificação CAPTCHA falhou. Tente de novo.",
+    "captchaError": "Não foi possível verificar o CAPTCHA. Tente de novo.",
+    "checkFields": "Confira os campos destacados.",
+    "sendFailed": "Não foi possível enviar o e-mail. Tente mais tarde.",
+    "captchaMissing": "CAPTCHA NÃO CONFIGURADO — DEFINA NEXT_PUBLIC_TURNSTILE_SITE_KEY"
+  },
+  "footer": {
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "resume": "Currículo",
+    "place": "Florianópolis, Brasil · UTC−3"
+  },
+  "notFound": {
+    "eyebrow": "NÃO ENCONTRADA",
+    "text": "Esta página não existe ou mudou de endereço.",
+    "home": "Voltar ao início →",
+    "caseText": "Este estudo de caso não existe ou mudou de endereço.",
+    "allWork": "Todos os trabalhos →"
+  },
+  "meta": {
+    "title": "Daniel Chaves — Program Manager, Dados & IA",
+    "description": "Program Manager que leva programas enterprise de dados e IA do piloto à produção — plataformas de dados modernas, ML e GenAI, nos EUA, na América Latina e na EMEA.",
+    "resumeTitle": "Currículo",
+    "resumeDescription": "Currículo de Daniel Chaves, Program Manager de programas enterprise de dados e IA.",
+    "servicesTitle": "Serviços",
+    "servicesDescription": "Gestão de programas enterprise de dados e IA: liderança de delivery, arquitetura de plataformas de dados e delivery de IA e GenAI do piloto à produção.",
+    "contactTitle": "Contato",
+    "contactDescription": "Fale comigo sobre programas de dados e IA, liderança de delivery ou parcerias.",
+    "notFoundTitle": "Projeto não encontrado",
+    "ogLocale": "pt_BR"
+  },
+  "accountsLine": {
+    "label": "CONTAS SELECIONADAS",
+    "items": [
+      "NOVO NORDISK",
+      "BAYER",
+      "NOS EUA, NA AMÉRICA LATINA E NA EMEA"
+    ]
+  },
+  "langNames": {
+    "en": "English",
+    "pt": "Português"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "deliveryLeadership": {
+    "title": "Delivery & liderança",
+    "skills": [
+      "Responsável por contas enterprise na América Latina e na EMEA, conduzindo a entrega de valor, a satisfação do cliente e as renovações de contrato nos setores farmacêutico e de tecnologia.",
+      "Gestão de stakeholders executivos e consultoria estratégica — traduzo necessidades de negócio em roadmaps de delivery de vários trimestres e assessoro o C-level e a liderança sênior.",
+      "Gestão de portfólio e de recursos em escala, com responsabilidade por P&L, pela economia dos projetos e pelo crescimento de times, de uma operação inicial a organizações de delivery com mais de 30 FTEs.",
+      "Liderança de delivery multicultural na América Latina e na EMEA, com metodologias híbridas (ágeis e preditivas) e gestão de riscos e escalonamentos em programas enterprise complexos."
+    ]
+  },
+  "dataPlatform": {
+    "title": "Plataforma de dados & arquitetura",
+    "skills": [
+      "Ampla experiência desenhando e supervisionando plataformas de dados modernas em nuvem (AWS, GCP, Azure), incluindo data lakes, data warehouses e data marts para clientes enterprise.",
+      "Histórico comprovado liderando migrações de sistemas de dados legados para arquiteturas modernas, com frameworks robustos de governança que garantem qualidade, conformidade e confiabilidade dos dados.",
+      "Domínio das ferramentas de plataforma de dados — dbt, Dagster, Airflow, Snowflake e Databricks — tanto na engenharia hands-on quanto na liderança de delivery, em mais de 10 projetos de ponta a ponta.",
+      "Base sólida em modelagem de dados, processos ETL/ELT e desenvolvimento de pipelines, garantindo fluxo e transformação de dados eficientes em escala."
+    ]
+  },
+  "aiDelivery": {
+    "title": "Delivery de IA & GenAI",
+    "skills": [
+      "Construo, na phData, agentes de IA que automatizam fluxos-chave de gestão de programas, tirando o foco do trabalho operacional e colocando-o nos resultados de negócio.",
+      "Estruturei e lancei ofertas de serviços de IA — agentes inteligentes, modelos de ML, GenAI e chatbots — que contribuíram diretamente para a expansão de contas enterprise.",
+      "Desenhei um fluxo de planejamento e execução apoiado por IA para uma migração de dados, integrando IA na descoberta, na modelagem e na validação e acelerando a entrega em 4×.",
+      "Levei aplicações de ML, GenAI e agentes à produção para clientes farmacêuticos na América Latina e na EMEA."
+    ]
+  },
+  "technical": {
+    "title": "Habilidades técnicas",
+    "categories": {
+      "Ferramentas de gestão de projetos": ["Project Professional", "Project Online", "Azure DevOps", "Jira Cloud"],
+      "Linguagens de programação": ["Python", "SQL", "NoSQL"],
+      "Engenharia de dados": ["dbt", "Airflow", "Dagster", "Spark", "Kafka", "ETL/ELT"],
+      "Plataformas de nuvem": ["AWS", "GCP", "Azure"],
+      "Bancos de dados": ["Snowflake", "BigQuery", "PostgreSQL", "MySQL", "DuckDB"],
+      "Visualização de dados": ["Power BI", "Tableau", "Looker", "Streamlit"],
+      "IA/ML": ["Machine learning", "TensorFlow", "PyTorch", "Scikit-learn"],
+      "DevOps": ["Docker", "Terraform", "Git"]
+    }
+  },
+  "languages": {
+    "title": "Idiomas",
+    "list": ["Português (Nativo)", "Inglês (Fluente)", "Espanhol (Intermediário)"]
+  }
+}

@@ -3,15 +3,18 @@
 import { Resend } from "resend";
 import { z } from "zod";
 import { notificationHTML } from "@/lib/email";
+import { getDictionary, isLang, type Dictionary } from "@/lib/i18n";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 
-const ContactSchema = z.object({
-    name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-    email: z.string().email({ message: "Please enter a valid email address." }),
-    subject: z.string().min(5, { message: "Subject must be at least 5 characters." }),
-    message: z.string().min(10, { message: "Message must be at least 10 characters." }),
-});
+/* Validation messages come from the visitor's language (the form posts a hidden `lang`). */
+function contactSchema(t: Dictionary["form"]) {
+    return z.object({
+        name: z.string().min(2, { message: t.errName }),
+        email: z.string().email({ message: t.errEmail }),
+        subject: z.string().min(5, { message: t.errSubject }),
+        message: z.string().min(10, { message: t.errMessage }),
+    });
+}
 
 export type ContactState = {
     success: boolean;
@@ -25,11 +28,31 @@ export type ContactState = {
 };
 
 export async function sendEmail(prevState: ContactState, formData: FormData): Promise<ContactState> {
+    const rawLang = String(formData.get("lang") ?? "en");
+    const lang = isLang(rawLang) ? rawLang : "en";
+    const t = getDictionary(lang).form;
+
+    /* Fields first: it is the cheaper check, and the visitor sees what to fix even before the CAPTCHA resolves. */
+    const validatedFields = contactSchema(t).safeParse({
+        name: formData.get("name"),
+        email: formData.get("email"),
+        subject: formData.get("subject"),
+        message: formData.get("message"),
+    });
+
+    if (!validatedFields.success) {
+        return {
+            success: false,
+            message: t.checkFields,
+            errors: validatedFields.error.flatten().fieldErrors,
+        };
+    }
+
     const token = formData.get("cf-turnstile-response");
     if (!token) {
         return {
             success: false,
-            message: "Please complete the CAPTCHA check.",
+            message: t.captcha,
         };
     }
 
@@ -47,59 +70,47 @@ export async function sendEmail(prevState: ContactState, formData: FormData): Pr
         if (!outcome.success) {
             return {
                 success: false,
-                message: "CAPTCHA verification failed. Please try again.",
+                message: t.captchaFailed,
             };
         }
     } catch (error) {
         console.error("Turnstile verification error:", error);
         return {
             success: false,
-            message: "Failed to verify CAPTCHA. Please try again.",
-        };
-    }
-
-    const validatedFields = ContactSchema.safeParse({
-        name: formData.get("name"),
-        email: formData.get("email"),
-        subject: formData.get("subject"),
-        message: formData.get("message"),
-    });
-
-    if (!validatedFields.success) {
-        return {
-            success: false,
-            message: "Please check the highlighted fields.",
-            errors: validatedFields.error.flatten().fieldErrors,
+            message: t.captchaError,
         };
     }
 
     const { name, email, subject, message } = validatedFields.data;
 
     try {
+        /* Created per send: the constructor throws without RESEND_API_KEY, which would break
+           field validation in environments that have no key (local runs, previews, tests). */
+        const resend = new Resend(process.env.RESEND_API_KEY);
         const data = await resend.emails.send({
             from: "Portfolio Contact <contact@danielmschaves.com>",
             to: ["danielmschaves@gmail.com"],
             subject: `New Message from ${name}: ${subject}`,
             replyTo: email,
-            html: notificationHTML({ name, email, subject, message }),
+            html: notificationHTML({ name, email, subject, message, lang }),
         });
 
         if (data.error) {
             return {
                 success: false,
-                message: "Failed to send email. Please try again later.",
+                message: t.sendFailed,
             };
         }
 
         return {
             success: true,
-            message: "Thanks — I’ll get back to you within two working days.",
+            message: t.sent,
         };
     } catch (error) {
         console.error("Error sending email:", error);
         return {
             success: false,
-            message: "Something went wrong. Please try again, or email me directly.",
+            message: t.failed,
         };
     }
 }

@@ -5,7 +5,6 @@ import { z } from "zod";
 import { notificationHTML } from "@/lib/email";
 import { getDictionary, isLang, type Dictionary } from "@/lib/i18n";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 /* Validation messages come from the visitor's language (the form posts a hidden `lang`). */
 function contactSchema(t: Dictionary["form"]) {
@@ -32,6 +31,22 @@ export async function sendEmail(prevState: ContactState, formData: FormData): Pr
     const rawLang = String(formData.get("lang") ?? "en");
     const lang = isLang(rawLang) ? rawLang : "en";
     const t = getDictionary(lang).form;
+
+    /* Fields first: it is the cheaper check, and the visitor sees what to fix even before the CAPTCHA resolves. */
+    const validatedFields = contactSchema(t).safeParse({
+        name: formData.get("name"),
+        email: formData.get("email"),
+        subject: formData.get("subject"),
+        message: formData.get("message"),
+    });
+
+    if (!validatedFields.success) {
+        return {
+            success: false,
+            message: t.checkFields,
+            errors: validatedFields.error.flatten().fieldErrors,
+        };
+    }
 
     const token = formData.get("cf-turnstile-response");
     if (!token) {
@@ -66,24 +81,12 @@ export async function sendEmail(prevState: ContactState, formData: FormData): Pr
         };
     }
 
-    const validatedFields = contactSchema(t).safeParse({
-        name: formData.get("name"),
-        email: formData.get("email"),
-        subject: formData.get("subject"),
-        message: formData.get("message"),
-    });
-
-    if (!validatedFields.success) {
-        return {
-            success: false,
-            message: t.checkFields,
-            errors: validatedFields.error.flatten().fieldErrors,
-        };
-    }
-
     const { name, email, subject, message } = validatedFields.data;
 
     try {
+        /* Created per send: the constructor throws without RESEND_API_KEY, which would break
+           field validation in environments that have no key (local runs, previews, tests). */
+        const resend = new Resend(process.env.RESEND_API_KEY);
         const data = await resend.emails.send({
             from: "Portfolio Contact <contact@danielmschaves.com>",
             to: ["danielmschaves@gmail.com"],

@@ -4,12 +4,12 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const inter = localFont({
+const interTight = localFont({
   src: [
-    { path: "../public/fonts/Inter-Regular.woff2",   weight: "400", style: "normal" },
-    { path: "../public/fonts/Inter-Medium.woff2",    weight: "500", style: "normal" },
-    { path: "../public/fonts/Inter-SemiBold.woff2",  weight: "600", style: "normal" },
-    { path: "../public/fonts/Inter-Bold.woff2",      weight: "700", style: "normal" },
+    { path: "../public/fonts/InterTight-400.woff2", weight: "400", style: "normal" },
+    { path: "../public/fonts/InterTight-500.woff2", weight: "500", style: "normal" },
+    { path: "../public/fonts/InterTight-600.woff2", weight: "600", style: "normal" },
+    { path: "../public/fonts/InterTight-700.woff2", weight: "700", style: "normal" },
   ],
   variable: "--font-sans",
   display: "swap",
@@ -17,9 +17,8 @@ const inter = localFont({
 
 const jetbrainsMono = localFont({
   src: [
-    { path: "../public/fonts/JetBrainsMono-Regular.woff2",  weight: "400", style: "normal" },
-    { path: "../public/fonts/JetBrainsMono-Medium.woff2",   weight: "500", style: "normal" },
-    { path: "../public/fonts/JetBrainsMono-SemiBold.woff2", weight: "600", style: "normal" },
+    { path: "../public/fonts/JetBrainsMono-400.woff2", weight: "400", style: "normal" },
+    { path: "../public/fonts/JetBrainsMono-500.woff2", weight: "500", style: "normal" },
   ],
   variable: "--font-mono",
   display: "swap",
@@ -78,7 +77,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${inter.variable} ${jetbrainsMono.variable}`}
+      className={`dark ${interTight.variable} ${jetbrainsMono.variable}`}
     >
       <body className="font-sans">
         <Header />

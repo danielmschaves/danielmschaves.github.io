@@ -14,6 +14,15 @@
     ],
     "featured": true,
     "category": "Project Management",
+    "overview": "A pilot cloud migration for a global financial services enterprise: ~200 servers behind its internal data analytics platform, spread across six aging data centers, moved to AWS in 12 months on a $1.2M fixed budget with zero unscheduled downtime. The pilot had to prove AWS feasibility and produce the SOPs, architecture decision records and validated patterns for the larger enterprise modernization to follow.",
+    "highlights": [
+      "Sequenced the lift-and-shift as ten prioritized use cases, each migrated end to end inside a two-week sprint",
+      "Ran every use case through the same five-step cycle (Discover → Move → Rebuild → Validate → Cutover), with UAT as a mandatory quality gate before any production cutover",
+      "Planned a 12-month Gantt with Use Case 1 as an extended pathfinder, later use cases in parallel pairs, and a hypercare close-out",
+      "Held a fixed-rate, fixed-FTE budget envelope and a risk register of four domains, each with mitigations, owners and a measurable success state",
+      "Delivered the SOPs, architecture decision records and pattern library the enterprise uses to scale the same approach"
+    ],
+    "technicalApproach": "Each use case moved through Discover (dependency analysis, scope confirmation), Move (data sources to the AWS target), Rebuild (processing and application logic), Validate (web server plus end-to-end UAT) and Cutover (formal cutover and resource retirement). A two-tier governance model with defined ceremonies and escalation paths kept delivery focused.",
     "ogTitle": "Six data centers, one cloud.",
     "accentWord": "one cloud.",
     "ogLine": "12 months · $1.2M fixed budget · zero unscheduled downtime",

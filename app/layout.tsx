@@ -24,6 +24,9 @@ const jetbrainsMono = localFont({
   display: "swap",
 });
 
+const themeScript =
+  "try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}";
+
 export const metadata: Metadata = {
   title: "Daniel Chaves - Delivery Manager & Data Engineer",
   description:
@@ -77,9 +80,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${interTight.variable} ${jetbrainsMono.variable}`}
+      data-theme="dark"
+      suppressHydrationWarning
+      className={`${interTight.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="font-sans">
+      <head>
+        {/* Apply a stored theme before first paint so a light reload never flashes dark. */}
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body className="lg font-sans">
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />

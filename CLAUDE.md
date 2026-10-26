@@ -76,6 +76,7 @@ Dark by default, light behind a toggle. Hairline rules instead of boxes, numbere
 - **Component styles** are the design system's `bundle.css`, pasted under `@layer components` with `lg-` class names. Tailwind purges component classes it can't find in source, so always write `lg-` class names literally (no template-built names).
 - **Tailwind** maps the same tokens (`bg-bg`, `text-muted`, `border-line`, …); radii are `none`/`pill`/`full` only; no shadows or gradients.
 - **Figures**: each project has `figure: 1–6` in `projects.json`; render `<Figure n={…} />`. Static exports are in `public/images/covers/`, social cards in `public/images/og/`.
+- **Deliberate deviation**: Ledger v2's SiteFooter puts the contact form on every page. Here the form lives only on `/contact` (other pages show a "Send a message" button), so Turnstile loads once. Pending the design-system update.
 - **Voice**: sentence case, mono labels in UPPERCASE in the copy, `·` separators, no emoji or exclamation marks, numbers exactly as on the résumé.
 
 ---

@@ -16,8 +16,7 @@ export default function SectionHeading({ title, aside, intro, as: Tag = "h2", id
       </Tag>
       {aside && <span className="lg-mono lg-muted">{aside}</span>}
       {intro && (
-        /* Full-width wrapper so the intro always breaks under the title; the p keeps its measure. */
-        <div style={{ flexBasis: "100%" }}>
+        <div className="lg-section__intro-wrap">
           <p className="lg-section__intro">{intro}</p>
         </div>
       )}

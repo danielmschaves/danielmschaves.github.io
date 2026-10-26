@@ -5,55 +5,42 @@ import SectionHeading from "@/components/SectionHeading";
 import { siteConfig } from "@/config/site";
 
 interface SiteFooterProps {
-  /* /contact renders the form (and loads Turnstile); every other page links to it. */
+  /* /contact renders the form (and loads Turnstile) and makes the title its h1;
+     every other page links to /contact instead. Ledger v2 puts the form on every
+     page — this is the one deliberate deviation, pending the design-system update. */
   withForm?: boolean;
 }
 
 export default function SiteFooter({ withForm = false }: SiteFooterProps) {
   const { email, linkedin, github } = siteConfig.links;
-  const emailLink = (
-    <a
-      href={`mailto:${email}`}
-      className="body-sm"
-      style={{ fontWeight: 600, borderBottom: "2px solid var(--accent)", wordBreak: "break-word" }}
-    >
-      {email}
-    </a>
-  );
 
   return (
-    <footer className="lg-section lg-container" id="contact" style={{ paddingBottom: 48 }}>
+    <footer className="lg-section lg-container lg-footer" id="contact">
       <div className="lg-split">
         <div>
           <SectionHeading
             as={withForm ? "h1" : "h2"}
             title="Contact"
-            intro={
-              withForm
-                ? "Open to conversations on data & AI delivery. The form goes straight to my inbox."
-                : "Open to conversations on data & AI delivery."
-            }
+            intro="Open to conversations on data & AI delivery: programs, teams and platforms."
           />
-          {withForm && (
-            <>
-              <div className="lg-label">OR WRITE DIRECTLY</div>
-              {emailLink}
-            </>
+          <div className="lg-footer__direct">
+            <div className="lg-label">OR WRITE DIRECTLY</div>
+            <a className="lg-footer__mail" href={`mailto:${email}`}>
+              {email}
+            </a>
+          </div>
+        </div>
+        <div>
+          {withForm ? (
+            <ContactForm />
+          ) : (
+            <div className="border-t border-line-strong pt-6">
+              <Button variant="primary" href="/contact/">
+                Send a message
+              </Button>
+            </div>
           )}
         </div>
-        {withForm ? (
-          <ContactForm />
-        ) : (
-          <div className="flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-line-strong pt-6">
-            <Button variant="primary" href="/contact/">
-              Send a message
-            </Button>
-            <div>
-              <div className="lg-label">OR WRITE DIRECTLY</div>
-              {emailLink}
-            </div>
-          </div>
-        )}
       </div>
       <div className="lg-footer__bar">
         <span>

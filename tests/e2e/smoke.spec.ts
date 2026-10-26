@@ -24,3 +24,11 @@ test("404 page renders for unknown route", async ({ page }) => {
   await page.goto("/this-does-not-exist");
   await expect(page.getByRole("heading", { name: /404/i })).toBeVisible();
 });
+
+test("contact form keeps submit disabled until the CAPTCHA passes", async ({ page }) => {
+  await page.goto("/contact");
+  for (const label of ["NAME", "EMAIL", "SUBJECT", "MESSAGE"]) {
+    await expect(page.getByLabel(label)).toBeVisible();
+  }
+  await expect(page.getByRole("button", { name: /send message/i })).toBeDisabled();
+});

@@ -6,7 +6,7 @@ Personal portfolio website for Daniel Chaves (Program Manager, Data & AI).
 Built with **Next.js 14 App Router**, **TypeScript** and **Tailwind CSS** on the **Ledger** design system
 (https://claude.ai/artifact/U1Q5bDvQkBEHKJszP9GFVK — README.md and implementation.md).
 
-Deployed as a static site to GitHub Pages at `danielmschaves.github.io`.
+Deployed on Vercel (Node runtime: the contact form is a server action). The GitHub Pages workflow is kept as `.github/workflows/deploy.yml.disabled`.
 
 ---
 
@@ -40,10 +40,12 @@ app/                  # Next.js App Router pages
 components/           # Ledger components (TSX ports of the design system bundle, lg- classes)
   SiteHeader.tsx, ThemeToggle.tsx, Hero.tsx, StatStrip.tsx, SectionHeading.tsx
   FeaturedCase.tsx, WorkLedger.tsx, FilterPills.tsx, ProjectRow.tsx
-  ExperienceList.tsx, ExperienceItem.tsx, Education.tsx, CredentialGrid.tsx
+  ExperienceList.tsx, ExperienceItem.tsx, CredentialGrid.tsx
+  PageHeader.tsx, AccountsLine.tsx, LedgerList.tsx
   Capabilities.tsx, ContactForm.tsx, SiteFooter.tsx, Button.tsx, Chip.tsx, Icons.tsx
   figures/Figure.tsx  # The six case-study figures, drawn as theme-following SVG
-  projects/*Content.tsx  # Long-form case-study bodies
+  case/               # Case-study kit: CaseIntro, CaseSection, Infochart, FactStrip, NumberedGrid, PullQuote, svg.tsx chart primitives
+  projects/*Content.tsx  # Long-form case-study bodies; their prose and chart labels live in the sibling *.copy.ts
 
 data/                 # JSON content files (acts as lightweight CMS)
   projects.json
@@ -57,6 +59,7 @@ lib/
   actions.ts          # Server action for sending email via Resend
   email.ts            # Escaped, email-safe notification template
   projects.ts         # Typed access to projects.json
+  content.ts          # Capability columns, stack, education and language rows from data/
   format.ts           # Date range formatting
 
 config/
@@ -128,13 +131,15 @@ npm run lint      # ESLint check
 
 ## Deployment
 
-- **Target**: GitHub Pages (user/org page — no `basePath` needed)
+- **Target**: Vercel. Server actions (and, from step 13, `middleware.ts`) need a Node host, so a GitHub Pages static export is no longer an option
 - **Output mode**: `standalone` when `DOCKER_BUILD=true`, otherwise default
-- `trailingSlash: true` in next.config.js for static hosting compatibility
+- `trailingSlash: true` in next.config.js (kept from the static-hosting days; URLs end in `/`)
 - Docker support via `Dockerfile` + `docker-compose.yml`
 
 ---
 
 ## Redesign status
 
-The site was rebuilt on Ledger following the design system's implementation.md (steps 1–11). The e2e suite in `tests/e2e` covers the Ledger markup.
+The site was rebuilt on Ledger following the design system's implementation.md (steps 1–12). The e2e suite in `tests/e2e` covers the Ledger markup and the chart rules (squares only, SVG text ≥ 12px as rendered). Step 13 (English/Portuguese) is next.
+
+Charts are drawn at 1100px and rendered 1:1 (`<Infochart minWidth={1100}>`); use the `svg.tsx` primitives (`T` clamps text to 12px, `Box`, `Badge`, `Wire`) and token colours only.

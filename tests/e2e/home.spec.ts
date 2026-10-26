@@ -25,7 +25,7 @@ test.describe("Home page", () => {
   });
 
   test("featured case renders its figure", async ({ page }) => {
-    const figure = page.locator(".lg-feature svg[role='img']");
+    const figure = page.locator(".lg-feature .lg-figure--full svg[role='img']");
     await expect(figure).toHaveAttribute("aria-label", /six legacy data centers/);
   });
 
@@ -39,7 +39,7 @@ test.describe("Home page", () => {
   });
 
   test("filter pills narrow the rows", async ({ page }) => {
-    const pill = page.getByRole("group", { name: "Filter projects" }).getByRole("button", { name: /^Data Engineering/ });
+    const pill = page.getByRole("group", { name: "Filter projects" }).getByRole("button", { name: /^Data engineering/ });
     await pill.click();
     await expect(pill).toHaveAttribute("aria-pressed", "true");
     await expect(page.locator("#work .lg-ledger .lg-row")).toHaveCount(3);
@@ -58,5 +58,27 @@ test.describe("Resume page", () => {
   test("skills section is visible", async ({ page }) => {
     await page.goto("/resume");
     await expect(page.getByRole("heading", { name: "Skills" })).toBeVisible();
+  });
+});
+
+test.describe("Shared page components", () => {
+  test("resume and services open with a PageHeader", async ({ page }) => {
+    await page.goto("/resume");
+    await expect(page.locator(".lg-page-head h1")).toHaveText("Daniel Chaves");
+    await page.goto("/services");
+    await expect(page.locator(".lg-page-head h1")).toHaveText("Services");
+  });
+
+  test("capabilities use the three sentence-case columns", async ({ page }) => {
+    await page.goto("/");
+    const titles = page.locator(".lg-caps .lg-cap__title");
+    await expect(titles).toHaveText(["Delivery & leadership", "Data platform & architecture", "AI & GenAI delivery"]);
+  });
+
+  test("filter pills read in sentence case", async ({ page }) => {
+    await page.goto("/");
+    const pills = page.getByRole("group", { name: "Filter projects" }).getByRole("button");
+    await expect(pills.nth(1)).toContainText("Program & project management");
+    await expect(pills.nth(2)).toContainText("Data engineering");
   });
 });

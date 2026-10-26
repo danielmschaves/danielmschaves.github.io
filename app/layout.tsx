@@ -53,10 +53,14 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  /* app/icon.svg and app/apple-icon.png are picked up by file convention too. */
   icons: {
-    icon: [{ url: "/icon-dc.svg", type: "image/svg+xml" }],
-    shortcut: "/icon-dc.svg",
-    apple: [{ url: "/icon-dc.svg", sizes: "180x180", type: "image/svg+xml" }],
+    icon: [
+      { url: "/icon-dc.svg", type: "image/svg+xml" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+    ],
+    shortcut: "/favicon-32.png",
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
 };
 

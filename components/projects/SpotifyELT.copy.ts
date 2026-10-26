@@ -251,8 +251,8 @@ const pt: SpotifyELTCopy = {
     kicker: "CONTEXTO & ARQUITETURA",
     title: ["Um ", "data lake de custo zero", " construído sobre analytics embarcado, não sobre servidores ligados."],
     premise: {
-      title: "A premissa do “data lake de pobre”",
-      p1: "A maioria das arquiteturas de data lake exige subir um cluster — Spark, EMR, Redshift — que consome computação esteja processando dados ou não. O DuckDB quebra essa restrição: roda dentro do processo, lê Parquet direto do S3 e não custa nada parado.",
+      title: "A premissa do “poor man’s data lake”",
+      p1: "A maioria das arquiteturas de data lake exige subir um cluster — Spark, EMR, Redshift — que consome computação esteja processando dados ou não. O DuckDB quebra essa restrição: roda in-process, lê Parquet direto do S3 e não custa nada parado.",
       p2: "O objetivo era provar que dá para construir um pipeline ELT sério, de nível de produção — com camadas de transformação, testes automatizados e integração com BI — sem pagar por infraestrutura ociosa. O Motherduck leva o DuckDB para a nuvem e dá ao Power BI um endpoint de consulta persistente, sem o peso de um warehouse tradicional.",
     },
     job: {
@@ -266,8 +266,8 @@ const pt: SpotifyELTCopy = {
       title: "Data lake em quatro etapas: Raw → Bronze → Silver → Gold",
       sub: "Cada etapa transforma a fidelidade — preserva o original na Raw, padroniza o formato na Bronze, enriquece na Silver e entrega modelos prontos para análise na Gold.",
       alt: "Quatro etapas medallion no AWS S3: a Raw guarda a resposta JSON da API, a Bronze converte para Parquet tipado com o DuckDB, a Silver aplica regras de negócio e a Gold mantém tabelas dimensionais do dbt no Motherduck, lidas pelo Power BI.",
-      header: "PIPELINE ELT MEDALLION · ZONAS NO AWS S3 · LOTE DIÁRIO VIA AIRFLOW",
-      fields: { format: "FORMATO", tool: "FERRAMENTA", storage: "ARMAZENAMENTO" },
+      header: "PIPELINE ELT MEDALLION · ZONAS NO AWS S3 · BATCH DIÁRIO VIA AIRFLOW",
+      fields: { format: "FORMATO", tool: "FERRAMENTA", storage: "STORAGE" },
       stages: [
         { name: "Raw", format: "JSON (resposta bruta da API)", tool: "Extrator da API do Spotify", storage: "S3 · prefixo raw/", notes: ["Faixas · Álbuns · Artistas", "Playlists — pouso imutável"] },
         { name: "Bronze", format: "Parquet (colunar)", tool: "DuckDB · JSON → Parquet", storage: "S3 · prefixo bronze/", notes: ["Schema aplicado, tipado,", "comprimido — pronto para leitura"] },
@@ -284,10 +284,10 @@ const pt: SpotifyELTCopy = {
     lead: "Cada componente tem uma única função bem definida. A API do Spotify é a única fonte da verdade. O Airflow orquestra sem ser o motor de transformação. O DuckDB processa sem rodar um servidor. O Terraform provisiona sem estado manual. A arquitetura é modular: qualquer componente pode ser trocado de forma independente.",
     chart: {
       label: "FLUXO DE DADOS DE PONTA A PONTA",
-      title: "Origem → Orquestração → Armazenamento → Analytics",
+      title: "Origem → Orquestração → Storage → Analytics",
       sub: "Fluxo da esquerda para a direita: os dados nascem na API do Spotify, são orquestrados pelo Airflow, passam por quatro zonas no S3, são processados pelo DuckDB, armazenados no Motherduck e consultados pelo Power BI.",
       alt: "Fluxo de dados: a API do Spotify alimenta quatro task groups do Airflow; eles gravam nas zonas raw, bronze e silver do S3, o DuckDB processa, o dbt constrói modelos no Motherduck, o Power BI consulta o Motherduck e o Terraform provisiona os buckets S3 e as tabelas do Motherduck.",
-      layers: { source: "ORIGEM", orchestration: "ORQUESTRAÇÃO", storage: "ARMAZENAMENTO (S3)", processing: "PROCESSAMENTO", warehouse: "WAREHOUSE", analytics: "ANALYTICS" },
+      layers: { source: "ORIGEM", orchestration: "ORQUESTRAÇÃO", storage: "STORAGE (S3)", processing: "PROCESSAMENTO", warehouse: "WAREHOUSE", analytics: "ANALYTICS" },
       spotify: { name: ["API do", "Spotify"], items: ["Faixas", "Álbuns", "Artistas", "Playlists"] },
       airflow: {
         name: ["Astronomer", "Airflow"],
@@ -300,7 +300,7 @@ const pt: SpotifyELTCopy = {
         { name: "S3 BRONZE", note: "Parquet · tipado" },
         { name: "S3 SILVER", note: "Parquet enriquecido" },
       ],
-      duckdb: { name: "DuckDB", tags: ["EM PROCESSO", "SEM SERVIDOR"], items: ["JSON → Parquet (bronze)", "Lê do S3", "Limpa/enriquece (silver)"], note: "Sem custo ocioso" },
+      duckdb: { name: "DuckDB", tags: ["IN-PROCESS", "SEM SERVIDOR"], items: ["JSON → Parquet (bronze)", "Lê do S3", "Limpa/enriquece (silver)"], note: "Sem custo ocioso" },
       motherduck: { name: "Motherduck", tags: ["DUCKDB NA NUVEM", "TABELAS EXTERNAS"], items: ["dim_artist · dim_track", "fct_stream · fct_playlist"] },
       terraform: { name: "TERRAFORM (IAC)", items: ["Provisiona buckets S3", "+ tabelas ext. Motherduck"] },
       powerbi: { name: "Power BI", tags: ["CAMADA ANALÍTICA", "3 PÁGINAS DE RELATÓRIO"], items: ["Tendências de playlists", "Alcance de artistas · faixas"] },
@@ -322,7 +322,7 @@ const pt: SpotifyELTCopy = {
       platform: "Astronomer · Airflow 2.8",
       groups: [
         { name: "extract_spotify", tag: "TASK GROUP 01", steps: ["get_tracks()", "get_albums()", "get_artists()", "get_playlists()"], note: "→ JSON bruto no S3 raw/" },
-        { name: "bronze_transform", tag: "TASK GROUP 02", steps: ["read_raw_s3()", "json_to_parquet()", "enforce_schema()", "write_bronze_s3()"], note: "DuckDB · em processo" },
+        { name: "bronze_transform", tag: "TASK GROUP 02", steps: ["read_raw_s3()", "json_to_parquet()", "enforce_schema()", "write_bronze_s3()"], note: "DuckDB · in-process" },
         { name: "silver_transform", tag: "TASK GROUP 03", steps: ["read_bronze_s3()", "deduplicate()", "normalise_nulls()", "write_silver_s3()"], note: "DuckDB · enriquecimento" },
         { name: "dbt_run", tag: "TASK GROUP 04 · ETAPA GOLD", steps: ["dbt run --select staging", "dbt run --select intermediate", "dbt run --select marts", "dbt test"], note: "Motherduck · targets dev + prod" },
       ],
@@ -402,7 +402,7 @@ const pt: SpotifyELTCopy = {
   cost: {
     kicker: "MÉTRICAS & MODELO DE CUSTO",
     title: ["Custo de infraestrutura quase zero — ", "sem abrir mão da qualidade de engenharia", "."],
-    lead: "O “data lake de pobre” não é um atalho — é uma decisão de arquitetura deliberada para eliminar o custo de computação ociosa. O DuckDB só roda durante a execução do DAG. O S3 cobra só pelo armazenamento usado. O Motherduck cobra só pelas consultas feitas.",
+    lead: "O “poor man’s data lake” não é um atalho — é uma decisão de arquitetura deliberada para eliminar o custo de computação ociosa. O DuckDB só roda durante a execução do DAG. O S3 cobra só pelo storage usado. O Motherduck cobra só pelas consultas feitas.",
     stats: [
       { value: "4", unit: "etapas medallion", label: "Raw → Bronze → Silver → Gold, cada uma com retry e testes independentes" },
       { value: "68", unit: "testes automatizados no dbt", label: "Checagens de schema, not-null, unique e integridade referencial em todas as camadas de modelos" },
@@ -432,7 +432,7 @@ const pt: SpotifyELTCopy = {
         tag: "DUCKDB + S3 + MOTHERDUCK + ASTRONOMER",
         rows: [
           { name: "AWS S3 (10 GB de dados)", value: "~ US$ 2/mês", w: 18 },
-          { name: "DuckDB (em processo)", value: "US$ 0/mês", w: 0 },
+          { name: "DuckDB (in-process)", value: "US$ 0/mês", w: 0 },
           { name: "Motherduck", value: "~ US$ 2/mês", w: 24 },
           { name: "Astronomer (plano dev)", value: "~ US$ 0/mês", w: 8 },
         ],

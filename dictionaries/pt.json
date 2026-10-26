@@ -14,10 +14,10 @@
     "toDark": "Mudar para o modo escuro"
   },
   "hero": {
-    "eyebrow": "GERENTE DE PROGRAMAS · DADOS & IA · FLORIANÓPOLIS, BR · REMOTO",
-    "title": "Levo programas corporativos de dados e IA do piloto à produção — e a",
+    "eyebrow": "PROGRAM MANAGER · DADOS & IA · FLORIANÓPOLIS, BR · REMOTO",
+    "title": "Levo programas enterprise de dados e IA do piloto à produção — e a",
     "accent": "resultados de negócio.",
-    "lead": "Program Manager na phData, liderando entregas com várias frentes em plataformas de dados modernas para grandes empresas dos EUA. Antes, cuidei de contas de dados e IA do setor farmacêutico na América Latina e na EMEA — e comecei gerenciando programas de P&D no setor de energia.",
+    "lead": "Program Manager na phData, liderando o delivery de várias frentes em plataformas de dados modernas para grandes empresas dos EUA. Antes, cuidei de contas de dados e IA do setor farmacêutico na América Latina e na EMEA — e comecei gerenciando programas de P&D no setor de energia.",
     "ctaWork": "Ver trabalhos selecionados",
     "ctaResume": "Baixar currículo",
     "ctaResumeFallback": "Baixar currículo (inglês)"
@@ -25,7 +25,7 @@
   "stats": [
     {
       "value": "10 → 30+",
-      "label": "FTEs — portfólio de entrega 3× maior"
+      "label": "FTEs — portfólio de delivery 3× maior"
     },
     {
       "value": "~4.000",
@@ -34,7 +34,7 @@
     {
       "value": "4,7",
       "unit": "CSAT",
-      "label": "Em 12 projetos corporativos simultâneos"
+      "label": "Em 12 projetos enterprise simultâneos"
     },
     {
       "value": "4×",
@@ -45,10 +45,10 @@
     "work": "Trabalhos selecionados",
     "workAside": "6 ESTUDOS DE CASO",
     "capabilities": "Competências",
-    "capabilitiesAside": "ENTREGA · DADOS · IA",
+    "capabilitiesAside": "DELIVERY · DADOS · IA",
     "stack": "STACK",
     "experience": "Experiência",
-    "experienceIntro": "Entrega de programas, plataformas de dados e IA — do mais recente ao mais antigo.",
+    "experienceIntro": "Delivery de programas, plataformas de dados e IA — do mais recente ao mais antigo.",
     "education": "Formação",
     "languages": "IDIOMAS",
     "credentials": "Certificações",
@@ -87,20 +87,20 @@
   },
   "credGroups": {
     "ai": "IA · ANTHROPIC",
-    "delivery": "ENTREGA",
+    "delivery": "DELIVERY",
     "data": "DADOS"
   },
   "resume": {
-    "eyebrow": "CURRÍCULO · GERENTE DE PROGRAMAS · DADOS & IA",
+    "eyebrow": "CURRÍCULO · PROGRAM MANAGER · DADOS & IA",
     "download": "Baixar PDF",
     "downloadFallback": "Baixar PDF (inglês)"
   },
   "services": {
     "title": "Serviços",
-    "intro": "Três formas como ajudo times corporativos a levar dados e IA do piloto à produção.",
+    "intro": "Três formas como ajudo times enterprise a levar dados e IA do piloto à produção.",
     "ctaContact": "Iniciar uma conversa",
     "ctaResume": "Ver o currículo",
-    "eyebrow": "SERVIÇOS · ENTREGA · DADOS · IA"
+    "eyebrow": "SERVIÇOS · DELIVERY · DADOS · IA"
   },
   "case": {
     "back": "TODOS OS TRABALHOS",
@@ -114,7 +114,7 @@
   },
   "contact": {
     "title": "Contato",
-    "intro": "Aberto a conversas sobre entrega de dados e IA: programas, times e plataformas.",
+    "intro": "Aberto a conversas sobre delivery de dados e IA: programas, times e plataformas.",
     "direct": "OU ESCREVA DIRETAMENTE",
     "send": "Enviar mensagem"
   },
@@ -160,13 +160,13 @@
   },
   "meta": {
     "title": "Daniel Chaves — Program Manager, Dados & IA",
-    "description": "Program Manager que leva programas corporativos de dados e IA do piloto à produção — plataformas de dados modernas, ML e GenAI, nos EUA, na América Latina e na EMEA.",
+    "description": "Program Manager que leva programas enterprise de dados e IA do piloto à produção — plataformas de dados modernas, ML e GenAI, nos EUA, na América Latina e na EMEA.",
     "resumeTitle": "Currículo",
-    "resumeDescription": "Currículo de Daniel Chaves, Program Manager de programas corporativos de dados e IA.",
+    "resumeDescription": "Currículo de Daniel Chaves, Program Manager de programas enterprise de dados e IA.",
     "servicesTitle": "Serviços",
-    "servicesDescription": "Gestão de programas corporativos de dados e IA: liderança de entrega, arquitetura de plataformas de dados e entrega de IA e GenAI do piloto à produção.",
+    "servicesDescription": "Gestão de programas enterprise de dados e IA: liderança de delivery, arquitetura de plataformas de dados e delivery de IA e GenAI do piloto à produção.",
     "contactTitle": "Contato",
-    "contactDescription": "Fale comigo sobre programas de dados e IA, liderança de entrega ou parcerias.",
+    "contactDescription": "Fale comigo sobre programas de dados e IA, liderança de delivery ou parcerias.",
     "notFoundTitle": "Projeto não encontrado",
     "ogLocale": "pt_BR"
   },

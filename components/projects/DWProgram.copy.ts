@@ -309,12 +309,12 @@ const pt: DWProgramCopy = {
     chart: {
       label: "NÍVEIS DE STAKEHOLDERS",
       title: "Quem ouve o quê, e com que frequência",
-      alt: "Três níveis de stakeholders: estratégico (head de dados do cliente e sponsor C-level, mensal), tático (PMs da entrega e do cliente, semanal) e operacional (times de desenvolvimento, diário), com escalonamento subindo só quando necessário.",
+      alt: "Três níveis de stakeholders: estratégico (head de dados do cliente e sponsor C-level, mensal), tático (PMs de delivery e do cliente, semanal) e operacional (times de desenvolvimento, diário), com escalonamento subindo só quando necessário.",
       cadence: "CADÊNCIA",
       tiers: [
         { tag: "NÍVEL 01 · ESTRATÉGICO", who: "Head de dados do cliente · sponsor C-level", receives: "Recebe: status dos marcos, CV, 3 principais riscos mitigados, aprovações de gates", cadence: "Comitê mensal · revisão trimestral", lines: ["Escalonamento sob demanda, só quando", "as restrições fixas estão em risco"] },
-        { tag: "NÍVEL 02 · TÁTICO", who: "Gestão conjunta · PM da entrega + PM do cliente", receives: "Recebe: aplicação da governança, decisões do CCP, revisão de RAID, coordenação de fornecedores", cadence: "Sync semanal de PMs · status quinzenal", lines: ["Toda decisão de escopo, prazo e orçamento", "nasce ou passa por aqui"] },
-        { tag: "NÍVEL 03 · OPERACIONAL", who: "Times de desenvolvimento da entrega e do cliente", receives: "Recebe: metas da sprint, decisões técnicas, agenda de UAT, bloqueios", cadence: "Dailies · reviews da sprint", lines: ["O detalhe técnico é tratado aqui;", "só escala quando afeta o cronograma macro"] },
+        { tag: "NÍVEL 02 · TÁTICO", who: "Gestão conjunta · PM de delivery + PM do cliente", receives: "Recebe: aplicação da governança, decisões do CCP, revisão de RAID, coordenação de fornecedores", cadence: "Sync semanal de PMs · status quinzenal", lines: ["Toda decisão de escopo, prazo e orçamento", "nasce ou passa por aqui"] },
+        { tag: "NÍVEL 03 · OPERACIONAL", who: "Times de desenvolvimento de delivery e do cliente", receives: "Recebe: metas da sprint, decisões técnicas, agenda de UAT, bloqueios", cadence: "Dailies · reviews da sprint", lines: ["O detalhe técnico é tratado aqui;", "só escala quando afeta o cronograma macro"] },
       ],
       escalation: "ESCALONAMENTO",
       note: [
@@ -328,7 +328,7 @@ const pt: DWProgramCopy = {
   deliverables: {
     kicker: "ENTREGÁVEIS DO PROGRAMA",
     title: ["Os artefatos que sustentam o programa — e ", "o contrato", "."],
-    lead: "Num contrato de preço fixo, cada artefato serve a dois públicos: o time de entrega, que opera a partir dele, e o contrato, que é protegido por ele. Cada entrega abaixo foi desenhada pensando nos dois.",
+    lead: "Num contrato de preço fixo, cada artefato serve a dois públicos: o time de delivery, que opera a partir dele, e o contrato, que é protegido por ele. Cada entrega abaixo foi desenhada pensando nos dois.",
     items: [
       { title: "Termo de abertura & pacote de kick-off", desc: "Objetivos formais do programa, premissas, a restrição de prazo fixo de 18 meses e a fronteira contratual reconhecida." },
       { title: "Avaliação & estratégia de migração", desc: "Mapa das fontes de dados, análise de dependências e o documento de estratégia que define a fronteira fixa do contrato." },

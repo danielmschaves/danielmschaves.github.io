@@ -190,7 +190,7 @@ const en = {
 
 export type CloudMigrationCopy = typeof en;
 const pt: CloudMigrationCopy = {
-  lead: "Framework de gestão de projeto para a migração piloto para a nuvem de uma empresa global de serviços financeiros — desenhado para provar a viabilidade da AWS antes de um programa de modernização corporativa muito maior. Doze meses. Orçamento fixo de US$ 1,2 mi. Tolerância zero a paradas não programadas.",
+  lead: "Framework de gestão de projeto para a migração piloto para a nuvem de uma empresa global de serviços financeiros — desenhado para provar a viabilidade da AWS antes de um programa de modernização enterprise muito maior. Doze meses. Orçamento fixo de US$ 1,2 mi. Tolerância zero a paradas não programadas.",
   facts: [
     ["PAPEL", "Project Manager"],
     ["DURAÇÃO", "12 meses"],
@@ -205,7 +205,7 @@ const pt: CloudMigrationCopy = {
     start: {
       title: "O ponto de partida",
       p1: "O cliente operava uma infraestrutura legada complexa, construída ao longo de décadas de crescimento e aquisições — espalhada por seis data centers envelhecidos, com cerca de 200 servidores sustentando a plataforma interna de analytics. O custo operacional era alto, o risco tecnológico crescia e a base de custos já não se justificava.",
-      p2: "A liderança tinha se comprometido com uma modernização corporativa de vários anos. Mas, antes de aprovar esse programa maior, precisava de uma prova: uma migração contida que demonstrasse a viabilidade da AWS, validasse o modelo operacional e produzisse padrões reutilizáveis para o esforço maior que viria depois.",
+      p2: "A liderança tinha se comprometido com uma modernização enterprise de vários anos. Mas, antes de aprovar esse programa maior, precisava de uma prova: uma migração contida que demonstrasse a viabilidade da AWS, validasse o modelo operacional e produzisse padrões reutilizáveis para o esforço maior que viria depois.",
     },
     mandate: {
       title: "O mandato",
@@ -220,7 +220,7 @@ const pt: CloudMigrationCopy = {
     title: ["Um lift-and-shift, sequenciado em ", "dez ciclos iterativos", "."],
     lead: "Em vez de tratar a plataforma como uma migração monolítica, estruturei a entrega em dez casos de uso priorizados — cada um migrado de ponta a ponta dentro de uma cadência de sprints de 2 semanas. O risco fica localizado. O valor aparece continuamente. O time aprende e ajusta as estimativas a cada ciclo.",
     chart: {
-      label: "METODOLOGIA DE ENTREGA",
+      label: "METODOLOGIA DE DELIVERY",
       title: "Fluxo de migração em cinco etapas, repetido a cada caso de uso",
       sub: "Cada ciclo segue a mesma sequência disciplinada, regida por um SOP formal e com UAT como gate antes de qualquer cutover em produção.",
       alt: "Cinco etapas por caso de uso: descobrir, migrar, reconstruir, validar com um gate obrigatório de qualidade em UAT e fazer o cutover.",
@@ -239,13 +239,13 @@ const pt: CloudMigrationCopy = {
   schedule: {
     kicker: "CRONOGRAMA MESTRE",
     title: ["O ", "Gantt", " de 12 meses: preparação em fases, frentes de casos de uso em paralelo e encerramento em hypercare."],
-    lead: "O caso de uso 1 funciona como pathfinder — com prazo estendido para absorver o aprendizado. Os seguintes rodam em pares paralelos, dobrando a vazão sem dobrar o custo.",
+    lead: "O caso de uso 1 funciona como pathfinder — com prazo estendido para absorver o aprendizado. Os seguintes rodam em pares paralelos, dobrando o throughput sem dobrar o custo.",
     chart: {
       label: "CRONOGRAMA MESTRE",
       title: "Gantt de 12 meses — fases, marcos e frentes paralelas",
       alt: "Gantt de 12 meses: planejamento e preparação em janeiro e fevereiro, o pathfinder do caso de uso 1 de fevereiro a abril, os casos de uso 2 a 10 em pares sobrepostos de abril a novembro e hypercare em novembro e dezembro, com quatro marcos.",
       months: ["JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"],
-      quarters: ["T1", "T2", "T3", "T4"],
+      quarters: ["Q1", "Q2", "Q3", "Q4"],
       rows: { setup: "Planejamento & preparação", useCases: "Migração dos casos de uso", closure: "Encerramento & hypercare" },
       setupNote: "Inventário · ambientes · PoC",
       pathfinder: "CU1 · PATHFINDER",
@@ -272,7 +272,7 @@ const pt: CloudMigrationCopy = {
     chart: {
       label: "COMPOSIÇÃO DO TIME",
       title: "Alocação mensal de recursos por papel (envelope de 800h)",
-      sub: "A capacidade de engenharia domina; o overhead de gestão fica em ~12% para maximizar a vazão de entrega.",
+      sub: "A capacidade de engenharia domina; o overhead de gestão fica em ~12% para maximizar o throughput de delivery.",
       alt: "Gráfico de barras com horas por mês: cloud engineer 336 horas (42%), data engineer 336 (42%), tech lead de cloud engineering 64 (8%), project manager 64 (8%); 800 horas no total.",
       caption: "HORAS POR MÊS POR PAPEL",
       roles: [
@@ -284,7 +284,7 @@ const pt: CloudMigrationCopy = {
       total: "Capacidade mensal total",
       totalValue: "800h",
       totalNote: "= US$ 100.000 por mês a uma taxa média de US$ 125/h",
-      note: { title: "NOTA SOBRE VAZÃO", lines: ["Duas frentes de engenharia em", "paralelo dobram a entrega sem", "dobrar o custo — 84% da capacidade", "é entrega, não overhead."] },
+      note: { title: "NOTA SOBRE THROUGHPUT", lines: ["Duas frentes de engenharia em", "paralelo dobram a entrega sem", "dobrar o custo — 84% da capacidade", "é delivery, não overhead."] },
     },
   },
 
@@ -323,7 +323,7 @@ const pt: CloudMigrationCopy = {
           id: "D", severity: "low",
           domain: ["Orçamento", "& prazo"],
           risk: ["Estouro de custo,", "atrasos no cronograma"],
-          mitigation: ["• Taxa fixa (US$ 125/h) = previsibilidade", "• Consumo de 800h/mês, gerido pela velocidade", "• Frentes paralelas: 2× vazão, custo estável", "• Monitoramento contínuo na revisão semanal"],
+          mitigation: ["• Taxa fixa (US$ 125/h) = previsibilidade", "• Consumo de 800h/mês, gerido pela velocidade", "• Frentes paralelas: 2× throughput, custo estável", "• Monitoramento contínuo na revisão semanal"],
           target: ["Entregue dentro de", "US$ 1,2 mi / 12 meses"],
         },
       ],
@@ -333,21 +333,21 @@ const pt: CloudMigrationCopy = {
 
   governance: {
     kicker: "COMUNICAÇÃO & TIME",
-    title: ["Um modelo de ", "governança em dois níveis", " que protege o foco da entrega e encaminha escalonamentos sem ruído."],
-    lead: "Decisões operacionais ficam com o time de trabalho. Decisões estratégicas — escopo, orçamento, riscos escalonados — vão para um comitê executivo definido, em uma cadência definida. A estrutura é pequena de propósito e as responsabilidades são claras de propósito.",
+    title: ["Um modelo de ", "governança em dois níveis", " que protege o foco do delivery e encaminha escalonamentos sem ruído."],
+    lead: "Decisões operacionais ficam com o time de trabalho. Decisões estratégicas — escopo, orçamento, riscos escalonados — vão para um steering committee definido, em uma cadência definida. A estrutura é pequena de propósito e as responsabilidades são claras de propósito.",
     chart: {
       label: "ESTRUTURA DE GOVERNANÇA",
       title: "Dois níveis de comunicação, uma responsabilidade compartilhada",
-      alt: "Governança: um nível estratégico (organização de entrega, project manager, patrocinadores do cliente) que se reúne quinzenalmente e um nível operacional (engenharia de entrega, grupo de trabalho conjunto, time técnico do cliente) que se reúne diariamente, com um caminho de escalonamento do grupo de trabalho para o project manager em escopo, orçamento e risco.",
-      strategic: "NÍVEL ESTRATÉGICO · COMITÊ EXECUTIVO · QUINZENAL",
+      alt: "Governança: um nível estratégico (organização de delivery, project manager, sponsors do cliente) que se reúne quinzenalmente e um nível operacional (engenharia de delivery, grupo de trabalho conjunto, time técnico do cliente) que se reúne diariamente, com um caminho de escalonamento do grupo de trabalho para o project manager em escopo, orçamento e risco.",
+      strategic: "NÍVEL ESTRATÉGICO · STEERING COMMITTEE · QUINZENAL",
       operational: "NÍVEL OPERACIONAL · TIMES DE TRABALHO · DAILIES + CERIMÔNIAS DE SPRINT QUINZENAIS",
       top: [
-        { title: "Org. de entrega", lines: ["Liderança executiva", "+ gestão"] },
+        { title: "Org. de delivery", lines: ["Liderança executiva", "+ gestão"] },
         { title: "Project Manager", lines: ["Escopo · prazo · custo", "Risco · comunicação"] },
-        { title: "Patrocinadores", lines: ["Head de dados", "+ liderança de tecnologia"] },
+        { title: "Sponsors", lines: ["Head de dados", "+ liderança de tecnologia"] },
       ],
       bottom: [
-        { title: "Engenharia de entrega", lines: ["Tech lead de cloud engineering", "Tech lead de data engineering", "2× cloud engineers", "2× data engineers"] },
+        { title: "Engenharia de delivery", lines: ["Tech lead de cloud engineering", "Tech lead de data engineering", "2× cloud engineers", "2× data engineers"] },
         { title: "Grupo de trabalho", lines: ["Dailies (15 min)", "Planning · reviews da sprint", "Retrospectivas", "Relatório da sprint → PM → exec."] },
         { title: "Time técnico do cliente", lines: ["Tech lead do cliente", "Validadores de UAT", "Especialistas de negócio", "Pontos focais de segurança e TI"] },
       ],
@@ -358,7 +358,7 @@ const pt: CloudMigrationCopy = {
   deliverables: {
     kicker: "ENTREGÁVEIS",
     title: ["O que o cliente recebe — e o que a ", "empresa guarda", "."],
-    lead: "O mandato tem duas camadas: entregar a migração e produzir os artefatos reutilizáveis que viabilizam o rollout corporativo mais amplo. Cada entrega abaixo foi pensada para durar além deste projeto.",
+    lead: "O mandato tem duas camadas: entregar a migração e produzir os artefatos reutilizáveis que viabilizam o rollout enterprise mais amplo. Cada entrega abaixo foi pensada para durar além deste projeto.",
     items: [
       { title: "Termo de abertura & declaração de escopo", desc: "Mandato formal, objetivos, restrições de prazo e preço fixos e uma lista explícita do que está fora do escopo." },
       { title: "Cronograma mestre em Gantt", desc: "Linha do tempo de 12 meses com fases, frentes paralelas, marcos e dependências, acompanhada semanalmente." },
@@ -366,7 +366,7 @@ const pt: CloudMigrationCopy = {
       { title: "Registro de riscos & plano de mitigação", desc: "Quatro domínios de risco priorizados, com mitigações, responsáveis e resultados esperados mensuráveis." },
       { title: "Plano de comunicação", desc: "Governança em dois níveis, cerimônias e canais definidos, modelo de relatório de sprint e caminhos de escalonamento." },
       { title: "Estrutura do time & RACI", desc: "Papéis, responsabilidades e direitos de decisão mapeados entre as duas organizações." },
-      { title: "Procedimentos operacionais padrão", desc: "SOPs reutilizáveis para o ciclo de migração em cinco etapas, aplicáveis ao rollout corporativo." },
+      { title: "Procedimentos operacionais padrão", desc: "SOPs reutilizáveis para o ciclo de migração em cinco etapas, aplicáveis ao rollout enterprise." },
       { title: "Registros de decisão de arquitetura", desc: "Biblioteca de padrões e ADRs que formam o blueprint operacional para escalar na empresa." },
     ],
   },

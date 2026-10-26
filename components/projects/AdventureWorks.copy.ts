@@ -360,7 +360,7 @@ const pt: AdventureWorksCopy = {
         date: { name: "dim_date", cols: ["date_key (SK)", "date · year · quarter", "month · week · day_name", "is_weekend · fiscal_period"] },
         employee: { name: "dim_employee", cols: ["employee_key (SK)", "employee_id", "full_name · job_title", "department · hire_date"] },
       },
-      legend: { join: "Join por surrogate key (FK → SK)", keys: "SK = chave substituta · FK = chave estrangeira" },
+      legend: { join: "Join por surrogate key (FK → SK)", keys: "SK = surrogate key · FK = foreign key" },
     },
   },
 

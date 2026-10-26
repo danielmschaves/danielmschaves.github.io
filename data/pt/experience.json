@@ -7,7 +7,7 @@
     "location": "Remoto",
     "description": "Program Manager de projetos de dados e IA para grandes empresas dos EUA, responsável pela entrega de valor, pela experiência do cliente e por levar o trabalho do piloto à produção.",
     "achievements": [
-      "Lidero a frente de serviços de dados de um grande programa de transformação corporativa, coordenando engenharia, QA, análise de negócio e stakeholders do cliente em times paralelos e fusos horários diferentes.",
+      "Lidero a frente de serviços de dados de um grande programa de transformação enterprise, coordenando engenharia, QA, análise de negócio e stakeholders do cliente em times paralelos e fusos horários diferentes.",
       "Conduzo a entrega de plataforma de dados moderna em Snowflake e dbt, incluindo integrações entre o DW e sistemas operacionais e de CRM, reconstrução de fluxos legados e migração de fluxos low-code para o dbt.",
       "Respondo pela governança do programa de ponta a ponta: planejamento de sprints, gestão de RAID e dependências, gates de aprovação entre times e relatórios de status para a liderança do programa.",
       "Construo agentes de IA que automatizam fluxos-chave de gestão de projetos, tirando o foco do trabalho operacional e colocando-o nos resultados de negócio."
@@ -19,15 +19,15 @@
     "startDate": "2024-08",
     "endDate": "2026-08",
     "location": "Florianópolis, Brasil",
-    "description": "Líder de entrega de contas corporativas de dados e IA na América Latina e na EMEA, responsável pela entrega de valor, pela experiência do cliente, pelo crescimento das contas e pelas renovações no setor farmacêutico.",
+    "description": "Líder de delivery de contas enterprise de dados e IA na América Latina e na EMEA, responsável pela entrega de valor, pela experiência do cliente, pelo crescimento das contas e pelas renovações no setor farmacêutico.",
     "achievements": [
       "Fui o principal responsável por contas farmacêuticas globais, entre elas Novo Nordisk e Bayer, liderando a expansão para a América Latina e a EMEA e garantindo renovações plurianuais e ampliações de escopo.",
-      "Escalei o portfólio de 10 para mais de 30 FTEs e de 1.200 para ~4.000 horas de serviço por mês no pico, com 12 projetos corporativos simultâneos e CSAT sustentado de 4,7 na América Latina e na EMEA.",
+      "Escalei o portfólio de 10 para mais de 30 FTEs e de 1.200 para ~4.000 horas de serviço por mês no pico, com 12 projetos enterprise simultâneos e CSAT sustentado de 4,7 na América Latina e na EMEA.",
       "Entreguei mais de 10 projetos de ponta a ponta — migrações de dados legados, plataformas de dados modernas, produtos analíticos e aplicações de IA (machine learning, GenAI, agentes inteligentes, chatbots) — em dbt, Dagster, Airflow, Snowflake e Databricks, com frameworks robustos de governança de dados.",
-      "Atuei como consultor de estratégia de dados para clientes farmacêuticos corporativos, planejando e desenhando soluções de dados e IA sob medida, assessorando executivos e traduzindo necessidades de negócio em roadmaps de entrega de vários trimestres.",
+      "Atuei como consultor de estratégia de dados para clientes farmacêuticos enterprise, planejando e desenhando soluções de dados e IA sob medida, assessorando executivos e traduzindo necessidades de negócio em roadmaps de delivery de vários trimestres.",
       "Estruturei e lancei novas ofertas de serviços de IA — agentes inteligentes, modelos de ML, GenAI e chatbots — contribuindo diretamente para a expansão das contas e para um engajamento maior dos clientes.",
       "Desenhei e implementei um fluxo de planejamento e execução apoiado por IA para um projeto de migração de dados, integrando ferramentas de IA nas etapas de descoberta, modelagem e validação e acelerando a entrega em 4x.",
-      "Investi no desenvolvimento do time com mentoria, capacitação técnica e planos de carreira, fortalecendo a retenção e formando uma organização de entrega de alto desempenho."
+      "Investi no desenvolvimento do time com mentoria, capacitação técnica e planos de carreira, fortalecendo a retenção e formando uma organização de delivery de alto desempenho."
     ]
   },
   {
@@ -40,28 +40,28 @@
     "achievements": [
       "Construí pipelines ELT de várias etapas (Spotify/Adventure Works) em AWS S3, DuckDB, BigQuery e dbt, implementando arquiteturas medallion Raw→Bronze→Silver→Gold com testes automatizados e documentação.",
       "Desenvolvi pipelines ETL em Python para ingestão de APIs, validação de dados com Pydantic e carga em vários destinos (DuckDB, S3, Motherduck), cobrindo padrões completos de garantia de qualidade de dados.",
-      "Orquestrei fluxos em lote automatizados com Apache Airflow e Astronomer e provisionei infraestrutura em nuvem como código com Terraform, para plataformas de dados reproduzíveis e consistentes entre ambientes.",
+      "Orquestrei fluxos batch automatizados com Apache Airflow e Astronomer e provisionei infraestrutura em nuvem como código com Terraform, para plataformas de dados reproduzíveis e consistentes entre ambientes.",
       "Implementei modelagem preditiva e pipelines de ML com Apache Spark, processando grandes volumes de dados e treinando modelos de classificação para gerar insights.",
       "Conteinerizei aplicações de engenharia de dados com Docker em PostgreSQL, MySQL, DuckDB e BigQuery, cobrindo padrões de arquitetura OLTP e OLAP."
     ]
   },
   {
     "company": "Fundação CERTI – Centro de Energia Sustentável",
-    "position": "Gerente de Projetos",
+    "position": "Project Manager",
     "startDate": "2021-07",
     "endDate": "2024-03",
     "location": "Florianópolis, Brasil",
-    "description": "Desenvolvi e executei estratégias de projeto para iniciativas de P&D e inovação no setor de energia — entre elas planejamento urbano e usinas virtuais — em parceria com patrocinadores do setor público, concessionárias de energia e instituições de pesquisa.",
+    "description": "Desenvolvi e executei estratégias de projeto para iniciativas de P&D e inovação no setor de energia — entre elas planejamento urbano e usinas virtuais — em parceria com sponsors do setor público, concessionárias de energia e instituições de pesquisa.",
     "achievements": [
-      "Respondi pelo ciclo de vida completo dos projetos como principal ponto de contato de patrocinadores e instituições parceiras, garantindo alinhamento de escopo, transparência nos relatórios e entregas confiáveis do kickoff ao encerramento.",
+      "Respondi pelo ciclo de vida completo dos projetos como principal ponto de contato de sponsors e instituições parceiras, garantindo alinhamento de escopo, transparência nos relatórios e entregas confiáveis do kickoff ao encerramento.",
       "Aumentei em 60% a receita média por recurso ao redesenhar a modelagem de dados e a alocação de recursos do portfólio, melhorando diretamente a economia dos projetos.",
-      "Entreguei um ganho de 30% na eficiência do portfólio ao desenhar e implantar duas soluções de Business Intelligence que deram a patrocinadores e à liderança visibilidade em tempo real da saúde e dos resultados dos projetos.",
-      "Atuei como Product Owner de produtos internos de dados e visualização, traduzindo necessidades dos patrocinadores em roadmaps priorizados e elevando em 25% o alinhamento estratégico com uma priorização orientada ao mercado."
+      "Entreguei um ganho de 30% na eficiência do portfólio ao desenhar e implantar duas soluções de Business Intelligence que deram a sponsors e à liderança visibilidade em tempo real da saúde e dos resultados dos projetos.",
+      "Atuei como Product Owner de produtos internos de dados e visualização, traduzindo necessidades dos sponsors em roadmaps priorizados e elevando em 25% o alinhamento estratégico com uma priorização orientada ao mercado."
     ]
   },
   {
     "company": "Fundação CERTI – Centro de Energia Sustentável",
-    "position": "Analista de Projetos",
+    "position": "Project Analyst",
     "startDate": "2019-08",
     "endDate": "2021-07",
     "location": "Florianópolis, Brasil",

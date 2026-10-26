@@ -211,7 +211,7 @@ const pt: DataIntelligencePlatformCopy = {
       title: "O desafio",
       strong: "Um ano. Quatro fases. Valor contínuo.",
       p1: " Um cascata puro deixaria a liderança sem nada para ver por nove meses. Um ágil puro, sem plano, perderia a coerência de arquitetura de que a plataforma precisava.",
-      p2: "A resposta foi um modelo híbrido: um plano anual de alto nível fixando as macrofases e os marcos, combinado com execução em sprints de duas semanas dentro de cada fase. Estratégia em cima. Iteração embaixo. O plano a seguir é exatamente isso — e é o modelo de planejamento em que ainda ancoro meu trabalho de entrega.",
+      p2: "A resposta foi um modelo híbrido: um plano anual de alto nível fixando as macrofases e os marcos, combinado com execução em sprints de duas semanas dentro de cada fase. Estratégia em cima. Iteração embaixo. O plano a seguir é exatamente isso — e é o modelo de planejamento em que ainda ancoro meu trabalho de delivery.",
     },
   },
 
@@ -222,8 +222,8 @@ const pt: DataIntelligencePlatformCopy = {
     chart: {
       label: "LINHA DO TEMPO ANUAL",
       title: "Quatro fases distribuídas nos 12 meses do projeto",
-      alt: "Linha do tempo com quatro trimestres e quatro fases: planejamento no T1, execução do MVP no T2, implantação e testes no T3 e monitoramento e relatórios no T4, cada uma com suas atividades-chave.",
-      quarters: ["TRIMESTRE 1", "TRIMESTRE 2", "TRIMESTRE 3", "TRIMESTRE 4"],
+      alt: "Linha do tempo com quatro trimestres e quatro fases: planejamento no Q1, execução do MVP no Q2, implantação e testes no Q3 e monitoramento e relatórios no Q4, cada uma com suas atividades-chave.",
+      quarters: ["Q1", "Q2", "Q3", "Q4"],
       start: "INÍCIO",
       close: "FIM",
       phases: [
@@ -240,10 +240,10 @@ const pt: DataIntelligencePlatformCopy = {
     title: ["Um marco concreto por trimestre, ", "visível de fora do time", "."],
     lead: "Velocidade interna não é uma métrica que o cliente sente. Por isso, todo trimestre precisava terminar em algo demonstrável — algo que um stakeholder pudesse ver, clicar ou consultar.",
     items: [
-      { q: "T1 · FUNDAÇÃO", title: "Dados chegando ao lake", desc: "Diagnóstico e especificação do sistema concluídos; provedor de nuvem escolhido; primeiros pipelines de ingestão no ar, com dados chegando à camada raw.", milestone: "MARCO · DADOS NA CAMADA RAW" },
-      { q: "T2 · INSIGHT", title: "MVP de BI, DW em operação", desc: "Warehouse construído e validado; MVP de BI entregue aos usuários de negócio; base da modelagem preditiva preparada para o T3.", milestone: "MARCO · MVP DE BI ENTREGUE" },
-      { q: "T3 · PREVISÃO", title: "Solução preditiva no ar", desc: "Modelagem validada, testes integrados aprovados e solução preditiva implantada em produção com monitoramento.", milestone: "MARCO · SOLUÇÃO PREDITIVA ENTREGUE" },
-      { q: "T4 · SUSTENTAÇÃO", title: "Operação + relatório de oportunidades", desc: "Solução em monitoramento contínuo; time treinado; roadmap de expansão entregue; duas novas funcionalidades contratadas.", milestone: "MARCO · RELATÓRIO DE OPORTUNIDADES ENTREGUE" },
+      { q: "Q1 · FUNDAÇÃO", title: "Dados chegando ao lake", desc: "Diagnóstico e especificação do sistema concluídos; provedor de nuvem escolhido; primeiros pipelines de ingestão no ar, com dados chegando à camada raw.", milestone: "MARCO · DADOS NA CAMADA RAW" },
+      { q: "Q2 · INSIGHT", title: "MVP de BI, DW em operação", desc: "Warehouse construído e validado; MVP de BI entregue aos usuários de negócio; base da modelagem preditiva preparada para o Q3.", milestone: "MARCO · MVP DE BI ENTREGUE" },
+      { q: "Q3 · PREVISÃO", title: "Solução preditiva no ar", desc: "Modelagem validada, testes integrados aprovados e solução preditiva implantada em produção com monitoramento.", milestone: "MARCO · SOLUÇÃO PREDITIVA ENTREGUE" },
+      { q: "Q4 · SUSTENTAÇÃO", title: "Operação + relatório de oportunidades", desc: "Solução em monitoramento contínuo; time treinado; roadmap de expansão entregue; duas novas funcionalidades contratadas.", milestone: "MARCO · RELATÓRIO DE OPORTUNIDADES ENTREGUE" },
     ],
   },
 
@@ -271,9 +271,9 @@ const pt: DataIntelligencePlatformCopy = {
   },
 
   q1: {
-    kicker: "ENTREGÁVEIS DO T1",
+    kicker: "ENTREGÁVEIS DO Q1",
     title: ["Três entregáveis que ", "orientam todas as decisões seguintes", "."],
-    lead: "O T1 é o trimestre de maior consequência do projeto — não porque entrega mais, mas porque toda decisão do T2 ao T4 se apoia nos artefatos produzidos aqui. Se eles saem errados, o resto do ano multiplica o erro.",
+    lead: "O Q1 é o trimestre de maior consequência do projeto — não porque entrega mais, mas porque toda decisão do Q2 ao Q4 se apoia nos artefatos produzidos aqui. Se eles saem errados, o resto do ano multiplica o erro.",
     items: [
       { title: "Relatório de diagnóstico inicial", desc: "Requisitos de negócio e técnicos, estimativas de custo de nuvem em AWS / GCP / Azure, critérios de validação da arquitetura, um dicionário de dados e uma primeira proposta de modelagem." },
       { title: "Especificação do sistema", desc: "Requisitos finais de DL/DW, políticas de acesso e governança, arquitetura de ingestão e processamento e o provisionamento inicial da infraestrutura (buckets, clusters, VPNs, controles de acesso)." },
@@ -362,16 +362,16 @@ const pt: DataIntelligencePlatformCopy = {
   foundation: {
     kicker: "BASE CONSTRUÍDA",
     title: ["O que este projeto ainda me dá, ", "anos depois", "."],
-    lead: "Olhando para trás, o valor deste projeto não foi só a plataforma que entreguei — foi o modelo de planejamento que construí no caminho. Os padrões abaixo ainda são os que ancoram meu trabalho de entrega hoje.",
+    lead: "Olhando para trás, o valor deste projeto não foi só a plataforma que entreguei — foi o modelo de planejamento que construí no caminho. Os padrões abaixo ainda são os que ancoram meu trabalho de delivery hoje.",
     tag: "LEVADO ADIANTE",
     items: [
-      { title: "Backlog em três níveis como tradutor universal", body: "A hierarquia entregável / atividade / tarefa funciona porque fala com três públicos ao mesmo tempo. A camada de entregáveis é o contrato — o que o cliente aprova. A de atividades é a conversa — onde escopo e esforço são de fato negociados com o time. A de tarefas é a sprint — o que sai nesta semana. Boa parte do atrito de entrega que vi depois vem de times que fundem duas dessas camadas em uma." },
+      { title: "Backlog em três níveis como tradutor universal", body: "A hierarquia entregável / atividade / tarefa funciona porque fala com três públicos ao mesmo tempo. A camada de entregáveis é o contrato — o que o cliente aprova. A de atividades é a conversa — onde escopo e esforço são de fato negociados com o time. A de tarefas é a sprint — o que sai nesta semana. Boa parte do atrito de delivery que vi depois vem de times que fundem duas dessas camadas em uma." },
       { title: "Primeira sprint como calibração, não como compromisso", body: "A Sprint 1 foi planejada sem folga de propósito — não porque eu esperasse que o time a cumprisse perfeitamente, mas porque eu precisava medir a diferença. Velocidade é empírica, e só se chega a um número real rodando uma primeira iteração apertada e observando o que de fato é entregue. Todo projeto que liderei depois começa do mesmo jeito." },
-      { title: "Marcos trimestrais que um stakeholder não técnico consegue verificar", body: "“A velocidade subiu” não é um marco. “Os dados estão na camada raw” é. Todo trimestre terminou em algo que o patrocinador podia ver ou tocar — um dashboard funcionando, um modelo implantado, um relatório assinado. A disciplina de escrever o marco antes de desenhar o trabalho salvou mais programas da deriva do que qualquer artefato de processo que usei depois." },
+      { title: "Marcos trimestrais que um stakeholder não técnico consegue verificar", body: "“A velocidade subiu” não é um marco. “Os dados estão na camada raw” é. Todo trimestre terminou em algo que o sponsor podia ver ou tocar — um dashboard funcionando, um modelo implantado, um relatório assinado. A disciplina de escrever o marco antes de desenhar o trabalho salvou mais programas da deriva do que qualquer artefato de processo que usei depois." },
     ],
   },
 
-  quote: ["A plataforma foi o entregável. O ", "modelo de planejamento", " foi o ativo. Todo projeto de entrega que liderei depois foi uma variação do framework que este projeto me obrigou a colocar no papel."],
+  quote: ["A plataforma foi o entregável. O ", "modelo de planejamento", " foi o ativo. Todo projeto de delivery que liderei depois foi uma variação do framework que este projeto me obrigou a colocar no papel."],
 };
 
 export const copy: Record<Lang, DataIntelligencePlatformCopy> = { en, pt };

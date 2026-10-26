@@ -1,6 +1,8 @@
 /* Copy for the Data Warehouse Modernization case study, prose and chart labels included.
    Mono labels are typed in UPPERCASE here, as the Ledger content rules ask. */
 
+import type { Lang } from "@/lib/i18n";
+
 const en = {
   lead: "A multi-project program migrating a legacy SQL Server data warehouse to the modern data stack (Snowflake, dbt, Tableau). Designed around three non-negotiables: fixed term, fixed consultancy fees, and zero scope drift — defended by formal gateways, a parking-lot system, and an explicit change-control process.",
   facts: [
@@ -172,4 +174,4 @@ const en = {
 };
 
 export type DWProgramCopy = typeof en;
-export const copy: Record<"en", DWProgramCopy> = { en };
+export const copy: Record<Lang, DWProgramCopy> = { en, pt: en };

@@ -1,6 +1,8 @@
 /* Copy for the Cloud Migration case study, prose and chart labels included.
    Mono labels are typed in UPPERCASE here, as the Ledger content rules ask. */
 
+import type { Lang } from "@/lib/i18n";
+
 const en = {
   lead: "Project management framework for a global financial services enterprise’s pilot cloud migration — designed to prove AWS feasibility for a much larger enterprise modernization program. Twelve months. $1.2M fixed budget. Zero tolerance for unscheduled downtime.",
   facts: [
@@ -186,4 +188,4 @@ const en = {
 };
 
 export type CloudMigrationCopy = typeof en;
-export const copy: Record<"en", CloudMigrationCopy> = { en };
+export const copy: Record<Lang, CloudMigrationCopy> = { en, pt: en };

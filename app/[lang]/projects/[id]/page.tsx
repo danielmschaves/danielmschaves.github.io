@@ -1,11 +1,11 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import PageHeader, { BackLink } from "@/components/PageHeader";
 import { notFound } from "next/navigation";
 import { siteConfig } from "@/config/site";
-import { getProject, projects, type Project } from "@/lib/projects";
+import { getProject, getProjects, type Project } from "@/lib/projects";
+import { getDictionary, href, langs, pageMetadata, type Lang } from "@/lib/i18n";
 import Figure, { pad2 } from "@/components/figures/Figure";
 import SiteFooter from "@/components/SiteFooter";
-import ProjectContent from "./ProjectContent";
 import CloudMigrationContent from "@/components/projects/CloudMigrationContent";
 import DWProgramContent from "@/components/projects/DWProgramContent";
 import SpotifyELTContent from "@/components/projects/SpotifyELTContent";
@@ -14,12 +14,10 @@ import EcommerceContent from "@/components/projects/EcommerceContent";
 import DataIntelligencePlatformContent from "@/components/projects/DataIntelligencePlatformContent";
 
 interface ProjectPageProps {
-  params: {
-    id: string;
-  };
+  params: { lang: Lang; id: string };
 }
 
-const bodies: Record<string, (props: { lang?: "en" }) => JSX.Element> = {
+const bodies: Record<string, (props: { lang: Lang }) => JSX.Element> = {
   "data-intelligence-platform": DataIntelligencePlatformContent,
   "cloud-migration-enterprise": CloudMigrationContent,
   "data-warehouse-modernization": DWProgramContent,
@@ -28,33 +26,29 @@ const bodies: Record<string, (props: { lang?: "en" }) => JSX.Element> = {
   "ecommerce-dbt": EcommerceContent,
 };
 
-export async function generateStaticParams() {
-  return projects.map((project) => ({
-    id: project.id,
-  }));
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return langs.flatMap((lang) => getProjects(lang).map((p) => ({ lang, id: p.id })));
 }
 
-export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
-  const project = getProject(params.id);
+export function generateMetadata({ params }: ProjectPageProps): Metadata {
+  const { lang } = params;
+  const project = getProject(params.id, lang);
+  if (!project) return { title: getDictionary(lang).meta.notFoundTitle };
 
-  if (!project) {
-    return {
-      title: "Project not found",
-    };
-  }
-
-  const title = `${project.title} — ${siteConfig.name}`;
+  const path = `/projects/${project.id}/`;
+  const base = pageMetadata(lang, path, { title: `${project.title} — ${siteConfig.name}`, description: project.description });
+  /* Portuguese pages reuse the English social cards for now. */
   const image = { url: `/images/og/og-0${project.figure}.png`, width: 1200, height: 630, alt: project.ogTitle };
 
   return {
-    title,
-    description: project.description,
+    ...base,
     openGraph: {
+      ...base.openGraph,
       type: "article",
-      url: `/projects/${project.id}/`,
       title: project.ogTitle,
       description: project.ogLine,
-      siteName: siteConfig.name,
       images: [image],
     },
     twitter: {
@@ -68,11 +62,11 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 
 /* README › Pages: back link → Figure → title → metrics → body. The back link sits above the
    figure, so PageHeader is used without its own `back`. */
-function ProjectHeader({ project }: { project: Project }) {
+function ProjectHeader({ project, lang }: { project: Project; lang: Lang }) {
   return (
     <header style={{ paddingTop: "clamp(24px, 4vw, 48px)" }}>
-      <BackLink label="ALL WORK" href="/#work" />
-      <Figure n={project.figure} />
+      <BackLink label={getDictionary(lang).case.back} href={href(lang, "/#work")} />
+      <Figure n={project.figure} lang={lang} />
       <PageHeader eyebrow={`${pad2(project.figure)} · ${project.eyebrow}`} title={project.title} />
       <div className="lg-feature__metrics">
         {project.metrics.map((m) => (
@@ -87,21 +81,18 @@ function ProjectHeader({ project }: { project: Project }) {
 }
 
 export default function ProjectPage({ params }: ProjectPageProps) {
-  const project = getProject(params.id);
-
-  if (!project) {
-    notFound();
-  }
-
-  const Body = bodies[project.id];
+  const { lang } = params;
+  const project = getProject(params.id, lang);
+  const Body = project && bodies[project.id];
+  if (!project || !Body) notFound();
 
   return (
     <>
       <article className="lg-container">
-        <ProjectHeader project={project} />
-        {Body ? <Body /> : <ProjectContent project={project} />}
+        <ProjectHeader project={project} lang={lang} />
+        <Body lang={lang} />
       </article>
-      <SiteFooter />
+      <SiteFooter lang={lang} />
     </>
   );
 }

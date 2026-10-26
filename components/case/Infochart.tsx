@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { pad2 } from "@/components/figures/Figure";
+import { getDictionary, type Lang } from "@/lib/i18n";
 
 interface InfochartProps {
   num: number;
@@ -9,17 +10,18 @@ interface InfochartProps {
   /* The width the chart is drawn at. The SVG viewBox has the same width, so labels render 1:1;
      on narrow screens the canvas scrolls sideways instead of shrinking the type. */
   minWidth?: number;
-  hint?: string;
+  lang?: Lang;
   children: ReactNode;
 }
 
 /* The frame around every chart in a case study. */
-export default function Infochart({ num, label, title, sub, minWidth = 720, hint = "SCROLL →", children }: InfochartProps) {
+export default function Infochart({ num, label, title, sub, minWidth = 720, lang = "en", children }: InfochartProps) {
+  const t = getDictionary(lang).case;
   return (
     <figure className="lg-chart">
       <figcaption>
         <div className="lg-mono-sm lg-accent">
-          INFOCHART {pad2(num)} · {label}
+          {t.infochart} {pad2(num)} · {label}
         </div>
         <div className="lg-chart__title">{title}</div>
         {sub && <div className="lg-chart__sub">{sub}</div>}
@@ -30,7 +32,7 @@ export default function Infochart({ num, label, title, sub, minWidth = 720, hint
         </div>
       </div>
       <div className="lg-chart__hint lg-mono-sm lg-muted" aria-hidden="true">
-        {hint}
+        {t.scroll}
       </div>
     </figure>
   );

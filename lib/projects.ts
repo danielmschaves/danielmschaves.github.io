@@ -1,5 +1,7 @@
-import projectsData from "@/data/projects.json";
-import { FIGURES, pad2, type CaseNumber } from "@/components/figures/Figure";
+import projectsEn from "@/data/en/projects.json";
+import projectsPt from "@/data/pt/projects.json";
+import { figureMeta, pad2, type CaseNumber } from "@/components/figures/Figure";
+import { href, type Lang } from "@/lib/i18n";
 import type { ProjectRowData } from "@/components/ProjectRow";
 
 export interface Project {
@@ -25,23 +27,27 @@ export interface Project {
   og: string;
 }
 
-export const projects = projectsData as Project[];
+const byLang: Record<Lang, Project[]> = { en: projectsEn as Project[], pt: projectsPt as Project[] };
 
-export function getProject(id: string) {
-  return projects.find((p) => p.id === id);
+export function getProjects(lang: Lang) {
+  return byLang[lang];
 }
 
-export function projectHref(p: Project) {
-  return `/projects/${p.id}/`;
+export function getProject(id: string, lang: Lang) {
+  return byLang[lang].find((p) => p.id === id);
 }
 
-/* Tags drop the discipline itself ("Project Management"), which the eyebrow already says. */
+export function projectHref(p: Project, lang: Lang) {
+  return href(lang, `/projects/${p.id}/`);
+}
+
+/* Tags drop the discipline itself ("Project management"), which the eyebrow already says. */
 export function projectTags(p: Project) {
-  return p.technologies.filter((t) => !/management$/i.test(t));
+  return p.technologies.filter((t) => !/(management|gestão de (projetos|programas))$/i.test(t));
 }
 
-export function projectRow(p: Project): ProjectRowData & { category: string } {
-  const fig = FIGURES[p.figure as CaseNumber];
+export function projectRow(p: Project, lang: Lang): ProjectRowData & { category: string } {
+  const fig = figureMeta(p.figure as CaseNumber, lang);
   return {
     id: p.id,
     num: pad2(p.figure),
@@ -53,7 +59,7 @@ export function projectRow(p: Project): ProjectRowData & { category: string } {
     approach: p.technicalApproach,
     tech: projectTags(p),
     repo: p.githubUrl,
-    href: projectHref(p),
+    href: projectHref(p, lang),
     category: p.category,
   };
 }

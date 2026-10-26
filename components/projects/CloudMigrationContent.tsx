@@ -6,11 +6,12 @@ import PullQuote from "@/components/case/PullQuote";
 import StatStrip from "@/components/StatStrip";
 import { withAccent } from "@/components/case/accent";
 import { Badge, Box, C, Canvas, Lines, T, Wire } from "@/components/case/svg";
+import type { Lang } from "@/lib/i18n";
 import { copy } from "./CloudMigration.copy";
 
 const W = 1100;
 
-export default function CloudMigrationContent({ lang = "en" }: { lang?: "en" }) {
+export default function CloudMigrationContent({ lang }: { lang: Lang }) {
   const t = copy[lang];
 
   return (
@@ -36,13 +37,13 @@ export default function CloudMigrationContent({ lang = "en" }: { lang?: "en" }) 
       </CaseSection>
 
       <CaseSection num={2} kicker={t.approach.kicker} title={withAccent(t.approach.title)} lead={t.approach.lead}>
-        <Infochart num={1} label={t.approach.chart.label} title={t.approach.chart.title} sub={t.approach.chart.sub} minWidth={W}>
+        <Infochart lang={lang} num={1} label={t.approach.chart.label} title={t.approach.chart.title} sub={t.approach.chart.sub} minWidth={W}>
           <StepsChart t={t.approach.chart} />
         </Infochart>
       </CaseSection>
 
       <CaseSection num={3} kicker={t.schedule.kicker} title={withAccent(t.schedule.title)} lead={t.schedule.lead}>
-        <Infochart num={2} label={t.schedule.chart.label} title={t.schedule.chart.title} minWidth={W}>
+        <Infochart lang={lang} num={2} label={t.schedule.chart.label} title={t.schedule.chart.title} minWidth={W}>
           <GanttChart t={t.schedule.chart} />
         </Infochart>
       </CaseSection>
@@ -51,19 +52,19 @@ export default function CloudMigrationContent({ lang = "en" }: { lang?: "en" }) 
         <div className="pt-8">
           <StatStrip stats={t.budget.stats} label={t.budget.kicker} />
         </div>
-        <Infochart num={3} label={t.budget.chart.label} title={t.budget.chart.title} sub={t.budget.chart.sub} minWidth={W}>
+        <Infochart lang={lang} num={3} label={t.budget.chart.label} title={t.budget.chart.title} sub={t.budget.chart.sub} minWidth={W}>
           <ResourceChart t={t.budget.chart} />
         </Infochart>
       </CaseSection>
 
       <CaseSection num={5} kicker={t.risk.kicker} title={withAccent(t.risk.title)}>
-        <Infochart num={4} label={t.risk.chart.label} title={t.risk.chart.title} minWidth={W}>
+        <Infochart lang={lang} num={4} label={t.risk.chart.label} title={t.risk.chart.title} minWidth={W}>
           <RiskChart t={t.risk.chart} />
         </Infochart>
       </CaseSection>
 
       <CaseSection num={6} kicker={t.governance.kicker} title={withAccent(t.governance.title)} lead={t.governance.lead}>
-        <Infochart num={5} label={t.governance.chart.label} title={t.governance.chart.title} minWidth={W}>
+        <Infochart lang={lang} num={5} label={t.governance.chart.label} title={t.governance.chart.title} minWidth={W}>
           <GovernanceChart t={t.governance.chart} />
         </Infochart>
       </CaseSection>

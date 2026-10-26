@@ -17,7 +17,15 @@ export interface ProjectRowData {
   href: string;
 }
 
+export interface ProjectRowLabels {
+  approach: string;
+  stack: string;
+  readCase: string;
+  github: string;
+}
+
 interface ProjectRowProps extends ProjectRowData {
+  labels: ProjectRowLabels;
   open: boolean;
   onToggle: (open: boolean) => void;
 }
@@ -35,6 +43,7 @@ export default function ProjectRow({
   tech,
   repo,
   href,
+  labels,
   open,
   onToggle,
 }: ProjectRowProps) {
@@ -75,23 +84,23 @@ export default function ProjectRow({
           <div className="lg-row__side">
             {approach && (
               <div>
-                <div className="lg-label">TECHNICAL APPROACH</div>
+                <div className="lg-label">{labels.approach}</div>
                 <p>{approach}</p>
               </div>
             )}
             {tech && tech.length > 0 && (
               <div>
-                <div className="lg-label">STACK</div>
+                <div className="lg-label">{labels.stack}</div>
                 <Chips items={tech} />
               </div>
             )}
             <div className="lg-actions" style={{ gap: "8px 20px" }}>
               <Button variant="link" href={href}>
-                Read case study →
+                {labels.readCase}
               </Button>
               {repo && (
                 <a href={repo} style={{ fontSize: 14, fontWeight: 600, padding: "12px 0" }}>
-                  View on GitHub ↗
+                  {labels.github}
                 </a>
               )}
             </div>

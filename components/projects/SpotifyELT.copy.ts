@@ -1,6 +1,8 @@
 /* Copy for the Spotify ELT pipeline case study, prose and chart labels included.
    Mono labels are typed in UPPERCASE here, as the Ledger content rules ask. */
 
+import type { Lang } from "@/lib/i18n";
+
 const en = {
   lead: "End-to-end ELT pipeline built on DuckDB, Motherduck, dbt, and Astronomer Airflow. Spotify API data flows through a Raw → Bronze → Silver → Gold medallion architecture on AWS S3, transformed by dbt into analytics-ready dimensional models, and surfaced in Power BI — with Terraform provisioning the entire infrastructure.",
   facts: [
@@ -234,4 +236,4 @@ const en = {
 };
 
 export type SpotifyELTCopy = typeof en;
-export const copy: Record<"en", SpotifyELTCopy> = { en };
+export const copy: Record<Lang, SpotifyELTCopy> = { en, pt: en };

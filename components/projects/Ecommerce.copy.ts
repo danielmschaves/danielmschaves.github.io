@@ -1,6 +1,8 @@
 /* Copy for the e-commerce ETL pipeline case study, prose and chart labels included.
    Mono labels are typed in UPPERCASE here, as the Ledger content rules ask; code stays as written. */
 
+import type { Lang } from "@/lib/i18n";
+
 const en = {
   lead: "Built on BigQuery’s public thelook_ecommerce dataset, this pipeline enforces type safety via Pydantic models, processes data in-process via DuckDB, and routes results to CSV, Amazon S3, or MotherDuck based on runtime configuration — with every component independently testable.",
   facts: [
@@ -183,4 +185,4 @@ const en = {
 };
 
 export type EcommerceCopy = typeof en;
-export const copy: Record<"en", EcommerceCopy> = { en };
+export const copy: Record<Lang, EcommerceCopy> = { en, pt: en };

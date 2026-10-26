@@ -1,8 +1,13 @@
 import { cn } from "@/lib/utils";
-import certifications from "@/data/certifications.json";
+import certificationsEn from "@/data/en/certifications.json";
+import certificationsPt from "@/data/pt/certifications.json";
+import type { Lang } from "@/lib/i18n";
+
+const byLang: Record<Lang, typeof certificationsEn> = { en: certificationsEn, pt: certificationsPt };
 
 /* Groups in the order they first appear in certifications.json; the first (AI · Anthropic) carries the accent. */
-export default function CredentialGrid() {
+export default function CredentialGrid({ lang }: { lang: Lang }) {
+  const certifications = byLang[lang];
   const groups = Array.from(new Set(certifications.map((c) => c.group)));
   return (
     <div>

@@ -1,11 +1,26 @@
-import skills from "@/data/skills.json";
-import education from "@/data/education.json";
+import skillsEn from "@/data/en/skills.json";
+import skillsPt from "@/data/pt/skills.json";
+import educationEn from "@/data/en/education.json";
+import educationPt from "@/data/pt/education.json";
+import type { Lang } from "@/lib/i18n";
 import type { CapabilityColumn } from "@/components/Capabilities";
 import type { LedgerListItem } from "@/components/LedgerList";
 
-/* Maps data/*.json onto component props, so pages stay free of data shaping. */
+/* Maps data/<lang>/*.json onto component props, so pages stay free of data shaping. */
 
-export function capabilityColumns(): CapabilityColumn[] {
+interface Skills {
+  deliveryLeadership: { title: string; skills: string[] };
+  dataPlatform: { title: string; skills: string[] };
+  aiDelivery: { title: string; skills: string[] };
+  technical: { title: string; categories: Record<string, string[]> };
+  languages: { title: string; list: string[] };
+}
+
+const skillsBy: Record<Lang, Skills> = { en: skillsEn, pt: skillsPt };
+const educationBy: Record<Lang, typeof educationEn> = { en: educationEn, pt: educationPt };
+
+export function capabilityColumns(lang: Lang): CapabilityColumn[] {
+  const skills = skillsBy[lang];
   return [skills.deliveryLeadership, skills.dataPlatform, skills.aiDelivery].map((c) => ({
     title: c.title,
     items: c.skills,
@@ -13,15 +28,16 @@ export function capabilityColumns(): CapabilityColumn[] {
 }
 
 /* One row per category in skills.json. */
-export function stackItems(): LedgerListItem[] {
+export function stackItems(lang: Lang): LedgerListItem[] {
+  const skills = skillsBy[lang];
   return Object.entries(skills.technical.categories).map(([category, tools]) => ({
     label: category.toUpperCase(),
     value: tools.join(" · "),
   }));
 }
 
-export function educationItems(): LedgerListItem[] {
-  return education.map((e) => ({
+export function educationItems(lang: Lang): LedgerListItem[] {
+  return educationBy[lang].map((e) => ({
     title: e.degree,
     subtitle: `${e.institution} · ${e.location}`,
     meta: e.year,
@@ -29,8 +45,8 @@ export function educationItems(): LedgerListItem[] {
 }
 
 /* "Portuguese (Native)" → title + UPPERCASE meta. */
-export function languageItems(): LedgerListItem[] {
-  return skills.languages.list.map((entry) => {
+export function languageItems(lang: Lang): LedgerListItem[] {
+  return skillsBy[lang].languages.list.map((entry) => {
     const [, name, level] = entry.match(/^(.*?)\s*\((.*)\)$/) ?? [entry, entry, ""];
     return { title: name, meta: level.toUpperCase() };
   });

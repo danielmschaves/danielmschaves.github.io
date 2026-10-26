@@ -1,6 +1,8 @@
 /* Copy for the Data Intelligence Platform case study, prose and chart labels included.
    Mono labels are typed in UPPERCASE here, as the Ledger content rules ask. */
 
+import type { Lang } from "@/lib/i18n";
+
 const en = {
   lead: "A one-year project to take a growing trading company from scattered operational systems to a unified data platform — data lake, data warehouse, BI and predictive models, all built from scratch. This was the foundation engagement where I formalized the planning cadence and sprint discipline I still use today.",
   facts: [
@@ -187,4 +189,4 @@ const en = {
 };
 
 export type DataIntelligencePlatformCopy = typeof en;
-export const copy: Record<"en", DataIntelligencePlatformCopy> = { en };
+export const copy: Record<Lang, DataIntelligencePlatformCopy> = { en, pt: en };

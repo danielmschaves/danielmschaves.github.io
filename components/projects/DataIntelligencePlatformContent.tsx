@@ -6,11 +6,12 @@ import PullQuote from "@/components/case/PullQuote";
 import { withAccent } from "@/components/case/accent";
 import { pad2 } from "@/components/figures/Figure";
 import { Badge, Box, C, Canvas, Lines, T, Wire } from "@/components/case/svg";
+import type { Lang } from "@/lib/i18n";
 import { copy } from "./DataIntelligencePlatform.copy";
 
 const W = 1100;
 
-export default function DataIntelligencePlatformContent({ lang = "en" }: { lang?: "en" }) {
+export default function DataIntelligencePlatformContent({ lang }: { lang: Lang }) {
   const t = copy[lang];
 
   return (
@@ -36,7 +37,7 @@ export default function DataIntelligencePlatformContent({ lang = "en" }: { lang?
       </CaseSection>
 
       <CaseSection num={2} kicker={t.lifecycle.kicker} title={withAccent(t.lifecycle.title)} lead={t.lifecycle.lead}>
-        <Infochart num={1} label={t.lifecycle.chart.label} title={t.lifecycle.chart.title} minWidth={W}>
+        <Infochart lang={lang} num={1} label={t.lifecycle.chart.label} title={t.lifecycle.chart.title} minWidth={W}>
           <TimelineChart t={t.lifecycle.chart} />
         </Infochart>
       </CaseSection>
@@ -55,7 +56,7 @@ export default function DataIntelligencePlatformContent({ lang = "en" }: { lang?
       </CaseSection>
 
       <CaseSection num={4} kicker={t.backlog.kicker} title={withAccent(t.backlog.title)} lead={t.backlog.lead}>
-        <Infochart num={2} label={t.backlog.chart.label} title={t.backlog.chart.title} sub={t.backlog.chart.sub} minWidth={W}>
+        <Infochart lang={lang} num={2} label={t.backlog.chart.label} title={t.backlog.chart.title} sub={t.backlog.chart.sub} minWidth={W}>
           <BacklogChart t={t.backlog.chart} />
         </Infochart>
       </CaseSection>
@@ -67,19 +68,19 @@ export default function DataIntelligencePlatformContent({ lang = "en" }: { lang?
       </CaseSection>
 
       <CaseSection num={6} kicker={t.allocation.kicker} title={withAccent(t.allocation.title)} lead={t.allocation.lead}>
-        <Infochart num={3} label={t.allocation.chart.label} title={t.allocation.chart.title} minWidth={W}>
+        <Infochart lang={lang} num={3} label={t.allocation.chart.label} title={t.allocation.chart.title} minWidth={W}>
           <AllocationChart t={t.allocation.chart} />
         </Infochart>
       </CaseSection>
 
       <CaseSection num={7} kicker={t.calendar.kicker} title={withAccent(t.calendar.title)} lead={t.calendar.lead}>
-        <Infochart num={4} label={t.calendar.chart.label} title={t.calendar.chart.title} minWidth={W}>
+        <Infochart lang={lang} num={4} label={t.calendar.chart.label} title={t.calendar.chart.title} minWidth={W}>
           <CalendarChart t={t.calendar.chart} />
         </Infochart>
       </CaseSection>
 
       <CaseSection num={8} kicker={t.kanban.kicker} title={withAccent(t.kanban.title)} lead={t.kanban.lead}>
-        <Infochart num={5} label={t.kanban.chart.label} title={t.kanban.chart.title} minWidth={W}>
+        <Infochart lang={lang} num={5} label={t.kanban.chart.label} title={t.kanban.chart.title} minWidth={W}>
           <KanbanChart t={t.kanban.chart} />
         </Infochart>
       </CaseSection>

@@ -299,7 +299,7 @@ function ModulesChart({ t }: { t: Copy["modules"]["chart"] }) {
       })}
       <Box x={20} y={348} width={1060} height={66} fill={C.surface} stroke={C.line} sw={1} />
       <T x={40} y={374} weight={600}>{t.rule.name}</T>
-      <Lines x={160} y={374} gap={20} fill={C.body} lines={t.rule.lines} />
+      <Lines x={210} y={374} gap={20} fill={C.body} lines={t.rule.lines} />
     </Canvas>
   );
 }

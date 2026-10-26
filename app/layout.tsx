@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
+import { siteConfig } from "@/config/site";
 
 const interTight = localFont({
   src: [
@@ -27,38 +28,26 @@ const themeScript =
   "try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}";
 
 export const metadata: Metadata = {
-  title: "Daniel Chaves - Delivery Manager & Data Engineer",
-  description:
-    "Results-driven Delivery Manager with 6 years of experience leading enterprise data initiatives and cross-functional teams. Specializing in AI/ML solutions, modern data stack implementations, and data platform architecture.",
-  keywords: [
-    "Daniel Chaves",
-    "Delivery Manager",
-    "Data Engineer",
-    "Data Science",
-    "Python",
-    "SQL",
-    "dbt",
-    "Airflow",
-    "Snowflake",
-    "Data Engineering",
-    "AI/ML",
-  ],
-  authors: [{ name: "Daniel Chaves" }],
-  creator: "Daniel Chaves",
+  metadataBase: new URL(siteConfig.url),
+  title: siteConfig.title,
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://danielmschaves.github.io",
-    title: "Daniel Chaves - Delivery Manager & Data Engineer",
-    description:
-      "Results-driven Delivery Manager with 6 years of experience leading enterprise data initiatives.",
-    siteName: "Daniel Chaves Portfolio",
+    url: siteConfig.url,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: siteConfig.title }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Daniel Chaves - Delivery Manager & Data Engineer",
-    description:
-      "Results-driven Delivery Manager with 6 years of experience leading enterprise data initiatives.",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
   },
   robots: {
     index: true,

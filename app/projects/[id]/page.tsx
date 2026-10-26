@@ -43,9 +43,26 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     };
   }
 
+  const title = `${project.title} — ${siteConfig.name}`;
+  const image = { url: `/images/og/og-0${project.figure}.png`, width: 1200, height: 630, alt: project.ogTitle };
+
   return {
-    title: `${project.title} — ${siteConfig.name}`,
+    title,
     description: project.description,
+    openGraph: {
+      type: "article",
+      url: `/projects/${project.id}/`,
+      title: project.ogTitle,
+      description: project.ogLine,
+      siteName: siteConfig.name,
+      images: [image],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.ogTitle,
+      description: project.ogLine,
+      images: [image.url],
+    },
   };
 }
 

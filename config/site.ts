@@ -4,8 +4,21 @@ export const siteConfig = {
   title: "Daniel Chaves - Delivery Manager & Data Engineer",
   description:
     "Results-driven Delivery Manager with 6 years of experience leading enterprise data initiatives and cross-functional teams. Specializing in AI/ML solutions, modern data stack implementations, and data platform architecture.",
-  url: "https://danielmschaves.github.io",
-  ogImage: "/images/og-image.jpg",
+  url: "https://www.danielmschaves.com",
+  ogImage: "/images/og/og-default.png",
+  keywords: [
+    "Daniel Chaves",
+    "Delivery Manager",
+    "Data Engineer",
+    "Data Science",
+    "Python",
+    "SQL",
+    "dbt",
+    "Airflow",
+    "Snowflake",
+    "Data Engineering",
+    "AI/ML",
+  ],
   links: {
     linkedin: "https://www.linkedin.com/in/dmschaves/",
     github: "https://github.com/danielmschaves",

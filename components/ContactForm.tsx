@@ -51,7 +51,7 @@ export default function ContactForm() {
   const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
   return (
-    <form ref={formRef} action={formAction} className="lg-form" style={{ marginTop: 56 }} noValidate>
+    <form ref={formRef} action={formAction} className="lg-form" noValidate>
       {state.success && (
         <div className="lg-notice lg-notice--success" role="status">
           <CheckIcon />

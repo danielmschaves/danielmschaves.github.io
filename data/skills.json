@@ -1,6 +1,6 @@
 {
   "deliveryLeadership": {
-    "title": "Delivery & Leadership",
+    "title": "Delivery & leadership",
     "skills": [
       "Engagement ownership across enterprise accounts in LATAM and EMEA, driving value delivery, client satisfaction, and contract renewals in pharmaceutical and technology sectors.",
       "Executive stakeholder management and strategic consulting — translating business needs into multi-quarter delivery roadmaps and advising C-level and senior stakeholders.",
@@ -9,7 +9,7 @@
     ]
   },
   "dataPlatform": {
-    "title": "Data Platform & Architecture",
+    "title": "Data platform & architecture",
     "skills": [
       "Extensive experience designing and overseeing modern data platforms in cloud environments (AWS, GCP, Azure), including data lakes, data warehouses, and data marts for enterprise clients.",
       "Proven track record leading legacy data system migrations to modern architectures, with robust data governance frameworks ensuring data quality, compliance, and reliability.",
@@ -18,7 +18,7 @@
     ]
   },
   "aiDelivery": {
-    "title": "AI & GenAI Delivery",
+    "title": "AI & GenAI delivery",
     "skills": [
       "Building AI agents that automate key program-management workflows at phData, shifting focus from operational work to business outcomes.",
       "Scoped and launched AI service offerings — intelligent agents, ML models, GenAI and chatbots — that contributed directly to enterprise account expansion.",
@@ -27,20 +27,20 @@
     ]
   },
   "technical": {
-    "title": "Technical Skills",
+    "title": "Technical skills",
     "categories": {
-      "Project Management Tools": [
+      "Project management tools": [
         "Project Professional",
         "Project Online",
         "Azure DevOps",
         "Jira Cloud"
       ],
-      "Programming Languages": [
+      "Programming languages": [
         "Python",
         "SQL",
         "NoSQL"
       ],
-      "Data Engineering": [
+      "Data engineering": [
         "dbt",
         "Airflow",
         "Dagster",
@@ -48,7 +48,7 @@
         "Kafka",
         "ETL/ELT"
       ],
-      "Cloud Platforms": [
+      "Cloud platforms": [
         "AWS",
         "GCP",
         "Azure"
@@ -60,14 +60,14 @@
         "MySQL",
         "DuckDB"
       ],
-      "Data Visualization": [
+      "Data visualization": [
         "Power BI",
         "Tableau",
         "Looker",
         "Streamlit"
       ],
       "AI/ML": [
-        "Machine Learning",
+        "Machine learning",
         "TensorFlow",
         "PyTorch",
         "Scikit-learn"

@@ -6,11 +6,12 @@ import PullQuote from "@/components/case/PullQuote";
 import StatStrip from "@/components/StatStrip";
 import { withAccent } from "@/components/case/accent";
 import { Box, C, Canvas, Lines, T, Wire } from "@/components/case/svg";
+import type { Lang } from "@/lib/i18n";
 import { copy } from "./SpotifyELT.copy";
 
 const W = 1100;
 
-export default function SpotifyELTContent({ lang = "en" }: { lang?: "en" }) {
+export default function SpotifyELTContent({ lang }: { lang: Lang }) {
   const t = copy[lang];
   const [leadBefore, leadCode, leadAfter] = t.deliverables.lead;
 
@@ -34,25 +35,25 @@ export default function SpotifyELTContent({ lang = "en" }: { lang?: "en" }) {
             <p className="body" style={{ color: "var(--body)" }}>{t.context.job.p2}</p>
           </div>
         </div>
-        <Infochart num={1} label={t.context.chart.label} title={t.context.chart.title} sub={t.context.chart.sub} minWidth={W}>
+        <Infochart lang={lang} num={1} label={t.context.chart.label} title={t.context.chart.title} sub={t.context.chart.sub} minWidth={W}>
           <MedallionChart t={t.context.chart} />
         </Infochart>
       </CaseSection>
 
       <CaseSection num={2} kicker={t.topology.kicker} title={withAccent(t.topology.title)} lead={t.topology.lead}>
-        <Infochart num={2} label={t.topology.chart.label} title={t.topology.chart.title} sub={t.topology.chart.sub} minWidth={W}>
+        <Infochart lang={lang} num={2} label={t.topology.chart.label} title={t.topology.chart.title} sub={t.topology.chart.sub} minWidth={W}>
           <TopologyChart t={t.topology.chart} />
         </Infochart>
       </CaseSection>
 
       <CaseSection num={3} kicker={t.orchestration.kicker} title={withAccent(t.orchestration.title)} lead={t.orchestration.lead}>
-        <Infochart num={3} label={t.orchestration.chart.label} title={t.orchestration.chart.title} sub={t.orchestration.chart.sub} minWidth={W}>
+        <Infochart lang={lang} num={3} label={t.orchestration.chart.label} title={t.orchestration.chart.title} sub={t.orchestration.chart.sub} minWidth={W}>
           <DagChart t={t.orchestration.chart} />
         </Infochart>
       </CaseSection>
 
       <CaseSection num={4} kicker={t.transformation.kicker} title={withAccent(t.transformation.title)} lead={t.transformation.lead}>
-        <Infochart num={4} label={t.transformation.chart.label} title={t.transformation.chart.title} minWidth={W}>
+        <Infochart lang={lang} num={4} label={t.transformation.chart.label} title={t.transformation.chart.title} minWidth={W}>
           <DbtChart t={t.transformation.chart} />
         </Infochart>
       </CaseSection>
@@ -61,7 +62,7 @@ export default function SpotifyELTContent({ lang = "en" }: { lang?: "en" }) {
         <div className="pt-8">
           <StatStrip stats={t.cost.stats} label={t.cost.kicker} />
         </div>
-        <Infochart num={5} label={t.cost.chart.label} title={t.cost.chart.title} sub={t.cost.chart.sub} minWidth={W}>
+        <Infochart lang={lang} num={5} label={t.cost.chart.label} title={t.cost.chart.title} sub={t.cost.chart.sub} minWidth={W}>
           <CostChart t={t.cost.chart} />
         </Infochart>
       </CaseSection>

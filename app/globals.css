@@ -369,3 +369,7 @@
   .lg-case-intro { display: flex; flex-direction: column; gap: var(--space-6); padding-top: var(--space-6); }
   .lg-case-intro__lead { margin: 0; font-size: clamp(17px, 1.5vw, 20px); line-height: 1.55; color: var(--body); }
 }
+
+/* The 404 renders in both languages; show the one matching <html lang>. */
+html[lang="en"] [data-nf="pt"],
+html[lang="pt-BR"] [data-nf="en"] { display: none; }

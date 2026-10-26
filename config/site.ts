@@ -27,6 +27,8 @@ export const siteConfig = {
     phone: "+55 (55) 99669-5092",
   },
   location: "Florianópolis, Brazil",
-  resumePdf: "/DMC-17-05.pdf",
+  /* Résumé PDFs by language. Set `pt` once a Portuguese PDF is in public/; until then /pt/ links the
+     English one, labelled "Baixar PDF (inglês)". */
+  resumePdf: { en: "/DMC-17-05.pdf", pt: null } as { en: string; pt: string | null },
 };
 

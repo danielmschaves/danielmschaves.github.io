@@ -1,0 +1,185 @@
+{
+  "nav": {
+    "work": "Work",
+    "resume": "Resume",
+    "services": "Services",
+    "contact": "Contact",
+    "primary": "Primary",
+    "language": "Language"
+  },
+  "theme": {
+    "dark": "DARK",
+    "light": "LIGHT",
+    "toLight": "Switch to light mode",
+    "toDark": "Switch to dark mode"
+  },
+  "hero": {
+    "eyebrow": "PROGRAM MANAGER · DATA & AI · FLORIANÓPOLIS, BR · REMOTE",
+    "title": "I take enterprise data & AI programs from pilot to production — and to",
+    "accent": "business outcomes.",
+    "lead": "Program Manager at phData, leading multi-workstream delivery on modern data platforms for large US enterprises. Before that, I owned pharma data & AI accounts across LATAM and EMEA — and started out running R&D programs in the energy sector.",
+    "ctaWork": "See selected work",
+    "ctaResume": "Download résumé",
+    "ctaResumeFallback": "Download résumé"
+  },
+  "stats": [
+    {
+      "value": "10 → 30+",
+      "label": "FTEs — delivery portfolio scaled 3×"
+    },
+    {
+      "value": "~4,000",
+      "label": "Monthly service hours at peak"
+    },
+    {
+      "value": "4.7",
+      "unit": "CSAT",
+      "label": "Across 12 concurrent engagements"
+    },
+    {
+      "value": "4×",
+      "label": "Faster delivery with an AI-augmented workflow"
+    }
+  ],
+  "sections": {
+    "work": "Selected work",
+    "workAside": "6 CASE STUDIES",
+    "capabilities": "Capabilities",
+    "capabilitiesAside": "DELIVERY · DATA · AI",
+    "stack": "STACK",
+    "experience": "Experience",
+    "experienceIntro": "Program delivery, data platforms and AI — newest first.",
+    "education": "Education",
+    "languages": "LANGUAGES",
+    "credentials": "Credentials",
+    "credentialsIntro": "Anthropic, PMI and the data engineering programs behind the work.",
+    "skills": "Skills"
+  },
+  "filters": {
+    "all": "All",
+    "pm": "Program & project management",
+    "de": "Data engineering",
+    "label": "Filter projects"
+  },
+  "row": {
+    "overview": "OVERVIEW",
+    "approach": "TECHNICAL APPROACH",
+    "stack": "STACK",
+    "readCase": "Read case study →",
+    "github": "View on GitHub ↗",
+    "featured": "FEATURED"
+  },
+  "metrics": {
+    "timeline": "Timeline, held",
+    "budget": "Fixed budget",
+    "downtime": "Unscheduled downtime"
+  },
+  "dates": {
+    "present": "PRESENT"
+  },
+  "languagesList": {
+    "pt": "Portuguese",
+    "en": "English",
+    "es": "Spanish",
+    "native": "NATIVE",
+    "fluent": "FLUENT",
+    "intermediate": "INTERMEDIATE"
+  },
+  "credGroups": {
+    "ai": "AI · ANTHROPIC",
+    "delivery": "DELIVERY",
+    "data": "DATA"
+  },
+  "resume": {
+    "eyebrow": "RÉSUMÉ · PROGRAM MANAGER · DATA & AI",
+    "download": "Download PDF",
+    "downloadFallback": "Download PDF"
+  },
+  "services": {
+    "title": "Services",
+    "intro": "Three ways I help enterprise teams move data and AI work from pilot to production.",
+    "ctaContact": "Start a conversation",
+    "ctaResume": "See the résumé",
+    "eyebrow": "SERVICES · DELIVERY · DATA · AI"
+  },
+  "case": {
+    "back": "ALL WORK",
+    "role": "ROLE",
+    "duration": "DURATION",
+    "budget": "BUDGET",
+    "scope": "SCOPE",
+    "infochart": "INFOCHART",
+    "scroll": "SCROLL →",
+    "deliverables": "DELIVERABLES"
+  },
+  "contact": {
+    "title": "Contact",
+    "intro": "Open to conversations on data & AI delivery: programs, teams and platforms.",
+    "direct": "OR WRITE DIRECTLY",
+    "send": "Send a message"
+  },
+  "form": {
+    "name": "NAME",
+    "email": "EMAIL",
+    "subject": "SUBJECT",
+    "message": "MESSAGE",
+    "phName": "Your name",
+    "phEmail": "you@company.com",
+    "phSubject": "What’s it about?",
+    "phMessage": "A few lines on the program, team or question.",
+    "inbox": "GOES STRAIGHT TO MY INBOX",
+    "submit": "Send message",
+    "sending": "Sending…",
+    "sentLead": "Sent.",
+    "sent": "Thanks — I’ll get back to you within two working days.",
+    "failedLead": "Not sent.",
+    "failed": "Something went wrong. Please try again, or email me directly.",
+    "captcha": "Please complete the CAPTCHA check.",
+    "errName": "Name must be at least 2 characters.",
+    "errEmail": "Please enter a valid email address.",
+    "errSubject": "Subject must be at least 5 characters.",
+    "errMessage": "Message must be at least 10 characters.",
+    "captchaFailed": "CAPTCHA verification failed. Please try again.",
+    "captchaError": "Failed to verify CAPTCHA. Please try again.",
+    "checkFields": "Please check the highlighted fields.",
+    "sendFailed": "Failed to send email. Please try again later.",
+    "captchaMissing": "CAPTCHA NOT CONFIGURED — SET NEXT_PUBLIC_TURNSTILE_SITE_KEY"
+  },
+  "footer": {
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "resume": "Resume",
+    "place": "Florianópolis, Brazil · UTC−3"
+  },
+  "notFound": {
+    "eyebrow": "NOT FOUND",
+    "text": "This page doesn’t exist or has moved.",
+    "home": "Back to home →",
+    "caseText": "This case study doesn’t exist or has moved.",
+    "allWork": "All work →"
+  },
+  "meta": {
+    "title": "Daniel Chaves — Program Manager, Data & AI",
+    "description": "Program Manager leading enterprise data and AI programs from pilot to production — modern data platforms, ML and GenAI, across the US, LATAM and EMEA.",
+    "resumeTitle": "Resume",
+    "resumeDescription": "Résumé of Daniel Chaves, Program Manager for enterprise data and AI programs.",
+    "servicesTitle": "Services",
+    "servicesDescription": "Program management for enterprise data and AI: delivery leadership, data platform architecture, and AI & GenAI delivery from pilot to production.",
+    "contactTitle": "Contact",
+    "contactDescription": "Get in touch about data and AI programs, delivery leadership or collaboration.",
+    "notFoundTitle": "Project not found",
+    "ogLocale": "en_US"
+  },
+  "accountsLine": {
+    "label": "SELECTED ACCOUNTS",
+    "items": [
+      "NOVO NORDISK",
+      "BAYER",
+      "ACROSS THE US, LATAM & EMEA"
+    ]
+  },
+  "langNames": {
+    "en": "English",
+    "pt": "Português"
+  }
+}

@@ -1,6 +1,8 @@
 /* Copy for the Adventure Works analytics engineering case study, prose and chart labels included.
    Mono labels are typed in UPPERCASE here, as the Ledger content rules ask. */
 
+import type { Lang } from "@/lib/i18n";
+
 const en = {
   lead: "Analytics engineering certification project built on dbt Core and BigQuery. Adventure Works SAP data flows through three disciplined layers — staging standardises raw inputs, intermediate applies business logic, and marts deliver domain-organised dimensional models ready for BI consumption. Every layer covered by automated dbt tests and generated documentation.",
   facts: [
@@ -217,4 +219,4 @@ const en = {
 };
 
 export type AdventureWorksCopy = typeof en;
-export const copy: Record<"en", AdventureWorksCopy> = { en };
+export const copy: Record<Lang, AdventureWorksCopy> = { en, pt: en };

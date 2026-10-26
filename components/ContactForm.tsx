@@ -6,6 +6,9 @@ import { Turnstile } from "@marsidev/react-turnstile";
 import { sendEmail, type ContactState } from "@/lib/actions";
 import Button from "@/components/Button";
 import { AlertIcon, CheckIcon, SendIcon, SpinnerIcon } from "@/components/Icons";
+import type { Dictionary, Lang } from "@/lib/i18n";
+
+type FormStrings = Dictionary["form"];
 
 const initialState: ContactState = {
   success: false,
@@ -15,14 +18,16 @@ const initialState: ContactState = {
 
 type FieldName = "name" | "email" | "subject" | "message";
 
-const fields: { name: FieldName; label: string; type: string; placeholder: string }[] = [
-  { name: "name", label: "NAME", type: "text", placeholder: "Your name" },
-  { name: "email", label: "EMAIL", type: "email", placeholder: "you@company.com" },
-  { name: "subject", label: "SUBJECT", type: "text", placeholder: "What’s it about?" },
-  { name: "message", label: "MESSAGE", type: "textarea", placeholder: "A few lines on the program, team or question." },
-];
+function fieldsFor(t: FormStrings): { name: FieldName; label: string; type: string; placeholder: string }[] {
+  return [
+    { name: "name", label: t.name, type: "text", placeholder: t.phName },
+    { name: "email", label: t.email, type: "email", placeholder: t.phEmail },
+    { name: "subject", label: t.subject, type: "text", placeholder: t.phSubject },
+    { name: "message", label: t.message, type: "textarea", placeholder: t.phMessage },
+  ];
+}
 
-function SubmitButton({ isVerified }: { isVerified: boolean }) {
+function SubmitButton({ isVerified, t }: { isVerified: boolean; t: FormStrings }) {
   const { pending } = useFormStatus();
   return (
     <Button
@@ -31,12 +36,13 @@ function SubmitButton({ isVerified }: { isVerified: boolean }) {
       disabled={pending || !isVerified}
       icon={pending ? <SpinnerIcon /> : <SendIcon />}
     >
-      {pending ? "Sending…" : "Send message"}
+      {pending ? t.sending : t.submit}
     </Button>
   );
 }
 
-export default function ContactForm() {
+/* The server action reads the hidden `lang` field and answers in that language. */
+export default function ContactForm({ lang, t }: { lang: Lang; t: FormStrings }) {
   const [state, formAction] = useFormState(sendEmail, initialState);
   const formRef = useRef<HTMLFormElement>(null);
   const [token, setToken] = useState("");
@@ -56,7 +62,7 @@ export default function ContactForm() {
         <div className="lg-notice lg-notice--success" role="status">
           <CheckIcon />
           <span>
-            <b>Sent. </b>
+            <b>{t.sentLead} </b>
             {state.message}
           </span>
         </div>
@@ -65,13 +71,15 @@ export default function ContactForm() {
         <div className="lg-notice lg-notice--error" role="alert">
           <AlertIcon />
           <span>
-            <b>Not sent. </b>
+            <b>{t.failedLead} </b>
             {state.message}
           </span>
         </div>
       )}
 
-      {fields.map((f) => {
+      <input type="hidden" name="lang" value={lang} />
+
+      {fieldsFor(t).map((f) => {
         const id = `cf-${f.name}`;
         const err = state.errors?.[f.name]?.[0];
         const common = {
@@ -102,13 +110,13 @@ export default function ContactForm() {
       {siteKey ? (
         <Turnstile siteKey={siteKey} onSuccess={setToken} />
       ) : (
-        <div className="lg-captcha">CAPTCHA NOT CONFIGURED — SET NEXT_PUBLIC_TURNSTILE_SITE_KEY</div>
+        <div className="lg-captcha">{t.captchaMissing}</div>
       )}
       <input type="hidden" name="cf-turnstile-response" value={token} />
 
       <div className="lg-form__foot">
-        <span className="lg-mono-sm lg-muted">GOES STRAIGHT TO MY INBOX</span>
-        <SubmitButton isVerified={!!token} />
+        <span className="lg-mono-sm lg-muted">{t.inbox}</span>
+        <SubmitButton isVerified={!!token} t={t} />
       </div>
     </form>
   );

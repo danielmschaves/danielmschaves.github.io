@@ -6,11 +6,12 @@ import PullQuote from "@/components/case/PullQuote";
 import StatStrip from "@/components/StatStrip";
 import { withAccent } from "@/components/case/accent";
 import { Box, C, Canvas, Lines, T, Wire } from "@/components/case/svg";
+import type { Lang } from "@/lib/i18n";
 import { copy } from "./Ecommerce.copy";
 
 const W = 1100;
 
-export default function EcommerceContent({ lang = "en" }: { lang?: "en" }) {
+export default function EcommerceContent({ lang }: { lang: Lang }) {
   const t = copy[lang];
 
   return (
@@ -33,25 +34,25 @@ export default function EcommerceContent({ lang = "en" }: { lang?: "en" }) {
             <p className="body" style={{ color: "var(--body)" }}>{t.context.why.p2}</p>
           </div>
         </div>
-        <Infochart num={1} label={t.context.chart.label} title={t.context.chart.title} sub={t.context.chart.sub} minWidth={W}>
+        <Infochart lang={lang} num={1} label={t.context.chart.label} title={t.context.chart.title} sub={t.context.chart.sub} minWidth={W}>
           <FlowChart t={t.context.chart} />
         </Infochart>
       </CaseSection>
 
       <CaseSection num={2} kicker={t.schema.kicker} title={withAccent(t.schema.title)} lead={t.schema.lead}>
-        <Infochart num={2} label={t.schema.chart.label} title={t.schema.chart.title} sub={t.schema.chart.sub} minWidth={W}>
+        <Infochart lang={lang} num={2} label={t.schema.chart.label} title={t.schema.chart.title} sub={t.schema.chart.sub} minWidth={W}>
           <SchemaChart t={t.schema.chart} />
         </Infochart>
       </CaseSection>
 
       <CaseSection num={3} kicker={t.validation.kicker} title={withAccent(t.validation.title)} lead={t.validation.lead}>
-        <Infochart num={3} label={t.validation.chart.label} title={t.validation.chart.title} sub={t.validation.chart.sub} minWidth={W}>
+        <Infochart lang={lang} num={3} label={t.validation.chart.label} title={t.validation.chart.title} sub={t.validation.chart.sub} minWidth={W}>
           <ValidationChart t={t.validation.chart} />
         </Infochart>
       </CaseSection>
 
       <CaseSection num={4} kicker={t.sinks.kicker} title={withAccent(t.sinks.title)} lead={t.sinks.lead}>
-        <Infochart num={4} label={t.sinks.chart.label} title={t.sinks.chart.title} sub={t.sinks.chart.sub} minWidth={W}>
+        <Infochart lang={lang} num={4} label={t.sinks.chart.label} title={t.sinks.chart.title} sub={t.sinks.chart.sub} minWidth={W}>
           <SinksChart t={t.sinks.chart} />
         </Infochart>
       </CaseSection>
@@ -60,7 +61,7 @@ export default function EcommerceContent({ lang = "en" }: { lang?: "en" }) {
         <div className="pt-8">
           <StatStrip stats={t.modules.stats} label={t.modules.kicker} />
         </div>
-        <Infochart num={5} label={t.modules.chart.label} title={t.modules.chart.title} sub={t.modules.chart.sub} minWidth={W}>
+        <Infochart lang={lang} num={5} label={t.modules.chart.label} title={t.modules.chart.title} sub={t.modules.chart.sub} minWidth={W}>
           <ModulesChart t={t.modules.chart} />
         </Infochart>
       </CaseSection>

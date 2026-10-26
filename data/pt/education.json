@@ -1,20 +1,20 @@
 [
   {
     "institution": "Pontifícia Universidade Católica",
-    "degree": "Data Engineering, Postgraduate Degree",
+    "degree": "Engenharia de Dados, pós-graduação",
     "year": "2024",
-    "location": "Florianópolis, Brazil"
+    "location": "Florianópolis, Brasil"
   },
   {
     "institution": "University of Alberta",
-    "degree": "Software Product Management, Specialization",
+    "degree": "Software Product Management, especialização",
     "year": "2023",
-    "location": "Alberta, Canada"
+    "location": "Alberta, Canadá"
   },
   {
-    "institution": "Federal University of Santa Maria",
-    "degree": "Bachelor of Engineering, Production Engineering",
+    "institution": "Universidade Federal de Santa Maria",
+    "degree": "Bacharelado em Engenharia de Produção",
     "year": "2021",
-    "location": "Santa Maria, Brazil"
+    "location": "Santa Maria, Brasil"
   }
 ]

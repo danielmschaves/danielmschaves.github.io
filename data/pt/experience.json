@@ -4,13 +4,13 @@
     "position": "Program Manager",
     "startDate": "2026-08",
     "endDate": "Present",
-    "location": "Remote",
-    "description": "Program Manager for data and AI engagements with large US enterprises, accountable for value delivery, client experience, and moving work from pilot to production.",
+    "location": "Remoto",
+    "description": "Program Manager de projetos de dados e IA para grandes empresas dos EUA, responsável pela entrega de valor, pela experiência do cliente e por levar o trabalho do piloto à produção.",
     "achievements": [
-      "Leading the data services workstream of a large enterprise transformation program, coordinating engineering, QA, business analysis, and client stakeholders across parallel teams and time zones.",
-      "Driving delivery of modern data platform work on Snowflake and dbt, including integrations between the DW and operational and CRM systems, legacy workflow rebuilds, and migration of low code workflows into dbt.",
-      "Owning program governance end to end: sprint planning, RAID and dependency management, cross team sign off gates, and status reporting for program leadership.",
-      "Building AI agents that automate key PM workflows, shifting focus from operational work to driving business outcomes."
+      "Lidero a frente de serviços de dados de um grande programa de transformação corporativa, coordenando engenharia, QA, análise de negócio e stakeholders do cliente em times paralelos e fusos horários diferentes.",
+      "Conduzo a entrega de plataforma de dados moderna em Snowflake e dbt, incluindo integrações entre o DW e sistemas operacionais e de CRM, reconstrução de fluxos legados e migração de fluxos low-code para o dbt.",
+      "Respondo pela governança do programa de ponta a ponta: planejamento de sprints, gestão de RAID e dependências, gates de aprovação entre times e relatórios de status para a liderança do programa.",
+      "Construo agentes de IA que automatizam fluxos-chave de gestão de projetos, tirando o foco do trabalho operacional e colocando-o nos resultados de negócio."
     ]
   },
   {
@@ -18,59 +18,59 @@
     "position": "Data & AI Delivery Manager",
     "startDate": "2024-08",
     "endDate": "2026-08",
-    "location": "Florianópolis, Brazil",
-    "description": "Delivery Lead for enterprise data and AI accounts across LATAM and EMEA, accountable for value delivery, client experience, account growth, and renewals in the pharmaceutical sector.",
+    "location": "Florianópolis, Brasil",
+    "description": "Líder de entrega de contas corporativas de dados e IA na América Latina e na EMEA, responsável pela entrega de valor, pela experiência do cliente, pelo crescimento das contas e pelas renovações no setor farmacêutico.",
     "achievements": [
-      "Acted as primary engagement owner for global pharmaceutical accounts including Novo Nordisk and Bayer, leading global expansion across LATAM and EMEA and securing multi-year contract renewals and scope expansions.",
-      "Scaled the portfolio from 10 to 30+ FTEs and from 1,200 to ~4,000 monthly service hours at peak, currently owning 12 concurrent enterprise engagements with a sustained CSAT of 4.7 across LATAM and EMEA.",
-      "Delivered 10+ engagements end-to-end — legacy data migrations, modern data platforms, analytical products, and AI applications (Machine Learning, GenAI, intelligent agents, chatbots) — built on dbt, Dagster, Airflow, Snowflake, and Databricks with robust data governance frameworks.",
-      "Served as data strategy consultant to enterprise pharmaceutical clients, planning and designing tailored data and AI solutions, advising executive stakeholders, and translating business needs into multi-quarter delivery roadmaps.",
-      "Scoped and launched new AI service offerings — intelligent agents, ML models, GenAI, and chatbots — directly contributing to account expansion and increased client engagement.",
-      "Designed and implemented an AI-augmented planning and execution workflow for a data migration engagement, integrating AI tools across discovery, modeling, and validation steps and accelerating delivery by 4x.",
-      "Championed team development through mentoring, technical enablement, and career growth plans, strengthening retention and building a high-performing delivery organization."
+      "Fui o principal responsável por contas farmacêuticas globais, entre elas Novo Nordisk e Bayer, liderando a expansão para a América Latina e a EMEA e garantindo renovações plurianuais e ampliações de escopo.",
+      "Escalei o portfólio de 10 para mais de 30 FTEs e de 1.200 para ~4.000 horas de serviço por mês no pico, com 12 projetos corporativos simultâneos e CSAT sustentado de 4,7 na América Latina e na EMEA.",
+      "Entreguei mais de 10 projetos de ponta a ponta — migrações de dados legados, plataformas de dados modernas, produtos analíticos e aplicações de IA (machine learning, GenAI, agentes inteligentes, chatbots) — em dbt, Dagster, Airflow, Snowflake e Databricks, com frameworks robustos de governança de dados.",
+      "Atuei como consultor de estratégia de dados para clientes farmacêuticos corporativos, planejando e desenhando soluções de dados e IA sob medida, assessorando executivos e traduzindo necessidades de negócio em roadmaps de entrega de vários trimestres.",
+      "Estruturei e lancei novas ofertas de serviços de IA — agentes inteligentes, modelos de ML, GenAI e chatbots — contribuindo diretamente para a expansão das contas e para um engajamento maior dos clientes.",
+      "Desenhei e implementei um fluxo de planejamento e execução apoiado por IA para um projeto de migração de dados, integrando ferramentas de IA nas etapas de descoberta, modelagem e validação e acelerando a entrega em 4x.",
+      "Investi no desenvolvimento do time com mentoria, capacitação técnica e planos de carreira, fortalecendo a retenção e formando uma organização de entrega de alto desempenho."
     ]
   },
   {
-    "company": "Data Engineering Bootcamp (PUC-MG)",
-    "position": "Data Engineering Graduate Student",
+    "company": "PUC Minas",
+    "position": "Pós-graduando em Engenharia de Dados",
     "startDate": "2024-01",
     "endDate": "2024-12",
-    "location": "Remote",
-    "description": "Applied postgraduate program in Data Engineering at Pontificia Universidade Católica de Minas Gerais, focused on building modern data pipelines, cloud platforms, and analytics engineering workflows through hands-on projects.",
+    "location": "Remoto",
+    "description": "Pós-graduação aplicada em Engenharia de Dados na Pontifícia Universidade Católica de Minas Gerais, focada em pipelines de dados modernos, plataformas em nuvem e fluxos de analytics engineering, com projetos práticos.",
     "achievements": [
-      "Built multi-stage ELT pipelines (Spotify/Adventure Works) on AWS S3, DuckDB, BigQuery, and dbt, implementing Raw→Bronze→Silver→Gold medallion architectures with automated testing and documentation.",
-      "Developed Python-based ETL pipelines for API ingestion, data validation with Pydantic, and multi-destination loading (DuckDB, S3, Motherduck), covering full data quality assurance patterns.",
-      "Orchestrated automated batch workflows with Apache Airflow and Astronomer, and provisioned cloud infrastructure as code using Terraform for reproducible, environment-consistent data platforms.",
-      "Implemented predictive modeling and ML pipelines with Apache Spark, processing large-scale datasets and training classification models for data-driven insights.",
-      "Containerized data engineering applications with Docker across PostgreSQL, MySQL, DuckDB, and BigQuery, covering both OLTP and OLAP architecture patterns."
+      "Construí pipelines ELT de várias etapas (Spotify/Adventure Works) em AWS S3, DuckDB, BigQuery e dbt, implementando arquiteturas medallion Raw→Bronze→Silver→Gold com testes automatizados e documentação.",
+      "Desenvolvi pipelines ETL em Python para ingestão de APIs, validação de dados com Pydantic e carga em vários destinos (DuckDB, S3, Motherduck), cobrindo padrões completos de garantia de qualidade de dados.",
+      "Orquestrei fluxos em lote automatizados com Apache Airflow e Astronomer e provisionei infraestrutura em nuvem como código com Terraform, para plataformas de dados reproduzíveis e consistentes entre ambientes.",
+      "Implementei modelagem preditiva e pipelines de ML com Apache Spark, processando grandes volumes de dados e treinando modelos de classificação para gerar insights.",
+      "Conteinerizei aplicações de engenharia de dados com Docker em PostgreSQL, MySQL, DuckDB e BigQuery, cobrindo padrões de arquitetura OLTP e OLAP."
     ]
   },
   {
-    "company": "CERTI Foundation – Sustainable Energy Center",
-    "position": "Project Manager",
+    "company": "Fundação CERTI – Centro de Energia Sustentável",
+    "position": "Gerente de Projetos",
     "startDate": "2021-07",
     "endDate": "2024-03",
-    "location": "Florianópolis, Brazil",
-    "description": "Developed and executed project strategies for energy-sector R&D and innovation engagements — including urban planning and virtual power plant initiatives — partnering with public-sector sponsors, utility companies, and research institutions.",
+    "location": "Florianópolis, Brasil",
+    "description": "Desenvolvi e executei estratégias de projeto para iniciativas de P&D e inovação no setor de energia — entre elas planejamento urbano e usinas virtuais — em parceria com patrocinadores do setor público, concessionárias de energia e instituições de pesquisa.",
     "achievements": [
-      "Owned the full project lifecycle as primary point of contact for sponsors and partner institutions, ensuring scope alignment, transparent reporting, and reliable delivery from kickoff to close.",
-      "Increased average revenue per resource by 60% by redesigning data modeling and resource allocation across the portfolio, directly improving engagement economics.",
-      "Delivered a 30% improvement in portfolio efficiency by designing and rolling out two Business Intelligence solutions that gave sponsors and leadership real-time visibility into project health and outcomes.",
-      "Acted as Product Owner for internal data and visualization products, translating sponsor needs into prioritized roadmaps and lifting strategic alignment by 25% through market-driven prioritization."
+      "Respondi pelo ciclo de vida completo dos projetos como principal ponto de contato de patrocinadores e instituições parceiras, garantindo alinhamento de escopo, transparência nos relatórios e entregas confiáveis do kickoff ao encerramento.",
+      "Aumentei em 60% a receita média por recurso ao redesenhar a modelagem de dados e a alocação de recursos do portfólio, melhorando diretamente a economia dos projetos.",
+      "Entreguei um ganho de 30% na eficiência do portfólio ao desenhar e implantar duas soluções de Business Intelligence que deram a patrocinadores e à liderança visibilidade em tempo real da saúde e dos resultados dos projetos.",
+      "Atuei como Product Owner de produtos internos de dados e visualização, traduzindo necessidades dos patrocinadores em roadmaps priorizados e elevando em 25% o alinhamento estratégico com uma priorização orientada ao mercado."
     ]
   },
   {
-    "company": "CERTI Foundation – Sustainable Energy Center",
-    "position": "Project Analyst",
+    "company": "Fundação CERTI – Centro de Energia Sustentável",
+    "position": "Analista de Projetos",
     "startDate": "2019-08",
     "endDate": "2021-07",
-    "location": "Florianópolis, Brazil",
-    "description": "Analyzed and managed technology projects, ensuring timely delivery and stakeholder satisfaction.",
+    "location": "Florianópolis, Brasil",
+    "description": "Analisei e gerenciei projetos de tecnologia, garantindo entregas no prazo e a satisfação dos stakeholders.",
     "achievements": [
-      "Boosted project efficiency and delivery by 30% by implementing project management planning and scheduling methodologies.",
-      "Collected and analyzed relevant data to inform decision-making and project strategies, improving alignment with stakeholder requirements.",
-      "Increased project success rates by 25%, by effectively communicating with stakeholders and maintaining strong relationships.",
-      "Skillfully steered and timely delivered over 48 technology initiatives, leveraging advanced project management strategies to ensure adherence to deadlines and quality standards."
+      "Aumentei em 30% a eficiência e a entrega dos projetos ao implantar metodologias de planejamento e cronograma.",
+      "Coletei e analisei dados para embasar decisões e estratégias de projeto, melhorando o alinhamento com os requisitos dos stakeholders.",
+      "Aumentei em 25% a taxa de sucesso dos projetos com uma comunicação eficaz e relações próximas com os stakeholders.",
+      "Conduzi e entreguei no prazo mais de 48 iniciativas de tecnologia, aplicando práticas avançadas de gestão de projetos para cumprir prazos e padrões de qualidade."
     ]
   }
 ]

@@ -34,6 +34,7 @@ export default function ThemeToggle({ labels }: { labels: Dictionary["theme"] })
       className="lg-toggle"
       onClick={toggle}
       aria-label={dark ? labels.toLight : labels.toDark}
+      title={dark ? labels.toLight : labels.toDark}
       aria-pressed={dark}
     >
       <span className="lg-toggle__knob">{dark ? <SunIcon /> : <MoonIcon />}</span>

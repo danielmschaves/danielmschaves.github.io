@@ -76,3 +76,23 @@ test.describe("Project links", () => {
     await expect(page.getByRole("heading", { level: 1 })).toContainText("Adventure Works");
   });
 });
+
+/* Ledger step 14: the header's theme toggle is icon-only at every width; the word stays for screen readers. */
+for (const width of [1440, 390]) {
+  test.describe(`Theme toggle at ${width}px`, () => {
+    test.use({ viewport: { width, height: 900 } });
+
+    for (const [path, label] of [["/", "Switch to light mode"], ["/pt/", "Mudar para o modo claro"]] as const) {
+      test(`is icon-only with label, state and tooltip (${path})`, async ({ page }) => {
+        await page.goto(path);
+        const toggle = page.getByRole("button", { name: label });
+        await expect(toggle).toHaveAttribute("aria-pressed", "true");
+        await expect(toggle).toHaveAttribute("title", label);
+        const box = await toggle.boundingBox();
+        expect(box!.width).toBeLessThanOrEqual(46);
+        const text = await toggle.locator(".lg-toggle__text").boundingBox();
+        expect(text!.width).toBeLessThanOrEqual(1);
+      });
+    }
+  });
+}

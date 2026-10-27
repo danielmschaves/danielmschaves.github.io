@@ -142,7 +142,7 @@ npm run lint      # ESLint check
 
 ## Redesign status
 
-The site was rebuilt on Ledger following the design system's implementation.md (steps 1–13, English/Portuguese included). The e2e suite in `tests/e2e` covers the Ledger markup, the chart rules (squares only, SVG text ≥ 12px as rendered) in both languages, and the language switch, hreflang and localized form errors.
+The site was rebuilt on Ledger following the design system's implementation.md (steps 1–14: English/Portuguese included; the header theme toggle is icon-only with a title tooltip). The e2e suite in `tests/e2e` covers the Ledger markup, the chart rules (squares only, SVG text ≥ 12px as rendered) in both languages, and the language switch, hreflang and localized form errors.
 
 Résumé PDF: `siteConfig.resumePdf.pt` is `null` until a Portuguese PDF is added to `public/`; until then `/pt/` links the English one, labelled "Baixar PDF (inglês)".
 

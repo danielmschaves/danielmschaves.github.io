@@ -142,12 +142,13 @@
   .lg-header__brand { font-weight: 600; font-size: 17px; letter-spacing: -.01em; padding: 12px 0; }
   .lg-header__toggles { display: flex; gap: var(--space-2); align-items: center; }
   .lg-nav { display: flex; flex-wrap: wrap; gap: 4px 24px; font-size: 15px; margin-left: auto; }
+  /* In the header the theme toggle is icon-only at every width: a 44px pill around the knob.
+     The mode word stays in the accessible name (aria-label) and is visually hidden. */
+  .lg-header .lg-toggle { padding: 0 5px; }
+  .lg-header .lg-toggle__text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   @media (max-width: 640px) {
     .lg-header__inner { column-gap: var(--space-3); }
     .lg-header__toggles { margin-left: auto; gap: 6px; }
-    /* Phones: the theme toggle shows its knob only; the mode word stays in the accessible name. */
-    .lg-header .lg-toggle { padding: 0 5px; }
-    .lg-header .lg-toggle__text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
     .lg-nav { order: 3; flex-basis: 100%; margin-left: 0; gap: 4px 20px; }
   }
   .lg-nav a { padding: 12px 0; }

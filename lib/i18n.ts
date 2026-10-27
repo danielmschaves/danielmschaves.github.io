@@ -50,11 +50,15 @@ export function pageMetadata(lang: Lang, path: string, m: { title: string; descr
       canonical: href(lang, path),
       languages: { en: path, "pt-BR": href("pt", path), "x-default": path },
     },
+    /* A page's openGraph replaces the layout's (Next merges metadata shallowly), so the type and
+       default card live here; without og:image LinkedIn shows no thumbnail. Case pages override the image. */
     openGraph: {
+      type: "website",
       title: m.title,
       description: m.description,
       url: href(lang, path),
       siteName: siteConfig.name,
+      images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: m.title }],
       locale: t.meta.ogLocale,
       alternateLocale: getDictionary(lang === "en" ? "pt" : "en").meta.ogLocale,
     },

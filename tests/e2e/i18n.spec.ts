@@ -67,3 +67,16 @@ test.describe("English and Portuguese", () => {
     await expect(page.getByText("Informe um e-mail válido.")).toBeVisible();
   });
 });
+
+/* LinkedIn reads only og:image (WhatsApp falls back to twitter:image), so every page must carry it. */
+test.describe("Social cards", () => {
+  for (const path of ["/", "/resume/", "/services/", "/contact/", "/projects/spotify-etl-aws/", "/pt/", "/pt/projects/spotify-etl-aws/"]) {
+    test(`${path} has an absolute og:image, og:type and og:url`, async ({ page }) => {
+      await page.goto(path);
+      await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /^https:\/\/.+\/images\/og\/og-.+\.png$/);
+      await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute("content", "1200");
+      await expect(page.locator('meta[property="og:type"]')).toHaveAttribute("content", /website|article/);
+      await expect(page.locator('meta[property="og:url"]')).toHaveAttribute("content", /^https:\/\//);
+    });
+  }
+});

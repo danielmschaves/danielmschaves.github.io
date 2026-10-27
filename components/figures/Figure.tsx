@@ -41,10 +41,10 @@ const WORDS = {
   pt: {
     estate: "PARQUE LEGADO",
     consolidated: "~200 servidores, consolidados",
-    streams: ["Descoberta", "Snowflake", "Modelos dbt", "Tableau", "Virada"],
-    quarters: [["Q1", "PLANEJAMENTO"], ["Q2", "MVP"], ["Q3", "IMPLANTAÇÃO"], ["Q4", "MONITORAMENTO"]],
+    streams: ["Discovery", "Snowflake", "Modelos dbt", "Tableau", "Cutover"],
+    quarters: [["Q1", "PLANEJAMENTO"], ["Q2", "MVP"], ["Q3", "DEPLOY"], ["Q4", "MONITORAMENTO"]],
     layers: [
-      ["Data lake", "INGESTÃO BRUTA · 3 FONTES · BRONZE / SILVER / GOLD"],
+      ["Data lake", "INGESTÃO RAW · 3 FONTES · BRONZE / SILVER / GOLD"],
       ["Warehouse", "MODELOS DIMENSIONAIS · FATO & DIMENSÃO · UAT"],
       ["Camada de BI", "DASHBOARDS · SELF-SERVICE"],
       ["Preditivo", "PREVISÃO · ML"],
@@ -114,7 +114,7 @@ const META: Record<Lang, Record<CaseNumber, FigureMeta>> = {
       label: "PROGRAMA DE MODERNIZAÇÃO",
       ratio: "M01 → M18",
       caption: "Formato do programa e gates contratuais (ilustrativo).",
-      alt: "Figura: plano de um programa de 18 meses. Frentes de descoberta, Snowflake, modelos dbt, Tableau e virada, atravessando quatro gates contratuais.",
+      alt: "Figura: plano de um programa de 18 meses. Frentes de discovery, Snowflake, modelos dbt, Tableau e cutover, atravessando quatro gates contratuais.",
     },
     3: {
       label: "CONSTRUÇÃO DA PLATAFORMA",

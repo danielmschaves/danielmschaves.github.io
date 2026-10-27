@@ -38,7 +38,7 @@
     },
     {
       "value": "4×",
-      "label": "Entrega mais rápida com um fluxo apoiado por IA"
+      "label": "Entrega mais rápida com um workflow apoiado por IA"
     }
   ],
   "sections": {
@@ -72,7 +72,7 @@
   "metrics": {
     "timeline": "Prazo cumprido",
     "budget": "Orçamento fixo",
-    "downtime": "Paradas não programadas"
+    "downtime": "Downtime não programado"
   },
   "dates": {
     "present": "ATUAL"

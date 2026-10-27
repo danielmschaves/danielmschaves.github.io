@@ -240,7 +240,7 @@ const pt: AdventureWorksCopy = {
     problem: {
       title: "O problema dos dados de origem",
       p1: "Sistemas SAP geram tabelas otimizadas para volume transacional, não para consulta analítica. Os nomes de colunas são abreviados, os tipos variam entre módulos, o tratamento de nulos é implícito e os relacionamentos ficam escondidos em convenções de surrogate keys que mudam de um módulo SAP para outro. A Adventure Works expõe tudo isso em 64 tabelas de seis domínios de negócio.",
-      p2: "O trabalho de analytics engineering é impor ordem sem perder fidelidade: padronizar o grão, garantir os tipos, dar nomes que pessoas entendem e modelar a lógica de negócio uma única vez — para que todo consumidor seguinte veja uma superfície consistente, documentada e testável.",
+      p2: "O trabalho de analytics engineering é impor ordem sem perder fidelidade: padronizar o grão, garantir os tipos, dar nomes que pessoas entendem e modelar a lógica de negócio uma única vez — para que todo consumidor downstream veja uma superfície consistente, documentada e testável.",
     },
     why: {
       title: "Por que a arquitetura em três camadas",
@@ -367,7 +367,7 @@ const pt: AdventureWorksCopy = {
   tests: {
     kicker: "COBERTURA DE TESTES & DOCUMENTAÇÃO",
     title: ["Todo modelo testado. Toda coluna documentada. ", "Sem exceções", "."],
-    lead: "O framework de testes nativo do dbt é aplicado em todas as camadas. Testes não são um acessório opcional — são o mecanismo com que o pipeline prova aos consumidores seguintes que os dados cumprem o contrato documentado.",
+    lead: "O framework de testes nativo do dbt é aplicado em todas as camadas. Testes não são um acessório opcional — são o mecanismo com que o pipeline prova aos consumidores downstream que os dados cumprem o contrato documentado.",
     stats: [
       { value: "64", unit: "tabelas de origem modeladas", label: "Toda tabela de origem do SAP representada na staging com um modelo 1-para-1" },
       { value: "3", unit: "camadas do dbt", label: "Staging → Intermediate → Marts, cada uma com sua materialização e sua suíte de testes" },

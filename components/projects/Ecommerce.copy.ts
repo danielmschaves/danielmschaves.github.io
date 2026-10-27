@@ -206,9 +206,9 @@ const pt: EcommerceCopy = {
     },
     why: {
       title: "Por que a validação com Pydantic no meio",
-      strong: "Contratos de dados na fronteira.",
+      strong: "Data contracts na fronteira.",
       p1: " O extrator do BigQuery devolve dicts sem validação. Os modelos Pydantic interceptam cada registro antes de ele entrar no DuckDB, garantindo os tipos, rejeitando nulos em colunas não anuláveis e sinalizando violações de regras de negócio — tudo antes que dados ruins corrompam a camada analítica.",
-      p2: "Falhas de validação são registradas com o contexto da linha, nunca engolidas em silêncio. O pipeline pode ser configurado para parar no primeiro registro inválido (modo strict) ou colocar as linhas inválidas em quarentena e seguir (modo tolerant), conforme a sensibilidade do destino.",
+      p2: "Falhas de validação são registradas com o contexto da linha, nunca engolidas em silêncio. O pipeline pode ser configurado para fazer fail-fast no primeiro registro inválido (modo strict) ou colocar as linhas inválidas em quarentena e seguir (modo tolerant), conforme a sensibilidade do destino.",
     },
     chart: {
       label: "FLUXO ETL DE PONTA A PONTA",
@@ -305,7 +305,7 @@ const pt: EcommerceCopy = {
       columns: { sink: "DESTINO", format: "FORMATO", latency: "LATÊNCIA", best: "IDEAL PARA", config: "CONFIG" },
       rows: [
         { name: "CSV", tag: "SINK DE ARQUIVOS", format: [".csv (UTF-8)", "via DuckDB COPY"], latency: ["Imediata", "sem I/O de rede"], best: ["Desenvolvimento local · testes", "Checagens de validação de schema", "Ambientes offline"], config: ["OUTPUT_PATH=./data/", "--sink csv"] },
-        { name: "Amazon S3", tag: "OBJECT STORAGE", format: ["Parquet (snappy)", "particionado por data"], latency: ["~2–5 s", "por upload em batch"], best: ["Integração com data lake", "Glue / Athena a jusante", "Arquivamento de longo prazo"], config: ["AWS_BUCKET · AWS_KEY", "--sink s3"] },
+        { name: "Amazon S3", tag: "OBJECT STORAGE", format: ["Parquet (snappy)", "particionado por data"], latency: ["~2–5 s", "por upload em batch"], best: ["Integração com data lake", "Glue / Athena downstream", "Arquivamento de longo prazo"], config: ["AWS_BUCKET · AWS_KEY", "--sink s3"] },
         { name: "MotherDuck", tag: "DUCKDB NA NUVEM", format: ["Tabela DuckDB", "persistente · consultável"], latency: ["~1–3 s", "por ATTACH + INSERT"], best: ["Endpoint de consulta analítica", "Conexão com BI (Power BI)", "Resultados persistentes e compartilháveis"], config: ["MOTHERDUCK_TOKEN=...", "--sink motherduck"] },
       ],
       iface: {
@@ -363,7 +363,7 @@ const pt: EcommerceCopy = {
     ],
   },
 
-  quote: ["Um pipeline é tão confiável quanto os dados que entram nele. ", "Valide na fronteira", ", processe em memória e faça do destino uma decisão de execução — não uma suposição fixada no código."],
+  quote: ["Um pipeline é tão confiável quanto os dados que entram nele. ", "Valide na fronteira", ", processe em memória e faça do destino uma decisão de runtime — não uma suposição fixada no código."],
 };
 
 export const copy: Record<Lang, EcommerceCopy> = { en, pt };

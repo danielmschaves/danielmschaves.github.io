@@ -3,7 +3,7 @@
     "id": "cloud-migration-enterprise",
     "figure": 1,
     "title": "Migração para a nuvem de uma plataforma enterprise de analytics",
-    "description": "Migração de ~200 servidores de 6 data centers legados para a AWS em 12 meses e US$ 1,2 mi — zero paradas não programadas, dentro do orçamento e do prazo fixos.",
+    "description": "Migração de ~200 servidores de 6 data centers legados para a AWS em 12 meses e US$ 1,2 mi — zero downtime não programado, dentro do orçamento e do prazo fixos.",
     "technologies": [
       "Gestão de projetos",
       "AWS",
@@ -14,18 +14,18 @@
     ],
     "featured": true,
     "category": "Gestão de programas e projetos",
-    "overview": "Uma migração piloto para a nuvem em uma empresa global de serviços financeiros: ~200 servidores por trás da plataforma interna de analytics, espalhados por seis data centers envelhecidos, levados para a AWS em 12 meses, com orçamento fixo de US$ 1,2 mi e zero paradas não programadas. O piloto precisava provar a viabilidade da AWS e produzir os SOPs, os registros de decisão de arquitetura e os padrões validados para a modernização enterprise que viria depois.",
+    "overview": "Uma migração piloto para a nuvem em uma empresa global de serviços financeiros: ~200 servidores por trás da plataforma interna de analytics, espalhados por seis data centers envelhecidos, levados para a AWS em 12 meses, com orçamento fixo de US$ 1,2 mi e zero downtime não programado. O piloto precisava provar a viabilidade da AWS e produzir os SOPs, os ADRs (architecture decision records) e os padrões validados para a modernização enterprise que viria depois.",
     "highlights": [
       "Sequenciei o lift-and-shift em dez casos de uso priorizados, cada um migrado de ponta a ponta dentro de uma sprint de duas semanas",
-      "Passei cada caso de uso pelo mesmo ciclo de cinco etapas (Descoberta → Migração → Reconstrução → Validação → Cutover), com UAT como gate obrigatório de qualidade antes de qualquer cutover em produção",
+      "Passei cada caso de uso pelo mesmo ciclo de cinco etapas (Discovery → Migração → Rebuild → Validação → Cutover), com UAT como gate obrigatório de qualidade antes de qualquer cutover em produção",
       "Planejei um Gantt de 12 meses com o Caso de Uso 1 como pathfinder estendido, os seguintes em pares paralelos e um encerramento em hypercare",
       "Mantive um orçamento de taxa e FTEs fixos e um registro de riscos em quatro domínios, cada um com mitigações, responsáveis e um estado de sucesso mensurável",
-      "Entreguei os SOPs, os registros de decisão de arquitetura e a biblioteca de padrões que a empresa usa para escalar a mesma abordagem"
+      "Entreguei os SOPs, os ADRs e a biblioteca de padrões que a empresa usa para escalar a mesma abordagem"
     ],
-    "technicalApproach": "Cada caso de uso passou por Descoberta (análise de dependências, confirmação de escopo), Migração (fontes de dados para o destino na AWS), Reconstrução (lógica de processamento e de aplicação), Validação (servidor web e UAT de ponta a ponta) e Cutover (virada formal e desativação dos recursos). Um modelo de governança em dois níveis, com cerimônias e caminhos de escalonamento definidos, manteve a entrega focada.",
+    "technicalApproach": "Cada caso de uso passou por Discovery (análise de dependências, confirmação de escopo), Migração (fontes de dados para o destino na AWS), Rebuild (lógica de processamento e de aplicação), Validação (servidor web e UAT de ponta a ponta) e Cutover (cutover formal e desativação dos recursos). Um modelo de governança em dois níveis, com cerimônias e caminhos de escalonamento definidos, manteve a entrega focada.",
     "ogTitle": "Seis data centers, uma nuvem.",
     "accentWord": "uma nuvem.",
-    "ogLine": "12 meses · orçamento fixo de US$ 1,2 mi · zero paradas não programadas",
+    "ogLine": "12 meses · orçamento fixo de US$ 1,2 mi · zero downtime não programado",
     "caption": "Um quadrado por servidor — antes e depois.",
     "alt": "Figura: seis data centers legados, cerca de 200 servidores no total, consolidados em um único ambiente AWS.",
     "metrics": [
@@ -39,7 +39,7 @@
       },
       {
         "value": "0",
-        "label": "Paradas não programadas"
+        "label": "Downtime não programado"
       }
     ],
     "og": "/images/og/og-01.png",
@@ -65,16 +65,16 @@
     "highlights": [
       "Estruturei o programa em três fases (Iniciação, Entrega, Encerramento), cada uma terminando em um gate contratual",
       "Passei toda adição de escopo por um Processo de Controle de Mudanças em três passos (Encaminhar → Quantificar → Decidir), para que o preço fixo nunca absorvesse nada em silêncio",
-      "Conduzi uma forma de trabalho em quatro passos (Desenvolvimento → Apresentação → Acordo formal → Execução e revisão), aprovada pelo PM do cliente",
-      "Reportei quatro KPIs ao C-level: variação de custo abaixo de 5%, 100% dos marcos cumpridos, validação de dados acima de 98% e frequência de pedidos de mudança",
-      "Mantive um log de RAID centralizado e um modelo de stakeholders em três níveis, com cadência e critérios de escalonamento definidos"
+      "Conduzi uma forma de trabalho em quatro passos (Desenvolvimento → Apresentação → Acordo formal → Execução e revisão), com sign-off do PM do cliente",
+      "Reportei quatro KPIs ao C-level: variação de custo abaixo de 5%, 100% dos marcos cumpridos, validação de dados acima de 98% e frequência de change requests",
+      "Mantive um RAID log centralizado e um modelo de stakeholders em três níveis, com cadência e critérios de escalonamento definidos"
     ],
     "technicalApproach": "A Iniciação mapeou fontes de dados e dependências para fixar a fronteira do contrato. A Entrega começou com uma PoC para validar a abordagem e refinar estimativas e depois avançou em ciclos ágeis, com UAT obrigatório pelos analistas de dados do cliente como gate de cada release. O Encerramento confirmou a aderência ao mandato fixo e desativou o warehouse legado.",
     "ogTitle": "Um warehouse, reconstruído sob contrato.",
     "accentWord": "reconstruído",
     "ogLine": "18 meses · preço fixo · stakeholders em três níveis",
     "caption": "Formato do programa e gates contratuais (ilustrativo).",
-    "alt": "Figura: plano de um programa de 18 meses. Frentes de descoberta, Snowflake, modelos dbt, Tableau e virada, atravessando quatro gates contratuais.",
+    "alt": "Figura: plano de um programa de 18 meses. Frentes de discovery, Snowflake, modelos dbt, Tableau e cutover, atravessando quatro gates contratuais.",
     "metrics": [
       {
         "value": "18 meses",
@@ -113,9 +113,9 @@
       "Planejei o ano em quatro marcos trimestrais que um sponsor não técnico conseguia verificar: dados na camada raw, MVP de BI entregue, solução preditiva entregue, relatório de oportunidades entregue",
       "Introduzi um backlog em três níveis (Entregável → Atividade → Tarefa) que conecta o contrato, a conversa do time e a sprint",
       "Rodei a Sprint 1 sem folga, como exercício de calibração, e usei a capacidade medida a partir da Sprint 2",
-      "Fechei o ano com o time treinado, um roadmap de expansão entregue e duas novas funcionalidades contratadas"
+      "Fechei o ano com o time treinado, um roadmap de expansão entregue e duas novas features contratadas"
     ],
-    "technicalApproach": "Planejamento híbrido: um plano anual de quatro fases (Planejamento, Execução do MVP, Implantação e testes, Monitoramento e relatórios), com sprints Scrum e um fluxo Kanban dentro de cada uma. O Q1 produziu o relatório de diagnóstico, a especificação do sistema e a primeira ingestão no data lake, cada um com seus próprios critérios de aceite.",
+    "technicalApproach": "Planejamento híbrido: um plano anual de quatro fases (Planejamento, Execução do MVP, Deploy e testes, Monitoramento e relatórios), com sprints Scrum e um fluxo Kanban dentro de cada uma. O Q1 produziu o relatório de diagnóstico, a especificação do sistema e a primeira ingestão no data lake, cada um com seus próprios critérios de aceite.",
     "ogTitle": "Sistemas dispersos, unificados.",
     "accentWord": "unificados.",
     "ogLine": "12 meses · 3 sistemas unificados · todos os marcos no prazo",
@@ -162,7 +162,7 @@
       "Desenhei uma arquitetura medallion de 4 etapas (Raw/Bronze/Silver/Gold) com DuckDB e AWS S3, mantendo o custo de infraestrutura perto de zero",
       "Orquestrei a extração diária da API do Spotify com Astronomer e Airflow, em task groups modulares e testáveis",
       "Provisionei buckets S3 e tabelas externas no Motherduck com Terraform, para uma infraestrutura reproduzível e definida em código",
-      "Transformei os dados com dbt-core, com testes automatizados e documentação, implantado em ambientes de dev e prod",
+      "Transformei os dados com dbt-core, com testes automatizados e documentação, com deploy em dev e prod",
       "Entreguei dashboards do Power BI prontos para análise, cobrindo tendências de playlists, alcance de artistas e métricas por faixa"
     ],
     "technicalApproach": "A etapa Raw ingere JSON da API do Spotify no S3. A Bronze converte o JSON bruto em Parquet com o DuckDB. A Silver aplica limpeza e enriquecimento por regras de negócio. A Gold roda modelos dbt que produzem tabelas dimensionais prontas para análise no Motherduck, consultadas diretamente pelo Power BI.",
@@ -267,7 +267,7 @@
       "Construí uma camada de destinos flexível, com suporte a CSV local, Amazon S3 e MotherDuck conforme a configuração em runtime",
       "Estruturei o pipeline em componentes Python modulares — extrator do BigQuery, loader do DuckDB, validador Pydantic e adaptadores de destino — para testes independentes e reúso"
     ],
-    "technicalApproach": "Extrai do BigQuery usando nomes de tabela como entrada, valida os registros com modelos Pydantic, carrega no DuckDB para processamento e grava no destino configurado (CSV, S3 ou MotherDuck) conforme os parâmetros de execução.",
+    "technicalApproach": "Extrai do BigQuery usando nomes de tabela como entrada, valida os registros com modelos Pydantic, carrega no DuckDB para processamento e grava no destino configurado (CSV, S3 ou MotherDuck) conforme os parâmetros de runtime.",
     "links": [],
     "ogTitle": "Valide uma vez, grave em qualquer lugar.",
     "accentWord": "grave em qualquer lugar.",

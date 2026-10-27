@@ -210,7 +210,7 @@ const pt: DataIntelligencePlatformCopy = {
     challenge: {
       title: "O desafio",
       strong: "Um ano. Quatro fases. Valor contínuo.",
-      p1: " Um cascata puro deixaria a liderança sem nada para ver por nove meses. Um ágil puro, sem plano, perderia a coerência de arquitetura de que a plataforma precisava.",
+      p1: " Um waterfall puro deixaria a liderança sem nada para ver por nove meses. Um ágil puro, sem plano, perderia a coerência de arquitetura de que a plataforma precisava.",
       p2: "A resposta foi um modelo híbrido: um plano anual de alto nível fixando as macrofases e os marcos, combinado com execução em sprints de duas semanas dentro de cada fase. Estratégia em cima. Iteração embaixo. O plano a seguir é exatamente isso — e é o modelo de planejamento em que ainda ancoro meu trabalho de delivery.",
     },
   },
@@ -218,19 +218,19 @@ const pt: DataIntelligencePlatformCopy = {
   lifecycle: {
     kicker: "CICLO ANUAL",
     title: ["Quatro trimestres. ", "Quatro mudanças de fase", ". Uma construção contínua."],
-    lead: "Cada trimestre tem uma fase dominante, mas as transições são suaves — o planejamento continua na execução e o monitoramento começa antes de a implantação terminar. As fronteiras abaixo mostram ênfase, não isolamento.",
+    lead: "Cada trimestre tem uma fase dominante, mas as transições são suaves — o planejamento continua na execução e o monitoramento começa antes de o deploy terminar. As fronteiras abaixo mostram ênfase, não isolamento.",
     chart: {
       label: "LINHA DO TEMPO ANUAL",
       title: "Quatro fases distribuídas nos 12 meses do projeto",
-      alt: "Linha do tempo com quatro trimestres e quatro fases: planejamento no Q1, execução do MVP no Q2, implantação e testes no Q3 e monitoramento e relatórios no Q4, cada uma com suas atividades-chave.",
+      alt: "Linha do tempo com quatro trimestres e quatro fases: planejamento no Q1, execução do MVP no Q2, deploy e testes no Q3 e monitoramento e relatórios no Q4, cada uma com suas atividades-chave.",
       quarters: ["Q1", "Q2", "Q3", "Q4"],
       start: "INÍCIO",
       close: "FIM",
       phases: [
         { title: "Planejamento", items: ["• Requisitos de negócio e técnicos", "• Escolha do provedor de nuvem", "• Arquitetura de DL/DW + BI", "• Política de acesso e governança", "• Dicionário de dados e modelos"] },
         { title: "Execução do MVP", items: ["• Ingestão no data lake", "• Construção do MVP de BI", "• Implementação do DW + testes", "• Validação + feedback do BI", "• Base do modelo preditivo"] },
-        { title: "Implantação & testes", items: ["• Testes da modelagem preditiva", "• Implantação final do preditivo", "• Testes de integração completos"] },
-        { title: "Monitoramento & relatórios", items: ["• Monitoramento da solução", "• Treinamento e capacitação", "• Expansão de funcionalidades", "• Relatório final e aprovação"] },
+        { title: "Deploy & testes", items: ["• Testes da modelagem preditiva", "• Deploy final do modelo preditivo", "• Testes de integração completos"] },
+        { title: "Monitoramento & relatórios", items: ["• Monitoramento da solução", "• Treinamento e capacitação", "• Expansão de features", "• Relatório final e sign-off"] },
       ],
     },
   },
@@ -238,12 +238,12 @@ const pt: DataIntelligencePlatformCopy = {
   goals: {
     kicker: "METAS TRIMESTRAIS",
     title: ["Um marco concreto por trimestre, ", "visível de fora do time", "."],
-    lead: "Velocidade interna não é uma métrica que o cliente sente. Por isso, todo trimestre precisava terminar em algo demonstrável — algo que um stakeholder pudesse ver, clicar ou consultar.",
+    lead: "Velocity interna não é uma métrica que o cliente sente. Por isso, todo trimestre precisava terminar em algo demonstrável — algo que um stakeholder pudesse ver, clicar ou consultar.",
     items: [
       { q: "Q1 · FUNDAÇÃO", title: "Dados chegando ao lake", desc: "Diagnóstico e especificação do sistema concluídos; provedor de nuvem escolhido; primeiros pipelines de ingestão no ar, com dados chegando à camada raw.", milestone: "MARCO · DADOS NA CAMADA RAW" },
       { q: "Q2 · INSIGHT", title: "MVP de BI, DW em operação", desc: "Warehouse construído e validado; MVP de BI entregue aos usuários de negócio; base da modelagem preditiva preparada para o Q3.", milestone: "MARCO · MVP DE BI ENTREGUE" },
-      { q: "Q3 · PREVISÃO", title: "Solução preditiva no ar", desc: "Modelagem validada, testes integrados aprovados e solução preditiva implantada em produção com monitoramento.", milestone: "MARCO · SOLUÇÃO PREDITIVA ENTREGUE" },
-      { q: "Q4 · SUSTENTAÇÃO", title: "Operação + relatório de oportunidades", desc: "Solução em monitoramento contínuo; time treinado; roadmap de expansão entregue; duas novas funcionalidades contratadas.", milestone: "MARCO · RELATÓRIO DE OPORTUNIDADES ENTREGUE" },
+      { q: "Q3 · PREVISÃO", title: "Solução preditiva no ar", desc: "Modelagem validada, testes integrados aprovados e solução preditiva em produção, com monitoramento.", milestone: "MARCO · SOLUÇÃO PREDITIVA ENTREGUE" },
+      { q: "Q4 · SUSTENTAÇÃO", title: "Operação + relatório de oportunidades", desc: "Solução em monitoramento contínuo; time treinado; roadmap de expansão entregue; duas novas features contratadas.", milestone: "MARCO · RELATÓRIO DE OPORTUNIDADES ENTREGUE" },
     ],
   },
 
@@ -278,7 +278,7 @@ const pt: DataIntelligencePlatformCopy = {
       { title: "Relatório de diagnóstico inicial", desc: "Requisitos de negócio e técnicos, estimativas de custo de nuvem em AWS / GCP / Azure, critérios de validação da arquitetura, um dicionário de dados e uma primeira proposta de modelagem." },
       { title: "Especificação do sistema", desc: "Requisitos finais de DL/DW, políticas de acesso e governança, arquitetura de ingestão e processamento e o provisionamento inicial da infraestrutura (buckets, clusters, VPNs, controles de acesso)." },
       { title: "Ingestão no data lake", desc: "Serviços de ingestão para os três sistemas de origem, rotinas de transformação, modelos dimensionais e de fato no warehouse e um workshop com stakeholders para validar a abordagem." },
-      { title: "Critérios de aceite (por entregável)", desc: "Diagnóstico → aprovação do PM · especificação → aprovação do cliente · ingestão no DL → serviço em operação, validado contra a especificação." },
+      { title: "Critérios de aceite (por entregável)", desc: "Diagnóstico → sign-off do PM · especificação → aprovação do cliente · ingestão no DL → serviço em operação, validado contra a especificação." },
     ],
   },
 
@@ -295,7 +295,7 @@ const pt: DataIntelligencePlatformCopy = {
         { title: "Requisitos de negócio", sub: "Preparação + entrevistas com stakeholders" },
         { title: "Requisitos técnicos", sub: "Preparação + entrevistas com o time técnico" },
         { title: "Custo de nuvem e escolha do provedor", sub: "Estudo de preços + montagem da proposta" },
-        { title: "Kick-off do projeto (PM)", sub: "Modelo, estratégia de comunicação, cronograma" },
+        { title: "Kick-off do projeto (PM)", sub: "Template, estratégia de comunicação, cronograma" },
       ],
       totals: { title: "Totais da Sprint 1", sub: "planejados sem folga, de propósito", unit: "h" },
       note: [
@@ -313,17 +313,17 @@ const pt: DataIntelligencePlatformCopy = {
     chart: {
       label: "CALENDÁRIO DE SPRINT DE DUAS SEMANAS",
       title: "Atividade diária por papel",
-      alt: "Agenda de duas semanas para três papéis (data scientist, data engineer, PM): preparação, pesquisa de custo de nuvem e modelos do PM de segunda a quarta; entrevistas de negócio na quinta da semana 1 e técnicas na quinta da semana 2, seguidas de discussão em grupo; documentação na sexta.",
+      alt: "Agenda de duas semanas para três papéis (data scientist, data engineer, PM): preparação, pesquisa de custo de nuvem e templates do PM de segunda a quarta; entrevistas de negócio na quinta da semana 1 e técnicas na quinta da semana 2, seguidas de discussão em grupo; documentação na sexta.",
       weeks: ["SEMANA 1", "SEMANA 2"],
       roles: ["DATA SCI.", "DATA ENG.", "PM"],
       days: ["SEG", "TER", "QUA", "QUI", "SEX"],
       w1: [
-        ["Prep. entrevista negócio", "Pesquisa custo nuvem", "Adaptação de modelos"],
+        ["Prep. entrevista negócio", "Pesquisa custo nuvem", "Adaptação de templates"],
         ["Prep. entrevista negócio", "Pesquisa custo nuvem", "Plano de comunicação"],
         ["Prep. entrevista negócio", "Rascunho da proposta", "Cronograma do projeto"],
       ],
       w2: [
-        ["Prep. entrevista técnica", "Pesquisa custo nuvem", "Adaptação de modelos"],
+        ["Prep. entrevista técnica", "Pesquisa custo nuvem", "Adaptação de templates"],
         ["Prep. entrevista técnica", "Pesquisa custo nuvem", "Plano de comunicação"],
         ["Prep. entrevista técnica", "Rascunho da proposta", "Cronograma do projeto"],
       ],
@@ -338,23 +338,23 @@ const pt: DataIntelligencePlatformCopy = {
 
   kanban: {
     kicker: "FLUXO KANBAN",
-    title: ["Do backlog do projeto ao “concluído” — ", "seis colunas, um fluxo", "."],
-    lead: "O quadro espelha a hierarquia do backlog. Entregáveis e atividades ficam à esquerda, como roadmap; as tarefas refinadas avançam para a direita pelas colunas da sprint. A coluna de revisão é o mecanismo de controle de qualidade — toda tarefa passa por um segundo par de olhos antes de ser concluída.",
+    title: ["Do backlog do projeto ao “done” — ", "seis colunas, um fluxo", "."],
+    lead: "O quadro espelha a hierarquia do backlog. Entregáveis e atividades ficam à esquerda, como roadmap; as tarefas refinadas avançam para a direita pelas colunas da sprint. A coluna de review é o mecanismo de controle de qualidade — toda tarefa passa por um segundo par de olhos antes de ser concluída.",
     chart: {
       label: "QUADRO KANBAN",
       title: "Fluxo de seis colunas com um gate de qualidade",
-      alt: "Quadro kanban de seis colunas em duas zonas. Roadmap: uma coluna de backlog do projeto (diagnóstico inicial, especificação do sistema, ingestão no DL) e uma de backlog da sprint com tarefas refinadas. Execução da sprint: a fazer, em andamento, revisão (o gate de qualidade) e concluído. Toda tarefa passa pela revisão antes de ser concluída.",
+      alt: "Quadro kanban de seis colunas em duas zonas. Roadmap: uma coluna de backlog do projeto (diagnóstico inicial, especificação do sistema, ingestão no DL) e uma de backlog da sprint com tarefas refinadas. Execução da sprint: to do, in progress, review (o gate de qualidade) e done. Toda tarefa passa pelo review antes de ir para done.",
       zones: ["ROADMAP", "EXECUÇÃO DA SPRINT"],
-      columns: ["Backlog do projeto", "Backlog da sprint", "A fazer", "Em andamento", "Revisão (QC)", "Concluído"],
+      columns: ["Backlog do projeto", "Backlog da sprint", "To do", "In progress", "Review (QC)", "Done"],
       projectBacklog: ["Diagnóstico inicial", "Especificação do sistema", "Ingestão no DL", "+ atividades (refinadas)"],
       sprintBacklog: ["Prep. entrevistas", "Entrevistas de negócio", "Pesquisa custo nuvem", "Proposta de nuvem", "Plano de comunicação"],
       todo: [["Tarefa: levantar custos", "DE · 2h"], ["Tarefa: roteiro entrevista", "DS · 15h"]],
-      doing: [["Tarefa: spec de nuvem", "DE · 4h · em andamento"], ["Tarefa: agendar reunião", "DS · 5h · em andamento"]],
-      review: [["Tarefa: pesquisa custo v1", "DE · aguardando\nrevisão do tech ref"]],
-      done: [["Adaptação de modelos", "✓ PM · aceito"], ["Plano de comunicação v1", "✓ PM · aceito"]],
+      doing: [["Tarefa: spec de nuvem", "DE · 4h · in progress"], ["Tarefa: agendar reunião", "DS · 5h · in progress"]],
+      review: [["Tarefa: pesquisa custo v1", "DE · aguardando\nreview do tech ref"]],
+      done: [["Adaptação de templates", "✓ PM · aceito"], ["Plano de comunicação v1", "✓ PM · aceito"]],
       note: [
         "Duas camadas de aceite — Definition of Done (interna) + Critérios de Aceite (cliente).",
-        "A DoD acelera a revisão interna; os critérios de aceite garantem que o cliente recebe exatamente o que o contrato prometeu.",
+        "A DoD acelera o review interno; os critérios de aceite garantem que o cliente recebe exatamente o que o contrato prometeu.",
       ],
     },
   },
@@ -366,8 +366,8 @@ const pt: DataIntelligencePlatformCopy = {
     tag: "LEVADO ADIANTE",
     items: [
       { title: "Backlog em três níveis como tradutor universal", body: "A hierarquia entregável / atividade / tarefa funciona porque fala com três públicos ao mesmo tempo. A camada de entregáveis é o contrato — o que o cliente aprova. A de atividades é a conversa — onde escopo e esforço são de fato negociados com o time. A de tarefas é a sprint — o que sai nesta semana. Boa parte do atrito de delivery que vi depois vem de times que fundem duas dessas camadas em uma." },
-      { title: "Primeira sprint como calibração, não como compromisso", body: "A Sprint 1 foi planejada sem folga de propósito — não porque eu esperasse que o time a cumprisse perfeitamente, mas porque eu precisava medir a diferença. Velocidade é empírica, e só se chega a um número real rodando uma primeira iteração apertada e observando o que de fato é entregue. Todo projeto que liderei depois começa do mesmo jeito." },
-      { title: "Marcos trimestrais que um stakeholder não técnico consegue verificar", body: "“A velocidade subiu” não é um marco. “Os dados estão na camada raw” é. Todo trimestre terminou em algo que o sponsor podia ver ou tocar — um dashboard funcionando, um modelo implantado, um relatório assinado. A disciplina de escrever o marco antes de desenhar o trabalho salvou mais programas da deriva do que qualquer artefato de processo que usei depois." },
+      { title: "Primeira sprint como calibração, não como compromisso", body: "A Sprint 1 foi planejada sem folga de propósito — não porque eu esperasse que o time a cumprisse perfeitamente, mas porque eu precisava medir a diferença. Velocity é empírica, e só se chega a um número real rodando uma primeira iteração apertada e observando o que de fato é entregue. Todo projeto que liderei depois começa do mesmo jeito." },
+      { title: "Marcos trimestrais que um stakeholder não técnico consegue verificar", body: "“A velocity subiu” não é um marco. “Os dados estão na camada raw” é. Todo trimestre terminou em algo que o sponsor podia ver ou tocar — um dashboard funcionando, um modelo em produção, um relatório assinado. A disciplina de escrever o marco antes de desenhar o trabalho salvou mais programas da deriva do que qualquer artefato de processo que usei depois." },
     ],
   },
 

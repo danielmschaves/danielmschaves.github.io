@@ -258,7 +258,7 @@ const pt: SpotifyELTCopy = {
     job: {
       title: "O que o pipeline precisava fazer",
       strong: "Extrair em escala.",
-      p1: " A API do Spotify expõe dados de playlists globais — faixas, álbuns, artistas — em JSON aninhado. O pipeline precisava lidar com paginação, limites de requisição e variações de schema entre os tipos de recurso.",
+      p1: " A API do Spotify expõe dados de playlists globais — faixas, álbuns, artistas — em JSON aninhado. O pipeline precisava lidar com paginação, rate limits e variações de schema entre os tipos de recurso.",
       p2: "Cada payload bruto passa então por um medallion estruturado de quatro etapas — a Raw preserva a resposta original da API, a Bronze converte para Parquet, a Silver aplica a limpeza por regras de negócio e a Gold entrega modelos dimensionais prontos para análise, consultáveis direto pelo Power BI.",
     },
     chart: {
@@ -269,9 +269,9 @@ const pt: SpotifyELTCopy = {
       header: "PIPELINE ELT MEDALLION · ZONAS NO AWS S3 · BATCH DIÁRIO VIA AIRFLOW",
       fields: { format: "FORMATO", tool: "FERRAMENTA", storage: "STORAGE" },
       stages: [
-        { name: "Raw", format: "JSON (resposta bruta da API)", tool: "Extrator da API do Spotify", storage: "S3 · prefixo raw/", notes: ["Faixas · Álbuns · Artistas", "Playlists — pouso imutável"] },
+        { name: "Raw", format: "JSON (resposta bruta da API)", tool: "Extrator da API do Spotify", storage: "S3 · prefixo raw/", notes: ["Faixas · Álbuns · Artistas", "Playlists — landing imutável"] },
         { name: "Bronze", format: "Parquet (colunar)", tool: "DuckDB · JSON → Parquet", storage: "S3 · prefixo bronze/", notes: ["Schema aplicado, tipado,", "comprimido — pronto para leitura"] },
-        { name: "Silver", format: "Parquet (enriquecido)", tool: "DuckDB · regras de negócio", storage: "S3 · prefixo silver/", notes: ["Sem duplicatas, normalizado,", "nulos tratados, pronto para join"] },
+        { name: "Silver", format: "Parquet (enriquecido)", tool: "DuckDB · regras de negócio", storage: "S3 · prefixo silver/", notes: ["Deduplicado, normalizado,", "nulos tratados, pronto para join"] },
         { name: "Gold", format: "Tabelas dimensionais", tool: "dbt + Motherduck", storage: "Motherduck + S3 gold/", notes: ["O Power BI lê direto", "do endpoint do Motherduck"] },
       ],
       callout: "→ POWER BI",
@@ -378,7 +378,7 @@ const pt: SpotifyELTCopy = {
           sub: ["enriquecimento por", "regras de negócio"],
           models: [
             { code: "int_tracks_enriched", note: "junta faixa, álbum e artista · decil de popularidade" },
-            { code: "int_playlist_tracks", note: "achata a relação aninhada playlist ↔ faixa" },
+            { code: "int_playlist_tracks", note: "flatten da relação aninhada playlist ↔ faixa" },
           ],
           tests: [{ label: "not_null · unique · relationships", share: 0.75, count: "12 testes" }],
         },
@@ -386,7 +386,7 @@ const pt: SpotifyELTCopy = {
           name: "Marts",
           sub: ["modelos dimensionais", "prontos para análise"],
           models: [
-            { code: "dim_artist · dim_track · dim_album", note: "dimensões de mudança lenta · SCD tipo 1" },
+            { code: "dim_artist · dim_track · dim_album", note: "slowly changing dimensions · SCD tipo 1" },
             { code: "fct_stream · fct_playlist_snapshot", note: "grão: uma linha por stream / data de snapshot" },
           ],
           tests: [{ label: "not_null · unique · relationships · accepted_values", share: 1, count: "24 testes" }],
@@ -411,7 +411,7 @@ const pt: SpotifyELTCopy = {
     chart: {
       label: "MODELO DE CUSTO DE INFRAESTRUTURA",
       title: "Esta arquitetura vs. um stack tradicional de data warehouse",
-      sub: "A vantagem de custo é estrutural, não acidental — vem de eliminar a computação ociosa, não de cortar funcionalidades ou qualidade.",
+      sub: "A vantagem de custo é estrutural, não acidental — vem de eliminar a computação ociosa, não de cortar features ou qualidade.",
       alt: "Custo mensal estimado: um stack tradicional com Redshift, EMR, RDS e Airflow no EC2 por cerca de US$ 810 por mês, contra cerca de US$ 4 por mês com S3, DuckDB, Motherduck e Astronomer — uma redução de 200×.",
       header: "CUSTO MENSAL ESTIMADO DE INFRAESTRUTURA (USD)",
       total: "Total",
@@ -454,14 +454,14 @@ const pt: SpotifyELTCopy = {
   deliverables: {
     kicker: "ENTREGÁVEIS",
     title: ["Seis artefatos — todos ", "de nível de produção e reproduzíveis", "."],
-    lead: ["O pipeline é open-source. Cada componente é autocontido, documentado e implantável de forma independente. O Terraform garante que a infraestrutura seja reproduzível com um único ", "terraform apply", "."],
+    lead: ["O pipeline é open-source. Cada componente é autocontido, documentado e com deploy independente. O Terraform garante que a infraestrutura seja reproduzível com um único ", "terraform apply", "."],
     items: [
       { title: "DAG do Airflow (Python)", desc: "Quatro task groups modulares (extract → bronze → silver → dbt_run), com dependências passadas por XCom, lógica de retry e testes unitários independentes por grupo." },
       { title: "Projeto dbt (staging → intermediate → marts)", desc: "68 testes automatizados em quatro camadas de modelos. Documentação gerada a cada execução. Targets de dev e prod no Motherduck configurados no profiles.yml." },
       { title: "Módulo Terraform (IaC)", desc: "Definição dos buckets S3 com versionamento e regras de ciclo de vida. DDL das tabelas externas do Motherduck gerado automaticamente para as quatro zonas do medallion." },
       { title: "Dashboard no Power BI (3 páginas de relatório)", desc: "Análise de tendências de playlists, alcance de artistas por mercado e métricas de streaming por faixa — tudo consultando o Motherduck direto via DirectQuery." },
-      { title: "README & registro de decisões de arquitetura", desc: "Setup local passo a passo, referência de variáveis de ambiente, configuração das credenciais da API do Spotify e a justificativa de cada decisão de desenho importante." },
-      { title: "Camada de extração com DuckDB (Python)", desc: "Módulos Python reutilizáveis para cada tipo de recurso do Spotify — lidam com paginação, back-off de limite de requisições e variações de schema entre versões da API." },
+      { title: "README & log de decisões de arquitetura (ADRs)", desc: "Setup local passo a passo, referência de variáveis de ambiente, configuração das credenciais da API do Spotify e a justificativa de cada decisão de desenho importante." },
+      { title: "Camada de extração com DuckDB (Python)", desc: "Módulos Python reutilizáveis para cada tipo de recurso do Spotify — lidam com paginação, back-off de rate limit e variações de schema entre versões da API." },
     ],
   },
 

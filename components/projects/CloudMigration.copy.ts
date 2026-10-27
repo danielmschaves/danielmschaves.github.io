@@ -190,7 +190,7 @@ const en = {
 
 export type CloudMigrationCopy = typeof en;
 const pt: CloudMigrationCopy = {
-  lead: "Framework de gestão de projeto para a migração piloto para a nuvem de uma empresa global de serviços financeiros — desenhado para provar a viabilidade da AWS antes de um programa de modernização enterprise muito maior. Doze meses. Orçamento fixo de US$ 1,2 mi. Tolerância zero a paradas não programadas.",
+  lead: "Framework de gestão de projeto para a migração piloto para a nuvem de uma empresa global de serviços financeiros — desenhado para provar a viabilidade da AWS antes de um programa de modernização enterprise muito maior. Doze meses. Orçamento fixo de US$ 1,2 mi. Tolerância zero a downtime não programado.",
   facts: [
     ["PAPEL", "Project Manager"],
     ["DURAÇÃO", "12 meses"],
@@ -210,8 +210,8 @@ const pt: CloudMigrationCopy = {
     mandate: {
       title: "O mandato",
       strong: "Ir rápido, sem quebrar o negócio.",
-      p1: " A plataforma de analytics precisava continuar rodando no horário comercial — cada minuto de parada não programada virava perda financeira direta e atrapalhava decisões na empresa inteira.",
-      p2: "O projeto também tinha dupla função: entregar a migração e produzir os SOPs, os registros de decisão de arquitetura e os padrões validados que a empresa usaria depois para escalar a mesma abordagem no restante da infraestrutura.",
+      p1: " A plataforma de analytics precisava continuar rodando no horário comercial — cada minuto de downtime não programado virava perda financeira direta e atrapalhava decisões na empresa inteira.",
+      p2: "O projeto também tinha dupla função: entregar a migração e produzir os SOPs, os ADRs (architecture decision records) e os padrões validados que a empresa usaria depois para escalar a mesma abordagem no restante da infraestrutura.",
     },
   },
 
@@ -223,40 +223,40 @@ const pt: CloudMigrationCopy = {
       label: "METODOLOGIA DE DELIVERY",
       title: "Fluxo de migração em cinco etapas, repetido a cada caso de uso",
       sub: "Cada ciclo segue a mesma sequência disciplinada, regida por um SOP formal e com UAT como gate antes de qualquer cutover em produção.",
-      alt: "Cinco etapas por caso de uso: descobrir, migrar, reconstruir, validar com um gate obrigatório de qualidade em UAT e fazer o cutover.",
+      alt: "Cinco etapas por caso de uso: discovery, migração, rebuild, validação com um gate obrigatório de qualidade em UAT e cutover.",
       caption: "CICLO DE MIGRAÇÃO POR CASO DE USO · SPRINT DE 2 SEMANAS",
       gate: "GATE OBRIGATÓRIO DE QUALIDADE",
       steps: [
-        { tag: "DESCOBRIR", title: "Mapeamento inicial", lines: ["Análise de dependências,", "confirmação de escopo"] },
-        { tag: "MIGRAR", title: "Migração do banco", lines: ["Fontes de dados levadas", "ao destino na AWS"] },
-        { tag: "RECONSTRUIR", title: "Migração do analytics", lines: ["Lógica de processamento", "e aplicação no novo ambiente"] },
-        { tag: "VALIDAR", title: "Servidor web + UAT", lines: ["Experiência de ponta a ponta,", "gate obrigatório de UAT"] },
-        { tag: "CUTOVER", title: "Desativação", lines: ["Virada formal,", "desligamento de recursos"] },
+        { tag: "DISCOVERY", title: "Mapeamento inicial", lines: ["Análise de dependências,", "confirmação de escopo"] },
+        { tag: "MIGRAÇÃO", title: "Migração do banco", lines: ["Fontes de dados levadas", "ao destino na AWS"] },
+        { tag: "REBUILD", title: "Migração do analytics", lines: ["Lógica de processamento", "e aplicação no novo ambiente"] },
+        { tag: "VALIDAÇÃO", title: "Servidor web + UAT", lines: ["Experiência de ponta a ponta,", "gate obrigatório de UAT"] },
+        { tag: "CUTOVER", title: "Desativação", lines: ["Cutover formal,", "desligamento de recursos"] },
       ],
     },
   },
 
   schedule: {
     kicker: "CRONOGRAMA MESTRE",
-    title: ["O ", "Gantt", " de 12 meses: preparação em fases, frentes de casos de uso em paralelo e encerramento em hypercare."],
+    title: ["O ", "Gantt", " de 12 meses: setup em fases, frentes de casos de uso em paralelo e encerramento em hypercare."],
     lead: "O caso de uso 1 funciona como pathfinder — com prazo estendido para absorver o aprendizado. Os seguintes rodam em pares paralelos, dobrando o throughput sem dobrar o custo.",
     chart: {
       label: "CRONOGRAMA MESTRE",
       title: "Gantt de 12 meses — fases, marcos e frentes paralelas",
-      alt: "Gantt de 12 meses: planejamento e preparação em janeiro e fevereiro, o pathfinder do caso de uso 1 de fevereiro a abril, os casos de uso 2 a 10 em pares sobrepostos de abril a novembro e hypercare em novembro e dezembro, com quatro marcos.",
+      alt: "Gantt de 12 meses: planejamento e setup em janeiro e fevereiro, o pathfinder do caso de uso 1 de fevereiro a abril, os casos de uso 2 a 10 em pares sobrepostos de abril a novembro e hypercare em novembro e dezembro, com quatro marcos.",
       months: ["JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"],
       quarters: ["Q1", "Q2", "Q3", "Q4"],
-      rows: { setup: "Planejamento & preparação", useCases: "Migração dos casos de uso", closure: "Encerramento & hypercare" },
+      rows: { setup: "Planejamento & setup", useCases: "Migração dos casos de uso", closure: "Encerramento & hypercare" },
       setupNote: "Inventário · ambientes · PoC",
       pathfinder: "CU1 · PATHFINDER",
       ucPrefix: "CU",
       milestones: [
-        { id: "M1", lines: ["Kickoff +", "ambientes prontos"] },
+        { id: "M1", lines: ["Kick-off +", "ambientes prontos"] },
         { id: "M2", lines: ["Pathfinder", "concluído"] },
         { id: "M3", lines: ["9 de 10 casos", "de uso no ar"] },
         { id: "M4", lines: ["Cutover", "final"] },
       ],
-      legend: { title: "LEGENDA", setup: "Fases de preparação e fundação", sprint: "Sprint de migração de caso de uso", hypercare: "Hypercare & encerramento", milestone: "Marco executivo" },
+      legend: { title: "LEGENDA", setup: "Fases de setup e fundação", sprint: "Sprint de migração de caso de uso", hypercare: "Hypercare & encerramento", milestone: "Marco executivo" },
     },
   },
 
@@ -266,7 +266,7 @@ const pt: CloudMigrationCopy = {
     lead: "O modelo financeiro é simples de propósito: 800 horas por mês a uma taxa média de US$ 125/hora, somando exatamente US$ 100.000 de consumo mensal. Previsível para o cliente, defensável internamente, transparente em auditoria.",
     stats: [
       { value: "US$ 1,2 mi", label: "Envelope de serviços profissionais com preço fixo, em 12 meses" },
-      { value: "US$ 6 mil", label: "Por servidor migrado, dentro da referência de mercado de US$ 3 mil–8 mil" },
+      { value: "US$ 6 mil", label: "Por servidor migrado, dentro do benchmark de mercado de US$ 3 mil–8 mil" },
       { value: "9.600", label: "Horas faturáveis no total: 800 horas por mês × 12 meses" },
     ],
     chart: {
@@ -294,27 +294,27 @@ const pt: CloudMigrationCopy = {
     chart: {
       label: "REGISTRO DE RISCOS",
       title: "Risco · mitigação · resultado esperado",
-      alt: "Registro de riscos com quatro domínios: continuidade do negócio (alto), entrega do projeto (médio), descoberta técnica (médio) e orçamento e prazo (baixo), cada um com seu risco, mitigações e resultado esperado.",
+      alt: "Registro de riscos com quatro domínios: continuidade do negócio (alto), entrega do projeto (médio), discovery técnico (médio) e orçamento e prazo (baixo), cada um com seu risco, mitigações e resultado esperado.",
       head: ["DOMÍNIO", "RISCO", "MITIGAÇÃO", "RESULTADO ESPERADO"],
       severity: { high: "ALTO", medium: "MÉDIO", low: "BAIXO" },
       rows: [
         {
           id: "A", severity: "high",
           domain: ["Continuidade", "do negócio"],
-          risk: ["Parada não programada", "no horário comercial"],
+          risk: ["Downtime não programado", "no horário comercial"],
           mitigation: ["• Janelas agendadas, aviso de 2 semanas", "• Um caso de uso por vez isola o impacto", "• UAT obrigatório + rollback rápido", "• Fontes no ar até a validação"],
-          target: ["Zero paradas não", "programadas no expediente"],
+          target: ["Zero downtime não", "programado no expediente"],
         },
         {
           id: "B", severity: "medium",
           domain: ["Entrega do", "projeto"],
           risk: ["Tensão entre", "velocidade e qualidade"],
-          mitigation: ["• Gates de qualidade inegociáveis pré-prod", "• Sprints fixas de 2 semanas, velocidade medida", "• Technical writer no time para a documentação", "• CU1 como pathfinder, descoberta estendida"],
+          mitigation: ["• Gates de qualidade inegociáveis pré-prod", "• Sprints fixas de 2 semanas, velocity medida", "• Technical writer no time para a documentação", "• CU1 como pathfinder, discovery estendido"],
           target: ["100% de aprovação em UAT;", "zero incidentes críticos"],
         },
         {
           id: "C", severity: "medium",
-          domain: ["Descoberta", "técnica"],
+          domain: ["Discovery", "técnico"],
           risk: ["Complexidade dos", "sistemas legados"],
           mitigation: ["• A PoC expõe dependências ocultas", "• Mapeamento inicial por caso de uso", "• Compartilhamento em tempo real nas dailies", "• Discovery da AWS + análise de tráfego"],
           target: ["Mapa completo de dependências;", "estimativas refinadas"],
@@ -323,7 +323,7 @@ const pt: CloudMigrationCopy = {
           id: "D", severity: "low",
           domain: ["Orçamento", "& prazo"],
           risk: ["Estouro de custo,", "atrasos no cronograma"],
-          mitigation: ["• Taxa fixa (US$ 125/h) = previsibilidade", "• Consumo de 800h/mês, gerido pela velocidade", "• Frentes paralelas: 2× throughput, custo estável", "• Monitoramento contínuo na revisão semanal"],
+          mitigation: ["• Taxa fixa (US$ 125/h) = previsibilidade", "• Consumo de 800h/mês, gerido pela velocity", "• Frentes paralelas: 2× throughput, custo estável", "• Monitoramento contínuo na revisão semanal"],
           target: ["Entregue dentro de", "US$ 1,2 mi / 12 meses"],
         },
       ],
@@ -364,10 +364,10 @@ const pt: CloudMigrationCopy = {
       { title: "Cronograma mestre em Gantt", desc: "Linha do tempo de 12 meses com fases, frentes paralelas, marcos e dependências, acompanhada semanalmente." },
       { title: "Plano de orçamento & recursos", desc: "Envelope de taxa fixa com consumo mensal, alocação de FTEs e economia unitária por servidor." },
       { title: "Registro de riscos & plano de mitigação", desc: "Quatro domínios de risco priorizados, com mitigações, responsáveis e resultados esperados mensuráveis." },
-      { title: "Plano de comunicação", desc: "Governança em dois níveis, cerimônias e canais definidos, modelo de relatório de sprint e caminhos de escalonamento." },
+      { title: "Plano de comunicação", desc: "Governança em dois níveis, cerimônias e canais definidos, template de relatório de sprint e caminhos de escalonamento." },
       { title: "Estrutura do time & RACI", desc: "Papéis, responsabilidades e direitos de decisão mapeados entre as duas organizações." },
       { title: "Procedimentos operacionais padrão", desc: "SOPs reutilizáveis para o ciclo de migração em cinco etapas, aplicáveis ao rollout enterprise." },
-      { title: "Registros de decisão de arquitetura", desc: "Biblioteca de padrões e ADRs que formam o blueprint operacional para escalar na empresa." },
+      { title: "Architecture decision records (ADRs)", desc: "Biblioteca de padrões e ADRs que formam o blueprint operacional para escalar na empresa." },
     ],
   },
 

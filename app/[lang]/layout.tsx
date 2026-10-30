@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import localFont from "next/font/local";
 import "../globals.css";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import SiteHeader from "@/components/SiteHeader";
+import TrackClicks from "@/components/TrackClicks";
 import { siteConfig } from "@/config/site";
 import { getDictionary, htmlLang, isLang, langs, pageMetadata } from "@/lib/i18n";
 
@@ -86,6 +89,9 @@ export default function RootLayout({ children, params }: { children: React.React
       <body className="lg font-sans">
         <SiteHeader lang={lang} nav={t.nav} theme={t.theme} />
         <main>{children}</main>
+        <TrackClicks lang={lang} />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

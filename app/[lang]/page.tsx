@@ -45,7 +45,7 @@ export default function Home({ params }: PageProps) {
               <Button variant="primary" href="#work">
                 {t.hero.ctaWork}
               </Button>
-              <Button href={pdf.href} download="Daniel-Chaves-Resume.pdf">
+              <Button href={pdf.href} download="Daniel-Chaves-Resume.pdf" data-track="resume_download">
                 {pdf.fallback ? t.hero.ctaResumeFallback : t.hero.ctaResume}
               </Button>
             </>

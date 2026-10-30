@@ -36,6 +36,8 @@ export default function LanguageToggle({ lang, label }: { lang: Lang; label: str
             aria-current={on ? "true" : undefined}
             aria-label={l.name}
             onClick={on ? undefined : keepHash}
+            data-track={on ? undefined : "lang_switch"}
+            data-track-id={on ? undefined : l.id}
           >
             <span className="lg-lang__knob">{l.code}</span>
           </a>

@@ -21,7 +21,7 @@ export default function ResumeContent({ lang }: { lang: Lang }) {
           title={siteConfig.name}
           lead={t.meta.description}
           actions={
-            <Button variant="primary" href={pdf.href} download="Daniel-Chaves-Resume.pdf">
+            <Button variant="primary" href={pdf.href} download="Daniel-Chaves-Resume.pdf" data-track="resume_download">
               {pdf.fallback ? t.resume.downloadFallback : t.resume.download}
             </Button>
           }

@@ -18,7 +18,7 @@ interface FeaturedCaseProps {
 /* The one framed box in Ledger: figure left, case summary right. */
 export default function FeaturedCase({ n, eyebrow, title, description, href, metrics, tags, lang, featuredLabel }: FeaturedCaseProps) {
   return (
-    <Link className="lg-feature" href={href}>
+    <Link className="lg-feature" href={href} data-track="case_open">
       <div className="lg-feature__media">
         <Figure n={n} lang={lang} />
       </div>

@@ -95,7 +95,7 @@ export default function ProjectRow({
               </div>
             )}
             <div className="lg-actions" style={{ gap: "8px 20px" }}>
-              <Button variant="link" href={href}>
+              <Button variant="link" href={href} data-track="case_open">
                 {labels.readCase}
               </Button>
               {repo && (

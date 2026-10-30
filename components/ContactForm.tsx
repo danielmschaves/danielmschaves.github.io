@@ -3,6 +3,7 @@
 import { useFormState, useFormStatus } from "react-dom";
 import { useEffect, useRef, useState } from "react";
 import { Turnstile } from "@marsidev/react-turnstile";
+import { track } from "@vercel/analytics";
 import { sendEmail, type ContactState } from "@/lib/actions";
 import Button from "@/components/Button";
 import { AlertIcon, CheckIcon, SendIcon, SpinnerIcon } from "@/components/Icons";
@@ -51,8 +52,9 @@ export default function ContactForm({ lang, t }: { lang: Lang; t: FormStrings })
     if (state.success && formRef.current) {
       formRef.current.reset();
       setToken("");
+      track("contact_submit", { lang });
     }
-  }, [state.success]);
+  }, [state.success, lang]);
 
   const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 

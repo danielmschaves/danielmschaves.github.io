@@ -21,6 +21,7 @@ Deployed on Vercel (Node runtime: the contact form is a server action). The GitH
 | Forms | React Hook Form + Zod |
 | Email | Resend API (server action) |
 | CAPTCHA | Cloudflare Turnstile |
+| Analytics | Vercel Web Analytics + Speed Insights (cookieless; production only) |
 | Font | Inter Tight (sans), JetBrains Mono (mono) — `public/fonts`, loaded with next/font |
 
 ---
@@ -125,7 +126,21 @@ TURNSTILE_SECRET_KEY=                # Cloudflare Turnstile (secret)
 npm run dev       # Start dev server at localhost:3000
 npm run build     # Production build
 npm run lint      # ESLint check
+npm test          # Playwright e2e against a running server (BASE_URL, default localhost:3000)
 ```
+
+CI (`.github/workflows/ci.yml`) runs lint, build and the e2e suite (Chromium + WebKit) on every pull request and on pushes to `main`.
+
+### Analytics events
+
+`components/TrackClicks.tsx` sends a Vercel custom event for any click on an element with a literal `data-track="…"` attribute, with `{ lang, target }` (`target` is `data-track-id`, else the link's path). Custom events are recorded on Vercel Pro; page views on every plan.
+
+| Event | Where |
+|---|---|
+| `resume_download` | Résumé PDF buttons (home hero, `/resume/`) |
+| `case_open` | `FeaturedCase` and the "Read the case" link in `ProjectRow` |
+| `lang_switch` | The other-language option in `LanguageToggle` |
+| `contact_submit` | `ContactForm`, on a successful send (called with `track()` directly) |
 
 > ESLint is intentionally ignored during builds (`eslint.ignoreDuringBuilds: true` in next.config.js).
 
